@@ -10,13 +10,36 @@ import UIKit
 
 class SP_GetStartedViewController: UIViewController {
 
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var signInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupUI()
     }
     
+    func setupUI() {
+        signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
+        signInButton.layer.cornerRadius = signInButton.frame.size.height/2
+    }
 
+     // MARK: - Button Actions
+    
+    @IBAction func signUpAction(_ sender: Any) {
+        let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUpViewController") as!  SP_SignUpViewController
+        
+        self.present(signUpVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func signInAction(_ sender: Any) {
+        
+        let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignInViewController") as!  SP_SignInViewController
+        
+        self.present(signInVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

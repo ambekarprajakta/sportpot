@@ -24,13 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ZX-sAf">
-                                <rect key="frame" x="15" y="184" width="384" height="34"/>
+                                <rect key="frame" x="15" y="254.5" width="384" height="35"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cd-o6-Tgf">
-                                <rect key="frame" x="103.5" y="421.5" width="207" height="53"/>
+                                <rect key="frame" x="103.5" y="463" width="207" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -42,9 +42,12 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="atB-hZ-kH8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czR-oC-iOB">
-                                <rect key="frame" x="103.5" y="504.5" width="207" height="53"/>
+                                <rect key="frame" x="103.5" y="547" width="207" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -56,36 +59,181 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdg-Rp-fmF"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start with signing up or signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-x3-9Cb">
-                                <rect key="frame" x="15" y="248" width="384" height="22.5"/>
+                                <rect key="frame" x="15" y="319.5" width="384" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-x4-Sst">
+                                <rect key="frame" x="155.5" y="136" width="103.5" height="103.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pgv-x4-Sst" secondAttribute="height" multiplier="1:1" id="ta1-eE-L11"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.18431372549019609" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="3eK-ZX-sAf" firstAttribute="top" secondItem="pgv-x4-Sst" secondAttribute="bottom" constant="15" id="0ch-V2-zbk"/>
                             <constraint firstItem="d1u-x3-9Cb" firstAttribute="top" secondItem="3eK-ZX-sAf" secondAttribute="bottom" constant="30" id="1ps-WJ-Dw9"/>
-                            <constraint firstItem="d1u-x3-9Cb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="2ZX-sf-C6d"/>
+                            <constraint firstItem="d1u-x3-9Cb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="2ZX-sf-C6d"/>
                             <constraint firstItem="8Cd-o6-Tgf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="7nw-q2-AhB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3eK-ZX-sAf" secondAttribute="trailing" constant="15" id="Ej7-zT-Yi5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3eK-ZX-sAf" secondAttribute="trailing" constant="15" id="Ej7-zT-Yi5"/>
                             <constraint firstItem="czR-oC-iOB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Osx-T2-sXy"/>
+                            <constraint firstItem="pgv-x4-Sst" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="Twr-sc-5uK"/>
                             <constraint firstItem="8Cd-o6-Tgf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ud4-1h-7IY"/>
                             <constraint firstItem="czR-oC-iOB" firstAttribute="width" secondItem="8Cd-o6-Tgf" secondAttribute="width" id="XlH-RL-9yS"/>
+                            <constraint firstItem="8Cd-o6-Tgf" firstAttribute="top" secondItem="d1u-x3-9Cb" secondAttribute="bottom" constant="120" id="b9w-x7-E0M"/>
+                            <constraint firstItem="pgv-x4-Sst" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dX8-tT-Twh"/>
                             <constraint firstItem="czR-oC-iOB" firstAttribute="top" secondItem="8Cd-o6-Tgf" secondAttribute="bottom" constant="30" id="fDA-Iw-4xm"/>
+                            <constraint firstItem="pgv-x4-Sst" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="fUF-nj-ekp"/>
                             <constraint firstItem="3eK-ZX-sAf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="i29-69-awE"/>
-                            <constraint firstItem="3eK-ZX-sAf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="iIR-XF-XES"/>
-                            <constraint firstItem="8Cd-o6-Tgf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kQk-TL-sbT"/>
+                            <constraint firstItem="8Cd-o6-Tgf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="15" id="kQk-TL-sbT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d1u-x3-9Cb" secondAttribute="trailing" constant="15" id="lcO-z2-GDS"/>
                             <constraint firstItem="d1u-x3-9Cb" firstAttribute="centerX" secondItem="3eK-ZX-sAf" secondAttribute="centerX" id="tSI-1b-n7R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="czR-oC-iOB" id="gT1-v0-wAC"/>
+                        <outlet property="signUpButton" destination="8Cd-o6-Tgf" id="eAh-XR-6bO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="xzb-CM-GaE">
+            <objects>
+                <viewController storyboardIdentifier="SP_SignUpViewController" id="ri8-Li-VFK" customClass="SP_SignUpViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n9U-bf-mi7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-Pd-eti">
+                                <rect key="frame" x="15" y="89" width="384" height="34"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Your Friends always up for a game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45O-LR-S1h">
+                                <rect key="frame" x="15" y="131" width="384" height="14"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4T-rX-sBb">
+                                <rect key="frame" x="35" y="195" width="364" height="16"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGv-ql-1yC" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
+                                <rect key="frame" x="35" y="226" width="290" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ri8-Li-VFK" id="jWt-zu-seP"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-cR-pHM">
+                                <rect key="frame" x="35" y="305" width="364" height="16"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-xZ-xAi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
+                                <rect key="frame" x="35" y="336" width="290" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ri8-Li-VFK" id="YYM-oC-Byz"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-ZT-mPf">
+                                <rect key="frame" x="150.5" y="440" width="113" height="53"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mde-wh-hqn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="MGv-ql-1yC" firstAttribute="top" secondItem="B4T-rX-sBb" secondAttribute="bottom" constant="15" id="1aO-CT-n6J"/>
+                            <constraint firstItem="hiU-Pd-eti" firstAttribute="top" secondItem="1bf-1U-t7Y" secondAttribute="top" constant="45" id="2XH-og-Uu1"/>
+                            <constraint firstItem="MGv-ql-1yC" firstAttribute="width" secondItem="n9U-bf-mi7" secondAttribute="width" multiplier="0.7" id="2b3-tY-Cfg"/>
+                            <constraint firstItem="45O-LR-S1h" firstAttribute="leading" secondItem="1bf-1U-t7Y" secondAttribute="leading" constant="15" id="4Ph-Y8-xV3"/>
+                            <constraint firstItem="Bz4-xZ-xAi" firstAttribute="top" secondItem="HRh-cR-pHM" secondAttribute="bottom" constant="15" id="5Bm-X8-K4K"/>
+                            <constraint firstItem="1bf-1U-t7Y" firstAttribute="trailing" secondItem="hiU-Pd-eti" secondAttribute="trailing" constant="15" id="8Ur-jr-nCU"/>
+                            <constraint firstItem="MGv-ql-1yC" firstAttribute="leading" secondItem="B4T-rX-sBb" secondAttribute="leading" id="8kk-LJ-cEn"/>
+                            <constraint firstItem="B4T-rX-sBb" firstAttribute="top" secondItem="45O-LR-S1h" secondAttribute="bottom" constant="50" id="DSM-0d-E7S"/>
+                            <constraint firstItem="hiU-Pd-eti" firstAttribute="leading" secondItem="1bf-1U-t7Y" secondAttribute="leading" constant="15" id="GqR-CH-VES"/>
+                            <constraint firstItem="45O-LR-S1h" firstAttribute="top" secondItem="hiU-Pd-eti" secondAttribute="bottom" constant="8" id="Lgd-bh-LGs"/>
+                            <constraint firstItem="HRh-cR-pHM" firstAttribute="leading" secondItem="B4T-rX-sBb" secondAttribute="leading" id="SXK-dG-4fk"/>
+                            <constraint firstItem="yOn-ZT-mPf" firstAttribute="top" secondItem="Bz4-xZ-xAi" secondAttribute="bottom" constant="70" id="VLC-AO-o1o"/>
+                            <constraint firstItem="yOn-ZT-mPf" firstAttribute="centerX" secondItem="n9U-bf-mi7" secondAttribute="centerX" id="Yvf-wW-39R"/>
+                            <constraint firstItem="45O-LR-S1h" firstAttribute="centerX" secondItem="n9U-bf-mi7" secondAttribute="centerX" id="fJa-zj-U0f"/>
+                            <constraint firstItem="1bf-1U-t7Y" firstAttribute="trailing" secondItem="B4T-rX-sBb" secondAttribute="trailing" constant="15" id="jJk-Bt-8Vl"/>
+                            <constraint firstItem="HRh-cR-pHM" firstAttribute="trailing" secondItem="B4T-rX-sBb" secondAttribute="trailing" id="lE4-Gn-a9F"/>
+                            <constraint firstItem="HRh-cR-pHM" firstAttribute="top" secondItem="MGv-ql-1yC" secondAttribute="bottom" constant="45" id="n6U-zx-FXl"/>
+                            <constraint firstItem="B4T-rX-sBb" firstAttribute="leading" secondItem="1bf-1U-t7Y" secondAttribute="leading" constant="35" id="qLh-G0-Tn8"/>
+                            <constraint firstItem="1bf-1U-t7Y" firstAttribute="trailing" secondItem="45O-LR-S1h" secondAttribute="trailing" constant="15" id="t3n-Z5-yEL"/>
+                            <constraint firstItem="Bz4-xZ-xAi" firstAttribute="leading" secondItem="HRh-cR-pHM" secondAttribute="leading" id="uYV-T9-jDw"/>
+                            <constraint firstItem="Bz4-xZ-xAi" firstAttribute="width" secondItem="MGv-ql-1yC" secondAttribute="width" id="zK9-K8-8rl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1bf-1U-t7Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lpw-SR-dTw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lKu-Ti-k1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844.92753623188412" y="119.86607142857142"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="a4y-ea-yuS">
+            <objects>
+                <viewController storyboardIdentifier="SP_SignInViewController" id="SEk-n9-Q63" customClass="SP_SignInViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZ4-aO-6FM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-l4-wzQ">
+                                <rect key="frame" x="159" y="431" width="96" height="34"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aTx-l4-wzQ" firstAttribute="centerX" secondItem="WZ4-aO-6FM" secondAttribute="centerX" id="NZ5-QY-Zcr"/>
+                            <constraint firstItem="aTx-l4-wzQ" firstAttribute="centerY" secondItem="WZ4-aO-6FM" secondAttribute="centerY" id="hXa-5S-ZQC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vlP-M7-I8N"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQt-rU-fWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1531" y="118"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="logo-sport-pot" width="86" height="103"/>
+    </resources>
 </document>

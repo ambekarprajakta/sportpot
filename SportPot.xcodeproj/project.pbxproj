@@ -13,10 +13,18 @@
 		2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59C925013A24001C8667 /* SportPot.xcdatamodeld */; };
 		2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59CC25013A28001C8667 /* Assets.xcassets */; };
 		2C3F59D025013A28001C8667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59CE25013A28001C8667 /* LaunchScreen.storyboard */; };
-		2C3F59DB25013A29001C8667 /* SportPotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59DA25013A29001C8667 /* SportPotTests.swift */; };
-		2C3F59E625013A29001C8667 /* SportPotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59E525013A29001C8667 /* SportPotUITests.swift */; };
-		2C3F59F425013C26001C8667 /* Ubuntu in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59F325013C26001C8667 /* Ubuntu */; };
 		2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */; };
+		2C3F5A02250193F5001C8667 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FC250193CA001C8667 /* Ubuntu-Bold.ttf */; };
+		2C3F5A03250193F9001C8667 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */; };
+		2C3F5A04250193FC001C8667 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FA250193CA001C8667 /* Ubuntu-Italic.ttf */; };
+		2C3F5A05250193FE001C8667 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F5A00250193CA001C8667 /* Ubuntu-Light.ttf */; };
+		2C3F5A0625019402001C8667 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FB250193CA001C8667 /* Ubuntu-LightItalic.ttf */; };
+		2C3F5A0725019405001C8667 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */; };
+		2C3F5A0825019407001C8667 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FD250193CA001C8667 /* Ubuntu-MediumItalic.ttf */; };
+		2C3F5A092501940A001C8667 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */; };
+		2C3F5A0B250194A3001C8667 /* SP_SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */; };
+		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
+		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
 		63CB8E2BAA4A49F91250DA97 /* Pods_SportPot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */; };
 		BC75CE14EFE842E1FC52BF60 /* Pods_SportPotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157385E9B4CA7FA9076170E4 /* Pods_SportPotTests.framework */; };
 		F6413B47FDB866B9F5287EB2 /* Pods_SportPot_SportPotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46D705840A2FE2027E3080 /* Pods_SportPot_SportPotUITests.framework */; };
@@ -53,13 +61,19 @@
 		2C3F59CF25013A28001C8667 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C3F59D125013A28001C8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C3F59D625013A28001C8667 /* SportPotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C3F59DA25013A29001C8667 /* SportPotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPotTests.swift; sourceTree = "<group>"; };
-		2C3F59DC25013A29001C8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C3F59E125013A29001C8667 /* SportPotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C3F59E525013A29001C8667 /* SportPotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportPotUITests.swift; sourceTree = "<group>"; };
-		2C3F59E725013A29001C8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C3F59F325013C26001C8667 /* Ubuntu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ubuntu; sourceTree = "<group>"; };
 		2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_GetStartedViewController.swift; path = "New User/SP_GetStartedViewController.swift"; sourceTree = "<group>"; };
+		2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		2C3F59FA250193CA001C8667 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		2C3F59FB250193CA001C8667 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		2C3F59FC250193CA001C8667 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		2C3F59FD250193CA001C8667 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2C3F5A00250193CA001C8667 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUpViewController.swift; path = "New User/SP_SignUpViewController.swift"; sourceTree = "<group>"; };
+		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignInViewController.swift; path = "New User/SP_SignInViewController.swift"; sourceTree = "<group>"; };
+		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_UnderlinedTextField.swift; path = "Custom IB/SP_UnderlinedTextField.swift"; sourceTree = "<group>"; };
 		58E4228FACE5B8EAF05E72A9 /* Pods-SportPot-SportPotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot-SportPotUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportPot-SportPotUITests/Pods-SportPot-SportPotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7321CD66B982AC52F9884AA2 /* Pods-SportPot-SportPotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot-SportPotUITests.release.xcconfig"; path = "Target Support Files/Pods-SportPot-SportPotUITests/Pods-SportPot-SportPotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.debug.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +114,6 @@
 			children = (
 				2C3F59F525013C3C001C8667 /* Utilities */,
 				2C3F59BF25013A24001C8667 /* SportPot */,
-				2C3F59D925013A29001C8667 /* SportPotTests */,
-				2C3F59E425013A29001C8667 /* SportPotUITests */,
 				2C3F59BE25013A24001C8667 /* Products */,
 				E8FE8B5DB3F2072C13E4DEEB /* Pods */,
 				81225979D30F1E058D060B97 /* Frameworks */,
@@ -121,6 +133,7 @@
 		2C3F59BF25013A24001C8667 /* SportPot */ = {
 			isa = PBXGroup;
 			children = (
+				2C3F5A01250193D7001C8667 /* Font */,
 				2C3F59C025013A24001C8667 /* AppDelegate.swift */,
 				2C3F59C225013A24001C8667 /* SceneDelegate.swift */,
 				2C3F59C625013A24001C8667 /* Main.storyboard */,
@@ -129,34 +142,33 @@
 				2C3F59D125013A28001C8667 /* Info.plist */,
 				2C3F59C925013A24001C8667 /* SportPot.xcdatamodeld */,
 				2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */,
+				2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */,
+				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
+				2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */,
 			);
 			path = SportPot;
-			sourceTree = "<group>";
-		};
-		2C3F59D925013A29001C8667 /* SportPotTests */ = {
-			isa = PBXGroup;
-			children = (
-				2C3F59DA25013A29001C8667 /* SportPotTests.swift */,
-				2C3F59DC25013A29001C8667 /* Info.plist */,
-			);
-			path = SportPotTests;
-			sourceTree = "<group>";
-		};
-		2C3F59E425013A29001C8667 /* SportPotUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2C3F59E525013A29001C8667 /* SportPotUITests.swift */,
-				2C3F59E725013A29001C8667 /* Info.plist */,
-			);
-			path = SportPotUITests;
 			sourceTree = "<group>";
 		};
 		2C3F59F525013C3C001C8667 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2C3F59F325013C26001C8667 /* Ubuntu */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		2C3F5A01250193D7001C8667 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2C3F59FC250193CA001C8667 /* Ubuntu-Bold.ttf */,
+				2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */,
+				2C3F59FA250193CA001C8667 /* Ubuntu-Italic.ttf */,
+				2C3F5A00250193CA001C8667 /* Ubuntu-Light.ttf */,
+				2C3F59FB250193CA001C8667 /* Ubuntu-LightItalic.ttf */,
+				2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */,
+				2C3F59FD250193CA001C8667 /* Ubuntu-MediumItalic.ttf */,
+				2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		81225979D30F1E058D060B97 /* Frameworks */ = {
@@ -179,7 +191,6 @@
 				0355D21363F9F699679586B4 /* Pods-SportPotTests.debug.xcconfig */,
 				0FA78DCF16390BB232DB8F11 /* Pods-SportPotTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -291,8 +302,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3F5A0625019402001C8667 /* Ubuntu-LightItalic.ttf in Resources */,
+				2C3F5A02250193F5001C8667 /* Ubuntu-Bold.ttf in Resources */,
+				2C3F5A0825019407001C8667 /* Ubuntu-MediumItalic.ttf in Resources */,
+				2C3F5A0725019405001C8667 /* Ubuntu-Medium.ttf in Resources */,
+				2C3F5A04250193FC001C8667 /* Ubuntu-Italic.ttf in Resources */,
+				2C3F5A05250193FE001C8667 /* Ubuntu-Light.ttf in Resources */,
+				2C3F5A092501940A001C8667 /* Ubuntu-Regular.ttf in Resources */,
+				2C3F5A03250193F9001C8667 /* Ubuntu-BoldItalic.ttf in Resources */,
 				2C3F59D025013A28001C8667 /* LaunchScreen.storyboard in Resources */,
-				2C3F59F425013C26001C8667 /* Ubuntu in Resources */,
 				2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */,
 				2C3F59C825013A24001C8667 /* Main.storyboard in Resources */,
 			);
@@ -388,8 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C3F5A0B250194A3001C8667 /* SP_SignUpViewController.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
+				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
+				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
 				2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */,
 				2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */,
 			);
@@ -399,7 +420,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C3F59DB25013A29001C8667 /* SportPotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +427,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C3F59E625013A29001C8667 /* SportPotUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = NDQK6X2T3E;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -585,6 +605,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = NDQK6X2T3E;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
