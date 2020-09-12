@@ -35,7 +35,7 @@ required init?(coder aDecoder: (NSCoder?)) {
     self.delegate=self;
     border.borderColor = lineColor.cgColor
     self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
-                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
 
 
     border.frame = CGRect(x: 0, y: self.frame.size.height - lineHeight, width:  self.frame.size.width, height: self.frame.size.height)

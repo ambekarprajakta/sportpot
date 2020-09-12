@@ -70,7 +70,9 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     }
                 }
                 print("User successfully created!")
-                self.presentingViewController?.dismiss(animated: true, completion: nil)
+                let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+                           self.present(signUp2VC, animated: true, completion: nil)
+            
                 //Transition to the home screen
 //                self.transitionToHome()
             }

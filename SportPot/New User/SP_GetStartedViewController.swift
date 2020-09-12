@@ -29,7 +29,7 @@ class SP_GetStartedViewController: UIViewController {
      // MARK: - Button Actions
     
     @IBAction func signUpAction(_ sender: Any) {
-        let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUpViewController") as!  SP_SignUpViewController
+        let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
         
         self.present(signUpVC, animated: true, completion: nil)
     }

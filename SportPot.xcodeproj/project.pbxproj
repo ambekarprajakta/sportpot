@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
+		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
+		2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */; };
+		2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */; };
+		2C3B45C1250C49E400D42300 /* SP_MatchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45BF250C49E400D42300 /* SP_MatchTableViewCell.xib */; };
+		2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */; };
 		2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59C025013A24001C8667 /* AppDelegate.swift */; };
 		2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F59C225013A24001C8667 /* SceneDelegate.swift */; };
 		2C3F59C825013A24001C8667 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59C625013A24001C8667 /* Main.storyboard */; };
@@ -22,12 +28,11 @@
 		2C3F5A0725019405001C8667 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */; };
 		2C3F5A0825019407001C8667 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59FD250193CA001C8667 /* Ubuntu-MediumItalic.ttf */; };
 		2C3F5A092501940A001C8667 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */; };
-		2C3F5A0B250194A3001C8667 /* SP_SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */; };
+		2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */; };
 		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
 		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
+		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
 		63CB8E2BAA4A49F91250DA97 /* Pods_SportPot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */; };
-		BC75CE14EFE842E1FC52BF60 /* Pods_SportPotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 157385E9B4CA7FA9076170E4 /* Pods_SportPotTests.framework */; };
-		F6413B47FDB866B9F5287EB2 /* Pods_SportPot_SportPotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA46D705840A2FE2027E3080 /* Pods_SportPot_SportPotUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,10 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0355D21363F9F699679586B4 /* Pods-SportPotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPotTests.debug.xcconfig"; path = "Target Support Files/Pods-SportPotTests/Pods-SportPotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
-		0FA78DCF16390BB232DB8F11 /* Pods-SportPotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPotTests.release.xcconfig"; path = "Target Support Files/Pods-SportPotTests/Pods-SportPotTests.release.xcconfig"; sourceTree = "<group>"; };
-		157385E9B4CA7FA9076170E4 /* Pods_SportPotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportPotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C3B45BB2507E4F600D42300 /* SportPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SportPot.entitlements; sourceTree = "<group>"; };
+		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUp_Step2_ViewController.swift; path = "New User/SP_SignUp_Step2_ViewController.swift"; sourceTree = "<group>"; };
+		2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MatchTableViewCell.swift; sourceTree = "<group>"; };
+		2C3B45BF250C49E400D42300 /* SP_MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_MatchTableViewCell.xib; sourceTree = "<group>"; };
+		2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_HomeViewController.swift; path = "Registered User/Home/SP_HomeViewController.swift"; sourceTree = "<group>"; };
 		2C3F59BD25013A24001C8667 /* SportPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3F59C025013A24001C8667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C3F59C225013A24001C8667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,14 +80,12 @@
 		2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
 		2C3F5A00250193CA001C8667 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
-		2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUpViewController.swift; path = "New User/SP_SignUpViewController.swift"; sourceTree = "<group>"; };
+		2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUp_Step1_ViewController.swift; path = "New User/SP_SignUp_Step1_ViewController.swift"; sourceTree = "<group>"; };
 		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignInViewController.swift; path = "New User/SP_SignInViewController.swift"; sourceTree = "<group>"; };
 		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_UnderlinedTextField.swift; path = "Custom IB/SP_UnderlinedTextField.swift"; sourceTree = "<group>"; };
-		58E4228FACE5B8EAF05E72A9 /* Pods-SportPot-SportPotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot-SportPotUITests.debug.xcconfig"; path = "Target Support Files/Pods-SportPot-SportPotUITests/Pods-SportPot-SportPotUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		7321CD66B982AC52F9884AA2 /* Pods-SportPot-SportPotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot-SportPotUITests.release.xcconfig"; path = "Target Support Files/Pods-SportPot-SportPotUITests/Pods-SportPot-SportPotUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.debug.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.debug.xcconfig"; sourceTree = "<group>"; };
 		8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportPot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA46D705840A2FE2027E3080 /* Pods_SportPot_SportPotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportPot_SportPotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC75CE14EFE842E1FC52BF60 /* Pods_SportPotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,13 +108,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6413B47FDB866B9F5287EB2 /* Pods_SportPot_SportPotUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C3B45C2250C49F000D42300 /* Match Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */,
+				2C3B45BF250C49E400D42300 /* SP_MatchTableViewCell.xib */,
+			);
+			path = "Match Table View Cell";
+			sourceTree = "<group>";
+		};
 		2C3F59B425013A24001C8667 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +147,7 @@
 		2C3F59BF25013A24001C8667 /* SportPot */ = {
 			isa = PBXGroup;
 			children = (
+				2C3B45BB2507E4F600D42300 /* SportPot.entitlements */,
 				2C3F5A01250193D7001C8667 /* Font */,
 				2C3F59C025013A24001C8667 /* AppDelegate.swift */,
 				2C3F59C225013A24001C8667 /* SceneDelegate.swift */,
@@ -142,9 +157,13 @@
 				2C3F59D125013A28001C8667 /* Info.plist */,
 				2C3F59C925013A24001C8667 /* SportPot.xcdatamodeld */,
 				2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */,
-				2C3F5A0A250194A3001C8667 /* SP_SignUpViewController.swift */,
+				2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */,
 				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
 				2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */,
+				2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */,
+				2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */,
+				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
+				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
 			);
 			path = SportPot;
 			sourceTree = "<group>";
@@ -159,6 +178,8 @@
 		2C3F5A01250193D7001C8667 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */,
+				2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */,
 				2C3F59FC250193CA001C8667 /* Ubuntu-Bold.ttf */,
 				2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */,
 				2C3F59FA250193CA001C8667 /* Ubuntu-Italic.ttf */,
@@ -175,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */,
-				EA46D705840A2FE2027E3080 /* Pods_SportPot_SportPotUITests.framework */,
-				157385E9B4CA7FA9076170E4 /* Pods_SportPotTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -186,10 +205,6 @@
 			children = (
 				7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */,
 				0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */,
-				58E4228FACE5B8EAF05E72A9 /* Pods-SportPot-SportPotUITests.debug.xcconfig */,
-				7321CD66B982AC52F9884AA2 /* Pods-SportPot-SportPotUITests.release.xcconfig */,
-				0355D21363F9F699679586B4 /* Pods-SportPotTests.debug.xcconfig */,
-				0FA78DCF16390BB232DB8F11 /* Pods-SportPotTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -205,6 +220,7 @@
 				2C3F59B925013A24001C8667 /* Sources */,
 				2C3F59BA25013A24001C8667 /* Frameworks */,
 				2C3F59BB25013A24001C8667 /* Resources */,
+				11C02414D2EF92A23D6F1761 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,7 +235,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C3F59ED25013A29001C8667 /* Build configuration list for PBXNativeTarget "SportPotTests" */;
 			buildPhases = (
-				086BD3C8BD6744ADB8585119 /* [CP] Check Pods Manifest.lock */,
 				2C3F59D225013A28001C8667 /* Sources */,
 				2C3F59D325013A28001C8667 /* Frameworks */,
 				2C3F59D425013A28001C8667 /* Resources */,
@@ -238,7 +253,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C3F59F025013A29001C8667 /* Build configuration list for PBXNativeTarget "SportPotUITests" */;
 			buildPhases = (
-				B08959E37F7F5B19DD79C354 /* [CP] Check Pods Manifest.lock */,
 				2C3F59DD25013A29001C8667 /* Sources */,
 				2C3F59DE25013A29001C8667 /* Frameworks */,
 				2C3F59DF25013A29001C8667 /* Resources */,
@@ -311,8 +325,12 @@
 				2C3F5A092501940A001C8667 /* Ubuntu-Regular.ttf in Resources */,
 				2C3F5A03250193F9001C8667 /* Ubuntu-BoldItalic.ttf in Resources */,
 				2C3F59D025013A28001C8667 /* LaunchScreen.storyboard in Resources */,
+				2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */,
 				2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */,
 				2C3F59C825013A24001C8667 /* Main.storyboard in Resources */,
+				2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */,
+				2C3B45C1250C49E400D42300 /* SP_MatchTableViewCell.xib in Resources */,
+				2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,26 +351,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		086BD3C8BD6744ADB8585119 /* [CP] Check Pods Manifest.lock */ = {
+		11C02414D2EF92A23D6F1761 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SportPot/Pods-SportPot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SportPotTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-SportPot/Pods-SportPot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SportPot/Pods-SportPot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9E25618C60FE7DA4BBCE1F81 /* [CP] Check Pods Manifest.lock */ = {
@@ -377,28 +390,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B08959E37F7F5B19DD79C354 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SportPot-SportPotUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -406,8 +397,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C3F5A0B250194A3001C8667 /* SP_SignUpViewController.swift in Sources */,
+				2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */,
+				2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
+				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
+				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
@@ -584,6 +578,7 @@
 			baseConfigurationReference = 7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = NDQK6X2T3E;
@@ -592,7 +587,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ambekarprajakta.SportPot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -604,6 +599,7 @@
 			baseConfigurationReference = 0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = NDQK6X2T3E;
@@ -612,7 +608,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ambekarprajakta.SportPot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,7 +617,6 @@
 		};
 		2C3F59EE25013A29001C8667 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0355D21363F9F699679586B4 /* Pods-SportPotTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -644,7 +639,6 @@
 		};
 		2C3F59EF25013A29001C8667 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FA78DCF16390BB232DB8F11 /* Pods-SportPotTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -667,7 +661,6 @@
 		};
 		2C3F59F125013A29001C8667 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58E4228FACE5B8EAF05E72A9 /* Pods-SportPot-SportPotUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -688,7 +681,6 @@
 		};
 		2C3F59F225013A29001C8667 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7321CD66B982AC52F9884AA2 /* Pods-SportPot-SportPotUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

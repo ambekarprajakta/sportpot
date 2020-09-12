@@ -7,13 +7,9 @@ target 'SportPot' do
 
   # Pods for SportPot
 
-  target 'SportPotTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'SportPotUITests' do
-    # Pods for testing
-  end
-
+  pod 'TPKeyboardAvoiding'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Core'
+	pod 'Firebase/Firestore'
 end

@@ -7,16 +7,35 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SP_SignInViewController: UIViewController {
 
+    @IBOutlet weak var emailOrPhoneTextField: SP_UnderlinedTextField!
+    @IBOutlet weak var passwordTextField: SP_UnderlinedTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func signInAction(_ sender: Any) {
+        let emailOrPhone = emailOrPhoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+        
+        Auth.auth().signIn(withEmail: emailOrPhone, password: password) { [weak self] authResult, error in
+          guard let strongSelf = self else { return }
+          // ...
+            if error != nil {
+                print("Authentication error!")
+            }else{
+                print("Successfully logged in!")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
