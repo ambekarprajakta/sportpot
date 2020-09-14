@@ -1,14 +1,14 @@
 //
-//  SP_SignUp_Step2_ViewController.swift
+//  SP_MainTabBarViewController.swift
 //  SportPot
 //
-//  Created by Prajakta Ambekar on 11/09/2020.
+//  Created by Prajakta Ambekar on 13/09/2020.
 //  Copyright © 2020 Prajakta Ambekar. All rights reserved.
 //
 
 import UIKit
 
-class SP_SignUp_Step2_ViewController: UIViewController {
+class SP_MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

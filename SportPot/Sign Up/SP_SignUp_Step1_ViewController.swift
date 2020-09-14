@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 
 class SP_SignUp_Step1_ViewController: UIViewController {
-
+    
     @IBOutlet weak var nameTextField: SP_UnderlinedTextField!
     
     @IBOutlet weak var emailTextField: SP_UnderlinedTextField!
@@ -25,18 +25,18 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         continueButton.layer.cornerRadius = continueButton.frame.size.height/2
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        self.view.endEditing(true)
-//    }
+    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //        self.view.endEditing(true)
+    //    }
     // MARK: - Validation
     func validateInput() -> Bool {
-//        if nameTextField.text?.isEmpty {
-//             return false
-//        }
+        //        if nameTextField.text?.isEmpty {
+        //             return false
+        //        }
         return true
     }
     
@@ -54,7 +54,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
             if err != nil {
                 
                 //There was an error
-//                self.showError("Error creating user")
+                //                self.showError("Error creating user")
             }
             else {
                 
@@ -65,27 +65,27 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     
                     if error != nil {
                         // Show error message
-//                        self.showError("Error saving user data")
+                        //                        self.showError("Error saving user data")
                         
                     }
                 }
                 print("User successfully created!")
                 let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-                           self.present(signUp2VC, animated: true, completion: nil)
-            
+                self.present(signUp2VC, animated: true, completion: nil)
+                
                 //Transition to the home screen
-//                self.transitionToHome()
+                //                self.transitionToHome()
             }
         }
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

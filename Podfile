@@ -12,4 +12,5 @@ target 'SportPot' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	pod 'Alamofire-SwiftyJSON'
 end

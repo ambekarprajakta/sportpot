@@ -14,12 +14,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        self.loadBaseController()
     }
+    func loadBaseController() {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let window = self.window else { return }
+        window.makeKeyAndVisible()
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+            // Show home page
+            let homeVC: SP_MainTabBarViewController = storyboard.instantiateViewController(withIdentifier: "SP_MainTabBarViewController") as! SP_MainTabBarViewController
+            self.window?.rootViewController = homeVC
+        } else {
+            // Show login page
+            let loginVC: SP_GetStartedViewController = storyboard.instantiateViewController(withIdentifier: "SP_GetStartedViewController") as! SP_GetStartedViewController
+            self.window?.rootViewController = loginVC
+        }
+        self.window?.makeKeyAndVisible()
+    }
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+        // change the root view controller to your specific view controller
+        window.rootViewController = vc
+        // add animation
+        UIView.transition(with: window,
+                          duration: 1.0,
+                          options: [.curveEaseInOut],
+                          animations: nil,
+                          completion: nil)
 
+    }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

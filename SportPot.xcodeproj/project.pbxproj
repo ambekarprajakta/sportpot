@@ -31,6 +31,7 @@
 		2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */; };
 		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
 		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
+		2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */; };
 		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
 		63CB8E2BAA4A49F91250DA97 /* Pods_SportPot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */; };
 /* End PBXBuildFile section */
@@ -57,10 +58,10 @@
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C3B45BB2507E4F600D42300 /* SportPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SportPot.entitlements; sourceTree = "<group>"; };
-		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUp_Step2_ViewController.swift; path = "New User/SP_SignUp_Step2_ViewController.swift"; sourceTree = "<group>"; };
+		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step2_ViewController.swift; sourceTree = "<group>"; };
 		2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MatchTableViewCell.swift; sourceTree = "<group>"; };
 		2C3B45BF250C49E400D42300 /* SP_MatchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_MatchTableViewCell.xib; sourceTree = "<group>"; };
-		2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_HomeViewController.swift; path = "Registered User/Home/SP_HomeViewController.swift"; sourceTree = "<group>"; };
+		2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_HomeViewController.swift; sourceTree = "<group>"; };
 		2C3F59BD25013A24001C8667 /* SportPot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportPot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3F59C025013A24001C8667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C3F59C225013A24001C8667 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +72,7 @@
 		2C3F59D125013A28001C8667 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C3F59D625013A28001C8667 /* SportPotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3F59E125013A29001C8667 /* SportPotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportPotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_GetStartedViewController.swift; path = "New User/SP_GetStartedViewController.swift"; sourceTree = "<group>"; };
+		2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_GetStartedViewController.swift; sourceTree = "<group>"; };
 		2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		2C3F59FA250193CA001C8667 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		2C3F59FB250193CA001C8667 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -80,9 +81,10 @@
 		2C3F59FE250193CA001C8667 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		2C3F59FF250193CA001C8667 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
 		2C3F5A00250193CA001C8667 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
-		2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignUp_Step1_ViewController.swift; path = "New User/SP_SignUp_Step1_ViewController.swift"; sourceTree = "<group>"; };
-		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_SignInViewController.swift; path = "New User/SP_SignInViewController.swift"; sourceTree = "<group>"; };
-		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SP_UnderlinedTextField.swift; path = "Custom IB/SP_UnderlinedTextField.swift"; sourceTree = "<group>"; };
+		2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step1_ViewController.swift; sourceTree = "<group>"; };
+		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignInViewController.swift; sourceTree = "<group>"; };
+		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_UnderlinedTextField.swift; sourceTree = "<group>"; };
+		2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.debug.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.debug.xcconfig"; sourceTree = "<group>"; };
 		8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportPot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,14 +158,9 @@
 				2C3F59CE25013A28001C8667 /* LaunchScreen.storyboard */,
 				2C3F59D125013A28001C8667 /* Info.plist */,
 				2C3F59C925013A24001C8667 /* SportPot.xcdatamodeld */,
-				2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */,
-				2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */,
-				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
-				2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */,
+				2C899E45250EF17900718DD8 /* Sign Up */,
 				2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */,
-				2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */,
-				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
-				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
+				2C899E46250EF23900718DD8 /* Sign In */,
 			);
 			path = SportPot;
 			sourceTree = "<group>";
@@ -171,6 +168,7 @@
 		2C3F59F525013C3C001C8667 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -190,6 +188,27 @@
 				2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2C899E45250EF17900718DD8 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */,
+				2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */,
+				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
+				2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */,
+			);
+			path = "Sign Up";
+			sourceTree = "<group>";
+		};
+		2C899E46250EF23900718DD8 /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */,
+				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
+				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
+			);
+			path = "Sign In";
 			sourceTree = "<group>";
 		};
 		81225979D30F1E058D060B97 /* Frameworks */ = {
@@ -402,6 +421,7 @@
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
+				2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
