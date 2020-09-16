@@ -16,7 +16,16 @@ class SP_SignUp_Step2_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    func sendVerificationCode() {
+//        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+//        if let error = error {
+//          self.showMessagePrompt(error.localizedDescription)
+//          return
+//        }
+//        })
+        // Sign in using the verificationID and the code sent to the user
+        // ...
+    }
     @IBAction func createAccountAction(_ sender: Any) {
         //Validate and push to the Home Page
         UserDefaults.standard.set(true, forKey: "isLoggedIn")

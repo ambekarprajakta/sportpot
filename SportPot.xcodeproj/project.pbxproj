@@ -31,6 +31,7 @@
 		2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */; };
 		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
 		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
+		2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */; };
 		2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */; };
 		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
 		63CB8E2BAA4A49F91250DA97 /* Pods_SportPot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A49D1727AC70C6B6E3FA028 /* Pods_SportPot.framework */; };
@@ -84,6 +85,7 @@
 		2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step1_ViewController.swift; sourceTree = "<group>"; };
 		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignInViewController.swift; sourceTree = "<group>"; };
 		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_UnderlinedTextField.swift; sourceTree = "<group>"; };
+		2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_InstructionsPopupViewController.swift; sourceTree = "<group>"; };
 		2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		7A600EF1AA62D276A056EC71 /* Pods-SportPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.debug.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */,
 				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
 				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
+				2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */,
 			);
 			path = "Sign In";
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
+				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
 				2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
@@ -601,7 +605,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
-				DEVELOPMENT_TEAM = NDQK6X2T3E;
+				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,7 +626,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
-				DEVELOPMENT_TEAM = NDQK6X2T3E;
+				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

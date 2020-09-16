@@ -14,6 +14,7 @@ class SP_MatchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.layer.cornerRadius = 5.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
