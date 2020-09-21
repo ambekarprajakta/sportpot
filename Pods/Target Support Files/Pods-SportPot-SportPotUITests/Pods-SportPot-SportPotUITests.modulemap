@@ -1,6 +1,0 @@
-framework module Pods_SportPot_SportPotUITests {
-  umbrella header "Pods-SportPot-SportPotUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
