@@ -15,6 +15,7 @@ class SP_MatchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         self.layer.cornerRadius = 5.0
+        self.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

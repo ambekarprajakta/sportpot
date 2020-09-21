@@ -836,6 +836,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PE9-rn-Htm"/>
                     </view>
+                    <connections>
+                        <outlet property="popupDetailTextLabel" destination="WhC-zl-Dfj" id="xFh-Iu-gbJ"/>
+                        <outlet property="popupTitleLabel" destination="sOx-1Z-zBn" id="nvm-eP-vid"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oB3-lc-jcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,15 +10,24 @@ import UIKit
 
 class SP_InstructionsPopupViewController: UIViewController {
 
+    @IBOutlet weak var popupTitleLabel: UILabel!
+    @IBOutlet weak var popupDetailTextLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func showPopupfor(viewcontroller: UIViewController, type: PopupType.ContentType) {
+        if viewcontroller .isKind(of: SP_HomeViewController.self) && type == PopupType.ContentType.BetTenMatches  {
+            self.popupTitleLabel.text = "Oops!"
+            self.popupDetailTextLabel.text = "You must place bets on all 10 matches"
+        }
+    }
+    
     @IBAction func dismissAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

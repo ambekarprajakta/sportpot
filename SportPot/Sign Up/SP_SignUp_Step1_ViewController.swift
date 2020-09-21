@@ -42,7 +42,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     
     // MARK: - Actions
-    @IBAction func continueButtonAction(_ sender: Any) {
+    fileprivate func createUser() {
         let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -70,14 +70,20 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     }
                 }
                 print("User successfully created!")
-                let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-                self.present(signUp2VC, animated: true, completion: nil)
+
                 
                 //Transition to the home screen
                 //                self.transitionToHome()
             }
         }
     }
+    
+    @IBAction func continueButtonAction(_ sender: Any) {
+        //createUser()
+        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+        self.present(signUp2VC, animated: true, completion: nil)
+    }
+    
     /*
      // MARK: - Navigation
      

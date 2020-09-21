@@ -7,10 +7,12 @@ target 'SportPot' do
 
   # Pods for SportPot
 
-  pod 'TPKeyboardAvoiding'
+  	pod 'TPKeyboardAvoiding'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
 	pod 'Alamofire-SwiftyJSON'
+	pod 'Alamofire'
+	pod 'SwiftyJSON', '~> 4.0'
 end
