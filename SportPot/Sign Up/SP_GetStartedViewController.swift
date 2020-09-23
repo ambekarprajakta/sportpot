@@ -11,16 +11,18 @@ import UIKit
 class SP_GetStartedViewController: UIViewController {
 
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        NotificationCenter.default.addObserver(self, selector: #selector(signUpAction(_:)), name: NSNotification.Name(rawValue: "showSignupVCNotification"), object: nil)
+    }
+
     func setupUI() {
         signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
         signInButton.layer.cornerRadius = signInButton.frame.size.height/2
@@ -37,7 +39,6 @@ class SP_GetStartedViewController: UIViewController {
     @IBAction func signInAction(_ sender: Any) {
         
         let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignInViewController") as!  SP_SignInViewController
-        
         self.present(signInVC, animated: true, completion: nil)
     }
     /*

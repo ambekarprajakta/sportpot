@@ -39,12 +39,17 @@ class SP_SignUp_Step1_ViewController: UIViewController {
         //        }
         return true
     }
-    
-    
+    func showSignupVCNotification() {
+            let signUp1VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
+            self.present(signUp1VC, animated: true, completion: nil)
+        
+
+
+    }
     // MARK: - Actions
     fileprivate func createUser() {
-        let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let username = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Create the user
@@ -52,34 +57,29 @@ class SP_SignUp_Step1_ViewController: UIViewController {
             
             //Check for errors
             if err != nil {
-                
                 //There was an error
-                //                self.showError("Error creating user")
+                //self.showError("Error creating user")
             }
             else {
                 
                 //User was created successfully, now store the first name and last name
                 let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(data: ["name":name, "email":email, "uid": result!.user.uid ]) { (error) in
+                db.collection("user").document(String((result?.user.uid)!)).setData([
+                    "id" : String((result?.user.uid)!),
+                    "email":email,
+                    "displayName" : username,
+                    "points" : 0
+                ], merge: true){ (error) in
                     
-                    if error != nil {
-                        // Show error message
-                        //                        self.showError("Error saving user data")
-                        
-                    }
-                }
-                print("User successfully created!")
+                    print("User successfully created!")
 
-                
-                //Transition to the home screen
-                //                self.transitionToHome()
+                }
             }
         }
     }
     
     @IBAction func continueButtonAction(_ sender: Any) {
-        //createUser()
+        createUser()
         let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
         self.present(signUp2VC, animated: true, completion: nil)
     }

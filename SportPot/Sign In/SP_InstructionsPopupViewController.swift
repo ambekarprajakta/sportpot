@@ -12,9 +12,21 @@ class SP_InstructionsPopupViewController: UIViewController {
 
     @IBOutlet weak var popupTitleLabel: UILabel!
     @IBOutlet weak var popupDetailTextLabel: UILabel!
+    private var alertTitle: String?
+    private var alertMessage: String?
+
+    static func newInstance(title: String? = nil, message: String? = nil) -> SP_InstructionsPopupViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let instructionPopupVC = storyboard.instantiateViewController(identifier: String(describing: SP_InstructionsPopupViewController.self)) as SP_InstructionsPopupViewController
+        instructionPopupVC.modalPresentationStyle = .overCurrentContext
+        instructionPopupVC.alertTitle = title ?? "Oops!"
+        instructionPopupVC.alertMessage = message ?? "Something went wrong and we are looking into it. Please come back later."
+        return instructionPopupVC
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        popupTitleLabel.text = alertTitle
+        popupDetailTextLabel.text = alertMessage
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

@@ -24,12 +24,49 @@
                 <rect key="frame" x="0.0" y="0.0" width="411" height="93"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-Ag-mcX">
-                        <rect key="frame" x="8" y="8" width="39.5" height="17"/>
-                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Match" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-Ag-mcX">
+                        <rect key="frame" x="8" y="8" width="189.5" height="17"/>
+                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9x-lj-BKI" userLabel="LIVE View">
+                        <rect key="frame" x="8" y="8" width="189.5" height="17"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omO-UM-uPb">
+                                <rect key="frame" x="0.0" y="2" width="36.5" height="13.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="LIVE ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.87058823529411766" green="0.32156862745098036" blue="0.32156862745098036" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Ubuntu-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="| ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Ubuntu-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Dv-IWG">
+                                <rect key="frame" x="36.5" y="2" width="10" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="omO-UM-uPb" firstAttribute="leading" secondItem="q9x-lj-BKI" secondAttribute="leading" id="303-gk-rLU"/>
+                            <constraint firstItem="omO-UM-uPb" firstAttribute="centerY" secondItem="q9x-lj-BKI" secondAttribute="centerY" id="BNn-IT-Wpv"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PEP-Dv-IWG" secondAttribute="trailing" id="Wna-Xx-bjg"/>
+                            <constraint firstItem="PEP-Dv-IWG" firstAttribute="centerY" secondItem="omO-UM-uPb" secondAttribute="centerY" id="krb-Jf-nod"/>
+                            <constraint firstItem="PEP-Dv-IWG" firstAttribute="leading" secondItem="omO-UM-uPb" secondAttribute="trailing" id="q2h-IM-TlT"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vZ-Jq-LJe">
                         <rect key="frame" x="205.5" y="0.0" width="205.5" height="33"/>
                         <subviews>
@@ -64,7 +101,7 @@
                             <constraint firstItem="Qhe-aY-ALy" firstAttribute="centerY" secondItem="1vZ-Jq-LJe" secondAttribute="centerY" id="pyr-RE-EfB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-0z-jKN">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-0z-jKN" userLabel="Line">
                         <rect key="frame" x="0.0" y="33" width="411" height="1"/>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -260,21 +297,41 @@
                     <constraint firstItem="OWD-oP-gAH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="S5h-mr-fvD"/>
                     <constraint firstItem="Ml8-Sw-N0F" firstAttribute="centerX" secondItem="Mx7-cP-LPs" secondAttribute="centerX" id="Wee-jv-TI9"/>
                     <constraint firstAttribute="bottom" secondItem="KFf-cB-T5s" secondAttribute="bottom" id="Xym-5H-qfa"/>
+                    <constraint firstItem="q9x-lj-BKI" firstAttribute="leading" secondItem="TPH-Ag-mcX" secondAttribute="leading" id="Z8J-2N-6MV"/>
                     <constraint firstAttribute="trailing" secondItem="1vZ-Jq-LJe" secondAttribute="trailing" id="aAv-26-hlq"/>
                     <constraint firstAttribute="bottom" secondItem="tfT-ir-KUk" secondAttribute="bottom" id="b5O-Yz-9oV"/>
+                    <constraint firstItem="q9x-lj-BKI" firstAttribute="trailing" secondItem="TPH-Ag-mcX" secondAttribute="trailing" id="brS-ph-B8b"/>
                     <constraint firstItem="OWD-oP-gAH" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="bottom" id="cBg-yF-I1x"/>
                     <constraint firstItem="tfT-ir-KUk" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="bottom" id="cbr-rR-COG"/>
+                    <constraint firstItem="1vZ-Jq-LJe" firstAttribute="leading" secondItem="TPH-Ag-mcX" secondAttribute="trailing" constant="8" id="clQ-lC-egH"/>
                     <constraint firstItem="KFf-cB-T5s" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="top" id="fHu-J4-plN"/>
                     <constraint firstItem="tfT-ir-KUk" firstAttribute="leading" secondItem="OWD-oP-gAH" secondAttribute="trailing" id="fN1-jM-eXO"/>
+                    <constraint firstItem="q9x-lj-BKI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oDd-u9-8P6"/>
                     <constraint firstItem="b5Y-f9-EvG" firstAttribute="centerX" secondItem="Qhe-aY-ALy" secondAttribute="centerX" id="rVG-GP-31M"/>
                     <constraint firstItem="O0P-lN-dbH" firstAttribute="top" secondItem="una-pQ-YIi" secondAttribute="top" id="uuO-31-qf5"/>
                     <constraint firstAttribute="trailing" secondItem="KFf-cB-T5s" secondAttribute="trailing" id="vEq-DC-T6D"/>
+                    <constraint firstItem="Flg-0z-jKN" firstAttribute="top" secondItem="q9x-lj-BKI" secondAttribute="bottom" constant="8" id="w5Q-Mz-ahO"/>
                     <constraint firstItem="O0P-lN-dbH" firstAttribute="bottom" secondItem="phe-aJ-egi" secondAttribute="bottom" id="xt6-Pa-8GC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="matchLabel" destination="TPH-Ag-mcX" id="vdH-Sb-sdx"/>
+                <outlet property="awayPointsBtn" destination="Ml8-Sw-N0F" id="Hor-qH-r8m"/>
+                <outlet property="awayTeamLogo" destination="NLj-2S-wCj" id="KOe-Pa-5UP"/>
+                <outlet property="awayTeamNameLabel" destination="phe-aJ-egi" id="I1S-5g-cWk"/>
+                <outlet property="awayTeamScoreLabel" destination="S2h-LT-oaJ" id="EuT-rc-pMQ"/>
+                <outlet property="doublePointsBtn" destination="HeJ-Fg-5Ij" id="ftu-yL-TAL"/>
+                <outlet property="drawPointsBtn" destination="b5Y-f9-EvG" id="Lcf-hC-JvX"/>
+                <outlet property="goalsView" destination="OWD-oP-gAH" id="6AC-H9-DVF"/>
+                <outlet property="homePointsBtn" destination="gJQ-Cu-mJ5" id="Pgd-fJ-UqW"/>
+                <outlet property="homeTeamLogo" destination="sQz-N0-9O0" id="yal-p0-ezs"/>
+                <outlet property="homeTeamNameLabel" destination="una-pQ-YIi" id="nU8-8Y-voY"/>
+                <outlet property="homeTeamScoreLabel" destination="oMf-4K-CZs" id="dbM-8n-cnd"/>
+                <outlet property="liveMinuteLabel" destination="PEP-Dv-IWG" id="dOi-vZ-GoC"/>
+                <outlet property="liveView" destination="q9x-lj-BKI" id="GeA-Xg-BM9"/>
+                <outlet property="matchTimeLabel" destination="TPH-Ag-mcX" id="dnp-37-D7B"/>
+                <outlet property="teamNameView" destination="tfT-ir-KUk" id="pim-Bp-stT"/>
+                <outlet property="teamNameViewLeadingConstraint" destination="fN1-jM-eXO" id="roa-Ca-Qee"/>
             </connections>
             <point key="canvasLocation" x="192.0289855072464" y="105.46875"/>
         </tableViewCell>

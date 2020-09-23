@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
+		2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D1FB251A204D00BA91EA /* Utils.swift */; };
 		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
 		2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */; };
 		2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C3B45BB2507E4F600D42300 /* SportPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SportPot.entitlements; sourceTree = "<group>"; };
 		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step2_ViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +138,6 @@
 		2C3F59B425013A24001C8667 = {
 			isa = PBXGroup;
 			children = (
-				2C3F59F525013C3C001C8667 /* Utilities */,
 				2C3F59BF25013A24001C8667 /* SportPot */,
 				2C3F59BE25013A24001C8667 /* Products */,
 				E8FE8B5DB3F2072C13E4DEEB /* Pods */,
@@ -158,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3B45BB2507E4F600D42300 /* SportPot.entitlements */,
+				2C3F59F525013C3C001C8667 /* Utilities */,
 				2C3F5A01250193D7001C8667 /* Font */,
 				2C3F59C025013A24001C8667 /* AppDelegate.swift */,
 				2C3F59C225013A24001C8667 /* SceneDelegate.swift */,
@@ -180,6 +182,7 @@
 				2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */,
 				2C9DBBB525168FF500F769D1 /* JSONUtils.swift */,
 				2C9DBBB725176D8500F769D1 /* Constants.swift */,
+				2C36D1FB251A204D00BA91EA /* Utils.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 			children = (
 				2C3F59F6250183F3001C8667 /* SP_GetStartedViewController.swift */,
 				2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */,
-				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
 				2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */,
 			);
 			path = "Sign Up";
@@ -215,6 +217,7 @@
 		2C899E46250EF23900718DD8 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
+				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
 				2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */,
 				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
 				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
@@ -435,6 +438,7 @@
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */,
+				2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */,
 				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
 				2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */,
 				2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */,
