@@ -735,22 +735,6 @@
             </objects>
             <point key="canvasLocation" x="-157" y="3038"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="H6Y-a0-IJB">
-            <objects>
-                <viewController id="rYb-Tk-6WO" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aYk-kQ-ACT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="f7z-ak-Fyb"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="LA6-d8-g1M"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mqx-7j-MO7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-401" y="1582"/>
-        </scene>
         <!--Instructions Popup View Controller-->
         <scene sceneID="R5r-BC-Fq4">
             <objects>
@@ -839,7 +823,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oB3-lc-jcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440.57971014492756" y="1575.6696428571429"/>
+            <point key="canvasLocation" x="1342" y="1302"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="w5b-ls-lDa">
@@ -1426,10 +1410,11 @@ Cg
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxd-2x-96q">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="rYb-Tk-6WO" kind="relationship" relationship="rootViewController" id="WdZ-GY-9mu"/>
+                        <segue destination="xmU-BU-YMB" kind="relationship" relationship="rootViewController" id="R2F-Xa-6sN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eI-wc-3Ku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1473,6 +1458,116 @@ Cg
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zce-Bh-ZUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1239" y="3038"/>
+        </scene>
+        <!--Pot Preview View Controller-->
+        <scene sceneID="lxM-4Y-gYb">
+            <objects>
+                <viewController storyboardIdentifier="SP_PotPreviewViewController" id="xmU-BU-YMB" customClass="SP_PotPreviewViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K1j-Z6-atb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-FQ-Es0">
+                                <rect key="frame" x="0.0" y="768" width="414" height="45"/>
+                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Eun-la-1TD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Let's Go">
+                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="letsGoAction:" destination="xmU-BU-YMB" eventType="touchUpInside" id="0yK-VA-C8T"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="X8x-dH-uFn">
+                                <rect key="frame" x="357.5" y="99.5" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="GaX-QA-vko"/>
+                                    <constraint firstAttribute="height" constant="40" id="aFp-vb-q54"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="35">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-jw-QnA">
+                                <rect key="frame" x="15" y="108" width="82.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
+                                <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-eN-DLP">
+                                <rect key="frame" x="348.5" y="147.5" width="57.5" height="11.5"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zI6-mk-V2b">
+                                <rect key="frame" x="15" y="179" width="384" height="589"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MatchTableViewCell" id="kp5-9W-NqG">
+                                        <rect key="frame" x="0.0" y="28" width="384" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kp5-9W-NqG" id="gEN-kX-KWy">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xmU-BU-YMB" id="kYd-fa-Pdb"/>
+                                    <outlet property="delegate" destination="xmU-BU-YMB" id="ZGO-eD-9Bi"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0bs-jw-QnA" firstAttribute="top" secondItem="gh2-Kn-All" secondAttribute="top" constant="20" id="1cZ-pY-2qN"/>
+                            <constraint firstItem="X8x-dH-uFn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0bs-jw-QnA" secondAttribute="trailing" constant="8" id="48r-pr-zGp"/>
+                            <constraint firstItem="0bs-jw-QnA" firstAttribute="leading" secondItem="zI6-mk-V2b" secondAttribute="leading" id="7gW-xa-tNA"/>
+                            <constraint firstItem="zI6-mk-V2b" firstAttribute="top" secondItem="MDw-eN-DLP" secondAttribute="bottom" constant="20" id="M0b-yn-2zH"/>
+                            <constraint firstItem="gh2-Kn-All" firstAttribute="trailing" secondItem="MDw-eN-DLP" secondAttribute="trailing" constant="8" id="TaD-PV-FUb"/>
+                            <constraint firstItem="zI6-mk-V2b" firstAttribute="leading" secondItem="gh2-Kn-All" secondAttribute="leading" constant="15" id="W9Q-kf-TQj"/>
+                            <constraint firstItem="gh2-Kn-All" firstAttribute="bottom" secondItem="cTd-FQ-Es0" secondAttribute="bottom" id="WT9-GO-fhV"/>
+                            <constraint firstItem="MDw-eN-DLP" firstAttribute="centerX" secondItem="X8x-dH-uFn" secondAttribute="centerX" id="dxl-2h-Esv"/>
+                            <constraint firstItem="MDw-eN-DLP" firstAttribute="top" secondItem="X8x-dH-uFn" secondAttribute="bottom" constant="8" id="eTK-8Z-WPQ"/>
+                            <constraint firstItem="gh2-Kn-All" firstAttribute="trailing" secondItem="zI6-mk-V2b" secondAttribute="trailing" constant="15" id="iPm-e6-H2Q"/>
+                            <constraint firstItem="gh2-Kn-All" firstAttribute="trailing" secondItem="cTd-FQ-Es0" secondAttribute="trailing" id="nQc-7U-Q69"/>
+                            <constraint firstItem="X8x-dH-uFn" firstAttribute="centerY" secondItem="0bs-jw-QnA" secondAttribute="centerY" id="o6M-eQ-z9C"/>
+                            <constraint firstItem="cTd-FQ-Es0" firstAttribute="top" secondItem="zI6-mk-V2b" secondAttribute="bottom" id="zdn-fn-TyE"/>
+                            <constraint firstItem="cTd-FQ-Es0" firstAttribute="leading" secondItem="gh2-Kn-All" secondAttribute="leading" id="zxG-er-WVu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gh2-Kn-All"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Xu-lc-0Uy"/>
+                    <connections>
+                        <outlet property="potTableView" destination="zI6-mk-V2b" id="6xD-eC-LK3"/>
+                        <segue destination="xPr-mP-IxW" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToVCWithSegue:" id="EBy-oQ-f4w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="doC-uj-qjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xPr-mP-IxW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="1582"/>
         </scene>
     </scenes>
     <resources>

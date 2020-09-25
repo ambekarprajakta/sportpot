@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AwayTeam" representedClassName="AwayTeamMO" syncable="YES" codeGenerationType="class">
+        <attribute name="logo" optional="YES" attributeType="String"/>
+        <attribute name="team_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="team_name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Fixture" representedClassName="FixtureMO" syncable="YES" codeGenerationType="class">
+        <attribute name="elapsed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="event_date" optional="YES" attributeType="String"/>
+        <attribute name="event_timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstHalfStart" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fixture_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="goalsAwayTeam" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="goalsHomeTeam" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="league_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="referee" optional="YES" attributeType="String"/>
+        <attribute name="round" optional="YES" attributeType="String"/>
+        <attribute name="secondHalfStart" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="statusShort" optional="YES" attributeType="String"/>
+        <attribute name="venue" optional="YES" attributeType="String"/>
+        <relationship name="awayTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AwayTeam"/>
+        <relationship name="homeTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HomeTeam"/>
+        <relationship name="league" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="League"/>
+        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Score"/>
+    </entity>
+    <entity name="HomeTeam" representedClassName="HomeTeamMO" syncable="YES" codeGenerationType="class">
+        <attribute name="logo" optional="YES" attributeType="String"/>
+        <attribute name="team_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="team_name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="League" representedClassName="LeagueMO" syncable="YES" codeGenerationType="class">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="flag" optional="YES" attributeType="String"/>
+        <attribute name="logo" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Score" representedClassName="ScoreMO" syncable="YES" codeGenerationType="class">
+        <attribute name="extratime" optional="YES" attributeType="String"/>
+        <attribute name="fulltime" optional="YES" attributeType="String"/>
+        <attribute name="halftime" optional="YES" attributeType="String"/>
+        <attribute name="penalty" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="AwayTeam" positionX="356.13671875" positionY="101.20703125" width="128" height="88"/>
+        <element name="Fixture" positionX="-63" positionY="-18" width="128" height="313"/>
+        <element name="HomeTeam" positionX="352.0625" positionY="234.91015625" width="128" height="88"/>
+        <element name="League" positionX="82.27734375" positionY="-8.38671875" width="128" height="103"/>
+        <element name="Score" positionX="89.3515625" positionY="313.3828125" width="128" height="103"/>
+    </elements>
 </model>

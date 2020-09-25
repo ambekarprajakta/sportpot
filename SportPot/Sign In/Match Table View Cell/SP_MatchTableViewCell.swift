@@ -42,7 +42,7 @@ class SP_MatchTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func displayFixture(fixtureModel: Fixture) {
+    func displayFixture(fixtureModel: FixtureMO) {
         //        Date().description(with: .current)  //  Tuesday, February 5, 2019 at 10:35:01 PM Brasilia Summer Time"
         //        let dateString = Date().iso8601withFractionalSeconds   //  "2019-02-06T00:35:01.746Z"
         //
@@ -78,12 +78,12 @@ class SP_MatchTableViewCell: UITableViewCell {
         
         
         //Teams
-        homeTeamNameLabel.text = fixtureModel.homeTeam.team_name
-        awayTeamNameLabel.text = fixtureModel.awayTeam.team_name
+        homeTeamNameLabel.text = fixtureModel.homeTeam?.team_name
+        awayTeamNameLabel.text = fixtureModel.awayTeam?.team_name
         
         //Goals
         if fixtureModel.goalsHomeTeam != nil {
-            homeTeamScoreLabel.text = fixtureModel.goalsHomeTeam
+            homeTeamScoreLabel.text = String(fixtureModel.goalsHomeTeam)
             goalsView.isHidden = false
             teamNameViewLeadingConstraint.constant = 0
         }else {
@@ -94,7 +94,7 @@ class SP_MatchTableViewCell: UITableViewCell {
         
         if fixtureModel.goalsAwayTeam != nil {
             goalsView.isHidden = false
-            awayTeamScoreLabel.text = fixtureModel.goalsAwayTeam
+            awayTeamScoreLabel.text = String(fixtureModel.goalsAwayTeam)
             teamNameViewLeadingConstraint.constant = 0
             
         }else {
@@ -115,4 +115,17 @@ class SP_MatchTableViewCell: UITableViewCell {
          */
     }
     
+    @IBAction func homePointsAction(_ sender: Any) {
+        print("homePointsAction Button Selected")
+    }
+    
+    @IBAction func drawPointsAction(_ sender: Any) {
+        print("drawPointsAction Button Selected")
+    }
+    @IBAction func awayPointsAction(_ sender: Any) {
+        print("awayPointsAction Button Selected")
+    }
+    @IBAction func doublePointsAction(_ sender: Any) {
+        print("doublePointsAction Button Selected")
+    }
 }

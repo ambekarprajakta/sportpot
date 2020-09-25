@@ -34,7 +34,7 @@
                         <rect key="frame" x="8" y="8" width="189.5" height="17"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omO-UM-uPb">
-                                <rect key="frame" x="0.0" y="2" width="36.5" height="13.5"/>
+                                <rect key="frame" x="0.0" y="1.5" width="34" height="14"/>
                                 <attributedString key="attributedText">
                                     <fragment content="LIVE ">
                                         <attributes>
@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="PEP-Dv-IWG">
-                                <rect key="frame" x="36.5" y="2" width="10" height="13.5"/>
+                                <rect key="frame" x="34" y="1.5" width="10" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -80,13 +80,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Draw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhe-aY-ALy">
-                                <rect key="frame" x="55" y="9.5" width="29" height="14"/>
+                                <rect key="frame" x="55" y="9.5" width="28" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mx7-cP-LPs">
-                                <rect key="frame" x="104" y="9.5" width="29.5" height="14"/>
+                                <rect key="frame" x="103" y="9.5" width="29.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                         <rect key="frame" x="41" y="34" width="164.5" height="59"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arsenal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="una-pQ-YIi">
-                                <rect key="frame" x="31" y="7.5" width="44.5" height="14"/>
+                                <rect key="frame" x="31" y="7.5" width="40" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -173,9 +173,12 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="homePointsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NnL-PF-GSX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5Y-f9-EvG">
-                                <rect key="frame" x="54.5" y="15" width="30" height="30"/>
+                                <rect key="frame" x="54" y="15" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.65490196078431373" green="0.25098039215686274" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                 <state key="normal" title="3.0">
@@ -186,9 +189,12 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="drawPointsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gm3-IV-TsC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ml8-Sw-N0F">
-                                <rect key="frame" x="104" y="15" width="30" height="30"/>
+                                <rect key="frame" x="103" y="15" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                 <state key="normal" title="3.0">
@@ -199,8 +205,11 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="awayPointsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1us-lH-y4z"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-Fg-5Ij">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-Fg-5Ij">
                                 <rect key="frame" x="177.5" y="20" width="20" height="20"/>
                                 <color key="backgroundColor" red="0.65490196079999996" green="0.25098039220000001" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -226,6 +235,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doublePointsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qzi-jS-Wev"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
