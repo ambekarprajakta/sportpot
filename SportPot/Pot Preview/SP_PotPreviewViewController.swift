@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SP_PotPreviewViewController: UIViewController {
 
@@ -16,9 +17,26 @@ class SP_PotPreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        potTableView.register(UINib(nibName: "SP_MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
+        setupNavigationBar()
+        getFixturesFromLocalDB()
     }
-    
+    private func setupNavigationBar() {
+        let logo = UIImage(named: "logo-sport-pot.png")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
+    }
+    private func getFixturesFromLocalDB() {
+        let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
+        do {
+            potsArray = try managedObjectContext.fetch(fetchRequest)
+        } catch {
+            print("Error fetching fixtures from local db")
+        }
+        potTableView.reloadData()
+    }
     @IBAction func letsGoAction(_ sender: Any) {
         
     }

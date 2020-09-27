@@ -10,39 +10,84 @@ import UIKit
 import FirebaseAuth
 
 class SP_SignUp_Step2_ViewController: UIViewController {
+    @IBOutlet weak var phoneNumberTextField: SP_UnderlinedTextField!
+    @IBOutlet weak var verificationCodeLabel: SP_UnderlinedTextField!
+    @IBOutlet weak var tncBtn: UIButton!
+    @IBOutlet weak var sendCodeBtn: UIButton!
+    @IBOutlet weak var createAccountBtn: UIButton!
     var window: UIWindow?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupViews()
         // Do any additional setup after loading the view.
     }
-    
+    func setupViews(){
+        self.tncBtn.isHidden = true
+        self.createAccountBtn.isHidden = true
+        self.sendCodeBtn.isHidden = false
+        self.sendCodeBtn.setTitle("Send Code", for: .normal)
+    }
     func sendVerificationCode() {
-        PhoneAuthProvider.provider().verifyPhoneNumber("+91-8149435337", uiDelegate: nil) { (verificationID, error) in
+        //Prajakta test number:"+91-8149435337"
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), uiDelegate: nil) { (verificationID, error) in
             if let error = error {
-                print(error.localizedDescription)
+                self.popupAlert(title: "Error!", message: error.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
+                    }])
                 return
             }else{
                 print(verificationID ?? "")
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID ?? "", verificationCode: "991874")
-                print(credential)
-//                verifyCredWithPhoneNumber(verificationID,"991874")
+                self.popupAlert(title: "Success!", message: "Verification code successfully sent!", actionTitles: ["Okay"], actions: [{ action1 in
+                    self.verificationCodeLabel.becomeFirstResponder()
+                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                    self.tncBtn.isHidden = true
+                    self.createAccountBtn.isHidden = true
+                    self.sendCodeBtn.isHidden = false
+                    self.sendCodeBtn.setTitle("Verify Code", for: .normal)
+                    }])
             }
         }
-        // Sign in using the verificationID and the code sent to the user
-        //...
+    }
+    
+    ///Verify Phone Number
+    func verifyCredWithPhoneNumber(verificationID: String, verificationCode:String) {
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: self.verificationCodeLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines) )
+        print(credential)
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if error == nil {
+                //Check TnC
+                // User is signed in
+                self.tncBtn.isHidden = false
+                self.createAccountBtn.isHidden = false
+                self.sendCodeBtn.isHidden = true
+            }else {
+                self.popupAlert(title: "Error!", message: error?.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
+                    }])
+                return
+            }
+            return
+        }
     }
     
     
-    func verifyCredWithPhoneNumber(verificationID: String, verificationCode:String) {
-        
+    @IBAction func authenticateCode(_ sender: UIButton) {
+        if sender.titleLabel?.text == "Send Code" {
+            sendVerificationCode()
+        }else{
+            verifyCredWithPhoneNumber(verificationID: UserDefaults.standard.string(forKey: "authVerificationID") ?? "", verificationCode: verificationCodeLabel.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+        }
+    }
+    
+    @IBAction func tncAction(_ sender: UIButton) {
+        tncBtn.isSelected = !sender.isSelected
     }
     @IBAction func createAccountAction(_ sender: Any) {
-        
-        sendVerificationCode()
-//        pushToHomeScreen()
-        
+        //        sendVerificationCode()
+        if self.tncBtn.isSelected {
+            pushToHomeScreen()
+        }else{
+            self.popupAlert(title: "Error!", message: "Please check the Terms and Conditions", actionTitles: ["Okay"], actions: [{ action1 in
+                }])
+        }
     }
     
     func pushToHomeScreen() {

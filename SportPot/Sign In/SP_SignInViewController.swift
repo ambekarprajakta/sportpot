@@ -39,16 +39,16 @@ class SP_SignInViewController: UIViewController {
         guard let username = emailOrPhoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !username.isEmpty else {
             // Show invalid username error here...
             self.popupAlert(title: "Error", message: ErrorMessages.emailPhoneError, actionTitles: ["Close"], actions: [{ action1 in
-            self.emailOrPhoneTextField.text = ""
-            }])
-
+                self.emailOrPhoneTextField.text = ""
+                }])
+            
             return
         }
         guard let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             // Show password empty error here...
             self.popupAlert(title: "Error", message: ErrorMessages.passwordError, actionTitles: ["Close"], actions: [{ action1 in
-            self.passwordTextField.text = ""
-            }])
+                self.passwordTextField.text = ""
+                }])
             return
         }
         

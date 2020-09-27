@@ -23,6 +23,8 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     @IBOutlet weak var continueButton: UIButton!
     
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,46 +42,69 @@ class SP_SignUp_Step1_ViewController: UIViewController {
         return true
     }
     func showSignupVCNotification() {
-            let signUp1VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
-            self.present(signUp1VC, animated: true, completion: nil)
-        
-
-
+        let signUp1VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
+        self.present(signUp1VC, animated: true, completion: nil)
     }
+    
+    func checkUsernameAvailable(userName: String) {
+        db.collection("user").getDocuments(completion: { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {
+                print("Error retreiving documents \(error!)")
+                return
+            }
+            for document in snapshot.documents{
+                print(snapshot.documents)
+                let displayName = document.data()["displayName"] as? String ?? ""
+                let email = document.data()["email"] as? String ?? ""
+                print("displayName: \(displayName), email: \(email)")
+                if displayName == userName {
+                    self.popupAlert(title: "Oops!", message: ErrorMessages.userNameExistsError, actionTitles: ["Close"], actions: [{ action1 in
+                        self.nameTextField.becomeFirstResponder()
+                        }])
+                    return
+                }
+            }
+            self.createUser()
+        })
+        
+    }
+    //    else{
+    //                self.popupAlert(title: "Oops!", message: ErrorMessages.userNameExistsError, actionTitles: ["Close"], actions: [{ action1 in
+    //    //                self.nameTextField.text = ""
+    //                }])
+    //            }
     // MARK: - Actions
     fileprivate func createUser() {
         let username = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         //Create the user
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            
             //Check for errors
             if err != nil {
                 //There was an error
-                //self.showError("Error creating user")
-            }
-            else {
-                
+                self.popupAlert(title: "Oops!", message: err?.localizedDescription, actionTitles: ["Close"], actions: [{ action1 in
+                    }])
+            }else {
                 //User was created successfully, now store the first name and last name
-                let db = Firestore.firestore()
-                db.collection("user").document(String((result?.user.uid)!)).setData([
+                self.db.collection("user").document(String((result?.user.uid)!)).setData([
                     "id" : String((result?.user.uid)!),
                     "email":email,
                     "displayName" : username,
                     "points" : 0
                 ], merge: true){ (error) in
-                    
+                    //If all good, proceed!
+                    let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+                    self.present(signUp2VC, animated: true, completion: nil)
                     print("User successfully created!")
-
                 }
             }
         }
     }
     
     @IBAction func continueButtonAction(_ sender: Any) {
-        createUser()
+        //TODO: Uncomment this after testing
+        //        checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
         let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
         self.present(signUp2VC, animated: true, completion: nil)
     }

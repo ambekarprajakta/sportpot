@@ -20,6 +20,7 @@ struct Constants {
 struct ErrorMessages {
     static let passwordError = "Please enter a password"
     static let emailPhoneError = "Please enter registered email address or phone number"
+    static let userNameExistsError = "Username already exists! Please try another one!"
 }
 struct APIEndPoints {
     static let getNextFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/next/10?timezone="

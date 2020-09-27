@@ -9,7 +9,7 @@
 import UIKit
 
 class SP_GetStartedViewController: UIViewController {
-
+    
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     
@@ -22,13 +22,13 @@ class SP_GetStartedViewController: UIViewController {
         super.viewWillAppear(false)
         NotificationCenter.default.addObserver(self, selector: #selector(signUpAction(_:)), name: NSNotification.Name(rawValue: "showSignupVCNotification"), object: nil)
     }
-
+    
     func setupUI() {
         signUpButton.layer.cornerRadius = signUpButton.frame.size.height/2
         signInButton.layer.cornerRadius = signInButton.frame.size.height/2
     }
-
-     // MARK: - Button Actions
+    
+    // MARK: - Button Actions
     
     @IBAction func signUpAction(_ sender: Any) {
         let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
@@ -42,13 +42,13 @@ class SP_GetStartedViewController: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

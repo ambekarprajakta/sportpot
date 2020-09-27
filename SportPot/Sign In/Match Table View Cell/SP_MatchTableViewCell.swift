@@ -56,10 +56,10 @@ class SP_MatchTableViewCell: UITableViewCell {
         drawPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
         randomPoints = Float.random(in: 0...5)
         awayPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
-
+        
         //Match Time
         let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
-        if timeDiff > 0{ //Always <
+        if timeDiff < 0{ //Always <
             //TODO: Check other statuses to handle the cases
             if fixtureModel.statusShort == "NS" { //Always !=NS
                 matchTimeLabel.isHidden = true
@@ -77,32 +77,13 @@ class SP_MatchTableViewCell: UITableViewCell {
             let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
             matchTimeLabel.text = time.dateAndTimetoString()
         }
-        
-        //Match Time
-//        let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
-//        if timeDiff > 0{ //Always >= , > greater than 0 denotes Match has started
-//            //TODO: Check other statuses to handle the cases
-//            if fixtureModel.statusShort == "NS" { //Always ==NS
-//                liveView.isHidden = true
-//                goalsView.isHidden = true
-//                teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
-//                let timestamp = fixtureModel.event_timestamp
-//                let myTimeInterval = TimeInterval(timestamp)
-//                let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
-//                matchTimeLabel.text = time.dateAndTimetoString()
-//            }
-//        }else {
-//            matchTimeLabel.isHidden = true
-//            liveView.isHidden = false
-//            goalsView.isHidden = false
-//            teamNameViewLeadingConstraint.constant = 0
-//            liveMinuteLabel.text = String(fixtureModel.elapsed)+"'"
-//        }
-        
-        //Logo
-//            homeTeamLogo.image =  UIImage.init(named: fixtureModel.homeTeam?.logo ?? "")
-//            awayTeamLogo.image = UIImage.init(named: fixtureModel.awayTeam?.logo ?? "")
 
+        //Logo
+        downloadLogo(url: URL(string: fixtureModel.homeTeam?.logo ?? "")!, forImageView: homeTeamLogo)
+        downloadLogo(url: URL(string: fixtureModel.awayTeam?.logo ?? "")!, forImageView: awayTeamLogo)
+        //            homeTeamLogo.image =  UIImage.init(named: fixtureModel.homeTeam?.logo ?? "")
+        //            awayTeamLogo.image = UIImage.init(named: fixtureModel.awayTeam?.logo ?? "")
+        
         //Teams
         homeTeamNameLabel.text = fixtureModel.homeTeam?.team_name
         awayTeamNameLabel.text = fixtureModel.awayTeam?.team_name
@@ -122,25 +103,27 @@ class SP_MatchTableViewCell: UITableViewCell {
             goalsView.isHidden = false
             awayTeamScoreLabel.text = String(fixtureModel.goalsAwayTeam)
             teamNameViewLeadingConstraint.constant = 0
-    
+            
         }else {
             awayTeamScoreLabel.text = "-"
             goalsView.isHidden = true
             teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
         }
-        
-        
-        /*
-         if indexPath.section % 2 == 0 {
-         matchCell.matchLabel.text = todayDate
-         }else if indexPath.section % 3 == 0{
-         matchCell.matchLabel.text = "20:30"
-         }else{
-         matchCell.matchLabel.text = "LIVE | 49'"
-         }
-         */
     }
-    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    func downloadLogo(url: URL, forImageView: UIImageView) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                forImageView.image = UIImage(data: data)
+            }
+        }
+    }
     @IBAction func homePointsAction(_ sender: Any) {
         print("homePointsAction Button Selected")
     }

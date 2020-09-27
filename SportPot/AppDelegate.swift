@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        // get current number of times app has been launched
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        // increment received number by one
+        UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
+        UserDefaults.standard.synchronize()
         return true
     }
     func application(_ application: UIApplication,
@@ -30,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         // This notification is not auth related, developer should handle it.
-//        handleNotification(notification)
+        //        handleNotification(notification)
     }
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     }
