@@ -12,7 +12,7 @@ import CoreData
 
 extension FixtureMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<FixtureMO> {
+    @nonobjc public static func fetchRequest() -> NSFetchRequest<FixtureMO> {
         return NSFetchRequest<FixtureMO>(entityName: "Fixture")
     }
 
@@ -30,8 +30,8 @@ extension FixtureMO {
     @NSManaged public var status: String?
     @NSManaged public var statusShort: String?
     @NSManaged public var venue: String?
-    @NSManaged public var awayTeam: AwayTeamMO?
-    @NSManaged public var homeTeam: HomeTeamMO?
+    @NSManaged public var awayTeam: TeamMO?
+    @NSManaged public var homeTeam: TeamMO?
     @NSManaged public var league: LeagueMO?
     @NSManaged public var score: ScoreMO?
 

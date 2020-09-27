@@ -50,12 +50,18 @@ class SP_MatchTableViewCell: UITableViewCell {
         //            date.description(with: .current) // "Tuesday, February 5, 2019 at 10:35:01 PM Brasilia Summer Time"
         //            print(date.iso8601withFractionalSeconds)           //  "2019-02-06T00:35:01.746Z\n"
         //        }
-        
+        var randomPoints = Float.random(in: 0...5)
+        homePointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
+        randomPoints = Float.random(in: 0...5)
+        drawPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
+        randomPoints = Float.random(in: 0...5)
+        awayPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
+
         //Match Time
         let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
-        if timeDiff <= 0{ //Always <
+        if timeDiff > 0{ //Always <
             //TODO: Check other statuses to handle the cases
-            if fixtureModel.statusShort != "NS" { //Always !=NS
+            if fixtureModel.statusShort == "NS" { //Always !=NS
                 matchTimeLabel.isHidden = true
                 liveView.isHidden = false
                 goalsView.isHidden = false
@@ -72,17 +78,37 @@ class SP_MatchTableViewCell: UITableViewCell {
             matchTimeLabel.text = time.dateAndTimetoString()
         }
         
+        //Match Time
+//        let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
+//        if timeDiff > 0{ //Always >= , > greater than 0 denotes Match has started
+//            //TODO: Check other statuses to handle the cases
+//            if fixtureModel.statusShort == "NS" { //Always ==NS
+//                liveView.isHidden = true
+//                goalsView.isHidden = true
+//                teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
+//                let timestamp = fixtureModel.event_timestamp
+//                let myTimeInterval = TimeInterval(timestamp)
+//                let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
+//                matchTimeLabel.text = time.dateAndTimetoString()
+//            }
+//        }else {
+//            matchTimeLabel.isHidden = true
+//            liveView.isHidden = false
+//            goalsView.isHidden = false
+//            teamNameViewLeadingConstraint.constant = 0
+//            liveMinuteLabel.text = String(fixtureModel.elapsed)+"'"
+//        }
+        
         //Logo
-        //        homeTeamLogo.image = fixtureModel.homeTeam.logo
-        //        awayTeamLogo.image = fixtureModel.awayTeam.logo
-        
-        
+//            homeTeamLogo.image =  UIImage.init(named: fixtureModel.homeTeam?.logo ?? "")
+//            awayTeamLogo.image = UIImage.init(named: fixtureModel.awayTeam?.logo ?? "")
+
         //Teams
         homeTeamNameLabel.text = fixtureModel.homeTeam?.team_name
         awayTeamNameLabel.text = fixtureModel.awayTeam?.team_name
         
-        //Goals
-        if fixtureModel.goalsHomeTeam != nil {
+        //Goals        
+        if (NSNumber(value: fixtureModel.goalsHomeTeam).intValue >= 0 && fixtureModel.statusShort != "NS") {
             homeTeamScoreLabel.text = String(fixtureModel.goalsHomeTeam)
             goalsView.isHidden = false
             teamNameViewLeadingConstraint.constant = 0
@@ -92,11 +118,11 @@ class SP_MatchTableViewCell: UITableViewCell {
             teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
         }
         
-        if fixtureModel.goalsAwayTeam != nil {
+        if (NSNumber(value: fixtureModel.goalsAwayTeam).intValue >= 0 && fixtureModel.statusShort != "NS") {
             goalsView.isHidden = false
             awayTeamScoreLabel.text = String(fixtureModel.goalsAwayTeam)
             teamNameViewLeadingConstraint.constant = 0
-            
+    
         }else {
             awayTeamScoreLabel.text = "-"
             goalsView.isHidden = true

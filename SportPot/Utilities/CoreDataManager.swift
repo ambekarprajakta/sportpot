@@ -10,6 +10,10 @@ import Foundation
 import CoreData
 import UIKit
 
+extension CodingUserInfoKey {
+    static let context = CodingUserInfoKey(rawValue: "context")
+}
+
 class CoreDataManager {
     
     //1
@@ -21,10 +25,9 @@ class CoreDataManager {
     lazy var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "SportPot")
-        
-        
+
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            
+
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SportPot/Utilities/FixtureMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:SportPot/Utilities/FixtureMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:SportPot.xcodeproj">
    </FileRef>
    <FileRef

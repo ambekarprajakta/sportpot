@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09542D32251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D31251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift */; };
+		09542D34251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D33251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift */; };
+		09542D36251F6C100060AB46 /* LeagueMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D35251F6C100060AB46 /* LeagueMO+CoreDataClass.swift */; };
+		09542D38251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D37251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift */; };
+		09542D3A251F6DD00060AB46 /* TeamMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D39251F6DD00060AB46 /* TeamMO+CoreDataClass.swift */; };
+		09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3B251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift */; };
+		09542D3F251F71630060AB46 /* FixtureMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3D251F71630060AB46 /* FixtureMO+CoreDataProperties.swift */; };
+		09542D40251F71630060AB46 /* FixtureMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */; };
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
 		2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D1FB251A204D00BA91EA /* Utils.swift */; };
 		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
@@ -61,6 +69,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09542D31251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09542D33251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScoreMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09542D35251F6C100060AB46 /* LeagueMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09542D37251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09542D39251F6DD00060AB46 /* TeamMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		09542D3B251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09542D3D251F71630060AB46 /* FixtureMO+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -130,6 +146,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09542D30251F69950060AB46 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */,
+				09542D3D251F71630060AB46 /* FixtureMO+CoreDataProperties.swift */,
+				09542D31251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift */,
+				09542D33251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift */,
+				09542D35251F6C100060AB46 /* LeagueMO+CoreDataClass.swift */,
+				09542D37251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift */,
+				09542D39251F6DD00060AB46 /* TeamMO+CoreDataClass.swift */,
+				09542D3B251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift */,
+			);
+			path = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		2C3B45C2250C49F000D42300 /* Match Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +193,7 @@
 		2C3F59BF25013A24001C8667 /* SportPot */ = {
 			isa = PBXGroup;
 			children = (
+				09542D30251F69950060AB46 /* ManagedObjects */,
 				2C3B45BB2507E4F600D42300 /* SportPot.entitlements */,
 				2C3F59F525013C3C001C8667 /* Utilities */,
 				2C3F5A01250193D7001C8667 /* Font */,
@@ -447,9 +479,14 @@
 			files = (
 				2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */,
 				2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */,
+				09542D38251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
+				09542D3F251F71630060AB46 /* FixtureMO+CoreDataProperties.swift in Sources */,
+				09542D36251F6C100060AB46 /* LeagueMO+CoreDataClass.swift in Sources */,
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
+				09542D34251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
+				09542D40251F71630060AB46 /* FixtureMO+CoreDataClass.swift in Sources */,
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */,
 				2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */,
@@ -460,7 +497,10 @@
 				2CF088E6251D246E00501FBC /* SP_PotPreviewViewController.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
+				09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
+				09542D3A251F6DD00060AB46 /* TeamMO+CoreDataClass.swift in Sources */,
+				09542D32251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift in Sources */,
 				2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */,
 				2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */,
 			);
@@ -637,13 +677,13 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
-				DEVELOPMENT_TEAM = SN349MRKZ2;
+				DEVELOPMENT_TEAM = 8FK5W834JB;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -656,9 +696,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
-				DEVELOPMENT_TEAM = SN349MRKZ2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -666,6 +707,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

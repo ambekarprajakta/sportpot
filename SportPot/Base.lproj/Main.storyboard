@@ -147,17 +147,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4T-rX-sBb">
                                                 <rect key="frame" x="35" y="186.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content=" ">
+                                                    <fragment content=" Username">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Username">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -189,24 +182,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-cR-pHM">
                                                 <rect key="frame" x="35" y="292.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="">
+                                                    <fragment content=" Email">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content=" ">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Email">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -295,21 +274,21 @@
                                                     <fragment content="">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content=" ">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="11" name="FontAwesome5Free-Regular"/>
+                                                            <font key="NSFont" metaFont="label" size="11"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
                                                     <fragment content="Password">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -341,24 +320,10 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu6-XT-HI8">
                                                 <rect key="frame" x="35" y="504.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="">
+                                                    <fragment content=" Confirm Password">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content=" ">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="FontAwesome5Free-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Confirm Password">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -516,14 +481,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGr-0x-lFw">
                                 <rect key="frame" x="35" y="240.5" width="344" height="21"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="17" name="FontAwesome5Free-Solid"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
+                                    <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <font key="NSFont" metaFont="system" size="17"/>
@@ -533,7 +491,7 @@
                                     <fragment content="Email">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -570,21 +528,21 @@
                                     <fragment content="">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content=" ">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="11" name="FontAwesome5Free-Regular"/>
+                                            <font key="NSFont" metaFont="label" size="11"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
                                     <fragment content="Password">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
@@ -735,96 +693,6 @@
             </objects>
             <point key="canvasLocation" x="-157" y="3038"/>
         </scene>
-        <!--Instructions Popup View Controller-->
-        <scene sceneID="R5r-BC-Fq4">
-            <objects>
-                <viewController storyboardIdentifier="SP_InstructionsPopupViewController" id="Yi0-8u-1J3" customClass="SP_InstructionsPopupViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wPK-H7-cLJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q18-jV-jv0" userLabel="Instructions View">
-                                <rect key="frame" x="62" y="257.5" width="290" height="381"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="mlI-1n-we1">
-                                        <rect key="frame" x="124.5" y="30" width="41" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="mlI-1n-we1" secondAttribute="height" multiplier="1:1" id="OUL-Qg-QAh"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="sOx-1Z-zBn">
-                                        <rect key="frame" x="15" y="86" width="260" height="29.5"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Place your bets on the 10 matches   2. Invite your friends to the pot   3. Player with most correct bets- wins!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhC-zl-Dfj">
-                                        <rect key="frame" x="15" y="145.5" width="260" height="130.5"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKc-z7-taf">
-                                        <rect key="frame" x="94.5" y="306" width="101" height="45"/>
-                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="Aof-P4-H2w"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Got it">
-                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="dismissAction:" destination="Yi0-8u-1J3" eventType="touchUpInside" id="AIP-Sp-1zc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="oKc-z7-taf" secondAttribute="bottom" constant="30" id="EBr-Ep-yhT"/>
-                                    <constraint firstItem="oKc-z7-taf" firstAttribute="width" secondItem="Q18-jV-jv0" secondAttribute="width" multiplier="0.35" id="Eu4-ro-8B6"/>
-                                    <constraint firstItem="sOx-1Z-zBn" firstAttribute="leading" secondItem="Q18-jV-jv0" secondAttribute="leading" constant="15" id="GkW-3e-GwA"/>
-                                    <constraint firstItem="oKc-z7-taf" firstAttribute="centerX" secondItem="Q18-jV-jv0" secondAttribute="centerX" id="Jk8-Vj-5S2"/>
-                                    <constraint firstItem="WhC-zl-Dfj" firstAttribute="leading" secondItem="sOx-1Z-zBn" secondAttribute="leading" id="Pim-Ql-CDV"/>
-                                    <constraint firstItem="sOx-1Z-zBn" firstAttribute="top" secondItem="mlI-1n-we1" secondAttribute="bottom" constant="15" id="XEC-rn-y7Q"/>
-                                    <constraint firstItem="WhC-zl-Dfj" firstAttribute="trailing" secondItem="sOx-1Z-zBn" secondAttribute="trailing" id="b1v-MB-z0y"/>
-                                    <constraint firstAttribute="trailing" secondItem="sOx-1Z-zBn" secondAttribute="trailing" constant="15" id="b8d-dv-wnE"/>
-                                    <constraint firstItem="mlI-1n-we1" firstAttribute="top" secondItem="Q18-jV-jv0" secondAttribute="top" constant="30" id="nvJ-wj-zxl"/>
-                                    <constraint firstItem="WhC-zl-Dfj" firstAttribute="top" secondItem="sOx-1Z-zBn" secondAttribute="bottom" constant="30" id="vZS-2F-iJf"/>
-                                    <constraint firstItem="oKc-z7-taf" firstAttribute="top" secondItem="WhC-zl-Dfj" secondAttribute="bottom" constant="30" id="wj1-51-sFr"/>
-                                    <constraint firstItem="mlI-1n-we1" firstAttribute="centerX" secondItem="Q18-jV-jv0" secondAttribute="centerX" id="yIm-p7-N4r"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Q18-jV-jv0" firstAttribute="width" secondItem="wPK-H7-cLJ" secondAttribute="width" multiplier="0.7" id="Aek-F6-BTj"/>
-                            <constraint firstItem="mlI-1n-we1" firstAttribute="width" secondItem="wPK-H7-cLJ" secondAttribute="width" multiplier="0.1" id="G60-eL-KcH"/>
-                            <constraint firstItem="Q18-jV-jv0" firstAttribute="centerX" secondItem="wPK-H7-cLJ" secondAttribute="centerX" id="KKW-eq-1in"/>
-                            <constraint firstItem="Q18-jV-jv0" firstAttribute="centerY" secondItem="wPK-H7-cLJ" secondAttribute="centerY" id="oin-FK-ap6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="PE9-rn-Htm"/>
-                    </view>
-                    <connections>
-                        <outlet property="popupDetailTextLabel" destination="WhC-zl-Dfj" id="xFh-Iu-gbJ"/>
-                        <outlet property="popupTitleLabel" destination="sOx-1Z-zBn" id="nvm-eP-vid"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oB3-lc-jcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1342" y="1302"/>
-        </scene>
         <!--Home View Controller-->
         <scene sceneID="w5b-ls-lDa">
             <objects>
@@ -884,7 +752,7 @@
                                     <fragment content="35">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -900,7 +768,7 @@ Cg
                                     <fragment content="points">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="8" name="Ubuntu-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="8"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1192,21 +1060,21 @@ Cg
                                                         <fragment content="">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                                <font key="NSFont" metaFont="menu" size="14"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content=" ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="18" name="FontAwesome5Free-Solid"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Resend Code">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1225,7 +1093,7 @@ Cg
                                                         <fragment content="I agree with the ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1234,21 +1102,21 @@ Cg
 </string>
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="and the ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Privacy Policy">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1259,28 +1127,28 @@ Cg
                                                         <fragment content="I agree with the ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.32940999999999998" green="0.39607999999999999" blue="0.42745" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Terms &amp; Conditions ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98733000000000004" green="0.72567000000000004" blue="0.25470999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="and the ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.32940999999999998" green="0.39607999999999999" blue="0.42745" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Privacy Policy">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98733000000000004" green="0.72567000000000004" blue="0.25470999999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="17" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
                                                         </fragment>
@@ -1405,7 +1273,7 @@ Cg
         <scene sceneID="lLH-7m-4y9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aup-Dh-z5B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Pots" image="pot" selectedImage="football" id="PBQ-Ai-gWY"/>
+                    <tabBarItem key="tabBarItem" title="My Pots" image="unselected-pot" selectedImage="selected-pot" id="PBQ-Ai-gWY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxd-2x-96q">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1425,7 +1293,7 @@ Cg
         <scene sceneID="vwP-d8-Gam">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kyc-UE-Mc8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="bell" badgeValue="10" selectedImage="football" id="jPd-iw-cUE"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="selected-bell" badgeValue="10" selectedImage="unselected-bell" id="jPd-iw-cUE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BGC-34-0fo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1444,7 +1312,7 @@ Cg
         <scene sceneID="jeK-GL-Hnt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xLt-kn-Y0e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="football" id="4x7-nW-Ayk"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="unselected-settings" selectedImage="selected-settings" id="4x7-nW-Ayk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="35X-ou-jhc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1483,7 +1351,7 @@ Cg
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="X8x-dH-uFn">
-                                <rect key="frame" x="357.5" y="99.5" width="40" height="40"/>
+                                <rect key="frame" x="360" y="100" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="GaX-QA-vko"/>
@@ -1493,7 +1361,7 @@ Cg
                                     <fragment content="35">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -1506,19 +1374,19 @@ Cg
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-jw-QnA">
-                                <rect key="frame" x="15" y="108" width="82.5" height="22.5"/>
+                                <rect key="frame" x="15" y="108" width="76.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDw-eN-DLP">
-                                <rect key="frame" x="348.5" y="147.5" width="57.5" height="11.5"/>
+                                <rect key="frame" x="353.5" y="148" width="52.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zI6-mk-V2b">
-                                <rect key="frame" x="15" y="179" width="384" height="589"/>
+                                <rect key="frame" x="15" y="180" width="384" height="588"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1569,16 +1437,113 @@ Cg
             </objects>
             <point key="canvasLocation" x="-332" y="1582"/>
         </scene>
+        <!--Instructions Popup View Controller-->
+        <scene sceneID="60J-Vb-Iv0">
+            <objects>
+                <viewController storyboardIdentifier="SP_InstructionsPopupViewController" id="uwI-2X-Tdy" customClass="SP_InstructionsPopupViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NE7-5f-fPd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-zx-Fa2" userLabel="Instructions View">
+                                <rect key="frame" x="85" y="259" width="244" height="378"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-SA-fhg">
+                                        <rect key="frame" x="101.5" y="45" width="41" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="k9k-SA-fhg" secondAttribute="height" multiplier="1:1" id="NUv-FT-pOg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4h-FA-xAt">
+                                        <rect key="frame" x="25" y="94" width="194" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Place your bets on the 10 matches   2. Invite your friends to the pot   3. Player with most correct bets- wins!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-f6-tqy">
+                                        <rect key="frame" x="25" y="131.5" width="194" height="149.5"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQB-Qg-Xh5">
+                                        <rect key="frame" x="63" y="301" width="118" height="35"/>
+                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Zcu-Zs-ZRd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Got it">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="dismissAction:" destination="uwI-2X-Tdy" eventType="touchUpInside" id="vTy-rz-QHH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="D4h-FA-xAt" firstAttribute="top" secondItem="k9k-SA-fhg" secondAttribute="bottom" constant="8" id="2ct-Gc-das"/>
+                                    <constraint firstItem="D4h-FA-xAt" firstAttribute="leading" secondItem="6rj-zx-Fa2" secondAttribute="leading" constant="25" id="5VA-m2-s30"/>
+                                    <constraint firstAttribute="bottom" secondItem="TQB-Qg-Xh5" secondAttribute="bottom" constant="42" id="EMa-Qk-vDN"/>
+                                    <constraint firstItem="k9k-SA-fhg" firstAttribute="centerX" secondItem="6rj-zx-Fa2" secondAttribute="centerX" id="FlI-9Q-O5o"/>
+                                    <constraint firstItem="JCz-f6-tqy" firstAttribute="leading" secondItem="D4h-FA-xAt" secondAttribute="leading" id="IgS-Qn-Bb1"/>
+                                    <constraint firstAttribute="trailing" secondItem="D4h-FA-xAt" secondAttribute="trailing" constant="25" id="JbX-wE-BKY"/>
+                                    <constraint firstItem="TQB-Qg-Xh5" firstAttribute="width" secondItem="6rj-zx-Fa2" secondAttribute="width" multiplier="0.483" id="SIR-XF-blX"/>
+                                    <constraint firstItem="k9k-SA-fhg" firstAttribute="top" secondItem="6rj-zx-Fa2" secondAttribute="top" constant="45" id="czz-2u-AN2"/>
+                                    <constraint firstItem="JCz-f6-tqy" firstAttribute="top" secondItem="D4h-FA-xAt" secondAttribute="bottom" constant="8" id="iWR-Xo-ZBs"/>
+                                    <constraint firstItem="JCz-f6-tqy" firstAttribute="trailing" secondItem="D4h-FA-xAt" secondAttribute="trailing" id="uUP-dS-Y4y"/>
+                                    <constraint firstItem="TQB-Qg-Xh5" firstAttribute="centerX" secondItem="6rj-zx-Fa2" secondAttribute="centerX" id="xQ7-MI-s53"/>
+                                    <constraint firstItem="TQB-Qg-Xh5" firstAttribute="top" secondItem="JCz-f6-tqy" secondAttribute="bottom" constant="20" id="zIX-6e-2Gi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6rj-zx-Fa2" firstAttribute="width" secondItem="NE7-5f-fPd" secondAttribute="width" multiplier="0.59" id="5yL-oq-QaG"/>
+                            <constraint firstItem="k9k-SA-fhg" firstAttribute="width" secondItem="NE7-5f-fPd" secondAttribute="width" multiplier="0.1" id="HRo-UA-uzj"/>
+                            <constraint firstItem="6rj-zx-Fa2" firstAttribute="centerY" secondItem="NE7-5f-fPd" secondAttribute="centerY" id="Itx-z5-j3o"/>
+                            <constraint firstItem="6rj-zx-Fa2" firstAttribute="centerX" secondItem="NE7-5f-fPd" secondAttribute="centerX" id="VIo-C0-mjM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xm7-ZO-IX9"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertActionButton" destination="TQB-Qg-Xh5" id="Iq5-hW-84v"/>
+                        <outlet property="alertContainerView" destination="6rj-zx-Fa2" id="Ycy-PC-y1W"/>
+                        <outlet property="alertIconTopConstraint" destination="czz-2u-AN2" id="DpU-3I-OL1"/>
+                        <outlet property="popupDetailTextLabel" destination="JCz-f6-tqy" id="I6b-OR-Epc"/>
+                        <outlet property="popupTitleLabel" destination="D4h-FA-xAt" id="Wsg-v3-qbj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v76-8t-RYq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440.57971014492756" y="1575.6696428571429"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bell" width="21" height="23"/>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="football" width="20" height="20"/>
         <image name="friends-dashboard" width="70" height="70"/>
         <image name="logo-sport-pot" width="86" height="103"/>
         <image name="pot" width="25" height="25"/>
-        <image name="settings" width="24.5" height="23"/>
+        <image name="selected-bell" width="21" height="23"/>
+        <image name="selected-pot" width="25" height="25"/>
+        <image name="selected-settings" width="24.5" height="23"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
+        <image name="unselected-bell" width="21" height="23"/>
+        <image name="unselected-pot" width="25" height="25"/>
+        <image name="unselected-settings" width="24.5" height="23"/>
         <image name="you-dashboard" width="70" height="70"/>
     </resources>
 </document>

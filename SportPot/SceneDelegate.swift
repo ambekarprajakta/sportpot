@@ -27,15 +27,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         guard let window = self.window else { return }
         window.makeKeyAndVisible()
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
+        //if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
             // Show home page
             let homeVC: SP_MainTabBarViewController = storyboard.instantiateViewController(withIdentifier: "SP_MainTabBarViewController") as! SP_MainTabBarViewController
             self.window?.rootViewController = homeVC
-        } else {
+        /*} else {
             // Show login page
             let loginVC: SP_GetStartedViewController = storyboard.instantiateViewController(withIdentifier: "SP_GetStartedViewController") as! SP_GetStartedViewController
             self.window?.rootViewController = loginVC
-        }
+        }*/
         self.window?.makeKeyAndVisible()
     }
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
