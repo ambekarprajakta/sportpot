@@ -19,23 +19,9 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleURLName</key>
-			<string>com.sportpot.Sportpot</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.405672373112-0m2mc6vektjl8fapfjh5iskdcr3isngi</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.sportpot.Sportpot</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.sportpot.Sportpot.sportpot</string>
+				<string></string>
 			</array>
 		</dict>
 	</array>
@@ -93,18 +79,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>branch_key</key>
-    <string>key_test_ehO5M8O6qNrWB29A1dzwtphlBDbGTpyD</string>
-    <key>branch_app_domain</key>
-    <string>sportpot.test-app.link</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string></string>
-        </array>
-      </dict>
-    </array>
+	<key>branch_key</key>
+	<string>key_live_dnQ5G0LYvGA3s2Xx3alZ8nonDvnMSfCk</string>
+	<key>branch_app_domain</key>
+	<string>sportpot.app.link</string>
+	<key>branch_universal_links_domains</key>
+	<array>
+		<string>sportpot.app.link</string>
+		<string>sportpot-alternate.app.link</string>
+		<string>sportpot.test-app.link</string>
+		<string>sportpot-alternate.test-app.link</string>
+	</array>
 </dict>
 </plist>

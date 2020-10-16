@@ -15,6 +15,7 @@
 		09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3B251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift */; };
 		09542D3F251F71630060AB46 /* FixtureMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3D251F71630060AB46 /* FixtureMO+CoreDataProperties.swift */; };
 		09542D40251F71630060AB46 /* FixtureMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */; };
+		2C19B5702539E83400D6B399 /* SportPot.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45BB2507E4F600D42300 /* SportPot.entitlements */; };
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
 		2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D1FB251A204D00BA91EA /* Utils.swift */; };
 		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
@@ -396,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C19B5702539E83400D6B399 /* SportPot.entitlements in Resources */,
 				2C3F5A0625019402001C8667 /* Ubuntu-LightItalic.ttf in Resources */,
 				2C3F5A02250193F5001C8667 /* Ubuntu-Bold.ttf in Resources */,
 				2C3F5A0825019407001C8667 /* Ubuntu-MediumItalic.ttf in Resources */,
