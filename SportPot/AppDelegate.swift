@@ -26,13 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // increment received number by one
         UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
         UserDefaults.standard.synchronize()
-        // if you are using the TEST key
-        Branch.setUseTestBranchKey(true)
-        // listener for Branch Deep Link data
-        Branch.getInstance().initSession(launchOptions: launchOptions) { (params, error) in
-            // do stuff with deep link data (nav to page, display content, etc)
-            print(params as? [String: AnyObject] ?? {})
-        }
+        // This version of initSession includes the source UIScene in the callback
+        BranchScene.shared().initSession(launchOptions: launchOptions, registerDeepLinkHandler: { (params, error, scene) in
+        })
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

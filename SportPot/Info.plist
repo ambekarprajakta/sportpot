@@ -21,7 +21,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string></string>
+				<string>sportpotapp</string>
 			</array>
 		</dict>
 	</array>

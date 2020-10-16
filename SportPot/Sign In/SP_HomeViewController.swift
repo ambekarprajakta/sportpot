@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FirebaseDynamicLinks
+import Branch
 
 class SP_HomeViewController: UIViewController {
     
@@ -30,7 +31,10 @@ class SP_HomeViewController: UIViewController {
         
         //        showFixtures() // Initially show fixtures from local db
         getFixturesFromServer() // Get latest fixtures from api
-        createDeepLink()
+//        createDeepLink()
+        //Branch Setup
+        Branch.getInstance().validateSDKIntegration()
+//        Branch.getInstance().setIdentity("salim123") //Testing
     }
     
     private func setupNavigationBar() {
@@ -182,6 +186,7 @@ class SP_HomeViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+        Branch.getInstance().logout()
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Branch
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -22,6 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.overrideUserInterfaceStyle = .light
         }
         self.loadBaseController()
+        guard let _ = (scene as? UIWindowScene) else { return }
+                // workaround for SceneDelegate continueUserActivity not getting called on cold start
+          if let userActivity = connectionOptions.userActivities.first {
+              
+              BranchScene.shared().scene(scene, continue: userActivity)
+          }
+
     }
     func loadBaseController() {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -51,6 +58,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                           animations: nil,
                           completion: nil)
 
+    }
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        BranchScene.shared().scene(scene, continue: userActivity)
+    }
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        BranchScene.shared().scene(scene, openURLContexts: URLContexts)
     }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
