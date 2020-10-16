@@ -22,7 +22,6 @@ class SP_SignUp_Step2_ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func setupViews(){
-        self.tncBtn.isHidden = true
         self.createAccountBtn.isHidden = true
         self.sendCodeBtn.isHidden = false
         self.sendCodeBtn.setTitle("Send Code", for: .normal)
@@ -39,7 +38,6 @@ class SP_SignUp_Step2_ViewController: UIViewController {
                 self.popupAlert(title: "Success!", message: "Verification code successfully sent!", actionTitles: ["Okay"], actions: [{ action1 in
                     self.verificationCodeLabel.becomeFirstResponder()
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    self.tncBtn.isHidden = true
                     self.createAccountBtn.isHidden = true
                     self.sendCodeBtn.isHidden = false
                     self.sendCodeBtn.setTitle("Verify Code", for: .normal)
@@ -56,7 +54,6 @@ class SP_SignUp_Step2_ViewController: UIViewController {
             if error == nil {
                 //Check TnC
                 // User is signed in
-                self.tncBtn.isHidden = false
                 self.createAccountBtn.isHidden = false
                 self.sendCodeBtn.isHidden = true
             }else {

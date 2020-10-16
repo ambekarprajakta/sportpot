@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseDynamicLinks
 
 class SP_HomeViewController: UIViewController {
     
@@ -22,8 +23,14 @@ class SP_HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupDate()
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        if currentCount < 3 {
+            self.showInstructions()
+        }
+        
         //        showFixtures() // Initially show fixtures from local db
         getFixturesFromServer() // Get latest fixtures from api
+        createDeepLink()
     }
     
     private func setupNavigationBar() {
@@ -98,10 +105,6 @@ class SP_HomeViewController: UIViewController {
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
-        if currentCount < 3 {
-            self.showInstructions()
-        }
         matchTableView.reloadData()
     }
     
@@ -130,6 +133,50 @@ class SP_HomeViewController: UIViewController {
         matchTableView.reloadData()
     }
     
+    func createDeepLink() {
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "sportpot.eu"
+        components.path = "/"
+        let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
+        
+        
+//        let queryItemUsername = URLQueryItem(name: "username", value: "salim123")
+//        let queryItemTimeStamp = URLQueryItem(name: "timestamp", value: "1601857005")
+//        components.queryItems = [queryItemUsername,queryItemTimeStamp]
+        guard let urlComponent = components.url else { return  }
+        guard let longShareLink = DynamicLinkComponents.init(link: urlComponent, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return }
+
+        //        guard let link = URL(string: "https://sportpot.page.link/pot1?username=salim123&timestamp=1601857005") else { return }
+        //        let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
+        //        linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.sportpot.Sportpot")
+        //        linkBuilder.androidParameters = DynamicLinkAndroidParameters(packageName: "com.example.android")
+        //
+        guard let longDynamicLink = longShareLink.url else {
+            print ("Couldn't create FDL Components")
+            return
+        }
+        print("The long URL is: \(longDynamicLink)")
+        //        linkBuilder?.options = DynamicLinkComponentsOptions()
+        //        linkBuilder?.options?.pathLength = .short
+        
+        DynamicLinkComponents.shortenURL( longDynamicLink, options: nil) { [weak self] url, warnings, error in
+            guard let url = url, error == nil else { return }
+            print("The short URL is: \(url)")
+            self?.showShareSheet(url: url)
+        }
+        if let bundleID = Bundle.main.bundleIdentifier {
+            longShareLink.iOSParameters = DynamicLinkIOSParameters(bundleID: bundleID)
+            longShareLink.iOSParameters?.appStoreID = "AppStoreID"
+            longShareLink.iOSParameters?.minimumAppVersion = "1.0"
+        }
+    }
+    func showShareSheet(url: URL) {
+        let message = "Check out the pot I just created on Sportpot!"
+        let activityVC = UIActivityViewController(activityItems: [message, url], applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
+    }
     @IBAction func logoutAction(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

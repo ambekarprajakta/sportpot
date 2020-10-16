@@ -53,7 +53,7 @@ class SP_InstructionsPopupViewController: UIViewController {
         paragraphStyle.lineSpacing = 2
         paragraphStyle.alignment = .center
 
-        let font = UIFont(name: "Ubuntu-Regular", size: 12) ?? UIFont.systemFont(ofSize: 12)
+        let font = UIFont(name: "Ubuntu-Regular", size: 14) ?? UIFont.systemFont(ofSize: 12)
 
         let attributes: [NSAttributedString.Key : Any] = [
             .font : font,
@@ -65,7 +65,7 @@ class SP_InstructionsPopupViewController: UIViewController {
 
         switch contentType {
         case .SelectAtleastThreeDoubleDown, .AlreadySelectedThreeDoubleDown:
-            let imageAttributedString = getAttributedStringWithImage(imageNamed: contentType == .SelectAtleastThreeDoubleDown ? "football" : "football", font: font) // TODO: - Replace with actual image here
+            let imageAttributedString = getAttributedStringWithImage(imageNamed: contentType == .SelectAtleastThreeDoubleDown ? "x2-selected" : "x2-selected", font: font) // TODO: - Replace with actual image here
             let content = contentType == .SelectAtleastThreeDoubleDown ? "Please make sure you've\nselected three\t" : "You've already selected three\nmatches to Double Down\t"
             attributedString = NSMutableAttributedString(string: content)
             attributedString.append(imageAttributedString)
@@ -80,7 +80,7 @@ class SP_InstructionsPopupViewController: UIViewController {
             paragraphStyle.headIndent = 12
             paragraphStyle.minimumLineHeight = 17
             paragraphStyle.maximumLineHeight = 17
-            paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: 12)]
+            paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: 14)]
 
             let content = """
             1. Place you bet on 10 matches\n
@@ -114,7 +114,7 @@ class SP_InstructionsPopupViewController: UIViewController {
     }
 
     private func getAttributedStringForButton(buttonText: String = "Got it") -> NSAttributedString {
-        let font = UIFont(name: "Ubuntu-Bold", size: 11) ?? UIFont.boldSystemFont(ofSize: 11)
+        let font = UIFont(name: "Ubuntu-Bold", size: 14) ?? UIFont.boldSystemFont(ofSize: 14)
         let attributes: [NSAttributedString.Key : Any] = [
             .font : font,
             .foregroundColor : UIColor.black  // TODO: - Put the exact color here

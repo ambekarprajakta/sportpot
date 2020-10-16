@@ -28,12 +28,22 @@
 				<string>com.googleusercontent.apps.405672373112-0m2mc6vektjl8fapfjh5iskdcr3isngi</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.sportpot.Sportpot</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.sportpot.Sportpot.sportpot</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FirebaseDynamicLinksCustomDomains</key>
 	<array>
-		<string>https://sportpot.page.link/pot1</string>
+		<string>https://sportpot.page.link/sharePot</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -83,5 +93,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>branch_key</key>
+    <string>key_test_ehO5M8O6qNrWB29A1dzwtphlBDbGTpyD</string>
+    <key>branch_app_domain</key>
+    <string>sportpot.test-app.link</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string></string>
+        </array>
+      </dict>
+    </array>
 </dict>
 </plist>

@@ -50,6 +50,7 @@ class SP_MatchTableViewCell: UITableViewCell {
         //            date.description(with: .current) // "Tuesday, February 5, 2019 at 10:35:01 PM Brasilia Summer Time"
         //            print(date.iso8601withFractionalSeconds)           //  "2019-02-06T00:35:01.746Z\n"
         //        }
+        
         var randomPoints = Float.random(in: 0...5)
         homePointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
         randomPoints = Float.random(in: 0...5)
@@ -114,27 +115,50 @@ class SP_MatchTableViewCell: UITableViewCell {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     func downloadLogo(url: URL, forImageView: UIImageView) {
-        print("Download Started")
+//        print("Download Started")
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
+//            print("Download Finished")
             DispatchQueue.main.async() {
                 forImageView.image = UIImage(data: data)
             }
         }
     }
-    @IBAction func homePointsAction(_ sender: Any) {
+    @IBAction func homePointsAction(_ sender: UIButton) {
         print("homePointsAction Button Selected")
+        homePointsBtn.isSelected = !homePointsBtn.isSelected
+        handleUIForButton(inputButton: homePointsBtn)
+//        if doublePointsBtn.isSelected {
+//            homePointsBtn.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 167/255, green: 64/255, blue: 188/255, alpha: 1.0)) //rgba(167, 64, 188, 1) Purple Color
+//            homePointsBtn.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 1, green: 1, blue: 1, alpha: 1)), for: .selected)
+//        }else {
+//            homePointsBtn.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 249/255, green: 170/255, blue: 51/255, alpha: 1.0)) //rgba(249, 170, 51, 1) Mustard Color
+//            homePointsBtn.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 27/255, green: 38/255, blue: 42/255, alpha: 1)), for: .normal) //rgba(27, 38, 42, 1)
+//        }
     }
     
-    @IBAction func drawPointsAction(_ sender: Any) {
+    @IBAction func drawPointsAction(_ sender: UIButton) {
         print("drawPointsAction Button Selected")
+        handleUIForButton(inputButton: drawPointsBtn)
     }
-    @IBAction func awayPointsAction(_ sender: Any) {
+    @IBAction func awayPointsAction(_ sender: UIButton) {
         print("awayPointsAction Button Selected")
+        handleUIForButton(inputButton: awayPointsBtn)
     }
-    @IBAction func doublePointsAction(_ sender: Any) {
+    @IBAction func doublePointsAction(_ sender: UIButton) {
         print("doublePointsAction Button Selected")
+        doublePointsBtn.isSelected = !sender.isSelected
+    }
+    
+    func handleUIForButton(inputButton: UIButton) {
+        if doublePointsBtn.isSelected {
+            inputButton.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 167/255, green: 64/255, blue: 188/255, alpha: 1.0)) //rgba(167, 64, 188, 1) Purple Color
+            inputButton.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 1, green: 1, blue: 1, alpha: 1)), for: .normal)
+        }else {
+            inputButton.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 249/255, green: 170/255, blue: 51/255, alpha: 1.0)) //rgba(249, 170, 51, 1) Mustard Color
+            inputButton.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 27/255, green: 38/255, blue: 42/255, alpha: 1)), for: .normal) //rgba(27, 38, 42, 1)
+        }
+
     }
 }

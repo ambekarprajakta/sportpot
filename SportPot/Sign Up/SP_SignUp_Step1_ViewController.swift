@@ -104,7 +104,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     @IBAction func continueButtonAction(_ sender: Any) {
         //TODO: Uncomment this after testing
-        //        checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+//                checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
         let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
         self.present(signUp2VC, animated: true, completion: nil)
     }
