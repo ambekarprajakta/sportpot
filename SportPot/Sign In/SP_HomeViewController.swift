@@ -33,7 +33,7 @@ class SP_HomeViewController: UIViewController {
         getFixturesFromServer() // Get latest fixtures from api
 //        createDeepLink()
         //Branch Setup
-        Branch.getInstance().validateSDKIntegration()
+//        Branch.getInstance().validateSDKIntegration()
 //        Branch.getInstance().setIdentity("salim123") //Testing
     }
     
