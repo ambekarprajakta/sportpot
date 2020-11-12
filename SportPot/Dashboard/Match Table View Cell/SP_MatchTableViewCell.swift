@@ -7,6 +7,17 @@
 //
 
 import UIKit
+enum PredictionType: Int {
+    case home = 1
+    case draw = 2
+    case away = 3
+    case none = 0
+}
+
+protocol SP_MatchTableViewCellDelegate {
+    func didChangeSelectionFor(cell: SP_MatchTableViewCell, predictionType: PredictionType)
+    func didTapDoubleDownOn(cell: SP_MatchTableViewCell)
+}
 
 class SP_MatchTableViewCell: UITableViewCell {
     
@@ -28,8 +39,10 @@ class SP_MatchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var liveView: UIView!
     @IBOutlet weak var liveMinuteLabel: UILabel!
-    
-    
+    @IBOutlet var selectionButtons: [UIButton]!
+
+    private var delegate: SP_MatchTableViewCellDelegate? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -42,7 +55,9 @@ class SP_MatchTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    func displayFixture(fixtureModel: FixtureMO) {
+    func displayFixture(fixtureModel: FixtureMO, points:[String], delegate: SP_MatchTableViewCellDelegate? = nil) {
+        self.delegate = delegate
+        updateSelection(fixture: fixtureModel)
         //        Date().description(with: .current)  //  Tuesday, February 5, 2019 at 10:35:01 PM Brasilia Summer Time"
         //        let dateString = Date().iso8601withFractionalSeconds   //  "2019-02-06T00:35:01.746Z"
         //
@@ -51,13 +66,9 @@ class SP_MatchTableViewCell: UITableViewCell {
         //            print(date.iso8601withFractionalSeconds)           //  "2019-02-06T00:35:01.746Z\n"
         //        }
         
-        var randomPoints = Float.random(in: 0...5)
-        homePointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
-        randomPoints = Float.random(in: 0...5)
-        drawPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
-        randomPoints = Float.random(in: 0...5)
-        awayPointsBtn.setTitle(String(format: "%.1f",randomPoints), for: .normal)
-        
+        homePointsBtn.setTitle(points[0], for: .normal)
+        drawPointsBtn.setTitle(points[1], for: .normal)
+        awayPointsBtn.setTitle(points[2], for: .normal)
         //Match Time
         let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
         if timeDiff < 0{ //Always <
@@ -78,7 +89,7 @@ class SP_MatchTableViewCell: UITableViewCell {
             let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
             matchTimeLabel.text = time.dateAndTimetoString()
         }
-
+        
         //Logo
         downloadLogo(url: URL(string: fixtureModel.homeTeam?.logo ?? "")!, forImageView: homeTeamLogo)
         downloadLogo(url: URL(string: fixtureModel.awayTeam?.logo ?? "")!, forImageView: awayTeamLogo)
@@ -125,40 +136,34 @@ class SP_MatchTableViewCell: UITableViewCell {
             }
         }
     }
+    // MARK: - IBAction
+
     @IBAction func homePointsAction(_ sender: UIButton) {
-        print("homePointsAction Button Selected")
-        homePointsBtn.isSelected = !homePointsBtn.isSelected
-        handleUIForButton(inputButton: homePointsBtn)
-//        if doublePointsBtn.isSelected {
-//            homePointsBtn.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 167/255, green: 64/255, blue: 188/255, alpha: 1.0)) //rgba(167, 64, 188, 1) Purple Color
-//            homePointsBtn.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 1, green: 1, blue: 1, alpha: 1)), for: .selected)
-//        }else {
-//            homePointsBtn.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 249/255, green: 170/255, blue: 51/255, alpha: 1.0)) //rgba(249, 170, 51, 1) Mustard Color
-//            homePointsBtn.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 27/255, green: 38/255, blue: 42/255, alpha: 1)), for: .normal) //rgba(27, 38, 42, 1)
-//        }
+        delegate?.didChangeSelectionFor(cell: self, predictionType: .home)
     }
     
     @IBAction func drawPointsAction(_ sender: UIButton) {
-        print("drawPointsAction Button Selected")
-        handleUIForButton(inputButton: drawPointsBtn)
+        delegate?.didChangeSelectionFor(cell: self, predictionType: .draw)
     }
-    @IBAction func awayPointsAction(_ sender: UIButton) {
-        print("awayPointsAction Button Selected")
-        handleUIForButton(inputButton: awayPointsBtn)
-    }
-    @IBAction func doublePointsAction(_ sender: UIButton) {
-        print("doublePointsAction Button Selected")
-        doublePointsBtn.isSelected = !sender.isSelected
-    }
-    
-    func handleUIForButton(inputButton: UIButton) {
-        if doublePointsBtn.isSelected {
-            inputButton.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 167/255, green: 64/255, blue: 188/255, alpha: 1.0)) //rgba(167, 64, 188, 1) Purple Color
-            inputButton.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 1, green: 1, blue: 1, alpha: 1)), for: .normal)
-        }else {
-            inputButton.backgroundColor = UIColor.init(cgColor: .init(srgbRed: 249/255, green: 170/255, blue: 51/255, alpha: 1.0)) //rgba(249, 170, 51, 1) Mustard Color
-            inputButton.setTitleColor(UIColor.init(cgColor: .init(srgbRed: 27/255, green: 38/255, blue: 42/255, alpha: 1)), for: .normal) //rgba(27, 38, 42, 1)
-        }
 
+    @IBAction func awayPointsAction(_ sender: UIButton) {
+        delegate?.didChangeSelectionFor(cell: self, predictionType: .away)
+    }
+
+    @IBAction func doublePointsAction(_ sender: UIButton) {
+        delegate?.didTapDoubleDownOn(cell: self)
+    }
+
+    func updateSelection(fixture: FixtureMO) {
+        doublePointsBtn.isSelected = fixture.isDoubleDown
+        for button in selectionButtons {
+            if button.tag == fixture.predictionType.rawValue {
+                button.backgroundColor = fixture.isDoubleDown ? .sp_purple : .sp_mustard
+                button.setTitleColor(fixture.isDoubleDown ? .white : .black, for: .normal)
+            } else {
+                button.backgroundColor = .sp_gray
+                button.setTitleColor(.black, for: .normal)
+            }
+        }
     }
 }

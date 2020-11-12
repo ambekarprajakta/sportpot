@@ -64,6 +64,7 @@ class SP_SignInViewController: UIViewController {
             } else {
                 print("Successfully logged in!")
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.set(username, forKey: "currentUser")
                 // Show home page
                 //self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

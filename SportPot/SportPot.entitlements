@@ -10,6 +10,8 @@
 		<string>applinks:sportpot-alternate.test-app.link</string>
 		<string>applinks:sportpot.eu</string>
 		<string>applinks:sportpot.app.link</string>
+		<string>applinks:sportpot-alternate-app.link</string>
+		<string>applinks:sportpot.page.link</string>
 	</array>
 </dict>
 </plist>

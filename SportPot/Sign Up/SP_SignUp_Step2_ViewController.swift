@@ -27,6 +27,8 @@ class SP_SignUp_Step2_ViewController: UIViewController {
         self.sendCodeBtn.setTitle("Send Code", for: .normal)
     }
     func sendVerificationCode() {
+        createAccountAction(self)
+        return
         //Prajakta test number:"+91-8149435337"
         PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), uiDelegate: nil) { (verificationID, error) in
             if let error = error {

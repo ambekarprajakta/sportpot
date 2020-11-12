@@ -52,7 +52,7 @@ extension SP_PotPreviewViewController : UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MatchTableViewCell
-        matchCell.displayFixture(fixtureModel: potsArray[indexPath.section])
+//        matchCell.displayFixture(fixtureModel: potsArray[indexPath.section])
         return matchCell
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

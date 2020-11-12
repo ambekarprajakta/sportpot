@@ -87,11 +87,12 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     }])
             }else {
                 //User was created successfully, now store the first name and last name
-                self.db.collection("user").document(String((result?.user.uid)!)).setData([
+                self.db.collection("user").document(username).setData([
                     "id" : String((result?.user.uid)!),
                     "email":email,
                     "displayName" : username,
-                    "points" : 0
+                    "points" : 0,
+                    "joinedPots" : []
                 ], merge: true){ (error) in
                     //If all good, proceed!
                     let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
@@ -104,9 +105,9 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     @IBAction func continueButtonAction(_ sender: Any) {
         //TODO: Uncomment this after testing
-//                checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
-        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-        self.present(signUp2VC, animated: true, completion: nil)
+    checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+//        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+//        self.present(signUp2VC, animated: true, completion: nil)
     }
     
     /*

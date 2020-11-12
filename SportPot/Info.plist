@@ -19,9 +19,14 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.sportpot.Sportpot</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>sportpotapp</string>
+				<string>com.googleusercontent.apps.405672373112-0m2mc6vektjl8fapfjh5iskdcr3isngi</string>
 			</array>
 		</dict>
 	</array>
@@ -79,10 +84,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>branch_key</key>
-	<string>key_live_dnQ5G0LYvGA3s2Xx3alZ8nonDvnMSfCk</string>
 	<key>branch_app_domain</key>
 	<string>sportpot.app.link</string>
+	<key>branch_key</key>
+	<string>key_live_dnQ5G0LYvGA3s2Xx3alZ8nonDvnMSfCk</string>
 	<key>branch_universal_links_domains</key>
 	<array>
 		<string>sportpot.app.link</string>

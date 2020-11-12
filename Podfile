@@ -16,5 +16,4 @@ target 'SportPot' do
 	pod 'Alamofire-SwiftyJSON'
 	pod 'Alamofire'
 	pod 'SwiftyJSON', '~> 4.0'
-	pod 'Branch'
 end

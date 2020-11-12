@@ -47,3 +47,40 @@ extension Date {
 extension String {
     var iso8601withFractionalSeconds: Date? { return Formatter.iso8601withFractionalSeconds.date(from: self) }
 }
+//MARK:- # Swift 3: Base64 encoding and decoding
+import Foundation
+
+extension String {
+//: ### Base64 encoding a string
+    func base64Encoded() -> String? {
+        if let data = self.data(using: .utf8) {
+            return data.base64EncodedString()
+        }
+        return nil
+    }
+
+//: ### Base64 decoding a string
+    func base64Decoded() -> String? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters) {
+            return String(data: data, encoding: .utf8)
+        }
+        return nil
+    }
+}
+
+//MARK:- App Font - Ubuntu
+extension UIFont {
+    private static func customFont(name: String, size: CGFloat) -> UIFont {
+        let font = UIFont(name: name, size: size)
+        assert(font != nil, "Can't load font: \(name)")
+        return font ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    static func ubuntuRegularFont(ofSize size: CGFloat) -> UIFont {
+        return customFont(name: "Ubuntu-Regular", size: size)
+    }
+
+    static func ubuntuBoldFont(ofSize size: CGFloat) -> UIFont {
+        return customFont(name: "Ubuntu-Bold", size: size)
+    }
+}

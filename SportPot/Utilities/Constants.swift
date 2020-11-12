@@ -22,8 +22,9 @@ struct ErrorMessages {
     static let emailPhoneError = "Please enter registered email address or phone number"
     static let userNameExistsError = "Username already exists! Please try another one!"
 }
+//https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/Regular_Season_-_8
 struct APIEndPoints {
-    static let getNextFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/next/10?timezone="
+    static let getNextFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/Regular_Season_-_8?timezone="
     static let getLastFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/last/10?timezone=" //Testing purposes only
 }
 

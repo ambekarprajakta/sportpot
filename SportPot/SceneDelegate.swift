@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import Branch
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -26,7 +24,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // workaround for SceneDelegate continueUserActivity not getting called on cold start
           if let userActivity = connectionOptions.userActivities.first {
               
-              BranchScene.shared().scene(scene, continue: userActivity)
           }
 
     }
@@ -60,10 +57,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     }
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        BranchScene.shared().scene(scene, continue: userActivity)
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+          let url = userActivity.webpageURL,
+          let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return
+        }
+        let actionStr = getQueryStringParameter(url: url.absoluteString, param: "action")
+        let owner = getQueryStringParameter(url: url.absoluteString, param: "owner")
+        let timestamp = getQueryStringParameter(url: url.absoluteString, param: "timestamp")
+        print("Components are \(actionStr ?? "") and \(timestamp ?? "")")
+        let userInfo : [String:Any] = ["owner":owner as Any, "action": actionStr as Any, "timestamp":timestamp as Any ]
+        if actionStr == "joinPot" {
+            /// Let the joinee join the pot
+            ///Pot preview
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil, userInfo: userInfo)
+        }
+        
     }
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        BranchScene.shared().scene(scene, openURLContexts: URLContexts)
     }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -94,6 +105,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         CoreDataManager.sharedManager.saveContext()
+    }
+    func getQueryStringParameter(url: String, param: String) -> String? {
+      guard let url = URLComponents(string: url) else { return nil }
+      return url.queryItems?.first(where: { $0.name == param })?.value
     }
 
 

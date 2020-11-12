@@ -17,7 +17,9 @@
 		09542D40251F71630060AB46 /* FixtureMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */; };
 		2C19B5702539E83400D6B399 /* SportPot.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45BB2507E4F600D42300 /* SportPot.entitlements */; };
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
+		2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */; };
 		2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D1FB251A204D00BA91EA /* Utils.swift */; };
+		2C3840392548F39C0057B3CC /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3840382548F39C0057B3CC /* ColorUtils.swift */; };
 		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
 		2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */; };
 		2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */; };
@@ -42,10 +44,16 @@
 		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
 		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
 		2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */; };
+		2C66C1F8254FA1C3006711E4 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C66C1F7254FA1C3006711E4 /* Fixture.swift */; };
+		2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */; };
+		2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */; };
+		2C6C27EE255817970084269E /* SP_MyPotsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */; };
 		2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */; };
 		2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */; };
 		2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB525168FF500F769D1 /* JSONUtils.swift */; };
 		2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB725176D8500F769D1 /* Constants.swift */; };
+		2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */; };
+		2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */; };
 		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
 		2CF088E6251D246E00501FBC /* SP_PotPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF088E5251D246E00501FBC /* SP_PotPreviewViewController.swift */; };
 		2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF088E9251D5B8000501FBC /* CoreDataManager.swift */; };
@@ -80,7 +88,9 @@
 		09542D3E251F71630060AB46 /* FixtureMO+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixtureMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F75B7A1061407910C985B22 /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
+		2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SharePotViewController.swift; sourceTree = "<group>"; };
 		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2C3840382548F39C0057B3CC /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
 		2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C3B45BB2507E4F600D42300 /* SportPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SportPot.entitlements; sourceTree = "<group>"; };
 		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step2_ViewController.swift; sourceTree = "<group>"; };
@@ -110,10 +120,16 @@
 		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignInViewController.swift; sourceTree = "<group>"; };
 		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_UnderlinedTextField.swift; sourceTree = "<group>"; };
 		2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_InstructionsPopupViewController.swift; sourceTree = "<group>"; };
+		2C66C1F7254FA1C3006711E4 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsViewController.swift; sourceTree = "<group>"; };
+		2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsTableViewCell.swift; sourceTree = "<group>"; };
+		2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_MyPotsTableViewCell.xib; sourceTree = "<group>"; };
 		2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_APIHelper.swift; sourceTree = "<group>"; };
 		2C9DBBB525168FF500F769D1 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		2C9DBBB725176D8500F769D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_Pot_Invitee_ViewController.swift; sourceTree = "<group>"; };
+		2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_GoodLuckViewController.swift; sourceTree = "<group>"; };
 		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		2CF088E5251D246E00501FBC /* SP_PotPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_PotPreviewViewController.swift; sourceTree = "<group>"; };
 		2CF088E9251D5B8000501FBC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -208,7 +224,11 @@
 				2C899E45250EF17900718DD8 /* Sign Up */,
 				2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */,
 				2C899E46250EF23900718DD8 /* Sign In */,
+				2CCE848A254E3B2A00955E8A /* Dashboard */,
 				2C692BF1251D21CE006ABDF1 /* Pot Preview */,
+				2CCE8493254F982900955E8A /* Pot Invitee */,
+				2C66C1F7254FA1C3006711E4 /* Fixture.swift */,
+				2C6C27E42557608F0084269E /* My Pots */,
 			);
 			path = SportPot;
 			sourceTree = "<group>";
@@ -216,6 +236,7 @@
 		2C3F59F525013C3C001C8667 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				2C3840382548F39C0057B3CC /* ColorUtils.swift */,
 				2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */,
 				2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */,
 				2C9DBBB525168FF500F769D1 /* JSONUtils.swift */,
@@ -251,6 +272,16 @@
 			path = "Pot Preview";
 			sourceTree = "<group>";
 		};
+		2C6C27E42557608F0084269E /* My Pots */ = {
+			isa = PBXGroup;
+			children = (
+				2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */,
+				2CE63AAD25582F3000855104 /* My Pots Cell */,
+				2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */,
+			);
+			path = "My Pots";
+			sourceTree = "<group>";
+		};
 		2C899E45250EF17900718DD8 /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,12 +296,37 @@
 			isa = PBXGroup;
 			children = (
 				2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */,
-				2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */,
-				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
-				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
-				2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */,
 			);
 			path = "Sign In";
+			sourceTree = "<group>";
+		};
+		2CCE848A254E3B2A00955E8A /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */,
+				2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */,
+				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
+				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
+				2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		2CCE8493254F982900955E8A /* Pot Invitee */ = {
+			isa = PBXGroup;
+			children = (
+				2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */,
+			);
+			path = "Pot Invitee";
+			sourceTree = "<group>";
+		};
+		2CE63AAD25582F3000855104 /* My Pots Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */,
+				2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */,
+			);
+			path = "My Pots Cell";
 			sourceTree = "<group>";
 		};
 		81225979D30F1E058D060B97 /* Frameworks */ = {
@@ -410,6 +466,7 @@
 				2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */,
 				2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */,
 				2C3F59C825013A24001C8667 /* Main.storyboard in Resources */,
+				2C6C27EE255817970084269E /* SP_MyPotsTableViewCell.xib in Resources */,
 				2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */,
 				2C3B45C1250C49E400D42300 /* SP_MatchTableViewCell.xib in Resources */,
 				2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */,
@@ -482,9 +539,12 @@
 				2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */,
 				2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */,
 				09542D38251F6C620060AB46 /* LeagueMO+CoreDataProperties.swift in Sources */,
+				2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				09542D3F251F71630060AB46 /* FixtureMO+CoreDataProperties.swift in Sources */,
+				2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */,
 				09542D36251F6C100060AB46 /* LeagueMO+CoreDataClass.swift in Sources */,
+				2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */,
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
 				09542D34251F6A020060AB46 /* ScoreMO+CoreDataProperties.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
@@ -494,16 +554,20 @@
 				2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */,
 				2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */,
 				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
+				2C3840392548F39C0057B3CC /* ColorUtils.swift in Sources */,
+				2C66C1F8254FA1C3006711E4 /* Fixture.swift in Sources */,
 				2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */,
 				2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */,
 				2CF088E6251D246E00501FBC /* SP_PotPreviewViewController.swift in Sources */,
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */,
+				2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
 				09542D3A251F6DD00060AB46 /* TeamMO+CoreDataClass.swift in Sources */,
 				09542D32251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift in Sources */,
 				2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */,
+				2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */,
 				2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,7 +671,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -661,7 +725,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
