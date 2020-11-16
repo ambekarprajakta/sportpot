@@ -21,9 +21,9 @@ typealias App = AppDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         // get current number of times app has been launched
-        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         // increment received number by one
-        UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
+        UserDefaults.standard.set(currentCount+1, forKey: UserDefaultsConstants.launchCountKey)
         UserDefaults.standard.synchronize()
         return true
     }

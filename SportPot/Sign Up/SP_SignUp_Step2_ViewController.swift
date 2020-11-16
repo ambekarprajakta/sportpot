@@ -16,6 +16,8 @@ class SP_SignUp_Step2_ViewController: UIViewController {
     @IBOutlet weak var sendCodeBtn: UIButton!
     @IBOutlet weak var createAccountBtn: UIButton!
     var window: UIWindow?
+    public var username: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -92,6 +94,8 @@ class SP_SignUp_Step2_ViewController: UIViewController {
     func pushToHomeScreen() {
         //Validate and push to the Home Page
         UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.set(username, forKey: "currentUser")
+
         // Show home page
         //        self.performSegue(withIdentifier: "loginSegue", sender: nil)
         

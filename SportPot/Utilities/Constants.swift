@@ -24,7 +24,8 @@ struct ErrorMessages {
 }
 //https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/Regular_Season_-_8
 struct APIEndPoints {
-    static let getNextFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/Regular_Season_-_8?timezone="
+    static let getCurrentRound = "v2/fixtures/rounds/" + Constants.EPL_LEAGUE_ID_20_21 + "/current"
+    static let getNextFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")?timezone="
     static let getLastFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/last/10?timezone=" //Testing purposes only
 }
 
@@ -38,4 +39,8 @@ struct PopupType {
     static let getTimeZone = ""
     static let getNextFixtures = "https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/next/10?timezone=Europe/London"
 }
-
+struct UserDefaultsConstants {
+    static let currentRoundKey = "currentRound"
+    static let launchCountKey = "launchCount"
+    static let currentUserKey = "currentUser"
+}

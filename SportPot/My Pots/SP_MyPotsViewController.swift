@@ -8,12 +8,19 @@
 
 import UIKit
 import FirebaseFirestore
+struct PotModel {
+    let fixturePredictionsArr : Array<Any>
+    let createdOn : String
+    let joinees : String
+    let points : Int
+}
 
 class SP_MyPotsViewController: UIViewController {
     @IBOutlet weak var potTableView: UITableView!
     
     let cellID = "SP_MyPotsTableViewCell"
-    let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+    var currentUser : String = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey) ?? ""
+    var myPotsArray : Array<Any> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +28,36 @@ class SP_MyPotsViewController: UIViewController {
         potTableView.register(UINib(nibName: "SP_MyPotsTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         getPotDataFromServer()
     }
+    //MARK:- Fetch Pot Data
+
+    func getPotDataFromServer() {
+        let db = Firestore.firestore()
+        var potDetailDict : [String: Any] = [:]
+        db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
+            guard let snapshot = docSnapShot else {
+                print("Error retreiving documents \(error!)")
+                return
+            }
+            let joinedPotsArr = snapshot.data()?["joinedPots"] as! Array<String>
+            for potID in joinedPotsArr {
+                db.collection("pots").document(potID).getDocument { (docSnapShot, error) in
+                    guard let potSnapshot = docSnapShot else {
+                        print("Error retreiving documents \(error!)")
+                        return
+                    }
+                    // Add each Pot details - createdOn and joinees in myPotsArray
+                    let createdOnStr = potSnapshot.data()?["createdOn"] as! String
+                    let joineesArr = potSnapshot.data()?["joinees"] as! Array <String>
+                    potDetailDict = ["createdOn": createdOnStr,
+                                     "joinees": joineesArr]
+                    self.myPotsArray.append(potDetailDict)
+                    self.potTableView.reloadData()
+                }
+            }
+        }
+    }
 }
 
-//MARK:- Fetch Pot Data
-
-func getPotDataFromServer() {
-    let db = Firestore.firestore()
-//    let addFixturesRef = db.collection("pots").document(currentUser)
-}
 
 // MARK: - Table View
 
@@ -38,12 +67,12 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3//potsArray.count
+        return myPotsArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MyPotsTableViewCell
-//        matchCell.displayFixture(fixtureModel: potsArray[indexPath.section])
+        matchCell.displayCell(potDetails: myPotsArray[indexPath.section] as! [String : Any])
         return matchCell
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

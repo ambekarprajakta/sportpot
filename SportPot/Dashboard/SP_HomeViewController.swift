@@ -19,6 +19,8 @@ class SP_HomeViewController: UIViewController {
     private var fixturesArray = Array<FixtureMO>()
     private var fixturesPointsArray = Array<[String]>()
     private let cellID = "SP_MatchTableViewCell"
+    private var currentSeasonStr : String = ""
+    
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
     let db = Firestore.firestore()
@@ -30,12 +32,17 @@ class SP_HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupDate()
-        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+//        if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey) {
+            checkCurrentRoundForSeason()
+//        }
+        
+        let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         if currentCount < 3 {
             self.showInstructions()
         }
-        showFixtures() // Initially show fixtures from local db
         //        getFixturesFromServer() // Get latest fixtures from api
+        getFixturePoints()
+
     }
     
     private func setupNavigationBar() {
@@ -63,6 +70,34 @@ class SP_HomeViewController: UIViewController {
         todayDate = formatter.string(from: date)
     }
     
+    fileprivate func checkCurrentRoundForSeason() {
+        //https://api-football-v1.p.rapidapi.com/v2/fixtures/rounds/2790/current
+        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getCurrentRound, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+            guard let strongSelf = self else { return }
+            if let response = response {
+                if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
+                    strongSelf.currentSeasonStr = fixturesArray[0] as! String
+                    let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
+                    if isKeyPresent {
+                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
+                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
+                        }
+                    } else {
+                        ///Set the current Round
+                        UserDefaults.standard.set(strongSelf.currentSeasonStr , forKey: UserDefaultsConstants.currentRoundKey)
+                        strongSelf.getFixturesFromServer()
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+
     private func showInstructions(type: PopupType.ContentType = .Instruction) {
         let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
         present(instructController, animated: false, completion: nil)
@@ -105,12 +140,11 @@ class SP_HomeViewController: UIViewController {
                     self?.matchTableView.setEmptyMessage("No Data Available")
                 }
             }
-            strongSelf.showFixtures()
+            strongSelf.showFixturesFromLocalDB()
         }
     }
     
-    private func showFixtures() {
-        getFixturePoints()
+    private func showFixturesFromLocalDB() {
         getFixturesFromLocalDB()
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
@@ -246,6 +280,7 @@ class SP_HomeViewController: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
                 potInviteeViewController.ownerStr = owner
+                potInviteeViewController.potIDStr = base64Str
                 self.present(potInviteeViewController, animated: true, completion: nil)
                 }
           }

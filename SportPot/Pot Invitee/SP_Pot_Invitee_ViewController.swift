@@ -20,6 +20,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     private var fixturesPointsArray = Array<[String]>()
     private let cellID = "SP_MatchTableViewCell"
     public var ownerStr : String = ""
+    public var potIDStr : String = ""
     let db = Firestore.firestore()
     private var fixturesArray = Array<FixtureMO>()
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
@@ -138,7 +139,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
 //        potBody["joinees"] = [currentUser]
 //        potBody["points"] = 0
 //        print("User's Pot:\n\(potBody)")
-        let addFixturesRef = self.db.collection("pots").document(self.ownerStr)
+        let addFixturesRef = self.db.collection("pots").document(potIDStr)
         addFixturesRef.updateData([
             "joinees": FieldValue.arrayUnion([self.currentUser])
         ])
@@ -146,12 +147,18 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             "fixturePredictions" : FieldValue.arrayUnion([userPredictions])
         ])
 
-        db.collection("pots").document(ownerStr).getDocument { (docSnapshot, error) in
+        db.collection("pots").document(potIDStr).getDocument { (docSnapshot, error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             } else {
-                print("Pot Joined Successfully!\n \(String(describing: docSnapshot?.documentID)) => \(String(describing: docSnapshot?.data()))")
                 //Pot Joined Successfully!
+                print("Pot Joined Successfully!\n \(String(describing: docSnapshot?.documentID)) => \(String(describing: docSnapshot?.data()))")
+                ///Write PotID to respective User
+                let addJoinedPotsRef = self.db.collection("user").document(self.currentUser)
+                addJoinedPotsRef.updateData([
+                    "joinedPots": FieldValue.arrayUnion([self.potIDStr])
+                ])
+
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let goodLuckViewController = storyboard.instantiateViewController(identifier: "SP_GoodLuckViewController") as SP_GoodLuckViewController
                 self.present(goodLuckViewController, animated: true, completion: nil)

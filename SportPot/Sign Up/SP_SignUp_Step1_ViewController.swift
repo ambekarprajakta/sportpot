@@ -96,6 +96,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                 ], merge: true){ (error) in
                     //If all good, proceed!
                     let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+                    signUp2VC.username = username
                     self.present(signUp2VC, animated: true, completion: nil)
                     print("User successfully created!")
                 }
