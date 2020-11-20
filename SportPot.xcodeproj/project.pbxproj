@@ -20,6 +20,12 @@
 		2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */; };
 		2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D1FB251A204D00BA91EA /* Utils.swift */; };
 		2C3840392548F39C0057B3CC /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3840382548F39C0057B3CC /* ColorUtils.swift */; };
+		2C3A197A2565F9EF00549985 /* SP_SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A19792565F9EF00549985 /* SP_SettingsViewController.swift */; };
+		2C3A197F2565FC5600549985 /* SP_RankingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A197E2565FC5600549985 /* SP_RankingsViewController.swift */; };
+		2C3A19862566029A00549985 /* SP_RankingWinnerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A19842566029A00549985 /* SP_RankingWinnerTableViewCell.swift */; };
+		2C3A19872566029A00549985 /* SP_RankingWinnerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A19852566029A00549985 /* SP_RankingWinnerTableViewCell.xib */; };
+		2C3A19912566146900549985 /* SP_RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A198F2566146900549985 /* SP_RankingTableViewCell.swift */; };
+		2C3A19922566146900549985 /* SP_RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3A19902566146900549985 /* SP_RankingTableViewCell.xib */; };
 		2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */; };
 		2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */; };
 		2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B45BE250C49E400D42300 /* SP_MatchTableViewCell.swift */; };
@@ -91,6 +97,12 @@
 		2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SharePotViewController.swift; sourceTree = "<group>"; };
 		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2C3840382548F39C0057B3CC /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		2C3A19792565F9EF00549985 /* SP_SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SettingsViewController.swift; sourceTree = "<group>"; };
+		2C3A197E2565FC5600549985 /* SP_RankingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RankingsViewController.swift; sourceTree = "<group>"; };
+		2C3A19842566029A00549985 /* SP_RankingWinnerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RankingWinnerTableViewCell.swift; sourceTree = "<group>"; };
+		2C3A19852566029A00549985 /* SP_RankingWinnerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_RankingWinnerTableViewCell.xib; sourceTree = "<group>"; };
+		2C3A198F2566146900549985 /* SP_RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RankingTableViewCell.swift; sourceTree = "<group>"; };
+		2C3A19902566146900549985 /* SP_RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_RankingTableViewCell.xib; sourceTree = "<group>"; };
 		2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C3B45BB2507E4F600D42300 /* SportPot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SportPot.entitlements; sourceTree = "<group>"; };
 		2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step2_ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +190,34 @@
 			path = ManagedObjects;
 			sourceTree = "<group>";
 		};
+		2C3A19832566026400549985 /* Rankings */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A197E2565FC5600549985 /* SP_RankingsViewController.swift */,
+				2C3A198B2566090100549985 /* Winner Cell */,
+				2C3A19962566147300549985 /* Ranking Cell */,
+			);
+			path = Rankings;
+			sourceTree = "<group>";
+		};
+		2C3A198B2566090100549985 /* Winner Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A19842566029A00549985 /* SP_RankingWinnerTableViewCell.swift */,
+				2C3A19852566029A00549985 /* SP_RankingWinnerTableViewCell.xib */,
+			);
+			path = "Winner Cell";
+			sourceTree = "<group>";
+		};
+		2C3A19962566147300549985 /* Ranking Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A198F2566146900549985 /* SP_RankingTableViewCell.swift */,
+				2C3A19902566146900549985 /* SP_RankingTableViewCell.xib */,
+			);
+			path = "Ranking Cell";
+			sourceTree = "<group>";
+		};
 		2C3B45C2250C49F000D42300 /* Match Table View Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +269,7 @@
 				2CCE8493254F982900955E8A /* Pot Invitee */,
 				2C66C1F7254FA1C3006711E4 /* Fixture.swift */,
 				2C6C27E42557608F0084269E /* My Pots */,
+				2C3A19792565F9EF00549985 /* SP_SettingsViewController.swift */,
 			);
 			path = SportPot;
 			sourceTree = "<group>";
@@ -278,6 +319,7 @@
 				2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */,
 				2CE63AAD25582F3000855104 /* My Pots Cell */,
 				2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */,
+				2C3A19832566026400549985 /* Rankings */,
 			);
 			path = "My Pots";
 			sourceTree = "<group>";
@@ -459,6 +501,7 @@
 				2C3F5A0825019407001C8667 /* Ubuntu-MediumItalic.ttf in Resources */,
 				2C3F5A0725019405001C8667 /* Ubuntu-Medium.ttf in Resources */,
 				2C3F5A04250193FC001C8667 /* Ubuntu-Italic.ttf in Resources */,
+				2C3A19922566146900549985 /* SP_RankingTableViewCell.xib in Resources */,
 				2C3F5A05250193FE001C8667 /* Ubuntu-Light.ttf in Resources */,
 				2C3F5A092501940A001C8667 /* Ubuntu-Regular.ttf in Resources */,
 				2C3F5A03250193F9001C8667 /* Ubuntu-BoldItalic.ttf in Resources */,
@@ -467,6 +510,7 @@
 				2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */,
 				2C3F59C825013A24001C8667 /* Main.storyboard in Resources */,
 				2C6C27EE255817970084269E /* SP_MyPotsTableViewCell.xib in Resources */,
+				2C3A19872566029A00549985 /* SP_RankingWinnerTableViewCell.xib in Resources */,
 				2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */,
 				2C3B45C1250C49E400D42300 /* SP_MatchTableViewCell.xib in Resources */,
 				2C3B45BA2507D86F00D42300 /* GoogleService-Info.plist in Resources */,
@@ -542,7 +586,9 @@
 				2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				09542D3F251F71630060AB46 /* FixtureMO+CoreDataProperties.swift in Sources */,
+				2C3A197F2565FC5600549985 /* SP_RankingsViewController.swift in Sources */,
 				2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */,
+				2C3A19862566029A00549985 /* SP_RankingWinnerTableViewCell.swift in Sources */,
 				09542D36251F6C100060AB46 /* LeagueMO+CoreDataClass.swift in Sources */,
 				2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */,
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
@@ -562,10 +608,12 @@
 				2C3F59CB25013A24001C8667 /* SportPot.xcdatamodeld in Sources */,
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */,
+				2C3A19912566146900549985 /* SP_RankingTableViewCell.swift in Sources */,
 				2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
 				09542D3A251F6DD00060AB46 /* TeamMO+CoreDataClass.swift in Sources */,
 				09542D32251F69EB0060AB46 /* ScoreMO+CoreDataClass.swift in Sources */,
+				2C3A197A2565F9EF00549985 /* SP_SettingsViewController.swift in Sources */,
 				2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */,
 				2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */,
 				2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */,

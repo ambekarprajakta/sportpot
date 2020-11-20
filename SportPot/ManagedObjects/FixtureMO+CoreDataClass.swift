@@ -13,9 +13,7 @@ import CoreData
 public class FixtureMO: NSManagedObject, Decodable {
     var isDoubleDown: Bool = false
     var predictionType: PredictionType = .none
-    var homePoints : String = "0.0"
-    var drawPoints : String = "0.0"
-    var awayPoints : String = "0.0"
+    var selectedPoints: Double = 0.0
     
     private enum CodingKeys: String, CodingKey {
         case elapsed

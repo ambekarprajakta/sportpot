@@ -14,12 +14,14 @@ import FirebaseFirestore
 class SP_HomeViewController: UIViewController {
     
     @IBOutlet private weak var matchTableView: UITableView!
+    @IBOutlet weak var totalPointsLabel: UILabel!
     private let refreshControl = UIRefreshControl()
     private var todayDate = ""
     private var fixturesArray = Array<FixtureMO>()
     private var fixturesPointsArray = Array<[String]>()
     private let cellID = "SP_MatchTableViewCell"
     private var currentSeasonStr : String = ""
+    private var totalPoints : Double = 0.0
     
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
@@ -32,9 +34,9 @@ class SP_HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupDate()
-//        if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey) {
-            checkCurrentRoundForSeason()
-//        }
+        //        if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey) {
+        checkCurrentRoundForSeason()
+        //        }
         
         let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         if currentCount < 3 {
@@ -42,7 +44,7 @@ class SP_HomeViewController: UIViewController {
         }
         //        getFixturesFromServer() // Get latest fixtures from api
         getFixturePoints()
-
+        
     }
     
     private func setupNavigationBar() {
@@ -97,7 +99,7 @@ class SP_HomeViewController: UIViewController {
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
-
+    
     private func showInstructions(type: PopupType.ContentType = .Instruction) {
         let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
         present(instructController, animated: false, completion: nil)
@@ -109,7 +111,8 @@ class SP_HomeViewController: UIViewController {
             refreshControl.beginRefreshing()
         }
         let localTimeZone = TimeZone.current.identifier //getNextFixtures
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getNextFixtures + localTimeZone, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
+                                     method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].array, !fixturesArray.isEmpty {
@@ -182,15 +185,15 @@ class SP_HomeViewController: UIViewController {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "sportpot.eu"
-        components.path = "/pots"
+        components.path = "/"
         let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
         
         let userDataStr = currentUser + "&" + String(currentTimeStamp)
         print("Original string: \"\(userDataStr)\"")
-
+        
         if let base64Str = userDataStr.base64Encoded() {
             print("Base64 encoded string: \"\(base64Str)\"")
-        
+            
             let queryItemUsername = URLQueryItem(name: "owner", value: base64Str)
             let queryItemAction = URLQueryItem(name: "action", value: "joinPot")
             currentTimeStamp = Date.currentTimeStamp
@@ -208,7 +211,7 @@ class SP_HomeViewController: UIViewController {
                 print("The short URL is: \(shortURL)")
                 self?.savePotToDB(shareLink: shortURL.absoluteString, potID: base64Str)
             }
-        
+            
             if let bundleID = Bundle.main.bundleIdentifier {
                 longShareLink.iOSParameters = DynamicLinkIOSParameters(bundleID: bundleID)
                 longShareLink.iOSParameters?.appStoreID = "AppStoreID"
@@ -233,13 +236,18 @@ class SP_HomeViewController: UIViewController {
             predictionBody["is_double_down"] = fixture.isDoubleDown
             predictions.append(predictionBody)
         }
-        let userPredictions : [String:Any] = [currentUser : predictions]
+        //        potBody["points"] = 0
+        
+        let potData : [[String:Any]] = [["predictions" : predictions], ["points": Double(totalPointsLabel.text ?? "0.0") as Any]]
+        let userPredictions : [String:Any] = [currentUser: potData]
+        
         var potBody = [String:Any]()
         potBody["potID"] = String(urlParams[2])
         potBody["createdOn"] = String(currentTimeStamp)
         potBody["fixturePredictions"] = userPredictions
         potBody["joinees"] = [currentUser]
-        potBody["points"] = 0
+        //Add current season (Round)
+        potBody["round"] = UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey)
         print("User's Pot:\n\(potBody)")
         
         let potsRef =
@@ -267,14 +275,14 @@ class SP_HomeViewController: UIViewController {
         //t7Vw7YLfdeTKeNY7A
         if let notificationDict = notification.userInfo {
             let base64Str = notificationDict["owner"] as! String
-                if let decodedStr = base64Str.base64Decoded() {
-                    print("Base64 decoded string: \"\(decodedStr)\"")
-                    //Extract user and timestamp from decodedStr
-                    let dataArr = decodedStr.split(separator: "&")
-                    let owner = String(dataArr[0])
-//                    let timestamp = dataArr[1]
+            if let decodedStr = base64Str.base64Decoded() {
+                print("Base64 decoded string: \"\(decodedStr)\"")
+                //Extract user and timestamp from decodedStr
+                let dataArr = decodedStr.split(separator: "&")
+                let owner = String(dataArr[0])
+                //                    let timestamp = dataArr[1]
                 
-//                let timestamp = notificationDict["timestamp"] as! String
+                //                let timestamp = notificationDict["timestamp"] as! String
                 //Change: currentUser to the senderUserName and link too
                 //SP_Pot_Invitee_ViewController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -282,8 +290,8 @@ class SP_HomeViewController: UIViewController {
                 potInviteeViewController.ownerStr = owner
                 potInviteeViewController.potIDStr = base64Str
                 self.present(potInviteeViewController, animated: true, completion: nil)
-                }
-          }
+            }
+        }
     }
     
     ///Logout
@@ -312,21 +320,35 @@ class SP_HomeViewController: UIViewController {
     }
     
     func getFixturePoints() {
-        db.collection("fixturePoints").getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    document.data().forEach { (key, fixturePoints) in
-                        self.fixturesPointsArray.append(fixturePoints as! [String])
-                    }
-                    //Add this user to the joinee array
-                }
-                print("Fixture points:\n \(self.fixturesPointsArray)")
-                self.matchTableView.reloadData()
+        db.collection("fixturePoints").document("week44").getDocument { (docSnapShot, error) in
+            guard let pointsSnapshot = docSnapShot else {
+                print("Error retreiving documents \(error!)")
+                return
             }
+            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
+                self.fixturesPointsArray.append(fixturePoints as! [String])
+            }
+            print("Fixture points:\n \(self.fixturesPointsArray)")
+            self.matchTableView.reloadData()
         }
+    }
+    func updatePoints(fixture: FixtureMO) {
+        totalPoints = 0.0
+        var selectedPoints = 0.0
+        for fObj in fixturesArray {
+            var fixTemp : FixtureMO = fObj
+            if fObj.fixture_id == fixture.fixture_id {
+                fixTemp = fObj
+            }
+            if fixTemp.isDoubleDown {
+                selectedPoints = fixTemp.selectedPoints * 2
+            } else {
+                selectedPoints = fixTemp.selectedPoints
+            }
+            totalPoints += selectedPoints
+        }
+        print("TOTAL POINTS => \(totalPoints)")
+        totalPointsLabel.text = String(format: "%.1f",totalPoints)
     }
 }
 
@@ -338,7 +360,9 @@ extension SP_HomeViewController : SP_MatchTableViewCellDelegate {
         }
         let fixture = fixturesArray[indexPath.section]
         fixture.predictionType = predictionType
+        fixture.selectedPoints = Double(fixturesPointsArray[indexPath.section][predictionType.rawValue - 1]) ?? 0.0
         cell.updateSelection(fixture: fixture)
+        updatePoints(fixture: fixture)
     }
     
     func didTapDoubleDownOn(cell: SP_MatchTableViewCell) {
@@ -355,6 +379,7 @@ extension SP_HomeViewController : SP_MatchTableViewCellDelegate {
         }
         fixture.isDoubleDown = !fixture.isDoubleDown
         cell.updateSelection(fixture: fixture)
+        updatePoints(fixture: fixture)
     }
     
     

@@ -32,7 +32,7 @@ class SP_MyPotsViewController: UIViewController {
 
     func getPotDataFromServer() {
         let db = Firestore.firestore()
-        var potDetailDict : [String: Any] = [:]
+//        var potDetailDict : [String: Any] = [:]
         db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
             guard let snapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
@@ -46,11 +46,11 @@ class SP_MyPotsViewController: UIViewController {
                         return
                     }
                     // Add each Pot details - createdOn and joinees in myPotsArray
-                    let createdOnStr = potSnapshot.data()?["createdOn"] as! String
-                    let joineesArr = potSnapshot.data()?["joinees"] as! Array <String>
-                    potDetailDict = ["createdOn": createdOnStr,
-                                     "joinees": joineesArr]
-                    self.myPotsArray.append(potDetailDict)
+//                    let createdOnStr = potSnapshot.data()?["createdOn"] as! String
+//                    let joineesArr = potSnapshot.data()?["joinees"] as! Array <String>
+//                    potDetailDict = ["createdOn": createdOnStr,
+//                                     "joinees": joineesArr]
+                    self.myPotsArray.append(potSnapshot.data() as Any)
                     self.potTableView.reloadData()
                 }
             }
@@ -74,6 +74,13 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
         let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MyPotsTableViewCell
         matchCell.displayCell(potDetails: myPotsArray[indexPath.section] as! [String : Any])
         return matchCell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //SP_RankingsViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rvc = storyboard.instantiateViewController(identifier: "SP_RankingsViewController") as SP_RankingsViewController
+        rvc.potDetail = myPotsArray[indexPath.section] as! [String: Any]
+        self.navigationController?.pushViewController(rvc, animated: true)
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0

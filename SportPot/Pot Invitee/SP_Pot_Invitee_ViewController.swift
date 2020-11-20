@@ -28,7 +28,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         potTableView.register(UINib(nibName: "SP_MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
-
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
         getFixturesFromServer()
         getFixturePoints()
@@ -53,7 +52,8 @@ class SP_Pot_Invitee_ViewController: UIViewController {
 
     private func getFixturesFromServer() {
         let localTimeZone = TimeZone.current.identifier //getNextFixtures
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getNextFixtures + localTimeZone, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
+                                     method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].array, !fixturesArray.isEmpty {
@@ -133,7 +133,11 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             predictionBody["is_double_down"] = fixture.isDoubleDown
             predictions.append(predictionBody)
         }
-        let userPredictions : [String:Any] = [currentUser : predictions]
+//        let userPredictions : [String:Any] = [currentUser : predictions]
+        
+        let potData : [[String:Any]] = [["predictions" : predictions], ["points": 0]]
+        let userPredictions : [String:Any] = [currentUser: potData]
+        
 //        var potBody = [String:Any]()
 //        potBody["fixturePredictions"] = userPredictions
 //        potBody["joinees"] = [currentUser]

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-Bold.ttf">
+            <string>Ubuntu-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SP_RankingTableViewCell" id="KGk-i7-Jjw" customClass="SP_RankingTableViewCell" customModule="SportPot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tq1-Tk-KGc">
+                        <rect key="frame" x="26" y="12" width="102" height="20"/>
+                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vh-RF-FI0">
+                        <rect key="frame" x="128" y="0.0" width="192" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDA-KJ-7YD">
+                                <rect key="frame" x="0.0" y="15.5" width="64" height="13"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYP-RW-IXz">
+                                <rect key="frame" x="64" y="15.5" width="64" height="13"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-My-bfE">
+                                <rect key="frame" x="128" y="15.5" width="64" height="13"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OYP-RW-IXz" firstAttribute="centerY" secondItem="1vh-RF-FI0" secondAttribute="centerY" id="650-ZO-7ac"/>
+                            <constraint firstItem="OYP-RW-IXz" firstAttribute="width" secondItem="bDA-KJ-7YD" secondAttribute="width" id="6fk-k3-z56"/>
+                            <constraint firstItem="bDA-KJ-7YD" firstAttribute="centerY" secondItem="1vh-RF-FI0" secondAttribute="centerY" id="80B-A1-La8"/>
+                            <constraint firstItem="OYP-RW-IXz" firstAttribute="leading" secondItem="bDA-KJ-7YD" secondAttribute="trailing" id="BRP-t4-dgo"/>
+                            <constraint firstItem="e6e-My-bfE" firstAttribute="centerY" secondItem="1vh-RF-FI0" secondAttribute="centerY" id="GWv-pq-wZD"/>
+                            <constraint firstAttribute="trailing" secondItem="e6e-My-bfE" secondAttribute="trailing" id="fJb-R3-oJd"/>
+                            <constraint firstItem="e6e-My-bfE" firstAttribute="width" secondItem="bDA-KJ-7YD" secondAttribute="width" id="fnG-xf-ckm"/>
+                            <constraint firstItem="bDA-KJ-7YD" firstAttribute="leading" secondItem="1vh-RF-FI0" secondAttribute="leading" id="jf1-zz-BEK"/>
+                            <constraint firstItem="e6e-My-bfE" firstAttribute="leading" secondItem="OYP-RW-IXz" secondAttribute="trailing" id="oRP-8Z-4EO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="1vh-RF-FI0" firstAttribute="leading" secondItem="tq1-Tk-KGc" secondAttribute="trailing" id="09o-0m-CMT"/>
+                    <constraint firstItem="tq1-Tk-KGc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="V5A-7e-MPD"/>
+                    <constraint firstItem="1vh-RF-FI0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="YnB-bf-arG"/>
+                    <constraint firstAttribute="bottom" secondItem="1vh-RF-FI0" secondAttribute="bottom" id="Yra-jB-hGq"/>
+                    <constraint firstAttribute="trailing" secondItem="1vh-RF-FI0" secondAttribute="trailing" id="raS-qL-3vX"/>
+                    <constraint firstItem="1vh-RF-FI0" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="rxA-qH-lw3"/>
+                    <constraint firstItem="tq1-Tk-KGc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ttt-od-DXX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="accuracyLabel" destination="bDA-KJ-7YD" id="FOd-eg-EOH"/>
+                <outlet property="doubleDownLabel" destination="e6e-My-bfE" id="CSx-5t-hte"/>
+                <outlet property="nameLabel" destination="tq1-Tk-KGc" id="3gY-Zw-2B6"/>
+                <outlet property="pointsLabel" destination="OYP-RW-IXz" id="5ko-zp-bIG"/>
+            </connections>
+            <point key="canvasLocation" x="-55.072463768115945" y="46.875"/>
+        </tableViewCell>
+    </objects>
+</document>
