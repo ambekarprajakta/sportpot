@@ -35,4 +35,8 @@ extension FixtureMO {
     @NSManaged public var league: LeagueMO?
     @NSManaged public var score: ScoreMO?
 
+    func isMatchFinished() -> Bool {
+        return statusShort?.lowercased() == "ft"
+    }
+
 }

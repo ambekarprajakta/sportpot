@@ -16,6 +16,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     @IBOutlet weak var participantsLabel: UILabel!
     @IBOutlet weak var potTableView: UITableView!
     @IBOutlet weak var infoButton: UIButton!
+    private var totalPoints : Double = 0.0
     
     private var fixturesPointsArray = Array<[String]>()
     private let cellID = "SP_MatchTableViewCell"
@@ -33,20 +34,16 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         getFixturePoints()
     }
     func getFixturePoints() {
-        db.collection("fixturePoints").getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                    document.data().forEach { (key, fixturePoints) in
-                        self.fixturesPointsArray.append(fixturePoints as! [String])
-                    }
-                    //Add this user to the joinee array
-                }
-                print("Fixture points:\n \(self.fixturesPointsArray)")
-                self.potTableView.reloadData()
+        db.collection("fixturePoints").document("week44").getDocument { (docSnapShot, error) in
+            guard let pointsSnapshot = docSnapShot else {
+                print("Error retreiving documents \(error!)")
+                return
             }
+            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
+                self.fixturesPointsArray.append(fixturePoints as! [String])
+            }
+            print("Fixture points:\n \(self.fixturesPointsArray)")
+                self.potTableView.reloadData()
         }
     }
 
@@ -133,24 +130,18 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             predictionBody["is_double_down"] = fixture.isDoubleDown
             predictions.append(predictionBody)
         }
-//        let userPredictions : [String:Any] = [currentUser : predictions]
         
-        let potData : [[String:Any]] = [["predictions" : predictions], ["points": 0]]
-        let userPredictions : [String:Any] = [currentUser: potData]
+        let joineeDict : [String:Any] = ["predictions" : predictions,
+                                         "points": totalPoints,
+                                         "joinee": currentUser]
         
-//        var potBody = [String:Any]()
-//        potBody["fixturePredictions"] = userPredictions
-//        potBody["joinees"] = [currentUser]
-//        potBody["points"] = 0
-//        print("User's Pot:\n\(potBody)")
+//        let potData : [[String:Any]] = [["predictions" : predictions], ["points": totalPoints]]
+//        let userPredictions : [String:Any] = [currentUser: potData]
+        
         let addFixturesRef = self.db.collection("pots").document(potIDStr)
         addFixturesRef.updateData([
-            "joinees": FieldValue.arrayUnion([self.currentUser])
+            "joinees": FieldValue.arrayUnion([joineeDict])
         ])
-        addFixturesRef.updateData([
-            "fixturePredictions" : FieldValue.arrayUnion([userPredictions])
-        ])
-
         db.collection("pots").document(potIDStr).getDocument { (docSnapshot, error) in
             if let err = error {
                 print("Error getting documents: \(err)")
@@ -192,6 +183,26 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         present(instructController, animated: false, completion: nil)
     }
 
+    func updatePoints(fixture: FixtureMO) {
+        totalPoints = 0.0
+        var selectedPoints = 0.0
+        for fObj in fixturesArray {
+            var fixTemp : FixtureMO = fObj
+            if fObj.fixture_id == fixture.fixture_id {
+                fixTemp = fObj
+            }
+            if fixTemp.isDoubleDown {
+                selectedPoints = fixTemp.selectedPoints * 2
+            } else {
+                selectedPoints = fixTemp.selectedPoints
+            }
+            
+            totalPoints += selectedPoints
+        }
+        print("TOTAL POINTS => \(totalPoints)")
+//        totalPointsLabel.text = String(format: "%.1f\n points",totalPoints)
+    }
+
 }
 extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
     
@@ -201,7 +212,9 @@ extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
         }
         let fixture = fixturesArray[indexPath.section]
         fixture.predictionType = predictionType
+        fixture.selectedPoints = Double(fixturesPointsArray[indexPath.section][predictionType.rawValue - 1]) ?? 0.0
         cell.updateSelection(fixture: fixture)
+        updatePoints(fixture: fixture)
     }
     
     func didTapDoubleDownOn(cell: SP_MatchTableViewCell) {
@@ -219,6 +232,8 @@ extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
         }
         fixture.isDoubleDown = !fixture.isDoubleDown
         cell.updateSelection(fixture: fixture)
+        updatePoints(fixture: fixture)
+
     }
 }
 

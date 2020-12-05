@@ -35,6 +35,7 @@ class SP_MatchTableViewCell: UITableViewCell {
     @IBOutlet weak var doublePointsBtn: UIButton!
     @IBOutlet weak var goalsView: UIView!
     @IBOutlet weak var teamNameView: UIView!
+    @IBOutlet weak var matchFinishedView: UIView!
     @IBOutlet weak var teamNameViewLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var liveView: UIView!
@@ -73,7 +74,13 @@ class SP_MatchTableViewCell: UITableViewCell {
         let timeDiff = Date.currentTimeStamp .distance(to: fixtureModel.event_timestamp)
         if timeDiff < 0{ //Always <
             //TODO: Check other statuses to handle the cases
-            if fixtureModel.statusShort == "NS" { //Always !=NS
+            if fixtureModel.statusShort == "FT" {
+                matchFinishedView.isHidden = false
+                liveView.isHidden = true
+                goalsView.isHidden = false
+                matchTimeLabel.isHidden = true
+                teamNameViewLeadingConstraint.constant = 0
+            }else if fixtureModel.statusShort != "NS" { //Always !=NS
                 matchTimeLabel.isHidden = true
                 liveView.isHidden = false
                 goalsView.isHidden = false
@@ -82,6 +89,8 @@ class SP_MatchTableViewCell: UITableViewCell {
             }
         }else {
             liveView.isHidden = true
+            matchTimeLabel.isHidden = false
+            matchFinishedView.isHidden = true
             goalsView.isHidden = true
             teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
             let timestamp = fixtureModel.event_timestamp

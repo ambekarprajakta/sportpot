@@ -10,27 +10,20 @@ import UIKit
 
 class SP_RankingTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var accuracyLabel: UILabel!
-    @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var doubleDownLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var accuracyLabel: UILabel!
+    @IBOutlet private weak var pointsLabel: UILabel!
+    @IBOutlet private weak var doubleDownLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func display(joinee: Joinee) {
+        nameLabel.text = joinee.joinee
+        accuracyLabel.text = String(format: "%.2f", joinee.accuracy ?? 0)
+        pointsLabel.text = String(format:"%.2f", joinee.points)
+        doubleDownLabel.text = String(format:"%d/3", joinee.doubleDown ?? 0)
+    }
 
-        // Configure the view for the selected state
-    }
-    func displayCell(data:[String:Any], indexPath: IndexPath) {
-        guard let joineesArr = data["joinees"] as? Array<String> else { return }
-        
-        if joineesArr[indexPath.row] != UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey)  {
-            nameLabel.text = joineesArr[indexPath.row]
-        }
-        
-    }
-    
 }

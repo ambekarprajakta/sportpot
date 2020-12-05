@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -35,13 +34,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ZX-sAf">
-                                <rect key="frame" x="15" y="256.5" width="384" height="34"/>
+                                <rect key="frame" x="15" y="254.5" width="384" height="35"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cd-o6-Tgf">
-                                <rect key="frame" x="103.5" y="463" width="207" height="53"/>
+                                <rect key="frame" x="103.5" y="463" width="207" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -58,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czR-oC-iOB">
-                                <rect key="frame" x="103.5" y="546" width="207" height="53"/>
+                                <rect key="frame" x="103.5" y="547" width="207" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -75,13 +74,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Start with signing up or signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-x3-9Cb">
-                                <rect key="frame" x="15" y="320.5" width="384" height="22.5"/>
+                                <rect key="frame" x="15" y="319.5" width="384" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-x4-Sst">
-                                <rect key="frame" x="155.5" y="138" width="103.5" height="103.5"/>
+                                <rect key="frame" x="155.5" y="136" width="103.5" height="103.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pgv-x4-Sst" secondAttribute="height" multiplier="1:1" id="ta1-eE-L11"/>
                                 </constraints>
@@ -129,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ik-r3-zRL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="768.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-YG-w2e">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
@@ -138,19 +137,19 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-Pd-eti">
-                                                <rect key="frame" x="146.5" y="76.5" width="121" height="34"/>
+                                                <rect key="frame" x="151.5" y="76.5" width="111.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="You and Your Friends always up for a game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45O-LR-S1h">
-                                                <rect key="frame" x="15" y="118.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                                 <color key="textColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4T-rX-sBb">
-                                                <rect key="frame" x="35" y="185.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="186.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -178,12 +177,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGv-ql-1yC" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="221.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
                                                         <color key="value" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,7 +199,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-cR-pHM">
-                                                <rect key="frame" x="35" y="290.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="292.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -228,7 +227,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-xZ-xAi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="326.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="328.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -250,7 +249,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-ZT-mPf">
-                                                <rect key="frame" x="83" y="610.5" width="248" height="53"/>
+                                                <rect key="frame" x="83" y="615.5" width="248" height="54"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
@@ -267,7 +266,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T74-Hn-GX8" userLabel="First Step Label">
-                                                <rect key="frame" x="182" y="713.5" width="25" height="6"/>
+                                                <rect key="frame" x="182" y="719.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="gH8-8c-xbS"/>
@@ -283,13 +282,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 1 of 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-hz-uFs">
-                                                <rect key="frame" x="163" y="727.5" width="88" height="21"/>
+                                                <rect key="frame" x="163" y="733.5" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-07-CI9" userLabel="Second Step Label">
-                                                <rect key="frame" x="215" y="713.5" width="25" height="6"/>
+                                                <rect key="frame" x="215" y="719.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="S5X-2w-Ove"/>
@@ -304,7 +303,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNb-kd-Or1">
-                                                <rect key="frame" x="35" y="395.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="398.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -332,12 +331,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBF-Z4-Ekl" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="431.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="434.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
@@ -354,7 +353,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu6-XT-HI8">
-                                                <rect key="frame" x="35" y="500.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="504.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -382,12 +381,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-wM-6m2" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="536.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="540.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
@@ -593,19 +592,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-l4-wzQ">
-                                <rect key="frame" x="159" y="120.5" width="96" height="34"/>
+                                <rect key="frame" x="160.5" y="120.5" width="93" height="35"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You and Your Friends always up for a game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="One-t1-Aj7">
-                                <rect key="frame" x="15" y="162.5" width="384" height="17"/>
+                                <rect key="frame" x="15" y="163.5" width="384" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                 <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGr-0x-lFw">
-                                <rect key="frame" x="35" y="239.5" width="344" height="21"/>
+                                <rect key="frame" x="35" y="240.5" width="344" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="">
                                         <attributes>
@@ -632,7 +631,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4z-JS-5Wi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                <rect key="frame" x="35" y="275.5" width="344" height="30"/>
+                                <rect key="frame" x="35" y="276.5" width="344" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wnQ-nO-9h7"/>
@@ -656,7 +655,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-xh-YE7">
-                                <rect key="frame" x="35" y="335.5" width="344" height="21"/>
+                                <rect key="frame" x="35" y="336.5" width="344" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="">
                                         <attributes>
@@ -684,7 +683,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ie-8D-0FA" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                <rect key="frame" x="35" y="371.5" width="344" height="30"/>
+                                <rect key="frame" x="35" y="372.5" width="344" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TyI-7G-MrM"/>
@@ -708,13 +707,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-P2-YIE">
-                                <rect key="frame" x="35" y="431.5" width="113" height="16"/>
+                                <rect key="frame" x="35" y="432.5" width="114.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-jH-LdM">
-                                <rect key="frame" x="152" y="431.5" width="105" height="16"/>
+                                <rect key="frame" x="153.5" y="432" width="105" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
                                 <state key="normal" title="Click Here">
@@ -722,7 +721,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omI-4P-dIt">
-                                <rect key="frame" x="83" y="507.5" width="248" height="53"/>
+                                <rect key="frame" x="83" y="509" width="248" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -740,7 +739,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-Wd-bkP">
-                                <rect key="frame" x="126.5" y="609.5" width="161" height="26"/>
+                                <rect key="frame" x="126" y="612" width="162" height="27"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="10"/>
                                 <state key="normal" title="Sign up Here">
@@ -757,7 +756,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upz-GF-ITq">
-                                <rect key="frame" x="134.5" y="585.5" width="145.5" height="16"/>
+                                <rect key="frame" x="132.5" y="588" width="149.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -819,15 +818,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-uR-udB">
-                                <rect key="frame" x="184.5" y="437.5" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-uR-udB">
+                                <rect key="frame" x="185" y="438" width="44.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rdn-MX-3iR"/>
-                        <color key="backgroundColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="tx2-uR-udB" firstAttribute="centerY" secondItem="nmF-cF-273" secondAttribute="centerY" id="VRn-um-o56"/>
                             <constraint firstItem="tx2-uR-udB" firstAttribute="centerX" secondItem="nmF-cF-273" secondAttribute="centerX" id="rlB-Sv-6C0"/>
@@ -890,38 +889,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-Ud-5y6">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-Ud-5y6">
                                 <rect key="frame" x="331" y="116.5" width="56" height="56"/>
                                 <color key="backgroundColor" red="0.035294117647058823" green="0.41568627450980389" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="Bi3-3A-mAR"/>
                                     <constraint firstAttribute="height" constant="56" id="tHH-Rf-7jd"/>
                                 </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="35">
-                                        <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cg
-</string>
-                                        <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="points">
-                                        <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="8"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <string key="text">0
+points</string>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1073,7 +1051,7 @@ Cg
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLI-gT-cHl" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="654.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="658.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="Nhn-rV-bU5">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
@@ -1082,25 +1060,25 @@ Cg
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="745-D9-7af">
-                                                <rect key="frame" x="146.5" y="76.5" width="121" height="34"/>
+                                                <rect key="frame" x="151.5" y="76.5" width="111.5" height="35"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="You and Your Friends always up for a game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqY-1k-QvT">
-                                                <rect key="frame" x="15" y="118.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                                 <color key="textColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-aS-Tee">
-                                                <rect key="frame" x="35" y="185.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="186.5" width="344" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-58-MKS" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="221.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1122,13 +1100,13 @@ Cg
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enter Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-ZZ-UrI">
-                                                <rect key="frame" x="35" y="290.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="292.5" width="344" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZnO-lq-Wbd" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="326.5" width="344" height="24"/>
+                                                <rect key="frame" x="35" y="328.5" width="344" height="25"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1150,7 +1128,7 @@ Cg
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBy-IV-29L">
-                                                <rect key="frame" x="83" y="496.5" width="248" height="53"/>
+                                                <rect key="frame" x="83" y="499.5" width="248" height="54"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
@@ -1167,7 +1145,7 @@ Cg
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj1-Of-9Bv" userLabel="First Step Label">
-                                                <rect key="frame" x="182" y="599.5" width="25" height="6"/>
+                                                <rect key="frame" x="182" y="603.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="J39-Ru-3NJ"/>
@@ -1183,13 +1161,13 @@ Cg
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 2 of 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIN-sC-xfp">
-                                                <rect key="frame" x="163" y="613.5" width="88" height="21"/>
+                                                <rect key="frame" x="163" y="617.5" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuJ-wb-GnV" userLabel="Second Step Label">
-                                                <rect key="frame" x="215" y="599.5" width="25" height="6"/>
+                                                <rect key="frame" x="215" y="603.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="VOS-Gp-FGH"/>
@@ -1204,7 +1182,7 @@ Cg
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2r-p7-Xlx">
-                                                <rect key="frame" x="35" y="358.5" width="344" height="33"/>
+                                                <rect key="frame" x="35" y="361.5" width="344" height="33"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="">
@@ -1232,7 +1210,7 @@ Cg
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZm-27-7G5">
-                                                <rect key="frame" x="35" y="406.5" width="344" height="40"/>
+                                                <rect key="frame" x="35" y="409.5" width="344" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="UGJ-Cn-zp1"/>
                                                 </constraints>
@@ -1323,7 +1301,7 @@ Cg
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-Oi-GtS">
-                                                <rect key="frame" x="141.5" y="496.5" width="131" height="53"/>
+                                                <rect key="frame" x="141.5" y="499.5" width="131" height="54"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -1424,21 +1402,44 @@ Cg
             </objects>
             <point key="canvasLocation" x="1504.3478260869567" y="119.19642857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Notifications-->
         <scene sceneID="khc-EX-lHo">
             <objects>
                 <viewController id="E2n-wC-B25" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zfY-83-0s7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good-Luck" translatesAutoresizingMaskIntoConstraints="NO" id="7CW-nM-RaN">
+                                <rect key="frame" x="132" y="255" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7CW-nM-RaN" secondAttribute="height" multiplier="1:1" id="agz-Px-sqN"/>
+                                    <constraint firstAttribute="height" constant="150" id="mIq-hW-2Ol"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-wT-ZET">
+                                <rect key="frame" x="136.5" y="435" width="141" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Zv0-OF-6AK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jaU-wT-ZET" firstAttribute="centerX" secondItem="zfY-83-0s7" secondAttribute="centerX" id="84k-tn-wVb"/>
+                            <constraint firstItem="jaU-wT-ZET" firstAttribute="centerY" secondItem="zfY-83-0s7" secondAttribute="centerY" id="Hcq-aV-elk"/>
+                            <constraint firstItem="7CW-nM-RaN" firstAttribute="centerX" secondItem="zfY-83-0s7" secondAttribute="centerX" id="cCn-ih-VZP"/>
+                            <constraint firstItem="7CW-nM-RaN" firstAttribute="width" secondItem="zfY-83-0s7" secondAttribute="width" multiplier="0.362319" id="eu1-ux-O8l"/>
+                            <constraint firstItem="7CW-nM-RaN" firstAttribute="width" secondItem="7CW-nM-RaN" secondAttribute="height" multiplier="1:1" id="meA-oW-yA5"/>
+                            <constraint firstItem="jaU-wT-ZET" firstAttribute="top" secondItem="7CW-nM-RaN" secondAttribute="bottom" constant="30" id="tet-DG-KIi"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tXk-Cn-T94"/>
+                    <navigationItem key="navigationItem" title="Notifications" id="tXk-Cn-T94"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDJ-v1-ip0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-155" y="2312"/>
+            <point key="canvasLocation" x="-155.07246376811597" y="2311.6071428571427"/>
         </scene>
         <!--Good Luck View Controller-->
         <scene sceneID="2Hl-bd-4fz">
@@ -1645,6 +1646,12 @@ Cg
                                     <action selector="dismissAction:" destination="uwI-2X-Tdy" eventType="touchUpInside" id="YJc-U9-dBz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated at: 15-08-2020 10:10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-Nu-p24">
+                                <rect key="frame" x="15" y="208.5" width="384" height="12"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
+                                <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9i7-TU-TrD"/>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.18431372549019609" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -1659,6 +1666,9 @@ Cg
                             <constraint firstItem="juO-0G-JtE" firstAttribute="width" secondItem="Ziq-xY-ZHr" secondAttribute="width" multiplier="0.8" id="I6q-9s-Bxs"/>
                             <constraint firstItem="BdT-xb-AmU" firstAttribute="trailing" secondItem="Ziq-xY-ZHr" secondAttribute="centerX" constant="-15" id="RDm-pt-ZAX"/>
                             <constraint firstItem="BdT-xb-AmU" firstAttribute="top" secondItem="juO-0G-JtE" secondAttribute="bottom" constant="30" id="VMN-cN-0u8"/>
+                            <constraint firstItem="vM4-Nu-p24" firstAttribute="leading" secondItem="9i7-TU-TrD" secondAttribute="leading" constant="15" id="aqD-db-gK9"/>
+                            <constraint firstItem="juO-0G-JtE" firstAttribute="top" secondItem="vM4-Nu-p24" secondAttribute="bottom" constant="4" id="eGq-l8-JQ0"/>
+                            <constraint firstItem="9i7-TU-TrD" firstAttribute="trailing" secondItem="vM4-Nu-p24" secondAttribute="trailing" constant="15" id="gAh-Nb-BJq"/>
                             <constraint firstItem="juO-0G-JtE" firstAttribute="centerX" secondItem="Ziq-xY-ZHr" secondAttribute="centerX" id="mbb-gy-C1m"/>
                             <constraint firstItem="J4I-5l-pP4" firstAttribute="top" secondItem="9i7-TU-TrD" secondAttribute="top" constant="30" id="qr7-Xp-tlV"/>
                             <constraint firstItem="J4I-5l-pP4" firstAttribute="leading" secondItem="9i7-TU-TrD" secondAttribute="leading" constant="15" id="sy4-wm-zZg"/>
@@ -1666,8 +1676,13 @@ Cg
                             <constraint firstItem="M9N-JX-Z8u" firstAttribute="leading" secondItem="BdT-xb-AmU" secondAttribute="trailing" constant="30" id="zQj-q5-gYj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Jzv-Op-ITY"/>
+                    <navigationItem key="navigationItem" id="Jzv-Op-ITY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="kOl-R3-z1y">
+                            <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="lastUpdatedLabel" destination="vM4-Nu-p24" id="biy-pI-fdd"/>
                         <outlet property="potDateLabel" destination="J4I-5l-pP4" id="nSp-bs-mAt"/>
                         <outlet property="rankingTableView" destination="juO-0G-JtE" id="yt5-7J-Zqc"/>
                     </connections>
@@ -1709,6 +1724,9 @@ Cg
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
@@ -1732,6 +1750,9 @@ Cg
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1752,6 +1773,9 @@ Cg
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1826,7 +1850,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-zx-Fa2" userLabel="Instructions View">
-                                <rect key="frame" x="85" y="262.5" width="244" height="371"/>
+                                <rect key="frame" x="85" y="259" width="244" height="378"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-SA-fhg">
                                         <rect key="frame" x="101.5" y="45" width="41" height="41"/>
@@ -1835,19 +1859,19 @@ Cg
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4h-FA-xAt">
-                                        <rect key="frame" x="25" y="94" width="194" height="28.5"/>
+                                        <rect key="frame" x="25" y="94" width="194" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Place your bets on the 10 matches   2. Invite your friends to the pot   3. Player with most correct bets- wins!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-f6-tqy">
-                                        <rect key="frame" x="25" y="130.5" width="194" height="143.5"/>
+                                        <rect key="frame" x="25" y="131.5" width="194" height="149.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQB-Qg-Xh5">
-                                        <rect key="frame" x="63" y="294" width="118" height="35"/>
+                                        <rect key="frame" x="63" y="301" width="118" height="35"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Zcu-Zs-ZRd"/>
@@ -2267,9 +2291,6 @@ Cg
         <image name="you-dashboard" width="70" height="70"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

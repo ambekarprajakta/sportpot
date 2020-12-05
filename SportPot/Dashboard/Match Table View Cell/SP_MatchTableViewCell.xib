@@ -32,6 +32,38 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPU-XW-Oa3" userLabel="FT View">
+                        <rect key="frame" x="8" y="8" width="189.5" height="17"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJX-yS-wxO">
+                                <rect key="frame" x="0.0" y="1.5" width="100.5" height="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="MATCH FINISHED">
+                                        <attributes>
+                                            <color key="NSColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" metaFont="label" size="12"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0'" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nuK-hi-tqY">
+                                <rect key="frame" x="100.5" y="1.5" width="10" height="14"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nuK-hi-tqY" secondAttribute="trailing" id="8pU-VY-Uoe"/>
+                            <constraint firstItem="NJX-yS-wxO" firstAttribute="leading" secondItem="cPU-XW-Oa3" secondAttribute="leading" id="LAW-Xp-ufV"/>
+                            <constraint firstItem="nuK-hi-tqY" firstAttribute="centerY" secondItem="NJX-yS-wxO" secondAttribute="centerY" id="erm-2O-lef"/>
+                            <constraint firstItem="NJX-yS-wxO" firstAttribute="centerY" secondItem="cPU-XW-Oa3" secondAttribute="centerY" id="gfS-5f-Xwj"/>
+                            <constraint firstItem="nuK-hi-tqY" firstAttribute="leading" secondItem="NJX-yS-wxO" secondAttribute="trailing" id="xrg-bM-LaF"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9x-lj-BKI" userLabel="LIVE View">
                         <rect key="frame" x="8" y="8" width="189.5" height="17"/>
                         <subviews>
@@ -304,6 +336,7 @@
                     <constraint firstItem="Flg-0z-jKN" firstAttribute="top" secondItem="1vZ-Jq-LJe" secondAttribute="bottom" id="0Dq-gV-0li"/>
                     <constraint firstItem="1vZ-Jq-LJe" firstAttribute="width" secondItem="KFf-cB-T5s" secondAttribute="width" id="2I4-B6-h4r"/>
                     <constraint firstItem="1vZ-Jq-LJe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="31q-Ic-RDa"/>
+                    <constraint firstItem="cPU-XW-Oa3" firstAttribute="top" secondItem="q9x-lj-BKI" secondAttribute="top" id="3UT-71-WBe"/>
                     <constraint firstItem="TPH-Ag-mcX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="3lK-Nb-WFt"/>
                     <constraint firstItem="KFf-cB-T5s" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="BHY-nI-hSN"/>
                     <constraint firstItem="OWD-oP-gAH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Bot-SW-qNK"/>
@@ -312,6 +345,7 @@
                     <constraint firstItem="KFf-cB-T5s" firstAttribute="leading" secondItem="tfT-ir-KUk" secondAttribute="trailing" id="HXj-kq-jRh"/>
                     <constraint firstItem="Flg-0z-jKN" firstAttribute="top" secondItem="TPH-Ag-mcX" secondAttribute="bottom" constant="8" id="JS0-2C-xj6"/>
                     <constraint firstItem="gJQ-Cu-mJ5" firstAttribute="centerX" secondItem="cqU-bw-ItP" secondAttribute="centerX" id="L3C-lW-Jm5"/>
+                    <constraint firstItem="cPU-XW-Oa3" firstAttribute="leading" secondItem="q9x-lj-BKI" secondAttribute="leading" id="Nkg-V1-GAY"/>
                     <constraint firstItem="TPH-Ag-mcX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="P4o-LV-Lwj"/>
                     <constraint firstAttribute="bottom" secondItem="OWD-oP-gAH" secondAttribute="bottom" id="QNZ-rT-SaW"/>
                     <constraint firstItem="OWD-oP-gAH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.1" id="S5h-mr-fvD"/>
@@ -320,12 +354,14 @@
                     <constraint firstItem="q9x-lj-BKI" firstAttribute="leading" secondItem="TPH-Ag-mcX" secondAttribute="leading" id="Z8J-2N-6MV"/>
                     <constraint firstAttribute="trailing" secondItem="1vZ-Jq-LJe" secondAttribute="trailing" id="aAv-26-hlq"/>
                     <constraint firstAttribute="bottom" secondItem="tfT-ir-KUk" secondAttribute="bottom" id="b5O-Yz-9oV"/>
+                    <constraint firstItem="cPU-XW-Oa3" firstAttribute="bottom" secondItem="q9x-lj-BKI" secondAttribute="bottom" id="b5b-B4-Wid"/>
                     <constraint firstItem="q9x-lj-BKI" firstAttribute="trailing" secondItem="TPH-Ag-mcX" secondAttribute="trailing" id="brS-ph-B8b"/>
                     <constraint firstItem="OWD-oP-gAH" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="bottom" id="cBg-yF-I1x"/>
                     <constraint firstItem="tfT-ir-KUk" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="bottom" id="cbr-rR-COG"/>
                     <constraint firstItem="1vZ-Jq-LJe" firstAttribute="leading" secondItem="TPH-Ag-mcX" secondAttribute="trailing" constant="8" id="clQ-lC-egH"/>
                     <constraint firstItem="KFf-cB-T5s" firstAttribute="top" secondItem="Flg-0z-jKN" secondAttribute="top" id="fHu-J4-plN"/>
                     <constraint firstItem="tfT-ir-KUk" firstAttribute="leading" secondItem="OWD-oP-gAH" secondAttribute="trailing" id="fN1-jM-eXO"/>
+                    <constraint firstItem="cPU-XW-Oa3" firstAttribute="trailing" secondItem="q9x-lj-BKI" secondAttribute="trailing" id="hgu-EW-itR"/>
                     <constraint firstItem="q9x-lj-BKI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="oDd-u9-8P6"/>
                     <constraint firstItem="b5Y-f9-EvG" firstAttribute="centerX" secondItem="Qhe-aY-ALy" secondAttribute="centerX" id="rVG-GP-31M"/>
                     <constraint firstItem="O0P-lN-dbH" firstAttribute="top" secondItem="una-pQ-YIi" secondAttribute="top" id="uuO-31-qf5"/>
@@ -349,6 +385,7 @@
                 <outlet property="homeTeamScoreLabel" destination="oMf-4K-CZs" id="dbM-8n-cnd"/>
                 <outlet property="liveMinuteLabel" destination="PEP-Dv-IWG" id="dOi-vZ-GoC"/>
                 <outlet property="liveView" destination="q9x-lj-BKI" id="GeA-Xg-BM9"/>
+                <outlet property="matchFinishedView" destination="cPU-XW-Oa3" id="8cC-Dj-yO3"/>
                 <outlet property="matchTimeLabel" destination="TPH-Ag-mcX" id="dnp-37-D7B"/>
                 <outlet property="teamNameView" destination="tfT-ir-KUk" id="pim-Bp-stT"/>
                 <outlet property="teamNameViewLeadingConstraint" destination="fN1-jM-eXO" id="roa-Ca-Qee"/>

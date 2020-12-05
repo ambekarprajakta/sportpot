@@ -18,13 +18,17 @@ public class TeamMO: NSManagedObject, Decodable {
     }
 
     public required convenience init(from decoder: Decoder) throws {
-        guard let codingUserInfoKeyContext = CodingUserInfoKey.context,
-            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext,
-            let entity = NSEntityDescription.entity(forEntityName: "Team", in: managedObjectContext) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Team", in: CoreDataManager.sharedManager.persistentContainer.viewContext) else {
                 fatalError("Failed to decode Team")
         }
 
-        self.init(entity: entity, insertInto: managedObjectContext)
+        var context: NSManagedObjectContext?
+        if let codingUserInfoKeyContext = CodingUserInfoKey.context,
+            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext {
+            context = managedObjectContext
+        }
+
+        self.init(entity: entity, insertInto: context)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         team_id = try container.decodeIfPresent(Int64.self, forKey: .team_id) ?? 0

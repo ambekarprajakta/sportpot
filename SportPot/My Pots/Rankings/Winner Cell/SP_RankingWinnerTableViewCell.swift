@@ -9,26 +9,21 @@
 import UIKit
 
 class SP_RankingWinnerTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var accuracyButton: UIButton!
-    @IBOutlet weak var pointsButton: UIButton!
-    @IBOutlet weak var doubleDownButton: UIButton!
+
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var accuracyButton: UIButton!
+    @IBOutlet private weak var pointsButton: UIButton!
+    @IBOutlet private weak var doubleDownButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func display(joinee: Joinee) {
+        nameLabel.text = joinee.joinee
+        accuracyButton.setTitle(String(format: "%.2f", joinee.accuracy ?? 0), for: .normal)
+        pointsButton.setTitle(String(format:"%.2f", joinee.points ), for: .normal)
+        doubleDownButton.setTitle(String(format:"%d/3", joinee.doubleDown ?? 0), for: .normal)
+    }
 
-        // Configure the view for the selected state
-    }
-    func displayCell(data:[String:Any], indexPath: IndexPath) {
-        guard let joineesArr = data["joinees"] as? Array<String> else { return }
-        if indexPath.row == 0  {
-            nameLabel.text = joineesArr[indexPath.row]
-        }
-        
-    }
 }

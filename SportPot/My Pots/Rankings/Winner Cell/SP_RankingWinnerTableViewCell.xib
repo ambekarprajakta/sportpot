@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -127,8 +127,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ynX-VY-eUL" userLabel="Player View">
                         <rect key="frame" x="0.0" y="0.0" width="131" height="56"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Praj" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mpu-lj-hvV">
-                                <rect key="frame" x="26" y="8" width="97" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Winner" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Mpu-lj-hvV">
+                                <rect key="frame" x="26" y="4" width="97" height="48"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -143,13 +143,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Mpu-lj-hvV" firstAttribute="leading" secondItem="84T-zM-ptT" secondAttribute="trailing" constant="8" id="0QN-fW-acC"/>
-                            <constraint firstItem="Mpu-lj-hvV" firstAttribute="centerY" secondItem="ynX-VY-eUL" secondAttribute="centerY" id="1Fw-KB-fxr"/>
+                            <constraint firstAttribute="bottom" secondItem="Mpu-lj-hvV" secondAttribute="bottom" constant="4" id="BHw-Rt-d0T"/>
                             <constraint firstAttribute="trailing" secondItem="Mpu-lj-hvV" secondAttribute="trailing" constant="8" id="D38-Or-zYe"/>
                             <constraint firstAttribute="bottom" secondItem="84T-zM-ptT" secondAttribute="bottom" constant="8" id="PJU-Tt-Oy3"/>
-                            <constraint firstItem="84T-zM-ptT" firstAttribute="height" secondItem="Mpu-lj-hvV" secondAttribute="height" id="Y9E-1u-EYR"/>
+                            <constraint firstItem="Mpu-lj-hvV" firstAttribute="top" secondItem="ynX-VY-eUL" secondAttribute="top" constant="4" id="i6e-EF-QXf"/>
                             <constraint firstItem="84T-zM-ptT" firstAttribute="leading" secondItem="ynX-VY-eUL" secondAttribute="leading" constant="8" id="mdj-sd-nuQ"/>
                             <constraint firstItem="84T-zM-ptT" firstAttribute="top" secondItem="ynX-VY-eUL" secondAttribute="top" constant="8" id="rrJ-lB-FYq"/>
-                            <constraint firstItem="84T-zM-ptT" firstAttribute="centerY" secondItem="ynX-VY-eUL" secondAttribute="centerY" id="ry8-Cj-ioS"/>
                         </constraints>
                     </view>
                 </subviews>

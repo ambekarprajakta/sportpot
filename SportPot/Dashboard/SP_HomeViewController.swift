@@ -80,15 +80,15 @@ class SP_HomeViewController: UIViewController {
                 if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
                     strongSelf.currentSeasonStr = fixturesArray[0] as! String
                     let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
-                    if isKeyPresent {
-                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
-                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
-                        }
-                    } else {
+//                    if isKeyPresent {
+//                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
+//                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
+//                        }
+//                    } else {
                         ///Set the current Round
                         UserDefaults.standard.set(strongSelf.currentSeasonStr , forKey: UserDefaultsConstants.currentRoundKey)
-                        strongSelf.getFixturesFromServer()
-                    }
+//                        strongSelf.getFixturesFromServer()
+//                    }
                     
                 }
             }
@@ -236,16 +236,17 @@ class SP_HomeViewController: UIViewController {
             predictionBody["is_double_down"] = fixture.isDoubleDown
             predictions.append(predictionBody)
         }
-        //        potBody["points"] = 0
-        
-        let potData : [[String:Any]] = [["predictions" : predictions], ["points": Double(totalPointsLabel.text ?? "0.0") as Any]]
-        let userPredictions : [String:Any] = [currentUser: potData]
-        
+
+        let pointsStr = totalPointsLabel.text?.split(separator: "\n")
+        let joineeDict : [String:Any] = ["predictions" : predictions,
+                                         "points": Double(pointsStr?[0] ?? "0.0") as Any,
+                                         "joinee": currentUser]
+
         var potBody = [String:Any]()
         potBody["potID"] = String(urlParams[2])
         potBody["createdOn"] = String(currentTimeStamp)
-        potBody["fixturePredictions"] = userPredictions
-        potBody["joinees"] = [currentUser]
+        potBody["joinees"] = [joineeDict]
+        potBody["owner"] = currentUser
         //Add current season (Round)
         potBody["round"] = UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey)
         print("User's Pot:\n\(potBody)")
@@ -345,10 +346,11 @@ class SP_HomeViewController: UIViewController {
             } else {
                 selectedPoints = fixTemp.selectedPoints
             }
+            
             totalPoints += selectedPoints
         }
         print("TOTAL POINTS => \(totalPoints)")
-        totalPointsLabel.text = String(format: "%.1f",totalPoints)
+        totalPointsLabel.text = String(format: "%.1f\n points",totalPoints)
     }
 }
 
@@ -419,23 +421,5 @@ extension SP_HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
-    }
-}
-extension UITableView {
-    func setEmptyMessage(_ message: String) {
-        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        messageLabel.text = message
-        messageLabel.textColor = .white
-        messageLabel.numberOfLines = 0
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont(name: "Ubuntu-Regular", size: 15)
-        messageLabel.sizeToFit()
-        self.backgroundView = messageLabel
-        self.separatorStyle = .none
-    }
-    
-    func restore() {
-        self.backgroundView = nil
-        self.separatorStyle = .none
     }
 }

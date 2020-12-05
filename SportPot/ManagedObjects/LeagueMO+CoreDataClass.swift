@@ -19,13 +19,17 @@ public class LeagueMO: NSManagedObject, Decodable {
     }
 
     public required convenience init(from decoder: Decoder) throws {
-        guard let codingUserInfoKeyContext = CodingUserInfoKey.context,
-            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext,
-            let entity = NSEntityDescription.entity(forEntityName: "League", in: managedObjectContext) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "League", in: CoreDataManager.sharedManager.persistentContainer.viewContext) else {
                 fatalError("Failed to decode League")
         }
 
-        self.init(entity: entity, insertInto: managedObjectContext)
+        var context: NSManagedObjectContext?
+        if let codingUserInfoKeyContext = CodingUserInfoKey.context,
+            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext {
+            context = managedObjectContext
+        }
+
+        self.init(entity: entity, insertInto: context)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""

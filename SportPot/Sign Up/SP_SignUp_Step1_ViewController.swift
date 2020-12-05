@@ -87,7 +87,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     }])
             }else {
                 //User was created successfully, now store the first name and last name
-                self.db.collection("user").document(username).setData([
+                self.db.collection("user").document(email).setData([
                     "id" : String((result?.user.uid)!),
                     "email":email,
                     "displayName" : username,
@@ -96,7 +96,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                 ], merge: true){ (error) in
                     //If all good, proceed!
                     let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-                    signUp2VC.username = username
+                    signUp2VC.username = email
                     self.present(signUp2VC, animated: true, completion: nil)
                     print("User successfully created!")
                 }

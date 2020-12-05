@@ -84,3 +84,21 @@ extension UIFont {
         return customFont(name: "Ubuntu-Bold", size: size)
     }
 }
+extension UITableView {
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = .sp_mustard
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont(name: "Ubuntu-Regular", size: 16)
+        messageLabel.sizeToFit()
+        self.backgroundView = messageLabel
+        self.separatorStyle = .none
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .none
+    }
+}

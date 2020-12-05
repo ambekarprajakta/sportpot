@@ -20,13 +20,17 @@ public class ScoreMO: NSManagedObject, Decodable {
     }
 
     public required convenience init(from decoder: Decoder) throws {
-        guard let codingUserInfoKeyContext = CodingUserInfoKey.context,
-            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext,
-            let entity = NSEntityDescription.entity(forEntityName: "Score", in: managedObjectContext) else {
+        guard let entity = NSEntityDescription.entity(forEntityName: "Score", in: CoreDataManager.sharedManager.persistentContainer.viewContext) else {
                 fatalError("Failed to decode Score")
         }
 
-        self.init(entity: entity, insertInto: managedObjectContext)
+        var context: NSManagedObjectContext?
+        if let codingUserInfoKeyContext = CodingUserInfoKey.context,
+            let managedObjectContext = decoder.userInfo[codingUserInfoKeyContext] as? NSManagedObjectContext {
+            context = managedObjectContext
+        }
+
+        self.init(entity: entity, insertInto: context)
 
         let container = try decoder.container(keyedBy: CodingKeys.self)
         halftime = try container.decodeIfPresent(String.self, forKey: .halftime)
