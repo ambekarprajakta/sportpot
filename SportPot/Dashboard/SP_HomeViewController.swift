@@ -43,8 +43,7 @@ class SP_HomeViewController: UIViewController {
             self.showInstructions()
         }
         //        getFixturesFromServer() // Get latest fixtures from api
-        getFixturePoints()
-        
+        getCurrentWeekForPoints()        
     }
     
     private func setupNavigationBar() {
@@ -104,7 +103,13 @@ class SP_HomeViewController: UIViewController {
         let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
         present(instructController, animated: false, completion: nil)
     }
-    
+    func getCurrentWeekForPoints() {
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            guard let currentWeekStr = docSnapShot?.data() else { return }
+            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+            self.getFixturePointsForWeek(week: weekNumStr as! String)
+        }
+    }
     private func getFixturesFromServer() {
         if fixturesArray.isEmpty {
             self.matchTableView.restore()
@@ -320,8 +325,8 @@ class SP_HomeViewController: UIViewController {
         return true
     }
     
-    func getFixturePoints() {
-        db.collection("fixturePoints").document("week44").getDocument { (docSnapShot, error) in
+    func getFixturePointsForWeek(week:String) {
+        db.collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
             guard let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return

@@ -14,6 +14,7 @@ class SP_RankingsViewController: UIViewController {
     @IBOutlet private weak var rankingTableView: UITableView!
     @IBOutlet private weak var potDateLabel: UILabel!
     @IBOutlet private weak var lastUpdatedLabel: UILabel!
+    private var fixturesPointsArray = Array<[String]>()
 
     var pot: Pot!
     private var joinees = [Joinee]()
@@ -30,7 +31,7 @@ class SP_RankingsViewController: UIViewController {
         let myTimeInterval = TimeInterval(dateTimeStampStr)
         let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
         potDateLabel.text = time.dateAndTimetoString()
-        
+        getCurrentWeekForPoints()
         //Check round number - call API with round and league ID
 //        guard let roundNoStr = potDetail["round"] as? String else { return }
         //If currentRound == pot round, skip it
@@ -38,6 +39,27 @@ class SP_RankingsViewController: UIViewController {
             getFixturesFrom(round: round)
         } else {
             joinees.append(contentsOf: pot.joinees)
+        }
+    }
+    
+    func getCurrentWeekForPoints() {
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            guard let currentWeekStr = docSnapShot?.data() else { return }
+            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+            self.getFixturePointsForWeek(week: weekNumStr as! String)
+        }
+    }
+    
+    func getFixturePointsForWeek(week:String) {
+        Firestore.firestore().collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
+            guard let pointsSnapshot = docSnapShot else {
+                print("Error retreiving documents \(error!)")
+                return
+            }
+            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
+                self.fixturesPointsArray.append(fixturePoints as! [String])
+            }
+            print("Fixture points:\n \(self.fixturesPointsArray)")
         }
     }
     
@@ -62,28 +84,33 @@ class SP_RankingsViewController: UIViewController {
                             return nil
                         }
                     }
-                    self.compareScoresFrom(fixturesArr: fixtures)
+                    self.compareScoresFrom(fixturesArr: fixtures, fixturePoints: self.fixturesPointsArray)
                 }
             }
         }
     }
     
-    func compareScoresFrom(fixturesArr: [FixtureMO]) {
+    func compareScoresFrom(fixturesArr: [FixtureMO], fixturePoints: Array<[String]>) {
         var allJoinees = [Joinee]()
-
+        
         // Score calculation logic
-        let homePoints: Double = 3.5
-        let drawPoints: Double = 2.5
-        let awayPoints: Double = 4
 
         pot.joinees.forEach { (joinee) in
             var accuracy: Double = 0
             var doubleDown: Double = 0
             var pointsScored: Double = 0
+            var i = 0
             joinee.predictions.forEach { (prediction) in
+                
                 for fixture in fixturesArr {
+                    let pointArray = fixturePoints[i]
+                    let homePoints: Double = Double(pointArray[0]) ?? 0
+                    let drawPoints: Double = Double(pointArray[1]) ?? 0
+                    let awayPoints: Double = Double(pointArray[2]) ?? 0
+                    
                     if fixture.fixture_id == prediction.fixtureId {
                         if fixture.isMatchFinished() {
+                            i+=1
                             if fixture.goalsAwayTeam == fixture.goalsHomeTeam {
                                 // Draw
                                 if prediction.selection == 2 {
@@ -130,7 +157,7 @@ class SP_RankingsViewController: UIViewController {
             joineeCopy.pointsScored = pointsScored
             allJoinees.append(joineeCopy)
         }
-
+        
         // Winner logic
         var winners = [Joinee]()    // To hold all the unique winners
 
@@ -185,7 +212,7 @@ class SP_RankingsViewController: UIViewController {
 
     private func shouldComputeWinner() -> Bool {
         /// If the winner data is available, the `winner` property will never be nil.
-        for joinee in joinees {
+        for joinee in pot.joinees {
             /// If the `winner` property is nil for any joinee it means winner data is not available on Firebase.
             if joinee.winner == nil {
                 return true

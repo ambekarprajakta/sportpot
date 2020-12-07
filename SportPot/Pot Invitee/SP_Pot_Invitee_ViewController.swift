@@ -31,10 +31,19 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         potTableView.register(UINib(nibName: "SP_MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
         getFixturesFromServer()
-        getFixturePoints()
+        getCurrentWeekForPoints()
     }
-    func getFixturePoints() {
-        db.collection("fixturePoints").document("week44").getDocument { (docSnapShot, error) in
+    
+    func getCurrentWeekForPoints() {
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            guard let currentWeekStr = docSnapShot?.data() else { return }
+            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+            self.getFixturePointsForWeek(week: weekNumStr as! String)
+        }
+    }
+    
+    func getFixturePointsForWeek(week:String) {
+        db.collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
             guard let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return
