@@ -42,7 +42,7 @@ class SP_HomeViewController: UIViewController {
         if currentCount < 3 {
             self.showInstructions()
         }
-        //        getFixturesFromServer() // Get latest fixtures from api
+        getFixturesFromServer() // Get latest fixtures from api
         getCurrentWeekForPoints()        
     }
     
@@ -79,15 +79,15 @@ class SP_HomeViewController: UIViewController {
                 if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
                     strongSelf.currentSeasonStr = fixturesArray[0] as! String
                     let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
-//                    if isKeyPresent {
-//                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
-//                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
-//                        }
-//                    } else {
+                    if isKeyPresent {
+                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
+                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
+                        }
+                    } else {
                         ///Set the current Round
                         UserDefaults.standard.set(strongSelf.currentSeasonStr , forKey: UserDefaultsConstants.currentRoundKey)
 //                        strongSelf.getFixturesFromServer()
-//                    }
+                    }
                     
                 }
             }

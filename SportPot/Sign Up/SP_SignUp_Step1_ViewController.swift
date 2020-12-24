@@ -27,13 +27,11 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        passwordTextField.textContentType = .oneTimeCode
+        confirmPasswordTextField.textContentType = .oneTimeCode
         continueButton.layer.cornerRadius = continueButton.frame.size.height/2
     }
     
-    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        self.view.endEditing(true)
-    //    }
     // MARK: - Validation
     func validateInput() -> Bool {
         //        if nameTextField.text?.isEmpty {

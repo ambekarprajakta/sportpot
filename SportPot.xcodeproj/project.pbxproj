@@ -811,6 +811,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;
@@ -834,6 +835,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;

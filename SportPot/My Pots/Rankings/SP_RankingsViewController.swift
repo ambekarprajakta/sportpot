@@ -35,12 +35,14 @@ class SP_RankingsViewController: UIViewController {
         //Check round number - call API with round and league ID
 //        guard let roundNoStr = potDetail["round"] as? String else { return }
         //If currentRound == pot round, skip it
-        if let round = pot.round, shouldComputeWinner() {
-            getFixturesFrom(round: round)
-        } else {
-            joinees.append(contentsOf: pot.joinees)
-        }
     }
+    
+    @IBAction func sharePotAction(_ sender: Any) {
+        var baseStr = "https://sportpot.page.link/"
+        baseStr.append(pot.potID)
+        let message = "Check out the pot I just created on Sportpot!"
+        let activityVC = UIActivityViewController(activityItems: [message, baseStr], applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)    }
     
     func getCurrentWeekForPoints() {
         Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
@@ -60,6 +62,12 @@ class SP_RankingsViewController: UIViewController {
                 self.fixturesPointsArray.append(fixturePoints as! [String])
             }
             print("Fixture points:\n \(self.fixturesPointsArray)")
+            if let round = self.pot.round, self.shouldComputeWinner() {
+                self.getFixturesFrom(round: round)
+            } else {
+                self.joinees.append(contentsOf: self.pot.joinees)
+                self.rankingTableView.reloadData()
+            }
         }
     }
     
@@ -84,17 +92,16 @@ class SP_RankingsViewController: UIViewController {
                             return nil
                         }
                     }
-                    self.compareScoresFrom(fixturesArr: fixtures, fixturePoints: self.fixturesPointsArray)
+                    self.compareScoresFrom(fixturesArr: fixtures)
                 }
             }
         }
     }
     
-    func compareScoresFrom(fixturesArr: [FixtureMO], fixturePoints: Array<[String]>) {
+    func compareScoresFrom(fixturesArr: [FixtureMO]) {
         var allJoinees = [Joinee]()
         
         // Score calculation logic
-
         pot.joinees.forEach { (joinee) in
             var accuracy: Double = 0
             var doubleDown: Double = 0
@@ -103,7 +110,7 @@ class SP_RankingsViewController: UIViewController {
             joinee.predictions.forEach { (prediction) in
                 
                 for fixture in fixturesArr {
-                    let pointArray = fixturePoints[i]
+                    let pointArray = fixturesPointsArray[i]
                     let homePoints: Double = Double(pointArray[0]) ?? 0
                     let drawPoints: Double = Double(pointArray[1]) ?? 0
                     let awayPoints: Double = Double(pointArray[2]) ?? 0
