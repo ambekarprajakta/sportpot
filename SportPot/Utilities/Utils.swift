@@ -102,3 +102,7 @@ extension UITableView {
         self.separatorStyle = .none
     }
 }
+
+extension NSNotification {
+    static let navigateToMyPots = Notification.Name("navigateToMyPots")
+}

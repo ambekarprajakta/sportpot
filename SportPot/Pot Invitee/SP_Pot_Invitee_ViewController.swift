@@ -10,31 +10,44 @@ import UIKit
 import FirebaseFirestore
 import CoreData
 
+protocol SP_Pot_Invitee_ViewControllerDelegate {
+    func didJoinPot()
+}
+
 class SP_Pot_Invitee_ViewController: UIViewController {
 
-    @IBOutlet weak var ownerInviteLabel: UILabel!
-    @IBOutlet weak var participantsLabel: UILabel!
-    @IBOutlet weak var potTableView: UITableView!
-    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet private weak var ownerInviteLabel: UILabel!
+    @IBOutlet private weak var participantsLabel: UILabel!
+    @IBOutlet private weak var potTableView: UITableView!
+    @IBOutlet private weak var infoButton: UIButton!
     private var totalPoints : Double = 0.0
     
     private var fixturesPointsArray = Array<[String]>()
-    private let cellID = "SP_MatchTableViewCell"
+    private let cellID = String(describing: SP_MatchTableViewCell.self)
     public var ownerStr : String = ""
     public var potIDStr : String = ""
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
     private var fixturesArray = Array<FixtureMO>()
-    let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+    private let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+
+    var delegate: SP_Pot_Invitee_ViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        potTableView.register(UINib(nibName: "SP_MatchTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
+        setupTableView()
         getFixturesFromServer()
         getCurrentWeekForPoints()
     }
+
+    private func setupTableView() {
+        potTableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
+        potTableView.dataSource = self
+        potTableView.delegate = self
+        potTableView.reloadData()
+    }
     
-    func getCurrentWeekForPoints() {
+    private func getCurrentWeekForPoints() {
         Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
             guard let currentWeekStr = docSnapShot?.data() else { return }
             guard let weekNumStr = currentWeekStr["weekNo"] else { return }
@@ -42,9 +55,9 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         }
     }
     
-    func getFixturePointsForWeek(week:String) {
-        db.collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
-            guard let pointsSnapshot = docSnapShot else {
+    private func getFixturePointsForWeek(week:String) {
+        db.collection("fixturePoints").document(week).getDocument { [weak self] (docSnapShot, error) in
+            guard let self = self, let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return
             }
@@ -52,7 +65,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 self.fixturesPointsArray.append(fixturePoints as! [String])
             }
             print("Fixture points:\n \(self.fixturesPointsArray)")
-                self.potTableView.reloadData()
+            self.potTableView.reloadData()
         }
     }
 
@@ -72,7 +85,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                     for fixtureObject in fixturesArray {
                         guard let fixtureDictionary = fixtureObject.dictionaryObject else { continue }
                         do {
-//                            self?.matchTableView.restore()
+                            //self?.matchTableView.restore()
                             let fixtureData = try JSONSerialization.data(withJSONObject: fixtureDictionary, options: [])
                             
                             guard let codingUserInfoKeyContext = CodingUserInfoKey.context else { continue }
@@ -81,19 +94,24 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                             
                             let _ = try decoder.decode(FixtureMO.self, from: fixtureData)
                             try managedObjectContext.save()
-                            strongSelf.getFixturesFromLocalDB()
                             
                         } catch {
                             print("Error saving fixture: \(error)")
                         }
                     }
-                }else{
+
+                    DispatchQueue.main.async { [weak self] in
+                        self?.getFixturesFromLocalDB()
+                    }
+
+                } else {
 //                    self?.matchTableView.setEmptyMessage("No Data Available")
                 }
             }
         }
         print(fixturesArray)
     }
+
     private func getFixturesFromLocalDB() {
         let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
@@ -104,6 +122,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         }
         potTableView.reloadData()
     }
+
     private func deleteAllFixturesFromLocalDB() {
         let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
@@ -117,7 +136,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             print("Error deleting fixtures from local db")
         }
     }
-
 
     @IBAction func infoButtonAction(_ sender: Any) {
     }
@@ -163,9 +181,9 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                     "joinedPots": FieldValue.arrayUnion([self.potIDStr])
                 ])
 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let goodLuckViewController = storyboard.instantiateViewController(identifier: "SP_GoodLuckViewController") as SP_GoodLuckViewController
-                self.present(goodLuckViewController, animated: true, completion: nil)
+                self.dismiss(animated: false) {
+                    self.delegate?.didJoinPot()
+                }
             }
         }
 
@@ -209,7 +227,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             totalPoints += selectedPoints
         }
         print("TOTAL POINTS => \(totalPoints)")
-//        totalPointsLabel.text = String(format: "%.1f\n points",totalPoints)
+        //totalPointsLabel.text = String(format: "%.1f\n points",totalPoints)
     }
 
 }
@@ -234,8 +252,8 @@ extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
         if !fixture.isDoubleDown {
             // Chek if user has already done 3 double downs
             if fixturesArray.filter({ $0.isDoubleDown }).count == 3 {
-                //TODO: Put this func in Utils
-//                showInstructions(type: .AlreadySelectedThreeDoubleDown)
+                // TODO: - Put this func in Utils
+                //showInstructions(type: .AlreadySelectedThreeDoubleDown)
                 return
             }
         }
@@ -247,37 +265,39 @@ extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
 }
 
 extension SP_Pot_Invitee_ViewController : UITableViewDataSource, UITableViewDelegate {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return fixturesArray.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MatchTableViewCell
-        if !fixturesArray.isEmpty && !fixturesPointsArray.isEmpty{
-            matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points:fixturesPointsArray[indexPath.section], delegate: self)
+        if let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SP_MatchTableViewCell {
+            if fixturesArray.count == fixturesPointsArray.count {
+                matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points: fixturesPointsArray[indexPath.section], delegate: self)
+            }
+            return matchCell
         }
-        return matchCell
+        return UITableViewCell()
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180.0
+        return 180
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
         footerView.backgroundColor = UIColor.clear
         return footerView
     }
-    
+
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }

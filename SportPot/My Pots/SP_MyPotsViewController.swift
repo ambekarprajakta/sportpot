@@ -20,33 +20,39 @@ class SP_MyPotsViewController: UIViewController {
 
     @IBOutlet weak var potTableView: UITableView!
 
-    var pots = [Pot]()
-    
-    let cellID = String(describing: SP_MyPotsTableViewCell.self)
-    var currentUser = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey) ?? ""
+    private let refreshControl = UIRefreshControl()
+    private var pots = [Pot]()
+    private let cellID = String(describing: SP_MyPotsTableViewCell.self)
+    private var currentUser = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey) ?? ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UINavigationBar.appearance().tintColor = UIColor.sp_mustard
         setupTable()
-        getPotDataFromServer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        print("viewWillAppear")
+        getPotDataFromServer()
     }
 
     private func setupTable() {
+        refreshControl.addTarget(self, action: #selector(getPotDataFromServer), for: .valueChanged)
+        refreshControl.tintColor = .white
+        potTableView.addSubview(refreshControl)
         potTableView.register(UINib(nibName: "SP_MyPotsTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         potTableView.rowHeight = 60
     }
 
     // MARK: - Fetch Pot Data
 
-    func getPotDataFromServer() {
+    @objc private func getPotDataFromServer() {
+        refreshControl.beginRefreshing()
         let db = Firestore.firestore()
         self.potTableView.restore()
         db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
+            self.refreshControl.endRefreshing()
             guard let snapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return
@@ -55,9 +61,12 @@ class SP_MyPotsViewController: UIViewController {
                 self.potTableView.setEmptyMessage("No Data Available")
                 return
             }
+            self.pots.removeAll() // Remove previous data
             for potID in joinedPotsArr {
                 db.collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
-                    guard let self = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else { return }
+                    guard let self = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else {
+                        return
+                    }
                     pot.id = potID
                     self.pots.append(pot)
                     self.potTableView.reloadData()

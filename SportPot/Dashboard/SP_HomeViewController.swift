@@ -22,7 +22,7 @@ class SP_HomeViewController: UIViewController {
     private let cellID = "SP_MatchTableViewCell"
     private var currentSeasonStr : String = ""
     private var totalPoints : Double = 0.0
-    
+
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
     let db = Firestore.firestore()
@@ -30,7 +30,7 @@ class SP_HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(joinPotAction(notification:)), name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(navigateToMyPots), name: NSNotification.navigateToMyPots, object: nil)
         setupNavigationBar()
         setupTableView()
         setupDate()
@@ -42,7 +42,7 @@ class SP_HomeViewController: UIViewController {
         if currentCount < 3 {
             self.showInstructions()
         }
-        getFixturesFromServer() // Get latest fixtures from api
+//        getFixturesFromServer() // Get latest fixtures from api
         getCurrentWeekForPoints()        
     }
     
@@ -83,18 +83,19 @@ class SP_HomeViewController: UIViewController {
                         if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
                             strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
                         }
-                    } else {
-                        ///Set the current Round
-                        UserDefaults.standard.set(strongSelf.currentSeasonStr , forKey: UserDefaultsConstants.currentRoundKey)
-//                        strongSelf.getFixturesFromServer()
                     }
-                    
+                    ///Set the current Round
+                    strongSelf.setCurrentRound(round: strongSelf.currentSeasonStr)                    
                 }
             }
         }
         
     }
     
+    func setCurrentRound(round: String) {
+        UserDefaults.standard.set(round, forKey: UserDefaultsConstants.currentRoundKey)
+        getFixturesFromServer()
+    }
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
@@ -193,10 +194,10 @@ class SP_HomeViewController: UIViewController {
         components.path = "/"
         let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
         
-        let userDataStr = currentUser + "&" + String(currentTimeStamp)
-        print("Original string: \"\(userDataStr)\"")
+//        let userDataStr = currentUser
+//        print("Original string: \"\(userDataStr)\"")
         
-        if let base64Str = userDataStr.base64Encoded() {
+        if let base64Str = currentUser.base64Encoded() {
             print("Base64 encoded string: \"\(base64Str)\"")
             
             let queryItemUsername = URLQueryItem(name: "owner", value: base64Str)
@@ -291,13 +292,31 @@ class SP_HomeViewController: UIViewController {
                 //                let timestamp = notificationDict["timestamp"] as! String
                 //Change: currentUser to the senderUserName and link too
                 //SP_Pot_Invitee_ViewController
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
-                potInviteeViewController.ownerStr = owner
-                potInviteeViewController.potIDStr = base64Str
-                self.present(potInviteeViewController, animated: true, completion: nil)
+
+                db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
+                    if let userData = docSnapShot?.data() {
+                        if let pots = userData["joinedPots"] as? [String] {
+                            if pots.contains(base64Str) {
+                                // User has already joined the pot
+                                self.popupAlert(title: nil, message: "You’ve already placed your bets for this pot", actionTitles: ["Okay"], actions: [{action in}])
+                                return
+                            }
+                        }
+                    }
+                    // Allow user to join the pot
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
+                    potInviteeViewController.ownerStr = owner
+                    potInviteeViewController.potIDStr = base64Str
+                    potInviteeViewController.delegate = self
+                    self.present(potInviteeViewController, animated: true, completion: nil)
+                }
             }
         }
+    }
+
+    @objc private func navigateToMyPots() {
+        tabBarController?.selectedIndex = 1
     }
     
     ///Logout
@@ -426,5 +445,14 @@ extension SP_HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
+    }
+}
+
+extension SP_HomeViewController: SP_Pot_Invitee_ViewControllerDelegate {
+    func didJoinPot() {
+        navigateToMyPots()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let goodLuckViewController = storyboard.instantiateViewController(identifier: "SP_GoodLuckViewController") as SP_GoodLuckViewController
+        self.present(goodLuckViewController, animated: true, completion: nil)
     }
 }

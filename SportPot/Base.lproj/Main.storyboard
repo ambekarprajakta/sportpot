@@ -154,22 +154,15 @@
                                                     <fragment content="">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
-                                                            <font key="NSOriginalFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
-                                                    <fragment content=" ">
+                                                    <fragment content=" Username">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <font key="NSFont" metaFont="system" size="18"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Username">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -204,22 +197,15 @@
                                                     <fragment content="">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
-                                                            <font key="NSOriginalFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
-                                                    <fragment content=" ">
+                                                    <fragment content=" Email">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <font key="NSFont" metaFont="system" size="18"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Email">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -308,8 +294,8 @@
                                                     <fragment content="">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
-                                                            <font key="NSOriginalFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -323,7 +309,7 @@
                                                     <fragment content="Password">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="18"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -358,22 +344,15 @@
                                                     <fragment content="">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
-                                                            <font key="NSOriginalFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
-                                                    <fragment content=" ">
+                                                    <fragment content=" Confirm Password">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <font key="NSFont" metaFont="system" size="18"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Confirm Password">
-                                                        <attributes>
-                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                         </attributes>
                                                     </fragment>
@@ -609,7 +588,7 @@
                                     <fragment content="">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -623,7 +602,7 @@
                                     <fragment content="Email">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -660,8 +639,8 @@
                                     <fragment content="">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
-                                            <font key="NSOriginalFont" size="14" name="FontAwesome5Free-Solid"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <font key="NSOriginalFont" metaFont="system" size="14"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
@@ -675,7 +654,7 @@
                                     <fragment content="Password">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
@@ -1188,7 +1167,7 @@ points</string>
                                                         <fragment content="">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="14" name="FontAwesome5Free-Solid"/>
+                                                                <font key="NSFont" metaFont="system" size="14"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1221,14 +1200,14 @@ points</string>
                                                         <fragment content="I agree with the">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content=" ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -1237,28 +1216,28 @@ points</string>
 </string>
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="and the">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content=" ">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                         <fragment content="Privacy Policy">
                                                             <attributes>
                                                                 <color key="NSColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <font key="NSFont" size="18" name="Ubuntu-Regular"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -2089,22 +2068,6 @@ points</string>
                                 <rect key="frame" x="15" y="134.5" width="384" height="667.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MatchTableViewCell" id="oJ1-ex-eOi">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oJ1-ex-eOi" id="Hif-uw-T1p">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="qhv-kF-gjk" id="f9d-8v-zWw"/>
-                                    <outlet property="delegate" destination="qhv-kF-gjk" id="eAc-qO-v4E"/>
-                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-9X-Hx8">
                                 <rect key="frame" x="15" y="93" width="303" height="15"/>
@@ -2190,7 +2153,7 @@ points</string>
                                     <fragment content="35">
                                         <attributes>
                                             <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
+                                            <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

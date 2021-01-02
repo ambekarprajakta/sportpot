@@ -28,13 +28,15 @@ class SP_MyPotsTableViewCell: UITableViewCell {
             return joinee.joinee
         }
 
-        if joinees.count >= 2 {
-            if joinees.count == 2 {
-                detailLabel.text = "Bets places in English Premier League with " + joinees[1]
-            } else if joinees.count == 3 {
-                detailLabel.text = "Bets places in English Premier League with " + joinees[1] + " & \(joinees.count - 2) other"
+        let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+        let filteredJoinees = joinees.filter({$0 != currentUser})
+        if filteredJoinees.count >= 1 {
+            if filteredJoinees.count == 1 {
+                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0]
+            } else if filteredJoinees.count == 2 {
+                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 2) other"
             } else {
-                detailLabel.text = "Bets places in English Premier League with " + joinees[1] + " & \(joinees.count - 2) others"
+                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 2) others"
             }
         } else {
             detailLabel.text = "Start betting in English Premier League with your friends! "

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDynamicLinks
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -21,12 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         self.loadBaseController()
         guard let _ = (scene as? UIWindowScene) else { return }
-                // workaround for SceneDelegate continueUserActivity not getting called on cold start
-          if let userActivity = connectionOptions.userActivities.first {
-              
-          }
 
+        // Check if the app is launched from Universal link
+        if let userActivity = connectionOptions.userActivities.first {
+            DeeplinkManager.handleUserActivity(userActivity: userActivity)
+        }
     }
+
     func loadBaseController() {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         guard let window = self.window else { return }
@@ -36,12 +39,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let homeVC: SP_MainTabBarViewController = storyboard.instantiateViewController(withIdentifier: "SP_MainTabBarViewController") as! SP_MainTabBarViewController
             self.window?.rootViewController = homeVC
         } else {
-//             Show login page
+            // Show login page
             let loginVC: SP_GetStartedViewController = storyboard.instantiateViewController(withIdentifier: "SP_GetStartedViewController") as! SP_GetStartedViewController
             self.window?.rootViewController = loginVC
         }
         self.window?.makeKeyAndVisible()
     }
+
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard let window = self.window else {
             return
@@ -56,26 +60,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                           completion: nil)
 
     }
+
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-          let url = userActivity.webpageURL,
-          let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            return
-        }
-        let actionStr = getQueryStringParameter(url: url.absoluteString, param: "action")
-        let owner = getQueryStringParameter(url: url.absoluteString, param: "owner")
-        let timestamp = getQueryStringParameter(url: url.absoluteString, param: "timestamp")
-        print("Components are \(actionStr ?? "") and \(timestamp ?? "")")
-        let userInfo : [String:Any] = ["owner":owner as Any, "action": actionStr as Any, "timestamp":timestamp as Any ]
-        if actionStr == "joinPot" {
-            /// Let the joinee join the pot
-            ///Pot preview
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil, userInfo: userInfo)
-        }
-        
+        DeeplinkManager.handleUserActivity(userActivity: userActivity)
     }
+
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
     }
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -106,11 +98,57 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         CoreDataManager.sharedManager.saveContext()
     }
-    func getQueryStringParameter(url: String, param: String) -> String? {
-      guard let url = URLComponents(string: url) else { return nil }
-      return url.queryItems?.first(where: { $0.name == param })?.value
-    }
-
 
 }
 
+class DeeplinkManager {
+
+    typealias DeepLinkQueryParams = (action: String?, owner: String?, timeStamp: String?)
+
+    static func handleUserActivity(userActivity: NSUserActivity) {
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let url = userActivity.webpageURL, let urlStr = url.absoluteString.removingPercentEncoding,
+          let _ = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return
+        }
+
+        let queryParams = getQueryParameters(from: urlStr)
+
+        guard let owner = queryParams.owner, !owner.isEmpty else {
+            let _ = DynamicLinks.dynamicLinks().handleUniversalLink(url) { (dynamiclink, error) in
+                guard let urlStr = dynamiclink?.url?.absoluteString else { return }
+                let queryParams = getQueryParameters(from: urlStr)
+                self.handleDeepLink(queryParams: queryParams)
+            }
+            return
+        }
+
+        handleDeepLink(queryParams: queryParams)
+    }
+
+    private static func getQueryParameters(from url: String) -> DeepLinkQueryParams {
+        let actionStr = getQueryStringParameter(url: url, param: "action")
+        let owner = getQueryStringParameter(url: url, param: "owner")
+        let timestamp = getQueryStringParameter(url: url, param: "timestamp")
+        return (actionStr, owner, timestamp)
+    }
+
+    private static func handleDeepLink(queryParams: DeepLinkQueryParams) {
+        let userInfo: [String: Any] = [
+            "owner": queryParams.owner as Any,
+            "action": queryParams.action as Any,
+            "timestamp": queryParams.timeStamp as Any
+        ]
+        if queryParams.action == "joinPot" {
+            /// Let the joinee join the pot
+            /// Pot preview
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil, userInfo: userInfo)
+        }
+    }
+
+    private static func getQueryStringParameter(url: String, param: String) -> String? {
+        guard let url = URLComponents(string: url) else { return nil }
+        return url.queryItems?.first(where: { $0.name == param })?.value
+    }
+
+}
