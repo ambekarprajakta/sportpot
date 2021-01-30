@@ -38,6 +38,7 @@ class SP_MatchTableViewCell: UITableViewCell {
     @IBOutlet private weak var matchFinishedView: UIView!
     @IBOutlet private weak var teamNameViewLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var matchStatusLabel: UILabel!
     @IBOutlet private weak var liveView: UIView!
     @IBOutlet private weak var liveMinuteLabel: UILabel!
     @IBOutlet private var selectionButtons: [UIButton]!
@@ -49,7 +50,14 @@ class SP_MatchTableViewCell: UITableViewCell {
         layer.cornerRadius = 5.0
         clipsToBounds = true
     }
-
+    
+    func isMatchOn(fixtureModel: FixtureMO) -> Bool {
+        if fixtureModel.statusShort == "1H" || fixtureModel.statusShort == "2H" || fixtureModel.statusShort == "HT" || fixtureModel.statusShort == "FT" {
+            return true
+        }
+        return false
+    }
+    
     func displayFixture(fixtureModel: FixtureMO, points:[String], delegate: SP_MatchTableViewCellDelegate? = nil) {
         self.delegate = delegate
         updateSelection(fixture: fixtureModel)
@@ -59,18 +67,25 @@ class SP_MatchTableViewCell: UITableViewCell {
             drawPointsBtn.setTitle(points[1], for: .normal)
             awayPointsBtn.setTitle(points[2], for: .normal)
         }
-
+        
         // Match Time
         let timeDiff = Date.currentTimeStamp.distance(to: fixtureModel.event_timestamp)
         if timeDiff < 0 { // Always <
             // TODO: - Check other statuses to handle the cases
             if fixtureModel.statusShort == "FT" {
+                matchStatusLabel.text = fixtureModel.status?.uppercased()
                 matchFinishedView.isHidden = false
                 liveView.isHidden = true
                 goalsView.isHidden = false
                 matchTimeLabel.isHidden = true
                 teamNameViewLeadingConstraint.constant = 0
-
+            } else if fixtureModel.statusShort == "PST" {
+                matchStatusLabel.text = fixtureModel.status?.uppercased()
+                matchFinishedView.isHidden = false
+                matchTimeLabel.isHidden = true
+                liveView.isHidden = true
+                goalsView.isHidden = true
+//                teamNameViewLeadingConstraint.constant = 0
             } else if fixtureModel.statusShort != "NS" { // Always != NS
                 matchTimeLabel.isHidden = true
                 liveView.isHidden = false
@@ -106,7 +121,7 @@ class SP_MatchTableViewCell: UITableViewCell {
         awayTeamNameLabel.text = fixtureModel.awayTeam?.team_name
         
         // Goals        
-        if (NSNumber(value: fixtureModel.goalsHomeTeam).intValue >= 0 && fixtureModel.statusShort != "NS") {
+        if (NSNumber(value: fixtureModel.goalsHomeTeam).intValue >= 0 && isMatchOn(fixtureModel: fixtureModel)) {
             homeTeamScoreLabel.text = String(fixtureModel.goalsHomeTeam)
             goalsView.isHidden = false
             teamNameViewLeadingConstraint.constant = 0
@@ -116,7 +131,7 @@ class SP_MatchTableViewCell: UITableViewCell {
             teamNameViewLeadingConstraint.constant = -goalsView.frame.width + 8
         }
         
-        if (NSNumber(value: fixtureModel.goalsAwayTeam).intValue >= 0 && fixtureModel.statusShort != "NS") {
+        if (NSNumber(value: fixtureModel.goalsAwayTeam).intValue >= 0 && isMatchOn(fixtureModel: fixtureModel)) {
             goalsView.isHidden = false
             awayTeamScoreLabel.text = String(fixtureModel.goalsAwayTeam)
             teamNameViewLeadingConstraint.constant = 0

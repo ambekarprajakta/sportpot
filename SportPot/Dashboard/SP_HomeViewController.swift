@@ -72,9 +72,11 @@ class SP_HomeViewController: UIViewController {
     }
     
     fileprivate func checkCurrentRoundForSeason() {
+        self.showHUD()
         //https://api-football-v1.p.rapidapi.com/v2/fixtures/rounds/2790/current
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getCurrentRound, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
+            strongSelf.hideHUD()
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
                     strongSelf.currentSeasonStr = fixturesArray[0] as! String
@@ -117,9 +119,11 @@ class SP_HomeViewController: UIViewController {
             refreshControl.beginRefreshing()
         }
         let localTimeZone = TimeZone.current.identifier //getNextFixtures
+        self.showHUD()
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
                                      method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
+            strongSelf.hideHUD()
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].array, !fixturesArray.isEmpty {
                     // Delete all the exisiting fixtures as we want to store the latest data for fixtures
@@ -231,6 +235,7 @@ class SP_HomeViewController: UIViewController {
         }
     }
     func savePotToDB(shareLink: String, potID: String) {
+        self.showHUD()
         let urlParams = shareLink.split(separator: "/")
         
         // Create user's pot
@@ -260,6 +265,7 @@ class SP_HomeViewController: UIViewController {
         let potsRef =
             db.collection("pots").document(potID)
         potsRef.setData(potBody) { (err) in
+            self.hideHUD()
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -278,7 +284,7 @@ class SP_HomeViewController: UIViewController {
         }
     }
     @objc func joinPotAction(notification: NSNotification) {
-        
+        self.showHUD()
         //t7Vw7YLfdeTKeNY7A
         if let notificationDict = notification.userInfo {
             let base64Str = notificationDict["owner"] as! String
@@ -287,30 +293,15 @@ class SP_HomeViewController: UIViewController {
                 //Extract user and timestamp from decodedStr
                 let dataArr = decodedStr.split(separator: "&")
                 let owner = String(dataArr[0])
-                //                    let timestamp = dataArr[1]
-                
-                //                let timestamp = notificationDict["timestamp"] as! String
-                //Change: currentUser to the senderUserName and link too
-                //SP_Pot_Invitee_ViewController
 
-                db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
-                    if let userData = docSnapShot?.data() {
-                        if let pots = userData["joinedPots"] as? [String] {
-                            if pots.contains(base64Str) {
-                                // User has already joined the pot
-                                self.popupAlert(title: nil, message: "You’ve already placed your bets for this pot", actionTitles: ["Okay"], actions: [{action in}])
-                                return
-                            }
-                        }
-                    }
-                    // Allow user to join the pot
+                // Allow user to join the pot
+                    self.hideHUD()
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
                     potInviteeViewController.ownerStr = owner
                     potInviteeViewController.potIDStr = base64Str
                     potInviteeViewController.delegate = self
                     self.present(potInviteeViewController, animated: true, completion: nil)
-                }
             }
         }
     }
@@ -345,7 +336,9 @@ class SP_HomeViewController: UIViewController {
     }
     
     func getFixturePointsForWeek(week:String) {
+        self.showHUD()
         db.collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
+            self.hideHUD()
             guard let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return

@@ -332,7 +332,13 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.4.0)
+  - InputBarAccessoryView (5.2.3):
+    - InputBarAccessoryView/Core (= 5.2.3)
+  - InputBarAccessoryView/Core (5.2.3)
   - leveldb-library (1.22)
+  - MBProgressHUD (1.2.0)
+  - MessageKit (3.5.0):
+    - InputBarAccessoryView (~> 5.2.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -350,6 +356,8 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/DynamicLinks
   - Firebase/Firestore
+  - MBProgressHUD (~> 1.2.0)
+  - MessageKit
   - SwiftyJSON (~> 4.0)
   - TPKeyboardAvoiding
 
@@ -373,7 +381,10 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - InputBarAccessoryView
     - leveldb-library
+    - MBProgressHUD
+    - MessageKit
     - nanopb
     - PromisesObjC
     - SwiftyJSON
@@ -398,12 +409,15 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  InputBarAccessoryView: f814a0317d47687fafc6bac9e4df6015eaf5b764
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MessageKit: fb539583599cd914e8e2d41fe7bdceb4bf686565
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   TPKeyboardAvoiding: 7c2187e2338052b2c5be4a8052f297fdb124e261
 
-PODFILE CHECKSUM: a9d66a2288b812058db87eb8bf3c311c5baa27c2
+PODFILE CHECKSUM: 5d2a9c389cc1534501087840ec78675ab688b8c7
 
 COCOAPODS: 1.9.3

@@ -10,9 +10,11 @@ import Foundation
 
 class Prediction: Codable {
     let selection: Int  // Away = 3, Draw = 2, Home = 1
-    let isDoubleDown: Bool
+    let isDoubleDown: Bool?
     let fixtureId: Int
 }
 extension Prediction {
-    
+    func getIsDoubleDown() -> Bool {
+        return isDoubleDown ?? false
+    }
 }

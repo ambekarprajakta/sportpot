@@ -34,9 +34,9 @@ class SP_MyPotsTableViewCell: UITableViewCell {
             if filteredJoinees.count == 1 {
                 detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0]
             } else if filteredJoinees.count == 2 {
-                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 2) other"
+                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 1) other"
             } else {
-                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 2) others"
+                detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0] + " & \(joinees.count - 1) others"
             }
         } else {
             detailLabel.text = "Start betting in English Premier League with your friends! "

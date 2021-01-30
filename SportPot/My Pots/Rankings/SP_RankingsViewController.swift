@@ -18,15 +18,16 @@ class SP_RankingsViewController: UIViewController {
 
     var pot: Pot!
     private var joinees = [Joinee]()
-
+    private var fixturesArr = [FixtureMO]()
     private let winnerCellID = String(describing: SP_RankingWinnerTableViewCell.self)
     private let rankingCellID = String(describing: SP_RankingTableViewCell.self)
-
+    private var winner: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         rankingTableView.register(UINib(nibName: winnerCellID, bundle: nil), forCellReuseIdentifier: winnerCellID)
         rankingTableView.register(UINib(nibName: rankingCellID, bundle: nil), forCellReuseIdentifier: rankingCellID)
-
+        rankingTableView.tableFooterView = UIView()
+        
         let dateTimeStampStr = Double(pot.createdOn) ?? 0
         let myTimeInterval = TimeInterval(dateTimeStampStr)
         let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
@@ -45,7 +46,9 @@ class SP_RankingsViewController: UIViewController {
         present(activityVC, animated: true, completion: nil)    }
     
     func getCurrentWeekForPoints() {
+        self.showHUD()
         Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            self.hideHUD()
             guard let currentWeekStr = docSnapShot?.data() else { return }
             guard let weekNumStr = currentWeekStr["weekNo"] else { return }
             self.getFixturePointsForWeek(week: weekNumStr as! String)
@@ -53,7 +56,9 @@ class SP_RankingsViewController: UIViewController {
     }
     
     func getFixturePointsForWeek(week:String) {
+        self.showHUD()
         Firestore.firestore().collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
+            self.hideHUD()
             guard let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return
@@ -62,7 +67,7 @@ class SP_RankingsViewController: UIViewController {
                 self.fixturesPointsArray.append(fixturePoints as! [String])
             }
             print("Fixture points:\n \(self.fixturesPointsArray)")
-            if let round = self.pot.round, self.shouldComputeWinner() {
+            if let round = self.pot.round{
                 self.getFixturesFrom(round: round)
             } else {
                 self.joinees.append(contentsOf: self.pot.joinees)
@@ -72,12 +77,14 @@ class SP_RankingsViewController: UIViewController {
     }
     
     func getFixturesFrom(round: String) {
+        self.showHUD()
         let localTimeZone = TimeZone.current.identifier
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+            self?.hideHUD()
             guard let self = self else { return }
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].array, !fixturesArray.isEmpty {
-                    let fixtures = fixturesArray.compactMap { (fixtureObject) -> FixtureMO? in
+                    self.fixturesArr = fixturesArray.compactMap { (fixtureObject) -> FixtureMO? in
                         guard let fixtureDictionary = fixtureObject.dictionaryObject else { return nil }
                         do {
                             let fixtureData = try JSONSerialization.data(withJSONObject: fixtureDictionary, options: [])
@@ -92,10 +99,22 @@ class SP_RankingsViewController: UIViewController {
                             return nil
                         }
                     }
-                    self.compareScoresFrom(fixturesArr: fixtures)
+                    self.compareScoresFrom(fixturesArr: self.fixturesArr)
                 }
             }
         }
+    }
+    
+    func allMatchesPlayed(fixturesArr : [FixtureMO]) -> Bool {
+        var allPlayed = false
+        for fixture in fixturesArr {
+            if fixture.statusShort == "FT" {
+                allPlayed = true
+            } else {
+                allPlayed = false
+            }
+        }
+        return allPlayed
     }
     
     func compareScoresFrom(fixturesArr: [FixtureMO]) {
@@ -122,7 +141,7 @@ class SP_RankingsViewController: UIViewController {
                                 // Draw
                                 if prediction.selection == 2 {
                                     accuracy+=1
-                                    if prediction.isDoubleDown {
+                                    if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(drawPoints*2)
                                     } else {
@@ -133,7 +152,7 @@ class SP_RankingsViewController: UIViewController {
                                 // Away team won
                                 if prediction.selection == 3 {
                                     accuracy+=1
-                                    if prediction.isDoubleDown {
+                                    if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(awayPoints*2)
                                     } else {
@@ -144,7 +163,7 @@ class SP_RankingsViewController: UIViewController {
                                 // Home team won
                                 if prediction.selection == 1 {
                                     accuracy+=1
-                                    if prediction.isDoubleDown {
+                                    if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(homePoints*2)
                                     } else {
@@ -206,15 +225,23 @@ class SP_RankingsViewController: UIViewController {
         joinees.removeAll()
         allJoinees.forEach { (joinee) in
             let copyJoinee = joinee.copy()
-            copyJoinee.winner = winners.contains(joinee)
+            if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+                if copyJoinee.accuracy ?? 0 > 0{
+                    copyJoinee.winner = winners.contains(joinee)
+                }
+            }
             joinees.append(copyJoinee)
         }
 
         // Winners computed, sort the joinees so that it shows winners at the top
         joinees.sort(by: { $0.isWinner() && !$1.isWinner() })
 
-        rankingTableView.reloadData()
         updatePotWinnerToFirebase()
+        if self.shouldComputeWinner(){
+            self.addNotificationToAllPlayers()
+        }
+        rankingTableView.reloadData()
+
     }
 
     private func shouldComputeWinner() -> Bool {
@@ -223,6 +250,8 @@ class SP_RankingsViewController: UIViewController {
             /// If the `winner` property is nil for any joinee it means winner data is not available on Firebase.
             if joinee.winner == nil {
                 return true
+            } else if joinee.winner == true {
+                winner = joinee.joinee
             }
         }
         return false
@@ -239,6 +268,36 @@ class SP_RankingsViewController: UIViewController {
             "joinees": joineesJsonArray
         ])
     }
+    
+    private func addNotificationToAllPlayers() {
+
+        let wonNotifyDict : [String:Any] = ["author" : winner,
+                                             "isRead" : false,
+                                             "notificationType" : NotificationObjectType.won,
+                                             "potId": pot.potID,
+                                             "timeStamp":  Int(NSDate().timeIntervalSince1970)]
+        
+        Firestore.firestore().collection("pots").document(pot.potID).getDocument { (docSnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let response = docSnapshot?.data() else { return }
+                guard let joineesArr = response["joinees"] as? JSONArray else { return }
+                if let joinees = joineesArr.toArray(of: Joinee.self)?.compactMap({ (joinee) -> String? in
+                    return joinee.joinee
+                }){
+                    print(joinees)
+                    for joinee in joinees {
+                        let notifRef = Firestore.firestore().collection("user").document(joinee)
+                        notifRef.updateData([
+                            "notifications": FieldValue.arrayUnion([wonNotifyDict])
+                        ])
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 extension SP_RankingsViewController : UITableViewDataSource, UITableViewDelegate {

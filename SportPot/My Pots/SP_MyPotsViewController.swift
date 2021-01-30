@@ -48,11 +48,13 @@ class SP_MyPotsViewController: UIViewController {
     // MARK: - Fetch Pot Data
 
     @objc private func getPotDataFromServer() {
+        self.showHUD()
         refreshControl.beginRefreshing()
         let db = Firestore.firestore()
         self.potTableView.restore()
         db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
             self.refreshControl.endRefreshing()
+            self.hideHUD()
             guard let snapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return

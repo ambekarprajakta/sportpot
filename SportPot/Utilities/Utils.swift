@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 extension UIViewController {
     func popupAlert(title: String?, message: String?, actionTitles:[String?], actions:[((UIAlertAction) -> Void)?]) {
@@ -17,6 +18,16 @@ extension UIViewController {
             alert.addAction(action)
         }
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showHUD() {
+        let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        loadingNotification.label.text = "Loading"
+    }
+    
+    func hideHUD() {
+        MBProgressHUD.hide(for: view, animated: true)
     }
 }
 extension Date {
@@ -29,7 +40,17 @@ extension Date {
     static var currentTimeStamp: Int64{
         return Int64(Date().timeIntervalSince1970)
     }
+    
+    func stringTimeFromDate() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "HH:mm"
+        let strTime = dateFormatter.string(from: self)
+        return strTime
+    }
 }
+
 extension ISO8601DateFormatter {
     convenience init(_ formatOptions: Options, timeZone: TimeZone = TimeZone(secondsFromGMT: 0)!) {
         self.init()

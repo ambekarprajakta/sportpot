@@ -34,7 +34,7 @@ extension JSONArray  {
             }
             return try decoder.decode([T].self, from: data)
         } catch {
-            print("Error: \(error.localizedDescription)")
+            print("Error: \(error)")
             return nil
         }
     }

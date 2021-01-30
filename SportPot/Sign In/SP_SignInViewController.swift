@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class SP_SignInViewController: UIViewController {
     
@@ -36,7 +37,7 @@ class SP_SignInViewController: UIViewController {
         authenticateUser()
     }
     private func authenticateUser() {
-        guard let username = emailOrPhoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), !username.isEmpty else {
+        guard let emailID = emailOrPhoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(), !emailID.isEmpty else {
             // Show invalid username error here...
             self.popupAlert(title: "Error", message: ErrorMessages.emailPhoneError, actionTitles: ["Close"], actions: [{ action1 in
                 self.emailOrPhoneTextField.text = ""
@@ -51,9 +52,9 @@ class SP_SignInViewController: UIViewController {
                 }])
             return
         }
-        
-        Auth.auth().signIn(withEmail: username, password: password) { [weak self] authResult, error in
-            
+        self.showHUD()
+        Auth.auth().signIn(withEmail: emailID, password: password) { [weak self] authResult, error in
+            self?.hideHUD()
             guard let strongSelf = self else { return }
             if let error = error {
                 print("Authentication Error: \(error)")
@@ -64,9 +65,14 @@ class SP_SignInViewController: UIViewController {
             } else {
                 print("Successfully logged in!")
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                UserDefaults.standard.set(username, forKey: "currentUser")
+                UserDefaults.standard.set(emailID, forKey: "currentUser")
+                Firestore.firestore().collection("user").document(emailID).getDocument { (docSnapShot, error) in
+                    if let userData = docSnapShot?.data() {
+                        guard let username = userData["displayName"] as? String else { return }
+                        UserDefaults.standard.set(username, forKey: "displayID")
+                    }
+                }
                 // Show home page
-                //self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainTabBarController = storyboard.instantiateViewController(identifier: "SP_MainTabBarViewController")
                 // This is to get the SceneDelegate object from your view controller

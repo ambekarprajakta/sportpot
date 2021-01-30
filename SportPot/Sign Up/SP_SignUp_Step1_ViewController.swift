@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
+import MBProgressHUD
 
 class SP_SignUp_Step1_ViewController: UIViewController {
     
@@ -27,16 +28,24 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordTextField.textContentType = .oneTimeCode
-        confirmPasswordTextField.textContentType = .oneTimeCode
         continueButton.layer.cornerRadius = continueButton.frame.size.height/2
     }
     
     // MARK: - Validation
-    func validateInput() -> Bool {
-        //        if nameTextField.text?.isEmpty {
-        //             return false
-        //        }
+    func isValidInput() -> Bool {
+        if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
+            nameTextField.becomeFirstResponder()
+             return false
+        } else if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
+            emailTextField.becomeFirstResponder()
+            return false
+        } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
+            passwordTextField.becomeFirstResponder()
+            return false
+        } else if confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty  == true {
+            confirmPasswordTextField.becomeFirstResponder()
+            return false
+        }
         return true
     }
     func showSignupVCNotification() {
@@ -45,7 +54,9 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     }
     
     func checkUsernameAvailable(userName: String) {
+        self.showHUD()
         db.collection("user").getDocuments(completion: { (querySnapshot, error) in
+            self.hideHUD()
             guard let snapshot = querySnapshot else {
                 print("Error retreiving documents \(error!)")
                 return
@@ -62,61 +73,39 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     return
                 }
             }
-            self.createUser()
+            self.step2VerifyPhoneNumber()
         })
         
     }
-    //    else{
-    //                self.popupAlert(title: "Oops!", message: ErrorMessages.userNameExistsError, actionTitles: ["Close"], actions: [{ action1 in
-    //    //                self.nameTextField.text = ""
-    //                }])
-    //            }
+
     // MARK: - Actions
-    fileprivate func createUser() {
+    fileprivate func step2VerifyPhoneNumber() {
         let username = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        //Create the user
-        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-            //Check for errors
-            if err != nil {
-                //There was an error
-                self.popupAlert(title: "Oops!", message: err?.localizedDescription, actionTitles: ["Close"], actions: [{ action1 in
-                    }])
-            }else {
-                //User was created successfully, now store the first name and last name
-                self.db.collection("user").document(email).setData([
-                    "id" : String((result?.user.uid)!),
-                    "email":email,
-                    "displayName" : username,
-                    "points" : 0,
-                    "joinedPots" : []
-                ], merge: true){ (error) in
-                    //If all good, proceed!
-                    let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-                    signUp2VC.username = email
-                    self.present(signUp2VC, animated: true, completion: nil)
-                    print("User successfully created!")
-                }
-            }
-        }
+        
+        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
+        signUp2VC.username = username
+        signUp2VC.email = email
+        signUp2VC.password = password
+        self.present(signUp2VC, animated: true, completion: nil)
     }
     
     @IBAction func continueButtonAction(_ sender: Any) {
         //TODO: Uncomment this after testing
-    checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+        if isValidInput() {
+            checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
+        } else {
+            self.popupAlert(title: "Error", message: "Please check input fields and try again later.", actionTitles: ["Close"], actions: [{ action1 in
+                }])
+        }
 //        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
 //        self.present(signUp2VC, animated: true, completion: nil)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+    }
     
 }

@@ -36,7 +36,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         super.viewDidLoad()
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
         setupTableView()
-        getFixturesFromServer()
         getCurrentWeekForPoints()
     }
 
@@ -48,15 +47,21 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     }
     
     private func getCurrentWeekForPoints() {
+        self.showHUD()
         Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
-            guard let currentWeekStr = docSnapShot?.data() else { return }
-            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
-            self.getFixturePointsForWeek(week: weekNumStr as! String)
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+                self.getFixturePointsForWeek(week: weekNumStr as! String)
+            }
         }
     }
     
     private func getFixturePointsForWeek(week:String) {
+        self.showHUD()
         db.collection("fixturePoints").document(week).getDocument { [weak self] (docSnapShot, error) in
+            self?.hideHUD()
             guard let self = self, let pointsSnapshot = docSnapShot else {
                 print("Error retreiving documents \(error!)")
                 return
@@ -65,15 +70,19 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 self.fixturesPointsArray.append(fixturePoints as! [String])
             }
             print("Fixture points:\n \(self.fixturesPointsArray)")
+            
+            self.getFixturesFromServer()
             self.potTableView.reloadData()
         }
     }
 
     private func getFixturesFromServer() {
+        self.showHUD()
         let localTimeZone = TimeZone.current.identifier //getNextFixtures
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
                                      method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
+            strongSelf.hideHUD()
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].array, !fixturesArray.isEmpty {
                     // Delete all the exisiting fixtures as we want to store the latest data for fixtures
@@ -149,6 +158,14 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         }
     }
     func joinPotWithDetails(){
+        ///Write PotID to respective User
+        ///Add to User
+        let addJoinedPotsRef = self.db.collection("user").document(self.currentUser)
+        addJoinedPotsRef.updateData([
+            "joinedPots": FieldValue.arrayUnion([self.potIDStr])
+        ])
+        
+        
         var predictions = [[String:Any]]()
         fixturesArray.forEach { (fixture) in
             var predictionBody = [String:Any]()
@@ -165,29 +182,50 @@ class SP_Pot_Invitee_ViewController: UIViewController {
 //        let potData : [[String:Any]] = [["predictions" : predictions], ["points": totalPoints]]
 //        let userPredictions : [String:Any] = [currentUser: potData]
         
+        ///Add to Pots
         let addFixturesRef = self.db.collection("pots").document(potIDStr)
         addFixturesRef.updateData([
             "joinees": FieldValue.arrayUnion([joineeDict])
         ])
+        ///Notify other user's that current user has joined the pot
+        addNotificationToOtherPlayers()
+
+    }
+    
+    func addNotificationToOtherPlayers() {
+        self.showHUD()
+        let joinNotifyDict : [String:Any] = ["author" : self.currentUser,
+                                             "isRead" : false,
+                                             "notificationType" :  NotificationObjectType.join.rawValue,
+                                             "potId": self.potIDStr,
+                                             "timeStamp":  Int(NSDate().timeIntervalSince1970)]
+        
         db.collection("pots").document(potIDStr).getDocument { (docSnapshot, error) in
+            self.hideHUD()
             if let err = error {
                 print("Error getting documents: \(err)")
             } else {
-                //Pot Joined Successfully!
-                print("Pot Joined Successfully!\n \(String(describing: docSnapshot?.documentID)) => \(String(describing: docSnapshot?.data()))")
-                ///Write PotID to respective User
-                let addJoinedPotsRef = self.db.collection("user").document(self.currentUser)
-                addJoinedPotsRef.updateData([
-                    "joinedPots": FieldValue.arrayUnion([self.potIDStr])
-                ])
-
+                guard let response = docSnapshot?.data() else { return }
+                guard let joineesArr = response["joinees"] as? JSONArray else { return }
+                if let joinees = joineesArr.toArray(of: Joinee.self, keyDecodingStartegy: .convertFromSnakeCase)?.compactMap({ (joinee) -> String? in
+                    return joinee.joinee
+                }){
+                    print(joinees)
+                    
+                    for joinee in joinees {
+                        let notifRef = self.db.collection("user").document(joinee)
+                        notifRef.updateData([
+                            "notifications": FieldValue.arrayUnion([joinNotifyDict])
+                        ])
+                    }
+                }
                 self.dismiss(animated: false) {
                     self.delegate?.didJoinPot()
                 }
             }
         }
-
     }
+    
     func validateOpenPotSelection() -> Bool {
         // Check if user has done the selection for all the matches
         let pendingSelections = fixturesArray.filter { $0.predictionType == .none }.count
@@ -276,7 +314,7 @@ extension SP_Pot_Invitee_ViewController : UITableViewDataSource, UITableViewDele
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SP_MatchTableViewCell {
-            if fixturesArray.count == fixturesPointsArray.count {
+            if (fixturesArray.count != 0) && (fixturesPointsArray.count != 0) {
                 matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points: fixturesPointsArray[indexPath.section], delegate: self)
             }
             return matchCell

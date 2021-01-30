@@ -30,11 +30,11 @@
                                 <rect key="frame" x="66" y="0.0" width="65.5" height="56"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zzw-S2-9e6">
-                                        <rect key="frame" x="14.5" y="10" width="36" height="36"/>
+                                        <rect key="frame" x="16.5" y="12" width="32" height="32"/>
                                         <color key="backgroundColor" red="0.035294117647058823" green="0.41568627450980389" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="J9R-6N-eeZ"/>
-                                            <constraint firstAttribute="height" constant="36" id="yyn-xi-j85"/>
+                                            <constraint firstAttribute="width" constant="32" id="J9R-6N-eeZ"/>
+                                            <constraint firstAttribute="height" constant="32" id="yyn-xi-j85"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
                                         <state key="normal" title="101">
@@ -42,7 +42,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="18"/>
+                                                <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -57,11 +57,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="66" height="56"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9U-II-n98">
-                                        <rect key="frame" x="15" y="10" width="36" height="36"/>
+                                        <rect key="frame" x="17" y="12" width="32" height="32"/>
                                         <color key="backgroundColor" red="0.36078431372549019" green="0.85882352941176465" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="IzT-Nh-Z4J"/>
-                                            <constraint firstAttribute="width" constant="36" id="Odf-C3-4c6"/>
+                                            <constraint firstAttribute="height" constant="32" id="IzT-Nh-Z4J"/>
+                                            <constraint firstAttribute="width" constant="32" id="Odf-C3-4c6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
                                         <state key="normal" title="95">
@@ -69,7 +69,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="18"/>
+                                                <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
@@ -84,11 +84,11 @@
                                 <rect key="frame" x="131.5" y="0.0" width="65.5" height="56"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBH-hQ-sYf">
-                                        <rect key="frame" x="14.5" y="10" width="36" height="36"/>
+                                        <rect key="frame" x="16.5" y="12" width="32" height="32"/>
                                         <color key="backgroundColor" red="0.65490196078431373" green="0.25098039215686274" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="KNY-wz-7ap"/>
-                                            <constraint firstAttribute="height" constant="36" id="cZW-gs-SYX"/>
+                                            <constraint firstAttribute="width" constant="32" id="KNY-wz-7ap"/>
+                                            <constraint firstAttribute="height" constant="32" id="cZW-gs-SYX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="11"/>
                                         <state key="normal" title="95">
@@ -96,7 +96,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="18"/>
+                                                <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>

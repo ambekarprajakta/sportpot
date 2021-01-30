@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -386,6 +386,7 @@
                 <outlet property="liveMinuteLabel" destination="PEP-Dv-IWG" id="dOi-vZ-GoC"/>
                 <outlet property="liveView" destination="q9x-lj-BKI" id="GeA-Xg-BM9"/>
                 <outlet property="matchFinishedView" destination="cPU-XW-Oa3" id="8cC-Dj-yO3"/>
+                <outlet property="matchStatusLabel" destination="NJX-yS-wxO" id="DNw-3q-McH"/>
                 <outlet property="matchTimeLabel" destination="TPH-Ag-mcX" id="dnp-37-D7B"/>
                 <outlet property="teamNameView" destination="tfT-ir-KUk" id="pim-Bp-stT"/>
                 <outlet property="teamNameViewLeadingConstraint" destination="fN1-jM-eXO" id="roa-Ca-Qee"/>

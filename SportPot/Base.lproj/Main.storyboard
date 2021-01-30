@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Get Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ZX-sAf">
-                                <rect key="frame" x="15" y="254.5" width="384" height="35"/>
+                                <rect key="frame" x="15" y="255.5" width="384" height="35"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -74,13 +74,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Start with signing up or signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-x3-9Cb">
-                                <rect key="frame" x="15" y="319.5" width="384" height="23.5"/>
+                                <rect key="frame" x="15" y="320.5" width="384" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-x4-Sst">
-                                <rect key="frame" x="155.5" y="136" width="103.5" height="103.5"/>
+                                <rect key="frame" x="155.5" y="137" width="103.5" height="103.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pgv-x4-Sst" secondAttribute="height" multiplier="1:1" id="ta1-eE-L11"/>
                                 </constraints>
@@ -128,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ik-r3-zRL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="770.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-YG-w2e">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
@@ -170,7 +170,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGv-ql-1yC" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="222.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +192,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-cR-pHM">
-                                                <rect key="frame" x="35" y="292.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="291.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -213,7 +213,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-xZ-xAi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="328.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="327.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,7 +235,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-ZT-mPf">
-                                                <rect key="frame" x="83" y="615.5" width="248" height="54"/>
+                                                <rect key="frame" x="83" y="611.5" width="248" height="54"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
@@ -252,7 +252,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T74-Hn-GX8" userLabel="First Step Label">
-                                                <rect key="frame" x="182" y="719.5" width="25" height="6"/>
+                                                <rect key="frame" x="182" y="715.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="gH8-8c-xbS"/>
@@ -267,14 +267,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 1 of 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-hz-uFs">
-                                                <rect key="frame" x="163" y="733.5" width="88" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 1 of 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-hz-uFs">
+                                                <rect key="frame" x="163" y="729.5" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-07-CI9" userLabel="Second Step Label">
-                                                <rect key="frame" x="215" y="719.5" width="25" height="6"/>
+                                                <rect key="frame" x="215" y="715.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="S5X-2w-Ove"/>
@@ -289,7 +289,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNb-kd-Or1">
-                                                <rect key="frame" x="35" y="398.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="396.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -317,12 +317,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBF-Z4-Ekl" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="434.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="432.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="new-password">
+                                                    <passwordRules key="passwordRules" passwordRulesDescriptor="Atleast 6 characters"/>
+                                                </textInputTraits>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
@@ -339,7 +341,7 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu6-XT-HI8">
-                                                <rect key="frame" x="35" y="504.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="501.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -360,12 +362,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-wM-6m2" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="540.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="537.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="new-password">
+                                                    <passwordRules key="passwordRules" passwordRulesDescriptor="Atleast 6 characters"/>
+                                                </textInputTraits>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
                                                         <real key="value" value="1"/>
@@ -480,13 +484,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Share this pot with your friends!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3r-cj-NVf">
-                                <rect key="frame" x="15" y="387.5" width="384" height="21.5"/>
+                                <rect key="frame" x="15" y="387" width="384" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Link&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hG-63-mxR">
-                                <rect key="frame" x="15" y="437.5" width="384" height="21.5"/>
+                                <rect key="frame" x="15" y="437" width="384" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -507,7 +511,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-FF-i14">
-                                <rect key="frame" x="137" y="484" width="140" height="45"/>
+                                <rect key="frame" x="139" y="484.5" width="136" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="BiR-wD-lfS"/>
@@ -524,7 +528,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-fC-B7R">
-                                <rect key="frame" x="155.5" y="254" width="103.5" height="103.5"/>
+                                <rect key="frame" x="155.5" y="253.5" width="103.5" height="103.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5gR-fC-B7R" secondAttribute="height" multiplier="1:1" id="X5R-AW-Umo"/>
                                 </constraints>
@@ -686,13 +690,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-P2-YIE">
-                                <rect key="frame" x="35" y="432.5" width="114.5" height="16"/>
+                                <rect key="frame" x="35" y="432.5" width="113" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-jH-LdM">
-                                <rect key="frame" x="153.5" y="432" width="105" height="17"/>
+                                <rect key="frame" x="152" y="432.5" width="105" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
                                 <state key="normal" title="Click Here">
@@ -700,7 +704,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omI-4P-dIt">
-                                <rect key="frame" x="83" y="509" width="248" height="54"/>
+                                <rect key="frame" x="83" y="508.5" width="248" height="54"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -718,7 +722,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-Wd-bkP">
-                                <rect key="frame" x="126" y="612" width="162" height="27"/>
+                                <rect key="frame" x="126.5" y="611.5" width="161" height="26"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="10"/>
                                 <state key="normal" title="Sign up Here">
@@ -735,7 +739,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upz-GF-ITq">
-                                <rect key="frame" x="132.5" y="588" width="149.5" height="16"/>
+                                <rect key="frame" x="134.5" y="587.5" width="145.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -798,7 +802,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-uR-udB">
-                                <rect key="frame" x="185" y="438" width="44.5" height="20.5"/>
+                                <rect key="frame" x="185" y="437.5" width="44.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1030,9 +1034,9 @@ points</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLI-gT-cHl" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="658.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="Nhn-rV-bU5">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="Nhn-rV-bU5">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Nhn-rV-bU5" secondAttribute="height" multiplier="1:1" id="1Ol-sH-PLi"/>
@@ -1057,7 +1061,7 @@ points</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-58-MKS" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="222.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1078,53 +1082,8 @@ points</string>
                                                     <outlet property="delegate" destination="K2m-Zk-Ok2" id="hhU-4b-F9Q"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enter Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egH-ZZ-UrI">
-                                                <rect key="frame" x="35" y="292.5" width="344" height="21"/>
-                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter OTP" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZnO-lq-Wbd" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="328.5" width="344" height="25"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="email"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                                        <color key="value" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                                        <color key="value" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <outlet property="delegate" destination="K2m-Zk-Ok2" id="xHq-9Q-Oj1"/>
-                                                </connections>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBy-IV-29L">
-                                                <rect key="frame" x="83" y="499.5" width="248" height="54"/>
-                                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
-                                                <state key="normal" title="Create Account">
-                                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="createAccountAction:" destination="K2m-Zk-Ok2" eventType="touchUpInside" id="LYO-RL-x7N"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj1-Of-9Bv" userLabel="First Step Label">
-                                                <rect key="frame" x="182" y="603.5" width="25" height="6"/>
+                                                <rect key="frame" x="182" y="459.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="J39-Ru-3NJ"/>
@@ -1139,14 +1098,17 @@ points</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 2 of 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIN-sC-xfp">
-                                                <rect key="frame" x="163" y="617.5" width="88" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 2 of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIN-sC-xfp">
+                                                <rect key="frame" x="35" y="473.5" width="344" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="vrf-03-xay"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuJ-wb-GnV" userLabel="Second Step Label">
-                                                <rect key="frame" x="215" y="603.5" width="25" height="6"/>
+                                                <rect key="frame" x="215" y="459.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="VOS-Gp-FGH"/>
@@ -1160,36 +1122,8 @@ points</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2r-p7-Xlx">
-                                                <rect key="frame" x="35" y="361.5" width="344" height="33"/>
-                                                <state key="normal">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="14"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="18"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="Resend Code">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" metaFont="system" size="17"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                </state>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZm-27-7G5">
-                                                <rect key="frame" x="35" y="409.5" width="344" height="40"/>
+                                                <rect key="frame" x="35" y="276.5" width="344" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="UGJ-Cn-zp1"/>
                                                 </constraints>
@@ -1280,8 +1214,11 @@ points</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-Oi-GtS">
-                                                <rect key="frame" x="141.5" y="499.5" width="131" height="54"/>
+                                                <rect key="frame" x="141.5" y="366.5" width="131" height="50"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="tAq-hl-plc"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                                 <state key="normal" title="Send Code">
@@ -1299,48 +1236,38 @@ points</string>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="Z2r-p7-Xlx" firstAttribute="trailing" secondItem="ZnO-lq-Wbd" secondAttribute="trailing" id="3hu-wO-qd2"/>
                                             <constraint firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" constant="35" id="3si-Ae-xJ5"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YuJ-wb-GnV" secondAttribute="trailing" constant="15" id="4KI-Za-O4A"/>
-                                            <constraint firstItem="OeP-Oi-GtS" firstAttribute="centerY" secondItem="oBy-IV-29L" secondAttribute="centerY" id="5Wx-yi-nzT"/>
-                                            <constraint firstItem="oBy-IV-29L" firstAttribute="top" secondItem="jZm-27-7G5" secondAttribute="bottom" constant="50" id="7m9-P8-zzT"/>
-                                            <constraint firstItem="ZnO-lq-Wbd" firstAttribute="leading" secondItem="egH-ZZ-UrI" secondAttribute="leading" id="8ey-QU-e1F"/>
-                                            <constraint firstItem="Oj1-Of-9Bv" firstAttribute="top" secondItem="oBy-IV-29L" secondAttribute="bottom" constant="50" id="APU-rg-vTW"/>
+                                            <constraint firstItem="jIN-sC-xfp" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="35" id="Acm-2N-Lcq"/>
                                             <constraint firstItem="Nhn-rV-bU5" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="B8M-Vg-Rf3"/>
                                             <constraint firstItem="jIN-sC-xfp" firstAttribute="top" secondItem="Oj1-Of-9Bv" secondAttribute="bottom" constant="8" id="BAQ-SC-Hg9"/>
-                                            <constraint firstItem="egH-ZZ-UrI" firstAttribute="leading" secondItem="FYI-aS-Tee" secondAttribute="leading" id="Dhl-SR-LUQ"/>
-                                            <constraint firstItem="jZm-27-7G5" firstAttribute="leading" secondItem="Z2r-p7-Xlx" secondAttribute="leading" id="EVN-e0-E43"/>
-                                            <constraint firstItem="jZm-27-7G5" firstAttribute="trailing" secondItem="Z2r-p7-Xlx" secondAttribute="trailing" id="Ei9-To-xK8"/>
-                                            <constraint firstItem="ZnO-lq-Wbd" firstAttribute="top" secondItem="egH-ZZ-UrI" secondAttribute="bottom" constant="15" id="FUp-Rd-y9j"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jIN-sC-xfp" secondAttribute="bottom" constant="20" id="FaM-P1-qvL"/>
                                             <constraint firstItem="bqY-1k-QvT" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="15" id="GDn-1f-8Rp"/>
-                                            <constraint firstItem="ZnO-lq-Wbd" firstAttribute="width" secondItem="mPC-58-MKS" secondAttribute="width" id="Gz2-Yi-dEZ"/>
                                             <constraint firstItem="mPC-58-MKS" firstAttribute="leading" secondItem="FYI-aS-Tee" secondAttribute="leading" id="HKE-Zh-nIG"/>
-                                            <constraint firstItem="jZm-27-7G5" firstAttribute="top" secondItem="Z2r-p7-Xlx" secondAttribute="bottom" constant="15" id="Jzj-gl-gyL"/>
-                                            <constraint firstAttribute="bottom" secondItem="jIN-sC-xfp" secondAttribute="bottom" constant="20" id="OC5-yF-85H"/>
+                                            <constraint firstItem="jZm-27-7G5" firstAttribute="top" secondItem="mPC-58-MKS" secondAttribute="bottom" constant="30" id="J54-fB-AX0"/>
+                                            <constraint firstItem="jZm-27-7G5" firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" id="LyN-Wk-eWw"/>
                                             <constraint firstItem="Nhn-rV-bU5" firstAttribute="top" secondItem="rLI-gT-cHl" secondAttribute="top" constant="15" id="OMF-fW-bPt"/>
-                                            <constraint firstItem="oBy-IV-29L" firstAttribute="width" secondItem="rLI-gT-cHl" secondAttribute="width" multiplier="0.6" id="RDl-J5-CKZ"/>
+                                            <constraint firstItem="Oj1-Of-9Bv" firstAttribute="top" secondItem="OeP-Oi-GtS" secondAttribute="bottom" constant="43" id="RoD-Q2-pnM"/>
                                             <constraint firstItem="jIN-sC-xfp" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="VHU-kY-g1U"/>
                                             <constraint firstAttribute="trailing" secondItem="bqY-1k-QvT" secondAttribute="trailing" constant="15" id="ZNI-Ht-jaL"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="centerY" secondItem="Oj1-Of-9Bv" secondAttribute="centerY" id="aub-wg-bKV"/>
-                                            <constraint firstItem="egH-ZZ-UrI" firstAttribute="top" secondItem="mPC-58-MKS" secondAttribute="bottom" constant="45" id="dOB-Kq-Mxe"/>
+                                            <constraint firstItem="OeP-Oi-GtS" firstAttribute="top" secondItem="jZm-27-7G5" secondAttribute="bottom" constant="50" id="d0g-wv-Uht"/>
                                             <constraint firstItem="745-D9-7af" firstAttribute="top" secondItem="Nhn-rV-bU5" secondAttribute="bottom" constant="20" id="dOM-9n-DzC"/>
                                             <constraint firstItem="OeP-Oi-GtS" firstAttribute="centerX" secondItem="jZm-27-7G5" secondAttribute="centerX" id="e9R-sM-AUq"/>
                                             <constraint firstItem="FYI-aS-Tee" firstAttribute="top" secondItem="bqY-1k-QvT" secondAttribute="bottom" constant="50" id="evf-WA-K0W"/>
                                             <constraint firstItem="FYI-aS-Tee" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="35" id="gLA-CW-tEK"/>
                                             <constraint firstItem="Nhn-rV-bU5" firstAttribute="width" secondItem="rLI-gT-cHl" secondAttribute="width" multiplier="0.1" id="gdK-zn-tO0"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="width" secondItem="Oj1-Of-9Bv" secondAttribute="width" id="h5D-Nf-W3P"/>
-                                            <constraint firstItem="egH-ZZ-UrI" firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" id="hQ9-VD-MHQ"/>
                                             <constraint firstItem="Oj1-Of-9Bv" firstAttribute="trailing" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="hgB-Pc-gun"/>
                                             <constraint firstItem="745-D9-7af" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="jl1-ez-lFC"/>
-                                            <constraint firstItem="oBy-IV-29L" firstAttribute="top" secondItem="jZm-27-7G5" secondAttribute="top" constant="90" id="jtn-Pa-1sT"/>
                                             <constraint firstItem="mPC-58-MKS" firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" id="kmb-Ql-8N6"/>
+                                            <constraint firstAttribute="trailing" secondItem="jIN-sC-xfp" secondAttribute="trailing" constant="35" id="lza-73-oki"/>
                                             <constraint firstItem="bqY-1k-QvT" firstAttribute="top" secondItem="745-D9-7af" secondAttribute="bottom" constant="8" id="pLK-HG-UjP"/>
-                                            <constraint firstItem="Z2r-p7-Xlx" firstAttribute="leading" secondItem="ZnO-lq-Wbd" secondAttribute="leading" id="q2R-n2-sVh"/>
                                             <constraint firstItem="mPC-58-MKS" firstAttribute="top" secondItem="FYI-aS-Tee" secondAttribute="bottom" constant="15" id="rqx-ex-lTz"/>
-                                            <constraint firstItem="Z2r-p7-Xlx" firstAttribute="top" secondItem="ZnO-lq-Wbd" secondAttribute="bottom" constant="8" id="sNE-UL-42b"/>
+                                            <constraint firstItem="YuJ-wb-GnV" firstAttribute="top" secondItem="OeP-Oi-GtS" secondAttribute="bottom" constant="43" id="wMp-qQ-EUu"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="leading" secondItem="Oj1-Of-9Bv" secondAttribute="trailing" constant="8" id="wlt-td-d0j"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="height" secondItem="Oj1-Of-9Bv" secondAttribute="height" id="xaN-rF-1kw"/>
-                                            <constraint firstItem="oBy-IV-29L" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="yn0-3E-Bba"/>
+                                            <constraint firstItem="jZm-27-7G5" firstAttribute="leading" secondItem="FYI-aS-Tee" secondAttribute="leading" id="zrm-4p-oSg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1350,8 +1277,8 @@ points</string>
                                     <constraint firstItem="rLI-gT-cHl" firstAttribute="width" secondItem="fqP-pJ-IeP" secondAttribute="width" id="CgW-WD-Oab"/>
                                     <constraint firstItem="rLI-gT-cHl" firstAttribute="leading" secondItem="fqP-pJ-IeP" secondAttribute="leading" id="I8F-bH-Rkw"/>
                                     <constraint firstItem="rLI-gT-cHl" firstAttribute="centerX" secondItem="fqP-pJ-IeP" secondAttribute="centerX" id="J0w-94-9l9"/>
+                                    <constraint firstAttribute="bottom" secondItem="rLI-gT-cHl" secondAttribute="bottom" id="Sra-Vj-cSc"/>
                                     <constraint firstAttribute="trailing" secondItem="rLI-gT-cHl" secondAttribute="trailing" id="UQn-Yr-EKy"/>
-                                    <constraint firstAttribute="bottom" secondItem="rLI-gT-cHl" secondAttribute="bottom" id="dp8-Mk-O9O"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="N1P-wM-4Tj"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="t44-BI-PYT"/>
@@ -1360,6 +1287,7 @@ points</string>
                         <viewLayoutGuide key="safeArea" id="6zI-CX-Uta"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="6zI-CX-Uta" firstAttribute="bottom" secondItem="rLI-gT-cHl" secondAttribute="bottom" id="8G5-mb-drQ"/>
                             <constraint firstAttribute="trailing" secondItem="fqP-pJ-IeP" secondAttribute="trailing" id="CPP-ql-8MR"/>
                             <constraint firstItem="fqP-pJ-IeP" firstAttribute="leading" secondItem="TnK-M6-g8j" secondAttribute="leading" id="Ptc-lT-uXK"/>
                             <constraint firstItem="fqP-pJ-IeP" firstAttribute="top" secondItem="TnK-M6-g8j" secondAttribute="top" id="dOc-n1-fUB"/>
@@ -1370,11 +1298,9 @@ points</string>
                     <navigationItem key="navigationItem" id="vYg-Oo-p83"/>
                     <size key="freeformSize" width="414" height="800"/>
                     <connections>
-                        <outlet property="createAccountBtn" destination="oBy-IV-29L" id="7bV-Kv-2ka"/>
                         <outlet property="phoneNumberTextField" destination="mPC-58-MKS" id="IQC-8X-CTw"/>
                         <outlet property="sendCodeBtn" destination="OeP-Oi-GtS" id="mRZ-bF-4NY"/>
                         <outlet property="tncBtn" destination="jZm-27-7G5" id="MI4-3m-dkq"/>
-                        <outlet property="verificationCodeLabel" destination="ZnO-lq-Wbd" id="gRj-i3-Qxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYz-Hd-d5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1384,37 +1310,29 @@ points</string>
         <!--Notifications-->
         <scene sceneID="khc-EX-lHo">
             <objects>
-                <viewController id="E2n-wC-B25" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SP_NotificationsViewController" id="E2n-wC-B25" customClass="SP_NotificationsViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zfY-83-0s7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good-Luck" translatesAutoresizingMaskIntoConstraints="NO" id="7CW-nM-RaN">
-                                <rect key="frame" x="132" y="255" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7CW-nM-RaN" secondAttribute="height" multiplier="1:1" id="agz-Px-sqN"/>
-                                    <constraint firstAttribute="height" constant="150" id="mIq-hW-2Ol"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaU-wT-ZET">
-                                <rect key="frame" x="136.5" y="435" width="141" height="26"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qsM-zb-pdk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zv0-OF-6AK"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jaU-wT-ZET" firstAttribute="centerX" secondItem="zfY-83-0s7" secondAttribute="centerX" id="84k-tn-wVb"/>
-                            <constraint firstItem="jaU-wT-ZET" firstAttribute="centerY" secondItem="zfY-83-0s7" secondAttribute="centerY" id="Hcq-aV-elk"/>
-                            <constraint firstItem="7CW-nM-RaN" firstAttribute="centerX" secondItem="zfY-83-0s7" secondAttribute="centerX" id="cCn-ih-VZP"/>
-                            <constraint firstItem="7CW-nM-RaN" firstAttribute="width" secondItem="zfY-83-0s7" secondAttribute="width" multiplier="0.362319" id="eu1-ux-O8l"/>
-                            <constraint firstItem="7CW-nM-RaN" firstAttribute="width" secondItem="7CW-nM-RaN" secondAttribute="height" multiplier="1:1" id="meA-oW-yA5"/>
-                            <constraint firstItem="jaU-wT-ZET" firstAttribute="top" secondItem="7CW-nM-RaN" secondAttribute="bottom" constant="30" id="tet-DG-KIi"/>
+                            <constraint firstItem="qsM-zb-pdk" firstAttribute="bottom" secondItem="Zv0-OF-6AK" secondAttribute="bottom" id="6Mz-Jx-5ib"/>
+                            <constraint firstItem="qsM-zb-pdk" firstAttribute="top" secondItem="Zv0-OF-6AK" secondAttribute="top" id="Fci-fd-s9Q"/>
+                            <constraint firstItem="qsM-zb-pdk" firstAttribute="leading" secondItem="Zv0-OF-6AK" secondAttribute="leading" id="IhB-TG-3yP"/>
+                            <constraint firstItem="qsM-zb-pdk" firstAttribute="trailing" secondItem="Zv0-OF-6AK" secondAttribute="trailing" id="NGC-r2-0Ek"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notifications" id="tXk-Cn-T94"/>
+                    <connections>
+                        <outlet property="notificationsTable" destination="qsM-zb-pdk" id="fxc-cc-Dne"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JDJ-v1-ip0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1435,13 +1353,13 @@ points</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Luck!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWx-Lz-Lo8">
-                                <rect key="frame" x="41.5" y="159" width="331" height="50.5"/>
+                                <rect key="frame" x="41.5" y="156" width="331" height="52.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="45"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot is Now Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-WW-UO6">
-                                <rect key="frame" x="41.5" y="217.5" width="331" height="25"/>
+                                <rect key="frame" x="41.5" y="216.5" width="331" height="26"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="22"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1478,20 +1396,21 @@ points</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your pot 20/08/2020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4I-5l-pP4">
-                                <rect key="frame" x="15" y="118" width="384" height="29.5"/>
+                                <rect key="frame" x="15" y="118" width="384" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rankings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhd-9s-aZh">
-                                <rect key="frame" x="15" y="177.5" width="384" height="17"/>
+                                <rect key="frame" x="15" y="178.5" width="384" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="juO-0G-JtE">
-                                <rect key="frame" x="41.5" y="224.5" width="331" height="358.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="juO-0G-JtE">
+                                <rect key="frame" x="41.5" y="225.5" width="331" height="358.5"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="d7Z-Zh-Irr">
                                     <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
@@ -1564,10 +1483,10 @@ points</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankingCell" id="Gtr-nU-cnv">
-                                        <rect key="frame" x="0.0" y="72" width="331" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="331" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gtr-nU-cnv" id="ZfB-RF-Tqu">
-                                            <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="331" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -1584,7 +1503,7 @@ points</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-xb-AmU">
-                                <rect key="frame" x="68" y="613" width="124" height="35"/>
+                                <rect key="frame" x="73" y="614" width="119" height="35"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="bzD-G8-8De"/>
@@ -1605,7 +1524,7 @@ points</string>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-JX-Z8u">
-                                <rect key="frame" x="222" y="613" width="113" height="35"/>
+                                <rect key="frame" x="222" y="614" width="110" height="35"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="M5h-p3-aHe"/>
@@ -1626,7 +1545,7 @@ points</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated at: 15-08-2020 10:10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-Nu-p24">
-                                <rect key="frame" x="15" y="208.5" width="384" height="12"/>
+                                <rect key="frame" x="15" y="209.5" width="384" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1726,7 +1645,7 @@ points</string>
         <scene sceneID="vwP-d8-Gam">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kyc-UE-Mc8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="selected-bell" badgeValue="10" selectedImage="unselected-bell" id="jPd-iw-cUE"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="selected-bell" selectedImage="unselected-bell" id="jPd-iw-cUE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BGC-34-0fo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1832,7 +1751,7 @@ points</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-zx-Fa2" userLabel="Instructions View">
-                                <rect key="frame" x="85" y="259" width="244" height="378"/>
+                                <rect key="frame" x="85" y="262" width="244" height="372"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-SA-fhg">
                                         <rect key="frame" x="101.5" y="45" width="41" height="41"/>
@@ -1847,13 +1766,13 @@ points</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Place your bets on the 10 matches   2. Invite your friends to the pot   3. Player with most correct bets- wins!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-f6-tqy">
-                                        <rect key="frame" x="25" y="131.5" width="194" height="149.5"/>
+                                        <rect key="frame" x="25" y="131.5" width="194" height="143.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQB-Qg-Xh5">
-                                        <rect key="frame" x="63" y="301" width="118" height="35"/>
+                                        <rect key="frame" x="63" y="295" width="118" height="35"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Zcu-Zs-ZRd"/>
@@ -1940,7 +1859,7 @@ points</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VbP-gG-0Qf">
-                                <rect key="frame" x="357.5" y="55.5" width="40" height="40"/>
+                                <rect key="frame" x="360" y="56" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5RX-zl-uiP"/>
@@ -1963,19 +1882,19 @@ points</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnp-hz-Z4q">
-                                <rect key="frame" x="15" y="64" width="82.5" height="22.5"/>
+                                <rect key="frame" x="15" y="64" width="76.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35n-hm-9sV">
-                                <rect key="frame" x="348.5" y="103.5" width="57.5" height="12"/>
+                                <rect key="frame" x="353.5" y="104" width="52.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-OC-xwG">
-                                <rect key="frame" x="15" y="135.5" width="384" height="650.5"/>
+                                <rect key="frame" x="15" y="136" width="384" height="649.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1996,7 +1915,7 @@ points</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdj-sV-VWe">
-                                <rect key="frame" x="15" y="794" width="384" height="15"/>
+                                <rect key="frame" x="15" y="793.5" width="384" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2065,18 +1984,18 @@ points</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-50-KqK">
-                                <rect key="frame" x="15" y="134.5" width="384" height="667.5"/>
+                                <rect key="frame" x="15" y="135" width="384" height="667"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-9X-Hx8">
-                                <rect key="frame" x="15" y="93" width="303" height="15"/>
+                                <rect key="frame" x="15" y="93" width="282" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-av-fuo">
-                                <rect key="frame" x="349" y="74.5" width="50" height="52"/>
+                                <rect key="frame" x="349" y="75" width="50" height="52"/>
                                 <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <state key="normal" image="info.circle" catalog="system"/>
@@ -2143,7 +2062,7 @@ points</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CPm-gs-S4q">
-                                <rect key="frame" x="350.5" y="55.5" width="40" height="40"/>
+                                <rect key="frame" x="353" y="56" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KYA-XB-S9A"/>
@@ -2166,19 +2085,19 @@ points</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-Og-tcS">
-                                <rect key="frame" x="15" y="64" width="82.5" height="22.5"/>
+                                <rect key="frame" x="15" y="64" width="76.5" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g51-Ny-5f8">
-                                <rect key="frame" x="341.5" y="103.5" width="57.5" height="12"/>
+                                <rect key="frame" x="346.5" y="104" width="52.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gKh-0n-5Iu">
-                                <rect key="frame" x="15" y="135.5" width="384" height="650.5"/>
+                                <rect key="frame" x="15" y="136" width="384" height="649.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -2199,7 +2118,7 @@ points</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ip-Ry-06I">
-                                <rect key="frame" x="15" y="794" width="384" height="15"/>
+                                <rect key="frame" x="15" y="793.5" width="384" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2237,6 +2156,241 @@ points</string>
                 <exit id="kU6-kd-jQs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1171" y="1576"/>
+        </scene>
+        <!--Sign Up Step3 View Controller-->
+        <scene sceneID="4Wp-iL-UrK">
+            <objects>
+                <viewController storyboardIdentifier="SP_SignUp_Step3_ViewController" id="iEJ-xa-s8F" customClass="SP_SignUp_Step3_ViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hn3-yZ-ql6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uf1-O0-tRz" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPC-VO-vKN" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="461.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-VZ-JUa">
+                                                <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wOG-VZ-JUa" secondAttribute="height" multiplier="1:1" id="1iE-Ns-Twg"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-pH-JaR">
+                                                <rect key="frame" x="151.5" y="76.5" width="111.5" height="35"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
+                                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="You and Your Friends always up for a game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfg-kx-crq">
+                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
+                                                <color key="textColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enter Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGc-CS-Yd1">
+                                                <rect key="frame" x="35" y="171.5" width="344" height="21"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEP-3G-92t" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
+                                                <rect key="frame" x="35" y="207.5" width="344" height="24"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="one-time-code"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                        <color key="value" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                                        <color key="value" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="iEJ-xa-s8F" id="kBO-iR-2E6"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88H-pv-Kxh">
+                                                <rect key="frame" x="83" y="302.5" width="248" height="54"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                                <state key="normal" title="Create Account">
+                                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6py-s3-VpV" userLabel="First Step Label">
+                                                <rect key="frame" x="182" y="406.5" width="25" height="6"/>
+                                                <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="6" id="cvI-XM-6Sz"/>
+                                                    <constraint firstAttribute="width" constant="25" id="xu5-4R-yvU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 3 of 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yh-iJ-TiE">
+                                                <rect key="frame" x="163" y="420.5" width="88" height="21"/>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
+                                                <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-8H-AW8" userLabel="Second Step Label">
+                                                <rect key="frame" x="215" y="406.5" width="25" height="6"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="6" id="RWR-34-4Xy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlO-3a-OoX">
+                                                <rect key="frame" x="35" y="239.5" width="344" height="33"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" metaFont="system" size="14"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content=" ">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" metaFont="system" size="18"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="Resend Code">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resendCodeAction:" destination="iEJ-xa-s8F" eventType="touchUpInside" id="Oqz-eo-Gfs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61X-4o-5VZ">
+                                                <rect key="frame" x="83" y="304.5" width="248" height="50"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Bvu-fp-GU6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                <state key="normal" title="Verify Code">
+                                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="buttonAction:" destination="iEJ-xa-s8F" eventType="touchUpInside" id="IFW-jq-vHa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="88H-pv-Kxh" firstAttribute="width" secondItem="uPC-VO-vKN" secondAttribute="width" multiplier="0.6" id="3M1-jb-jWe"/>
+                                            <constraint firstItem="61X-4o-5VZ" firstAttribute="trailing" secondItem="88H-pv-Kxh" secondAttribute="trailing" id="57F-Um-vA1"/>
+                                            <constraint firstItem="88H-pv-Kxh" firstAttribute="centerX" secondItem="uPC-VO-vKN" secondAttribute="centerX" id="8cY-Nm-fA8"/>
+                                            <constraint firstItem="wOG-VZ-JUa" firstAttribute="width" secondItem="uPC-VO-vKN" secondAttribute="width" multiplier="0.1" id="FCL-N4-fHn"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mkF-8H-AW8" secondAttribute="trailing" constant="15" id="HBE-8S-B1A"/>
+                                            <constraint firstItem="rlO-3a-OoX" firstAttribute="top" secondItem="aEP-3G-92t" secondAttribute="bottom" constant="8" id="I4P-9t-La0"/>
+                                            <constraint firstItem="aEP-3G-92t" firstAttribute="leading" secondItem="GGc-CS-Yd1" secondAttribute="leading" id="ID2-eh-sxc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Nfg-kx-crq" secondAttribute="trailing" constant="15" id="JFh-Kd-Xge"/>
+                                            <constraint firstItem="wOG-VZ-JUa" firstAttribute="centerX" secondItem="uPC-VO-vKN" secondAttribute="centerX" id="KCo-at-ydZ"/>
+                                            <constraint firstItem="7Yh-iJ-TiE" firstAttribute="centerX" secondItem="uPC-VO-vKN" secondAttribute="centerX" id="KZN-et-Zj2"/>
+                                            <constraint firstItem="mkF-8H-AW8" firstAttribute="width" secondItem="6py-s3-VpV" secondAttribute="width" id="Kl9-sa-I0e"/>
+                                            <constraint firstItem="Nfg-kx-crq" firstAttribute="leading" secondItem="uPC-VO-vKN" secondAttribute="leading" constant="15" id="KtR-qK-ebz"/>
+                                            <constraint firstItem="mkF-8H-AW8" firstAttribute="centerY" secondItem="6py-s3-VpV" secondAttribute="centerY" id="N9R-7g-Mvy"/>
+                                            <constraint firstItem="88H-pv-Kxh" firstAttribute="top" secondItem="rlO-3a-OoX" secondAttribute="bottom" constant="30" id="NYK-WG-0L2"/>
+                                            <constraint firstItem="rlO-3a-OoX" firstAttribute="trailing" secondItem="aEP-3G-92t" secondAttribute="trailing" id="QIe-A6-VgK"/>
+                                            <constraint firstItem="GGc-CS-Yd1" firstAttribute="leading" secondItem="uPC-VO-vKN" secondAttribute="leading" constant="35" id="RFj-4p-82q"/>
+                                            <constraint firstItem="7Yh-iJ-TiE" firstAttribute="top" secondItem="6py-s3-VpV" secondAttribute="bottom" constant="8" id="T0t-qb-dBu"/>
+                                            <constraint firstAttribute="trailing" secondItem="GGc-CS-Yd1" secondAttribute="trailing" constant="35" id="T5Y-5y-mCG"/>
+                                            <constraint firstItem="wOG-VZ-JUa" firstAttribute="top" secondItem="uPC-VO-vKN" secondAttribute="top" constant="15" id="TGM-jN-u7e"/>
+                                            <constraint firstItem="Xa0-pH-JaR" firstAttribute="top" secondItem="wOG-VZ-JUa" secondAttribute="bottom" constant="20" id="Tbm-YU-p0q"/>
+                                            <constraint firstItem="Nfg-kx-crq" firstAttribute="top" secondItem="Xa0-pH-JaR" secondAttribute="bottom" constant="8" id="YZF-4t-za2"/>
+                                            <constraint firstItem="61X-4o-5VZ" firstAttribute="centerY" secondItem="88H-pv-Kxh" secondAttribute="centerY" id="YhR-o9-vka"/>
+                                            <constraint firstItem="mkF-8H-AW8" firstAttribute="leading" secondItem="6py-s3-VpV" secondAttribute="trailing" constant="8" id="ZHp-Dd-PAu"/>
+                                            <constraint firstItem="6py-s3-VpV" firstAttribute="top" secondItem="88H-pv-Kxh" secondAttribute="bottom" constant="50" id="aso-hF-nha"/>
+                                            <constraint firstItem="mkF-8H-AW8" firstAttribute="height" secondItem="6py-s3-VpV" secondAttribute="height" id="fmm-bb-wyG"/>
+                                            <constraint firstItem="aEP-3G-92t" firstAttribute="trailing" secondItem="GGc-CS-Yd1" secondAttribute="trailing" id="gPc-RP-lGg"/>
+                                            <constraint firstItem="aEP-3G-92t" firstAttribute="top" secondItem="GGc-CS-Yd1" secondAttribute="bottom" constant="15" id="hTM-iU-a2K"/>
+                                            <constraint firstItem="6py-s3-VpV" firstAttribute="trailing" secondItem="uPC-VO-vKN" secondAttribute="centerX" id="lTH-i9-5QV"/>
+                                            <constraint firstItem="GGc-CS-Yd1" firstAttribute="top" secondItem="Nfg-kx-crq" secondAttribute="bottom" constant="35" id="qWb-Y3-w1v"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Yh-iJ-TiE" secondAttribute="bottom" constant="20" id="qr0-4h-Jei"/>
+                                            <constraint firstItem="Xa0-pH-JaR" firstAttribute="centerX" secondItem="uPC-VO-vKN" secondAttribute="centerX" id="s44-ox-hV5"/>
+                                            <constraint firstItem="61X-4o-5VZ" firstAttribute="leading" secondItem="88H-pv-Kxh" secondAttribute="leading" id="wSG-h1-TCx"/>
+                                            <constraint firstItem="rlO-3a-OoX" firstAttribute="leading" secondItem="aEP-3G-92t" secondAttribute="leading" id="xs6-dC-4Nm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="uPC-VO-vKN" secondAttribute="trailing" id="FZP-zY-ykd"/>
+                                    <constraint firstItem="uPC-VO-vKN" firstAttribute="top" secondItem="uf1-O0-tRz" secondAttribute="top" id="SZC-ua-aLN"/>
+                                    <constraint firstAttribute="bottom" secondItem="uPC-VO-vKN" secondAttribute="bottom" id="T9s-cQ-n2w"/>
+                                    <constraint firstItem="uPC-VO-vKN" firstAttribute="centerX" secondItem="uf1-O0-tRz" secondAttribute="centerX" id="m6S-sw-mUG"/>
+                                    <constraint firstItem="uPC-VO-vKN" firstAttribute="leading" secondItem="uf1-O0-tRz" secondAttribute="leading" id="tO7-Tc-Ksd"/>
+                                    <constraint firstItem="uPC-VO-vKN" firstAttribute="width" secondItem="uf1-O0-tRz" secondAttribute="width" id="tkz-m7-OHr"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="6cN-jq-Snd"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="fH3-Z7-iaJ"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ja2-g7-fRi"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uf1-O0-tRz" firstAttribute="leading" secondItem="hn3-yZ-ql6" secondAttribute="leading" id="3qK-Ar-Joe"/>
+                            <constraint firstItem="uf1-O0-tRz" firstAttribute="top" secondItem="hn3-yZ-ql6" secondAttribute="top" id="8C9-5j-fbj"/>
+                            <constraint firstItem="ja2-g7-fRi" firstAttribute="bottom" secondItem="uf1-O0-tRz" secondAttribute="bottom" id="KVf-EF-UvI"/>
+                            <constraint firstAttribute="trailing" secondItem="uf1-O0-tRz" secondAttribute="trailing" id="ZWS-MM-h8O"/>
+                            <constraint firstItem="uf1-O0-tRz" firstAttribute="centerX" secondItem="hn3-yZ-ql6" secondAttribute="centerX" id="iIS-pz-1Vb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vNc-SM-1Pl"/>
+                    <size key="freeformSize" width="414" height="800"/>
+                    <connections>
+                        <outlet property="button" destination="61X-4o-5VZ" id="ZZb-Ph-WAW"/>
+                        <outlet property="verificationCodeLabel" destination="aEP-3G-92t" id="y0e-XP-prS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vnd-gj-W7s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="120"/>
         </scene>
     </scenes>
     <resources>
