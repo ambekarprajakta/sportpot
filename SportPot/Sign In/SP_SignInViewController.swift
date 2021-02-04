@@ -19,8 +19,7 @@ class SP_SignInViewController: UIViewController {
         super.viewDidLoad()
         emailOrPhoneTextField.returnKeyType = .next
         passwordTextField.returnKeyType = .go
-        emailOrPhoneTextField.delegate = self
-        passwordTextField.delegate = self
+        passwordTextField.disableAutoFill()
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

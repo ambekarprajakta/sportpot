@@ -118,12 +118,14 @@ class SP_RankingsViewController: UIViewController {
     }
     
     func compareScoresFrom(fixturesArr: [FixtureMO]) {
+        if pot.joinees.isEmpty { return }
+        
         var allJoinees = [Joinee]()
         
         // Score calculation logic
         pot.joinees.forEach { (joinee) in
-            var accuracy: Double = 0
-            var doubleDown: Double = 0
+            var accuracy: Int = 0
+            var doubleDown: Int = 0
             var pointsScored: Double = 0
             var i = 0
             joinee.predictions.forEach { (prediction) in
@@ -135,7 +137,7 @@ class SP_RankingsViewController: UIViewController {
                     let awayPoints: Double = Double(pointArray[2]) ?? 0
                     
                     if fixture.fixture_id == prediction.fixtureId {
-                        if fixture.isMatchFinished() {
+                        if fixture.shouldCalculateScore() {
                             i+=1
                             if fixture.goalsAwayTeam == fixture.goalsHomeTeam {
                                 // Draw
@@ -178,11 +180,17 @@ class SP_RankingsViewController: UIViewController {
             }
 
             let joineeCopy = joinee.copy()
-            joineeCopy.accuracy = accuracy
+            joineeCopy.accuracy = accuracy * 10
             joineeCopy.doubleDown = doubleDown
             joineeCopy.pointsScored = pointsScored
             allJoinees.append(joineeCopy)
         }
+        
+        enum SortBy {
+            case accuracy
+            case doubleDown
+        }
+        var sortBy: SortBy = .accuracy
         
         // Winner logic
         var winners = [Joinee]()    // To hold all the unique winners
@@ -211,6 +219,7 @@ class SP_RankingsViewController: UIViewController {
                 /// If it contains more than 1 joinee, still all are winners
                 /// Add all the double down winners
                 winners.append(contentsOf: highestDoubleDownWinners)
+                sortBy = .doubleDown
             } else {
                 // Since double down is 0 for all the winners with highest accuracy, they are the only winners
                 winners.append(contentsOf: highestAccuracyWinners)
@@ -223,25 +232,41 @@ class SP_RankingsViewController: UIViewController {
 
         // Clear all the joinees if any
         joinees.removeAll()
+        
         allJoinees.forEach { (joinee) in
             let copyJoinee = joinee.copy()
-            if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
-                if copyJoinee.accuracy ?? 0 > 0{
-                    copyJoinee.winner = winners.contains(joinee)
+            if self.shouldComputeWinner() {
+                if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+                    //Declare winner and add notification to all the players
+                    if copyJoinee.accuracy ?? 0 > 0 {
+                        copyJoinee.winner = winners.contains(joinee)
+                    }
                 }
             }
             joinees.append(copyJoinee)
         }
+        
 
-        // Winners computed, sort the joinees so that it shows winners at the top
-        joinees.sort(by: { $0.isWinner() && !$1.isWinner() })
+        if allMatchesPlayed(fixturesArr: self.fixturesArr) {
+            // Winners computed, sort the joinees so that it shows winners at the top
+            joinees.sort(by: { $0.isWinner() && !$1.isWinner() })
+        } else {
+            joinees.sort { (lhs, rhs) -> Bool in
+                if sortBy == .accuracy {
+                    return (lhs.accuracy ?? 0) > (rhs.accuracy ?? 0)
+                } else {
+                    return (lhs.doubleDown ?? 0) > (rhs.doubleDown ?? 0)
+                }
+            }
+        }
 
-        updatePotWinnerToFirebase()
-        if self.shouldComputeWinner(){
-            self.addNotificationToAllPlayers()
+        updatePotToFirebase()
+        if shouldComputeWinner() {
+            if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+                self.addNotificationToAllPlayers()
+            }
         }
         rankingTableView.reloadData()
-
     }
 
     private func shouldComputeWinner() -> Bool {
@@ -257,7 +282,7 @@ class SP_RankingsViewController: UIViewController {
         return false
     }
 
-    private func updatePotWinnerToFirebase() {
+    private func updatePotToFirebase() {
         let jsonEncoder = JSONEncoder()
         guard let potId = pot.id else { return }
         guard let joineesData = try? jsonEncoder.encode(joinees) else { return }

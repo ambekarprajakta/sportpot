@@ -21,9 +21,9 @@ class SP_RankingTableViewCell: UITableViewCell {
 
     func display(joinee: Joinee) {
         nameLabel.text = joinee.joinee
-        accuracyLabel.text = String(format: "%.2f", joinee.accuracy ?? 0)
-        pointsLabel.text = String(format:"%.2f", joinee.points)
-        doubleDownLabel.text = String(format:"%d/3", Int(joinee.doubleDown ?? 0))
+        accuracyLabel.text = String(format: "%d", joinee.accuracy ?? 0)
+        pointsLabel.text = String(format:"%.2f", joinee.pointsScored ?? 0)
+        doubleDownLabel.text = String(format:"%d/3", joinee.doubleDown ?? 0)
     }
 
 }

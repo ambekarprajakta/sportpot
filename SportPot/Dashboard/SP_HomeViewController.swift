@@ -34,16 +34,18 @@ class SP_HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupDate()
-        //        if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey) {
         checkCurrentRoundForSeason()
-        //        }
         
         let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         if currentCount < 3 {
             self.showInstructions()
         }
 //        getFixturesFromServer() // Get latest fixtures from api
-        getCurrentWeekForPoints()        
+        getCurrentWeekForPoints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getNotificationsCount()
     }
     
     private func setupNavigationBar() {
@@ -102,6 +104,34 @@ class SP_HomeViewController: UIViewController {
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
+    func getNotificationsCount() {
+        Firestore.firestore().collection("user").document(currentUser).getDocument { (docSnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let response = docSnapshot?.data() else { return }
+                guard let notificationsArr = response["notifications"] as? JSONArray else { return }
+                guard let notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
+                self.updateNotificationBadgeCount(notifications: notifications)
+            }
+        }
+    }
+    
+    func updateNotificationBadgeCount(notifications: [NotificationObject]) {
+        
+        let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
+            return !notifObj.isRead
+        })
+        print(unReadNotifications)
+        guard let tabItems = self.tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[2]
+        if unReadNotifications.count > 0 {
+            tabItem.badgeValue = String(unReadNotifications.count)
+        } else {
+            tabItem.badgeValue = nil
+        }
+
+    }
     private func showInstructions(type: PopupType.ContentType = .Instruction) {
         let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
         present(instructController, animated: false, completion: nil)

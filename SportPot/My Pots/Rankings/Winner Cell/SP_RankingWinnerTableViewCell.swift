@@ -21,9 +21,9 @@ class SP_RankingWinnerTableViewCell: UITableViewCell {
 
     func display(joinee: Joinee) {
         nameLabel.text = joinee.joinee
-        accuracyButton.setTitle(String(format: "%.2f", joinee.accuracy ?? 0), for: .normal)
-        pointsButton.setTitle(String(format:"%.2f", joinee.points ), for: .normal)
-        doubleDownButton.setTitle(String(format:"%d/3", Int(joinee.doubleDown ?? 0)), for: .normal)
+        accuracyButton.setTitle(String(format: "%d", joinee.accuracy ?? 0), for: .normal)
+        pointsButton.setTitle(String(format:"%.2f", joinee.pointsScored ?? 0), for: .normal)
+        doubleDownButton.setTitle(String(format:"%d/3", joinee.doubleDown ?? 0), for: .normal)
     }
 
 }

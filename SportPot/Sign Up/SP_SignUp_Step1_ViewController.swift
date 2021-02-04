@@ -29,9 +29,12 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         continueButton.layer.cornerRadius = continueButton.frame.size.height/2
+        passwordTextField.disableAutoFill()
+        confirmPasswordTextField.disableAutoFill()
     }
     
     // MARK: - Validation
+    
     func isValidInput() -> Bool {
         if nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
             nameTextField.becomeFirstResponder()
@@ -79,6 +82,7 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     }
 
     // MARK: - Actions
+    
     fileprivate func step2VerifyPhoneNumber() {
         let username = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -93,19 +97,46 @@ class SP_SignUp_Step1_ViewController: UIViewController {
     
     @IBAction func continueButtonAction(_ sender: Any) {
         //TODO: Uncomment this after testing
-        if isValidInput() {
+        if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
+            self.popupAlert(title: "Error", message: "Entered passwords do not match. Please try again later.", actionTitles: ["Close"], actions: [{ action1 in
+                }])
+        } else if isValidInput() {
             checkUsernameAvailable(userName: nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased())
         } else {
             self.popupAlert(title: "Error", message: "Please check input fields and try again later.", actionTitles: ["Close"], actions: [{ action1 in
                 }])
         }
-//        let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
-//        self.present(signUp2VC, animated: true, completion: nil)
     }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
+}
+
+// MARK: - Extensions
+
+extension SP_SignUp_Step1_ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if nameTextField.isFirstResponder {
+            nameTextField.resignFirstResponder()
+            emailTextField.becomeFirstResponder()
+        } else if emailTextField.isFirstResponder {
+            emailTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else if passwordTextField.isFirstResponder {
+            passwordTextField.resignFirstResponder()
+            confirmPasswordTextField.becomeFirstResponder()
+        } else if confirmPasswordTextField.isFirstResponder {
+            confirmPasswordTextField.resignFirstResponder()
+            continueButtonAction(self)
+        }
+        return false
     }
-    
+}
+
+extension UITextField {
+    func disableAutoFill() {
+        if #available(iOS 12, *) {
+            textContentType = .oneTimeCode
+        } else {
+            textContentType = .init(rawValue: "")
+        }
+    }
 }

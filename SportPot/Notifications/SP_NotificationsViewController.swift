@@ -39,10 +39,47 @@ class SP_NotificationsViewController: UIViewController {
             if let userData = docSnapShot?.data() {
                 if let notificationArr = userData["notifications"] as? JSONArray {
                     self.notifications = notificationArr.toArray(of: NotificationObject.self, keyDecodingStartegy: .convertFromSnakeCase) ?? []
+                    self.updateNotificationBadgeCount()
+                }
+                self.notificationsTable.reloadData()
+            }
+        }
+    }
+    
+    func updateNotificationBadgeCount() {
+        let unReadNotifications =  self.notifications.filter({ (notifObj) -> Bool in
+            return !notifObj.isRead
+        })
+        print(unReadNotifications)
+        guard let tabItems = self.tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[2]
+        if unReadNotifications.count > 0 {
+            tabItem.badgeValue = String(unReadNotifications.count)
+        } else {
+            tabItem.badgeValue = nil
+        }
+
+    }
+    
+    func updateNotificationToFirebase(indexPath: IndexPath) {
+        let notification = notifications[indexPath.row]
+        if notification.isRead { return }
+        notifications[indexPath.row].isRead = true
+        self.updateNotificationBadgeCount()
+        do {
+            let enc = JSONEncoder()
+            if let encoded = try enc.encode(notifications).toJSON() as? [[String:Any]] {
+                let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+                let notifRef = Firestore.firestore().collection("user").document(currentUser)
+                notifRef.setData(["notifications": encoded], merge: true) { (error) in
+                    print("success")
                 }
             }
-            self.notificationsTable.reloadData()
+        } catch {
+            print(error)
         }
+        
+        notificationsTable.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -69,6 +106,17 @@ extension SP_NotificationsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rvc = storyboard.instantiateViewController(identifier: String(describing: SP_RankingsViewController.self)) as SP_RankingsViewController
+        guard let potID = notifications[indexPath.row].potId else { return }
+        Firestore.firestore().collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
+            guard let self = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else {
+                return
+            }
+            rvc.pot = pot
+            self.navigationController?.pushViewController(rvc, animated: true)
+            self.updateNotificationToFirebase(indexPath: indexPath)
+        }
     }
     
 }

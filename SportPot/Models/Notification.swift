@@ -17,8 +17,8 @@ enum NotificationObjectType: String, Codable {
 
 struct NotificationObject: Codable {
     let author: String
-    let isRead: Bool
+    var isRead: Bool
     let notificationType: NotificationObjectType
-    let potId: String
+    let potId: String?
     let timeStamp: Double
 }

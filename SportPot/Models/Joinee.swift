@@ -13,9 +13,9 @@ class Joinee: Codable {
     var points: Double = 0
     var predictions: [Prediction] = []
 
-    var accuracy: Double? = 0
+    var accuracy: Int? = 0
     var pointsScored: Double? = 0
-    var doubleDown: Double? = 0
+    var doubleDown: Int? = 0
     var winner: Bool? = false
 
     init() {

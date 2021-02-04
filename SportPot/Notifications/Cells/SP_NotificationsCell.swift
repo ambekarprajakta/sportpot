@@ -45,6 +45,12 @@ class SP_NotificationsCell: UITableViewCell {
         }
         let date = Date(timeIntervalSince1970: notification.timeStamp)
         dateLabel.text =  date.stringTimeFromDate()
+        
+        if notification.isRead {
+            newMessageLabel.isHidden = true
+        } else {
+            newMessageLabel.isHidden = false
+        }
     }
 
 }
