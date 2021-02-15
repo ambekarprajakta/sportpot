@@ -15,4 +15,5 @@ class Pot: Codable {
     let joinees: [Joinee]
     let round: String?
     var id: String? = nil
+    let name: String
 }

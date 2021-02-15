@@ -21,4 +21,5 @@ struct NotificationObject: Codable {
     let notificationType: NotificationObjectType
     let potId: String?
     let timeStamp: Double
+    let potName: String?
 }

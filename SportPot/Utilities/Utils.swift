@@ -41,11 +41,11 @@ extension Date {
         return Int64(Date().timeIntervalSince1970)
     }
     
-    func stringTimeFromDate() -> String{
+    func stringFromDate() -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let strTime = dateFormatter.string(from: self)
         return strTime
     }

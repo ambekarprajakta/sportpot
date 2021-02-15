@@ -23,19 +23,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, Eric won the pot" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-pO-uBF">
-                        <rect key="frame" x="15" y="15" width="164.5" height="19.5"/>
+                        <rect key="frame" x="53" y="15" width="192.5" height="19.5"/>
                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uz-PW-d6K">
-                        <rect key="frame" x="275" y="15" width="31" height="13.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22-10-2020 05:30" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uz-PW-d6K">
+                        <rect key="frame" x="264.5" y="15" width="41.5" height="19"/>
                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="12"/>
                         <color key="textColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA8-qz-w0R">
-                        <rect key="frame" x="269" y="32.5" width="37" height="19"/>
+                        <rect key="frame" x="269" y="38" width="37" height="19"/>
                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="19" id="8HY-1H-fE2"/>
@@ -45,16 +45,26 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="you-won-pot" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-Fm-6JO">
+                        <rect key="frame" x="15" y="10" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="8OR-Z9-enW"/>
+                            <constraint firstAttribute="height" constant="30" id="Ysh-Cr-fvu"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wA8-qz-w0R" secondAttribute="bottom" constant="4" id="5gj-hQ-TGx"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wA8-qz-w0R" secondAttribute="bottom" constant="8" id="5gj-hQ-TGx"/>
                     <constraint firstAttribute="trailing" secondItem="6uz-PW-d6K" secondAttribute="trailing" constant="15" id="EgZ-YG-vUM"/>
+                    <constraint firstItem="OdF-pO-uBF" firstAttribute="leading" secondItem="gbR-Fm-6JO" secondAttribute="trailing" constant="8" id="T8x-CC-Nas"/>
                     <constraint firstItem="wA8-qz-w0R" firstAttribute="top" secondItem="6uz-PW-d6K" secondAttribute="bottom" constant="4" id="TUX-xs-JMO"/>
                     <constraint firstItem="OdF-pO-uBF" firstAttribute="top" secondItem="6uz-PW-d6K" secondAttribute="top" id="TV9-Fk-i16"/>
-                    <constraint firstItem="OdF-pO-uBF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="bdr-Em-CuB"/>
+                    <constraint firstItem="gbR-Fm-6JO" firstAttribute="centerY" secondItem="OdF-pO-uBF" secondAttribute="centerY" id="ame-xd-mKG"/>
                     <constraint firstItem="6uz-PW-d6K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="dqj-Sj-XSU"/>
+                    <constraint firstItem="OdF-pO-uBF" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.6" id="f2f-sR-wdg"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OdF-pO-uBF" secondAttribute="bottom" constant="8" id="jFU-rY-9FH"/>
+                    <constraint firstItem="gbR-Fm-6JO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jlc-31-aLK"/>
                     <constraint firstAttribute="trailing" secondItem="wA8-qz-w0R" secondAttribute="trailing" constant="15" id="kfK-WR-Lm6"/>
                     <constraint firstItem="6uz-PW-d6K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OdF-pO-uBF" secondAttribute="trailing" constant="15" id="phP-Pe-5Wk"/>
                 </constraints>
@@ -64,8 +74,12 @@
                 <outlet property="dateLabel" destination="6uz-PW-d6K" id="86Y-LB-5Uf"/>
                 <outlet property="newMessageLabel" destination="wA8-qz-w0R" id="aXp-GP-agK"/>
                 <outlet property="titleLabel" destination="OdF-pO-uBF" id="tRt-z6-0q3"/>
+                <outlet property="typeImage" destination="gbR-Fm-6JO" id="73d-4j-Vs9"/>
             </connections>
-            <point key="canvasLocation" x="126.81159420289856" y="49.21875"/>
+            <point key="canvasLocation" x="-44.20289855072464" y="46.540178571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="you-won-pot" width="256" height="256"/>
+    </resources>
 </document>

@@ -31,7 +31,7 @@ class SP_RankingsViewController: UIViewController {
         let dateTimeStampStr = Double(pot.createdOn) ?? 0
         let myTimeInterval = TimeInterval(dateTimeStampStr)
         let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
-        potDateLabel.text = time.dateAndTimetoString()
+        potDateLabel.text = pot.name //time.dateAndTimetoString()
         getCurrentWeekForPoints()
         //Check round number - call API with round and league ID
 //        guard let roundNoStr = potDetail["round"] as? String else { return }
@@ -261,7 +261,7 @@ class SP_RankingsViewController: UIViewController {
         }
 
         updatePotToFirebase()
-        if shouldComputeWinner() {
+        if !shouldComputeWinner() {
             if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
                 self.addNotificationToAllPlayers()
             }
@@ -298,11 +298,12 @@ class SP_RankingsViewController: UIViewController {
 
         let wonNotifyDict : [String:Any] = ["author" : winner,
                                              "isRead" : false,
-                                             "notificationType" : NotificationObjectType.won,
-                                             "potId": pot.potID,
+                                             "notificationType" : NotificationObjectType.won.rawValue,
+                                             "potId": pot.id ?? "",
+                                             "potName": pot.name,
                                              "timeStamp":  Int(NSDate().timeIntervalSince1970)]
         
-        Firestore.firestore().collection("pots").document(pot.potID).getDocument { (docSnapshot, error) in
+        Firestore.firestore().collection("pots").document(pot.id ?? "").getDocument { (docSnapshot, error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             } else {

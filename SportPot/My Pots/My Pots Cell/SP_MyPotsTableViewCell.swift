@@ -22,7 +22,7 @@ class SP_MyPotsTableViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.medium //Set date style
         dateFormatter.timeZone = .current
-        dateLabel.text = dateFormatter.string(from: date)
+        dateLabel.text = pot.name + " - " + dateFormatter.string(from: date)
 
         let joinees = pot.joinees.map { (joinee) -> String in
             return joinee.joinee

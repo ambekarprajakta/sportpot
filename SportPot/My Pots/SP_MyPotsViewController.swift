@@ -17,9 +17,9 @@ struct PotModel {
 }
 
 class SP_MyPotsViewController: UIViewController {
-
+    
     @IBOutlet weak var potTableView: UITableView!
-
+    
     private let refreshControl = UIRefreshControl()
     private var pots = [Pot]()
     private let cellID = String(describing: SP_MyPotsTableViewCell.self)
@@ -29,14 +29,16 @@ class SP_MyPotsViewController: UIViewController {
         super.viewDidLoad()
         UINavigationBar.appearance().tintColor = UIColor.sp_mustard
         setupTable()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showNotificationDetail(_:)), name: NSNotification.Name(rawValue: "showNotificationDetail"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print("viewWillAppear")
         getPotDataFromServer()
+        getNotificationsCount()
     }
-
+    
     private func setupTable() {
         refreshControl.addTarget(self, action: #selector(getPotDataFromServer), for: .valueChanged)
         refreshControl.tintColor = .white
@@ -44,9 +46,51 @@ class SP_MyPotsViewController: UIViewController {
         potTableView.register(UINib(nibName: "SP_MyPotsTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         potTableView.rowHeight = 60
     }
-
+    
+    @objc func showNotificationDetail(_ notification: NSNotification) {
+        
+        if let pot = notification.userInfo?["pot"] as? Pot {
+            navigateToPotDetail(pot: pot)
+        }
+    }
+    
+    func getNotificationsCount() {
+        Firestore.firestore().collection("user").document(currentUser).getDocument { (docSnapshot, error) in
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let response = docSnapshot?.data() else { return }
+                guard let notificationsArr = response["notifications"] as? JSONArray else { return }
+                guard let notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
+                self.updateNotificationBadgeCount(notifications: notifications)
+            }
+        }
+    }
+    
+    func updateNotificationBadgeCount(notifications: [NotificationObject]) {
+        
+        let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
+            return !notifObj.isRead
+        })
+        print(unReadNotifications)
+        guard let tabItems = self.tabBarController?.tabBar.items else { return }
+        let tabItem = tabItems[2]
+        if unReadNotifications.count > 0 {
+            tabItem.badgeValue = String(unReadNotifications.count)
+        } else {
+            tabItem.badgeValue = nil
+        }
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge)
+             { (granted, error) in
+                  if error == nil {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
+                    }
+                  }
+             }
+    }
     // MARK: - Fetch Pot Data
-
+    
     @objc private func getPotDataFromServer() {
         self.showHUD()
         refreshControl.beginRefreshing()
@@ -81,15 +125,15 @@ class SP_MyPotsViewController: UIViewController {
 // MARK: - Table View
 
 extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return pots.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SP_MyPotsTableViewCell {
             matchCell.display(pot: pots[indexPath.section])
@@ -97,12 +141,16 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
         }
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        navigateToPotDetail(pot: pots[indexPath.section])
+    }
+    
+    func navigateToPotDetail(pot: Pot) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rvc = storyboard.instantiateViewController(identifier: String(describing: SP_RankingsViewController.self)) as SP_RankingsViewController
-        rvc.pot = pots[indexPath.section]
+        rvc.pot = pot
         self.navigationController?.pushViewController(rvc, animated: true)
+        
     }
-
 }

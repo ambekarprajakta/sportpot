@@ -12,7 +12,7 @@ import FirebaseFirestore
 class SP_NotificationsViewController: UIViewController {
     
     @IBOutlet private weak var notificationsTable: UITableView!
-    
+    private let refreshControl = UIRefreshControl()
     private let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     private let db = Firestore.firestore()
     private let cellId = String(describing: SP_NotificationsCell.self)
@@ -21,10 +21,17 @@ class SP_NotificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         getNotifications()
     }
     
     private func setupView() {
+        refreshControl.addTarget(self, action: #selector(getNotifications), for: .valueChanged)
+        refreshControl.tintColor = .white
+        notificationsTable.addSubview(refreshControl)
+
         notificationsTable.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         notificationsTable.rowHeight = UITableView.automaticDimension
         notificationsTable.estimatedRowHeight = 60
@@ -32,9 +39,11 @@ class SP_NotificationsViewController: UIViewController {
         notificationsTable.delegate = self
     }
     
-    private func getNotifications() {
+    @objc private func getNotifications() {
         self.showHUD()
+        refreshControl.beginRefreshing()
         db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
+            self.refreshControl.endRefreshing()
             self.hideHUD()
             if let userData = docSnapShot?.data() {
                 if let notificationArr = userData["notifications"] as? JSONArray {
@@ -58,7 +67,14 @@ class SP_NotificationsViewController: UIViewController {
         } else {
             tabItem.badgeValue = nil
         }
-
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge)
+             { (granted, error) in
+                  if error == nil {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
+                    }
+                  }
+             }
     }
     
     func updateNotificationToFirebase(indexPath: IndexPath) {
@@ -106,17 +122,44 @@ extension SP_NotificationsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rvc = storyboard.instantiateViewController(identifier: String(describing: SP_RankingsViewController.self)) as SP_RankingsViewController
         guard let potID = notifications[indexPath.row].potId else { return }
+        
         Firestore.firestore().collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
             guard let self = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else {
                 return
             }
             rvc.pot = pot
-            self.navigationController?.pushViewController(rvc, animated: true)
+            
+//            Firestore.firestore().collection("user").whereField("isRead", isEqualTo: true).addSnapshotListener(includeMetadataChanges: true) { (snapShot, error) in
+//                guard let snapshot = snapShot else {
+//                    print("Error fetching snapshots: \(error!)")
+//                    return
+//                }
+//                snapshot.documentChanges.forEach { diff in
+//                    if (diff.type == .added) {
+//                        print("New city: \(diff.document.data())")
+//                    }
+//                    if (diff.type == .modified) {
+//                        print("Modified city: \(diff.document.data())")
+//                    }
+//                    if (diff.type == .removed) {
+//                        print("Removed city: \(diff.document.data())")
+//                    }
+//                }
+//            }
+            
+//            self.navigationController?.pushViewController(rvc, animated: true)
+            
+            self.tabBarController?.selectedIndex = 1
+            let deadlineTime = DispatchTime.now() + .milliseconds(3)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "showNotificationDetail"), object: nil, userInfo: ["pot": pot])
+            }
             self.updateNotificationToFirebase(indexPath: indexPath)
+            
         }
     }
-    
 }

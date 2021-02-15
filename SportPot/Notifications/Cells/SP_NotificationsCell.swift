@@ -16,6 +16,8 @@ class SP_NotificationsCell: UITableViewCell {
     @IBOutlet private weak var newMessageLabel: UILabel!
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
 
+    @IBOutlet weak var typeImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,17 +25,19 @@ class SP_NotificationsCell: UITableViewCell {
     func display(notification: NotificationObject) {
         switch notification.notificationType {
         case .join:
+            typeImage.image = UIImage.init(named: "user-join-pot")
             if notification.author ==  currentUser {
-                titleLabel.text = "You have joined a pot!"
+                titleLabel.text = "You have joined a pot \(notification.potName ?? "LoL_PaRtyy!")!"
             } else {
-                titleLabel.text = "Hey,\(notification.author) has joined the pot!"
+                titleLabel.text = "\(notification.author) joined \(notification.potName ?? "LoL_PaRtyy!")!"
             }
             break
         case .won:
+            typeImage.image = UIImage.init(named: "you-won-pot")
             if notification.author ==  currentUser {
                 titleLabel.text = "You won the pot!"
             } else {
-                titleLabel.text = "\(notification.author) won the pot!"
+                titleLabel.text = "\(notification.author) won the pot \(notification.potName ?? "LoL_PaRtyy!")!"
             }
             break
         case .comment:
@@ -44,7 +48,7 @@ class SP_NotificationsCell: UITableViewCell {
             break
         }
         let date = Date(timeIntervalSince1970: notification.timeStamp)
-        dateLabel.text =  date.stringTimeFromDate()
+        dateLabel.text =  date.stringFromDate()
         
         if notification.isRead {
             newMessageLabel.isHidden = true

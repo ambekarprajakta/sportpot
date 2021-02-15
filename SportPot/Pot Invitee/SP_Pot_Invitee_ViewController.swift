@@ -157,7 +157,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             joinPotWithDetails()
         }
     }
-    func joinPotWithDetails(){
+    func joinPotWithDetails() {
         ///Write PotID to respective User
         ///Add to User
         let addJoinedPotsRef = self.db.collection("user").document(self.currentUser)
@@ -194,11 +194,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     
     func addNotificationToOtherPlayers() {
         self.showHUD()
-        let joinNotifyDict : [String:Any] = ["author" : self.currentUser,
-                                             "isRead" : false,
-                                             "notificationType" :  NotificationObjectType.join.rawValue,
-                                             "potId": self.potIDStr,
-                                             "timeStamp":  Int(NSDate().timeIntervalSince1970)]
         
         db.collection("pots").document(potIDStr).getDocument { (docSnapshot, error) in
             self.hideHUD()
@@ -206,12 +201,18 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 guard let response = docSnapshot?.data() else { return }
+                guard let potName = response["name"] as? String else { return }
                 guard let joineesArr = response["joinees"] as? JSONArray else { return }
                 if let joinees = joineesArr.toArray(of: Joinee.self, keyDecodingStartegy: .convertFromSnakeCase)?.compactMap({ (joinee) -> String? in
                     return joinee.joinee
                 }){
                     print(joinees)
-                    
+                    let joinNotifyDict : [String:Any] = ["author" : self.currentUser,
+                                                         "isRead" : false,
+                                                         "notificationType" :  NotificationObjectType.join.rawValue,
+                                                         "potId": self.potIDStr,
+                                                         "potName": potName,
+                                                         "timeStamp":  Int(NSDate().timeIntervalSince1970)]
                     for joinee in joinees {
                         let notifRef = self.db.collection("user").document(joinee)
                         notifRef.updateData([

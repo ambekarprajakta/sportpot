@@ -22,7 +22,7 @@ class SP_HomeViewController: UIViewController {
     private let cellID = "SP_MatchTableViewCell"
     private var currentSeasonStr : String = ""
     private var totalPoints : Double = 0.0
-
+    private var potName : String = ""
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
     let db = Firestore.firestore()
@@ -130,8 +130,16 @@ class SP_HomeViewController: UIViewController {
         } else {
             tabItem.badgeValue = nil
         }
-
+        UNUserNotificationCenter.current().requestAuthorization(options: .badge)
+             { (granted, error) in
+                  if error == nil {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
+                    }
+                  }
+             }
     }
+    
     private func showInstructions(type: PopupType.ContentType = .Instruction) {
         let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
         present(instructController, animated: false, completion: nil)
@@ -227,16 +235,14 @@ class SP_HomeViewController: UIViewController {
         components.host = "sportpot.eu"
         components.path = "/"
         let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
-        
-//        let userDataStr = currentUser
-//        print("Original string: \"\(userDataStr)\"")
-        
-        if let base64Str = currentUser.base64Encoded() {
+        currentTimeStamp = Date.currentTimeStamp
+
+        let potStr = currentUser + "&" + String(currentTimeStamp)
+        if let base64Str = potStr.base64Encoded() {
             print("Base64 encoded string: \"\(base64Str)\"")
             
             let queryItemUsername = URLQueryItem(name: "owner", value: base64Str)
             let queryItemAction = URLQueryItem(name: "action", value: "joinPot")
-            currentTimeStamp = Date.currentTimeStamp
             let queryItemTimeStamp = URLQueryItem(name: "timestamp", value: String(currentTimeStamp))
             components.queryItems = [queryItemUsername,queryItemTimeStamp,queryItemAction]
             guard let urlComponent = components.url else { return }
@@ -261,8 +267,26 @@ class SP_HomeViewController: UIViewController {
     }
     @IBAction func openNewPotAction(_ sender: Any) {
         if validateOpenPotSelection() {
-            createDeepLink()
+            addPotName()
         }
+    }
+    
+    func addPotName() {
+        let alertController = UIAlertController(title: "Pot Name", message: "", preferredStyle: UIAlertController.Style.alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter Pot Name"
+        }
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            self.potName = firstTextField.text ?? ""
+            self.createDeepLink()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(saveAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+
     }
     func savePotToDB(shareLink: String, potID: String) {
         self.showHUD()
@@ -288,6 +312,8 @@ class SP_HomeViewController: UIViewController {
         potBody["createdOn"] = String(currentTimeStamp)
         potBody["joinees"] = [joineeDict]
         potBody["owner"] = currentUser
+        potBody["name"] = potName
+        
         //Add current season (Round)
         potBody["round"] = UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey)
         print("User's Pot:\n\(potBody)")
@@ -313,6 +339,7 @@ class SP_HomeViewController: UIViewController {
             }
         }
     }
+    
     @objc func joinPotAction(notification: NSNotification) {
         self.showHUD()
         //t7Vw7YLfdeTKeNY7A
