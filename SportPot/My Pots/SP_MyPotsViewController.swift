@@ -61,7 +61,8 @@ class SP_MyPotsViewController: UIViewController {
             } else {
                 guard let response = docSnapshot?.data() else { return }
                 guard let notificationsArr = response["notifications"] as? JSONArray else { return }
-                guard let notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
+                guard var notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
+
                 let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
                     return !notifObj.isRead
                 })
@@ -117,6 +118,9 @@ class SP_MyPotsViewController: UIViewController {
                     }
                     pot.id = potID
                     self.pots.append(pot)
+                    self.pots =  self.pots.sorted { lhs, rhs in
+                        Date(timeIntervalSince1970: Double(lhs.createdOn) ?? 0) > Date(timeIntervalSince1970: Double(rhs.createdOn) ?? 0)
+                    }
                     self.potTableView.reloadData()
                 }
             }

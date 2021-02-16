@@ -48,6 +48,9 @@ class SP_NotificationsViewController: UIViewController {
             if let userData = docSnapShot?.data() {
                 if let notificationArr = userData["notifications"] as? JSONArray {
                     self.notifications = notificationArr.toArray(of: NotificationObject.self, keyDecodingStartegy: .convertFromSnakeCase) ?? []
+                    self.notifications =  self.notifications.sorted { lhs, rhs in
+                        Date(timeIntervalSince1970: lhs.timeStamp) > Date(timeIntervalSince1970: rhs.timeStamp)
+                    }
                     self.updateNotificationBadge(notifications: self.notifications)
                 }
                 self.notificationsTable.reloadData()

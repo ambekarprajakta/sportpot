@@ -42,11 +42,13 @@ extension Date {
     }
     
     func stringFromDate() -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        let dateFormatter = RelativeDateTimeFormatter()
+        dateFormatter.unitsStyle = .full
         dateFormatter.locale = NSLocale.current
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let strTime = dateFormatter.string(from: self)
+//        dateFormatter.dateStyle = .medium
+        
+//        dateFormatter.doesRelativeDateFormatting = true
+        let strTime = dateFormatter.localizedString(for: self, relativeTo: Date())
         return strTime
     }
 }

@@ -355,14 +355,25 @@ class SP_HomeViewController: UIViewController {
                 let dataArr = decodedStr.split(separator: "&")
                 let owner = String(dataArr[0])
                 
-                // Allow user to join the pot
-                self.hideHUD()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
-                potInviteeViewController.ownerStr = owner
-                potInviteeViewController.potIDStr = base64Str
-                potInviteeViewController.delegate = self
-                self.present(potInviteeViewController, animated: true, completion: nil)
+                db.collection("user").document(currentUser).getDocument { (docSnapShot, error) in
+                    self.hideHUD()
+                    if let userData = docSnapShot?.data() {
+                        if let pots = userData["joinedPots"] as? [String] {
+                            if pots.contains(base64Str) {
+                                // User has already joined the pot
+                                self.popupAlert(title: nil, message: "You’ve already placed your bets for this pot", actionTitles: ["Okay"], actions: [{action in}])
+                                return
+                            }
+                        }
+                    }
+                    // Allow user to join the pot
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
+                    potInviteeViewController.ownerStr = owner
+                    potInviteeViewController.potIDStr = base64Str
+                    potInviteeViewController.delegate = self
+                    self.present(potInviteeViewController, animated: true, completion: nil)
+                }
             }
         }
     }
