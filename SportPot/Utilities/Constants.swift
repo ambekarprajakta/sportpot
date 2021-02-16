@@ -18,7 +18,6 @@ struct Constants {
     static let EPL_LEAGUE_ID_20_21 = "2790/"
     static let kCurrentRound = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")"
     static let kTimeZone = "?timezone="
-
 }
 struct ErrorMessages {
     static let passwordError = "Please enter a password"
@@ -44,4 +43,8 @@ struct UserDefaultsConstants {
     static let currentRoundKey = "currentRound"
     static let launchCountKey = "launchCount"
     static let currentUserKey = "currentUser"
+    
+    //Notification Badge
+    static let notificationsBadgeCount = "notificationsBadgeCount"
+    
 }

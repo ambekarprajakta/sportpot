@@ -261,7 +261,7 @@ class SP_RankingsViewController: UIViewController {
         }
 
         updatePotToFirebase()
-        if !shouldComputeWinner() {
+        if shouldComputeWinner() {
             if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
                 self.addNotificationToAllPlayers()
             }
@@ -295,7 +295,7 @@ class SP_RankingsViewController: UIViewController {
     }
     
     private func addNotificationToAllPlayers() {
-
+        guard let potID = pot.id else { return }
         let wonNotifyDict : [String:Any] = ["author" : winner,
                                              "isRead" : false,
                                              "notificationType" : NotificationObjectType.won.rawValue,
@@ -303,7 +303,7 @@ class SP_RankingsViewController: UIViewController {
                                              "potName": pot.name,
                                              "timeStamp":  Int(NSDate().timeIntervalSince1970)]
         
-        Firestore.firestore().collection("pots").document(pot.id ?? "").getDocument { (docSnapshot, error) in
+        Firestore.firestore().collection("pots").document(potID).getDocument { (docSnapshot, error) in
             if let err = error {
                 print("Error getting documents: \(err)")
             } else {

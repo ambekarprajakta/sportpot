@@ -40,8 +40,11 @@ class SP_HomeViewController: UIViewController {
         if currentCount < 3 {
             self.showInstructions()
         }
-//        getFixturesFromServer() // Get latest fixtures from api
+        //        getFixturesFromServer() // Get latest fixtures from api
         getCurrentWeekForPoints()
+        if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.notificationsBadgeCount){
+            UserDefaults.standard.setValue(0, forKey: UserDefaultsConstants.notificationsBadgeCount)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,32 +115,33 @@ class SP_HomeViewController: UIViewController {
                 guard let response = docSnapshot?.data() else { return }
                 guard let notificationsArr = response["notifications"] as? JSONArray else { return }
                 guard let notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
-                self.updateNotificationBadgeCount(notifications: notifications)
+                let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
+                    return !notifObj.isRead
+                })
+                print(unReadNotifications)
+                self.updateNotificationBadge(count: unReadNotifications.count)
             }
         }
     }
     
-    func updateNotificationBadgeCount(notifications: [NotificationObject]) {
-        
-        let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
-            return !notifObj.isRead
-        })
-        print(unReadNotifications)
+    func updateNotificationBadge(count: Int) {
         guard let tabItems = self.tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[2]
-        if unReadNotifications.count > 0 {
-            tabItem.badgeValue = String(unReadNotifications.count)
+        
+        if count != UserDefaults.standard.integer(forKey: UserDefaultsConstants.notificationsBadgeCount) {
+            tabItem.badgeValue = String(count)
         } else {
             tabItem.badgeValue = nil
         }
+        
         UNUserNotificationCenter.current().requestAuthorization(options: .badge)
-             { (granted, error) in
-                  if error == nil {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
-                    }
-                  }
-             }
+        { (granted, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    UIApplication.shared.applicationIconBadgeNumber = Int(tabItem.badgeValue ?? "") ?? 0
+                }
+            }
+        }
     }
     
     private func showInstructions(type: PopupType.ContentType = .Instruction) {
@@ -236,7 +240,7 @@ class SP_HomeViewController: UIViewController {
         components.path = "/"
         let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
         currentTimeStamp = Date.currentTimeStamp
-
+        
         let potStr = currentUser + "&" + String(currentTimeStamp)
         if let base64Str = potStr.base64Encoded() {
             print("Base64 encoded string: \"\(base64Str)\"")
@@ -286,7 +290,7 @@ class SP_HomeViewController: UIViewController {
         alertController.addAction(saveAction)
         
         self.present(alertController, animated: true, completion: nil)
-
+        
     }
     func savePotToDB(shareLink: String, potID: String) {
         self.showHUD()
@@ -301,12 +305,12 @@ class SP_HomeViewController: UIViewController {
             predictionBody["is_double_down"] = fixture.isDoubleDown
             predictions.append(predictionBody)
         }
-
+        
         let pointsStr = totalPointsLabel.text?.split(separator: "\n")
         let joineeDict : [String:Any] = ["predictions" : predictions,
                                          "points": Double(pointsStr?[0] ?? "0.0") as Any,
                                          "joinee": currentUser]
-
+        
         var potBody = [String:Any]()
         potBody["potID"] = String(urlParams[2])
         potBody["createdOn"] = String(currentTimeStamp)
@@ -350,19 +354,19 @@ class SP_HomeViewController: UIViewController {
                 //Extract user and timestamp from decodedStr
                 let dataArr = decodedStr.split(separator: "&")
                 let owner = String(dataArr[0])
-
+                
                 // Allow user to join the pot
-                    self.hideHUD()
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
-                    potInviteeViewController.ownerStr = owner
-                    potInviteeViewController.potIDStr = base64Str
-                    potInviteeViewController.delegate = self
-                    self.present(potInviteeViewController, animated: true, completion: nil)
+                self.hideHUD()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
+                potInviteeViewController.ownerStr = owner
+                potInviteeViewController.potIDStr = base64Str
+                potInviteeViewController.delegate = self
+                self.present(potInviteeViewController, animated: true, completion: nil)
             }
         }
     }
-
+    
     @objc private func navigateToMyPots() {
         tabBarController?.selectedIndex = 1
     }

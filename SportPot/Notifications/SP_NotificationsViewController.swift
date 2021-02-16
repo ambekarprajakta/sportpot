@@ -17,7 +17,7 @@ class SP_NotificationsViewController: UIViewController {
     private let db = Firestore.firestore()
     private let cellId = String(describing: SP_NotificationsCell.self)
     private var notifications = Array<NotificationObject>()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -31,7 +31,7 @@ class SP_NotificationsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(getNotifications), for: .valueChanged)
         refreshControl.tintColor = .white
         notificationsTable.addSubview(refreshControl)
-
+        
         notificationsTable.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         notificationsTable.rowHeight = UITableView.automaticDimension
         notificationsTable.estimatedRowHeight = 60
@@ -48,40 +48,46 @@ class SP_NotificationsViewController: UIViewController {
             if let userData = docSnapShot?.data() {
                 if let notificationArr = userData["notifications"] as? JSONArray {
                     self.notifications = notificationArr.toArray(of: NotificationObject.self, keyDecodingStartegy: .convertFromSnakeCase) ?? []
-                    self.updateNotificationBadgeCount()
+                    self.updateNotificationBadge(notifications: self.notifications)
                 }
                 self.notificationsTable.reloadData()
             }
         }
     }
     
-    func updateNotificationBadgeCount() {
+    func updateNotificationBadge(notifications: [NotificationObject]) {
+        
         let unReadNotifications =  self.notifications.filter({ (notifObj) -> Bool in
             return !notifObj.isRead
         })
         print(unReadNotifications)
+        
         guard let tabItems = self.tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[2]
-        if unReadNotifications.count > 0 {
+        
+        if unReadNotifications.count != UserDefaults.standard.integer(forKey: UserDefaultsConstants.notificationsBadgeCount) {
             tabItem.badgeValue = String(unReadNotifications.count)
         } else {
             tabItem.badgeValue = nil
         }
+        
+        UserDefaults.standard.setValue(unReadNotifications.count, forKey: UserDefaultsConstants.notificationsBadgeCount)
+        
         UNUserNotificationCenter.current().requestAuthorization(options: .badge)
-             { (granted, error) in
-                  if error == nil {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
-                    }
-                  }
-             }
+        { (granted, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    UIApplication.shared.applicationIconBadgeNumber = Int(tabItem.badgeValue ?? "") ?? 0
+                }
+            }
+        }
     }
     
     func updateNotificationToFirebase(indexPath: IndexPath) {
         let notification = notifications[indexPath.row]
         if notification.isRead { return }
         notifications[indexPath.row].isRead = true
-        self.updateNotificationBadgeCount()
+        self.updateNotificationBadge(notifications: notifications)
         do {
             let enc = JSONEncoder()
             if let encoded = try enc.encode(notifications).toJSON() as? [[String:Any]] {
@@ -100,7 +106,7 @@ class SP_NotificationsViewController: UIViewController {
 }
 
 extension SP_NotificationsViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return notifications.count
     }
@@ -132,27 +138,6 @@ extension SP_NotificationsViewController: UITableViewDelegate {
                 return
             }
             rvc.pot = pot
-            
-//            Firestore.firestore().collection("user").whereField("isRead", isEqualTo: true).addSnapshotListener(includeMetadataChanges: true) { (snapShot, error) in
-//                guard let snapshot = snapShot else {
-//                    print("Error fetching snapshots: \(error!)")
-//                    return
-//                }
-//                snapshot.documentChanges.forEach { diff in
-//                    if (diff.type == .added) {
-//                        print("New city: \(diff.document.data())")
-//                    }
-//                    if (diff.type == .modified) {
-//                        print("Modified city: \(diff.document.data())")
-//                    }
-//                    if (diff.type == .removed) {
-//                        print("Removed city: \(diff.document.data())")
-//                    }
-//                }
-//            }
-            
-//            self.navigationController?.pushViewController(rvc, animated: true)
-            
             self.tabBarController?.selectedIndex = 1
             let deadlineTime = DispatchTime.now() + .milliseconds(3)
             DispatchQueue.main.asyncAfter(deadline: deadlineTime) {

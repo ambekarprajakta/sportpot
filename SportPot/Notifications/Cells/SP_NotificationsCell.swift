@@ -23,21 +23,23 @@ class SP_NotificationsCell: UITableViewCell {
     }
     
     func display(notification: NotificationObject) {
+        let defaultPotName = "TEST🍯"
         switch notification.notificationType {
         case .join:
             typeImage.image = UIImage.init(named: "user-join-pot")
             if notification.author ==  currentUser {
-                titleLabel.text = "You have joined a pot \(notification.potName ?? "LoL_PaRtyy!")!"
+                titleLabel.text = "You have joined \(notification.potName ?? defaultPotName)!"
             } else {
-                titleLabel.text = "\(notification.author) joined \(notification.potName ?? "LoL_PaRtyy!")!"
+                titleLabel.text = "\(notification.author) joined \(notification.potName ?? defaultPotName)!"
             }
             break
         case .won:
-            typeImage.image = UIImage.init(named: "you-won-pot")
             if notification.author ==  currentUser {
-                titleLabel.text = "You won the pot!"
+                typeImage.image = UIImage.init(named: "you-won-pot")
+                titleLabel.text = "🏅You won the pot - \(notification.potName ?? defaultPotName)!"
             } else {
-                titleLabel.text = "\(notification.author) won the pot \(notification.potName ?? "LoL_PaRtyy!")!"
+                typeImage.image = UIImage.init(named: "lost-pot")
+                titleLabel.text = "\(notification.author) won the pot - \(notification.potName ?? defaultPotName)!"
             }
             break
         case .comment:

@@ -32,29 +32,30 @@ class SP_SettingsViewController: UIViewController {
                 guard let response = docSnapshot?.data() else { return }
                 guard let notificationsArr = response["notifications"] as? JSONArray else { return }
                 guard let notifications = notificationsArr.toArray(of: NotificationObject.self) else { return }
-                self.updateNotificationBadgeCount(notifications: notifications)
+                let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
+                    return !notifObj.isRead
+                })
+                print(unReadNotifications)
+                self.updateNotificationBadge(count: unReadNotifications.count)
             }
         }
     }
     
-    func updateNotificationBadgeCount(notifications: [NotificationObject]) {
-        
-        let unReadNotifications =  notifications.filter({ (notifObj) -> Bool in
-            return !notifObj.isRead
-        })
-        print(unReadNotifications)
+    func updateNotificationBadge(count: Int) {
         guard let tabItems = self.tabBarController?.tabBar.items else { return }
         let tabItem = tabItems[2]
-        if unReadNotifications.count > 0 {
-            tabItem.badgeValue = String(unReadNotifications.count)
+
+        if count != UserDefaults.standard.integer(forKey: UserDefaultsConstants.notificationsBadgeCount) {
+            tabItem.badgeValue = String(count)
         } else {
             tabItem.badgeValue = nil
         }
+
         UNUserNotificationCenter.current().requestAuthorization(options: .badge)
              { (granted, error) in
                   if error == nil {
                     DispatchQueue.main.async {
-                        UIApplication.shared.applicationIconBadgeNumber = unReadNotifications.count
+                        UIApplication.shared.applicationIconBadgeNumber = Int(tabItem.badgeValue ?? "") ?? 0
                     }
                   }
              }
