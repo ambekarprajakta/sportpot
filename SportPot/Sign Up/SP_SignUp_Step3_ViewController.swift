@@ -11,14 +11,14 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SP_SignUp_Step3_ViewController: UIViewController {
-
+    
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var verificationCodeLabel: SP_UnderlinedTextField!
     public var phoneNumber: String?
     public var username: String?
     public var email: String?
     public var password: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         button.setTitle("Verify Code", for: .normal)
@@ -29,18 +29,18 @@ class SP_SignUp_Step3_ViewController: UIViewController {
             self.showHUD()
             ///Verify Phone Number
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: UserDefaults.standard.string(forKey: "authVerificationID") ?? "", verificationCode: self.verificationCodeLabel.text!.trimmingCharacters(in: .whitespacesAndNewlines) )
-                    print(credential)
-                    Auth.auth().signIn(with: credential) { (authResult, error) in
-                        self.hideHUD()
-                        if error == nil {
-                            // User is signed in
-                            self.createUser()
-                        } else {
-                            self.popupAlert(title: "Error!", message: error?.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
-                                }])
-                            return
-                        }
-                        return
+            print(credential)
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                self.hideHUD()
+                if error == nil {
+                    // User is signed in
+                    self.createUser()
+                } else {
+                    self.popupAlert(title: "Error!", message: error?.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
+                    }])
+                    return
+                }
+                return
             }
         }
     }
@@ -61,40 +61,36 @@ class SP_SignUp_Step3_ViewController: UIViewController {
                 }])
             }
         }
-
+        
     }
     
-    func createUser(){
+    func createUser() {
         self.showHUD()
-        //Create the user
-        Auth.auth().createUser(withEmail: email ?? "", password: password ?? "") { (result, err) in
-            //Check for errors
-            if err != nil {
-                //There was an error
-                self.popupAlert(title: "Oops!", message: err?.localizedDescription, actionTitles: ["Close"], actions: [{ action1 in
-                    }])
-            }else {
-                //User was created successfully, now store the first name and last name
-                Firestore.firestore().collection("user").document(self.email ?? "").setData([
-                    "id" : String((result?.user.uid)!),
-                    "email":self.email,
-                    "displayName" : self.username,
-                    "points" : 0,
-                    "joinedPots" : []
-                ], merge: true){ (error) in
-                    //If all good, proceed!
-                    self.hideHUD()
-                    UserDefaults.standard.set(self.email, forKey: "currentUser")
-                    UserDefaults.standard.set(self.username, forKey: "displayID")
-                    self.pushToHomeScreen()
-                }
+        //User was created successfully, now store the basic details of the user
+        Firestore.firestore().collection("user").document(self.email ?? "").setData([
+            "email":self.email ?? "",
+            "displayName" : self.username ?? "",
+            "points" : 0,
+            "joinedPots" : []
+        ], merge: true){ (error) in
+            //If all good, proceed!
+            self.hideHUD()
+            if error != nil {
+                self.popupAlert(title: "Error!", message: error?.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
+                }])
+                return
+            } else {
+                UserDefaults.standard.set(self.email, forKey: "currentUser")
+                UserDefaults.standard.set(self.username, forKey: "displayName")
+                self.pushToHomeScreen()
             }
         }
     }
+    
     func pushToHomeScreen() {
         //Validate and push to the Home Page
         UserDefaults.standard.set(true, forKey: "isLoggedIn")
-
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainTabBarController = storyboard.instantiateViewController(identifier: "SP_MainTabBarViewController")
         

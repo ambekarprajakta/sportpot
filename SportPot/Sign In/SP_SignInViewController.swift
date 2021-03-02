@@ -68,7 +68,7 @@ class SP_SignInViewController: UIViewController {
                 Firestore.firestore().collection("user").document(emailID).getDocument { (docSnapShot, error) in
                     if let userData = docSnapShot?.data() {
                         guard let username = userData["displayName"] as? String else { return }
-                        UserDefaults.standard.set(username, forKey: "displayID")
+                        UserDefaults.standard.set(username, forKey: "displayName")
                     }
                 }
                 // Show home page

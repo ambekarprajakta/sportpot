@@ -20,14 +20,16 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     @IBOutlet private weak var participantsLabel: UILabel!
     @IBOutlet private weak var potTableView: UITableView!
     @IBOutlet private weak var infoButton: UIButton!
-    private var totalPoints : Double = 0.0
+    private var totalPoints : Int = 0
     
-    private var fixturesPointsArray = Array<[String]>()
+    private var fixturePoints = Array<FixturePoints>()
     private let cellID = String(describing: SP_MatchTableViewCell.self)
     public var ownerStr : String = ""
     public var potIDStr : String = ""
     private let db = Firestore.firestore()
     private var fixturesArray = Array<FixtureMO>()
+    private var matchesDiscarded = Array<FixtureMO>()
+
     private let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
 
     var delegate: SP_Pot_Invitee_ViewControllerDelegate?
@@ -36,9 +38,20 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         super.viewDidLoad()
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
         setupTableView()
-        getCurrentWeekForPoints()
+        getFixturesFromServer()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.refreshTableView),
+            name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
+    }
     private func setupTableView() {
         potTableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         potTableView.dataSource = self
@@ -46,32 +59,34 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         potTableView.reloadData()
     }
     
-    private func getCurrentWeekForPoints() {
-        self.showHUD()
-        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
-            self.hideHUD()
-            if error == nil {
-                guard let currentWeekStr = docSnapShot?.data() else { return }
-                guard let weekNumStr = currentWeekStr["weekNo"] else { return }
-                self.getFixturePointsForWeek(week: weekNumStr as! String)
-            }
-        }
+    @objc func refreshTableView(notification: Notification) {
+        self.potTableView.reloadData()
     }
+//    private func getCurrentWeekForPoints() {
+//        self.showHUD()
+//        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+//            self.hideHUD()
+//            if error == nil {
+//                guard let currentWeekStr = docSnapShot?.data() else { return }
+//                guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+//                self.getFixturePointsForWeek(week: weekNumStr as! String)
+//            }
+//        }
+//    }
     
-    private func getFixturePointsForWeek(week:String) {
+    func getCurrentPointsFrom(season: String) {
         self.showHUD()
-        db.collection("fixturePoints").document(week).getDocument { [weak self] (docSnapShot, error) in
-            self?.hideHUD()
-            guard let self = self, let pointsSnapshot = docSnapShot else {
-                print("Error retreiving documents \(error!)")
-                return
+        fixturePoints.removeAll()
+        db.collection("fixturePoints").document(season).getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if let response = docSnapShot?.data() {
+                let fixturePointsArray = response["0"] as? [[String: Any]]
+                self.fixturePoints = fixturePointsArray?.toArray(of: FixturePoints.self) ?? Array<FixturePoints>()
+                print(self.fixturePoints)
+            } else {
+                print("No Data available")
+//                self.getFixturePoints(bookMakerId: 6)
             }
-            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
-                self.fixturesPointsArray.append(fixturePoints as! [String])
-            }
-            print("Fixture points:\n \(self.fixturesPointsArray)")
-            
-            self.getFixturesFromServer()
             self.potTableView.reloadData()
         }
     }
@@ -126,10 +141,14 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
         do {
             fixturesArray = try managedObjectContext.fetch(fetchRequest)
+            fixturesArray = fixturesArray.sorted(by: { $0.event_timestamp < $1.event_timestamp })
+//            fixtureIds = fixturesArray.map {Int($0.fixture_id)}
+            getCurrentPointsFrom(season: UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) ?? "")
+            
         } catch {
             print("Error fetching fixtures from local db")
         }
-        potTableView.reloadData()
+//        potTableView.reloadData()
     }
 
     private func deleteAllFixturesFromLocalDB() {
@@ -177,7 +196,8 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         
         let joineeDict : [String:Any] = ["predictions" : predictions,
                                          "points": totalPoints,
-                                         "joinee": currentUser]
+                                         "joinee": currentUser,
+                                         "displayName": UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""]
         
 //        let potData : [[String:Any]] = [["predictions" : predictions], ["points": totalPoints]]
 //        let userPredictions : [String:Any] = [currentUser: potData]
@@ -207,7 +227,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                     return joinee.joinee
                 }){
                     print(joinees)
-                    let joinNotifyDict : [String:Any] = ["author" : self.currentUser,
+                    let joinNotifyDict : [String:Any] = [ "author" : UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? "",
                                                          "isRead" : false,
                                                          "notificationType" :  NotificationObjectType.join.rawValue,
                                                          "potId": self.potIDStr,
@@ -229,8 +249,10 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     
     func validateOpenPotSelection() -> Bool {
         // Check if user has done the selection for all the matches
+        let discardedMatches = matchesDiscarded.count
+        
         let pendingSelections = fixturesArray.filter { $0.predictionType == .none }.count
-        if pendingSelections > 0 {
+        if pendingSelections > discardedMatches {
             showInstructions(type: .BetTenMatches)
             return false
         }
@@ -250,8 +272,8 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     }
 
     func updatePoints(fixture: FixtureMO) {
-        totalPoints = 0.0
-        var selectedPoints = 0.0
+        totalPoints = 0
+        var selectedPoints = 0
         for fObj in fixturesArray {
             var fixTemp : FixtureMO = fObj
             if fObj.fixture_id == fixture.fixture_id {
@@ -273,15 +295,37 @@ class SP_Pot_Invitee_ViewController: UIViewController {
 extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
     
     func didChangeSelectionFor(cell: SP_MatchTableViewCell, predictionType: PredictionType) {
-        guard let indexPath = potTableView.indexPath(for: cell) else {
-            return
-        }
+        guard let indexPath = potTableView.indexPath(for: cell) else { return }
+        
         let fixture = fixturesArray[indexPath.section]
         fixture.predictionType = predictionType
-        fixture.selectedPoints = Double(fixturesPointsArray[indexPath.section][predictionType.rawValue - 1]) ?? 0.0
+        
+        var predictionPoints = 0
+
+        if let points = fixturePoints.first(where: { $0.fixtureId == fixture.fixture_id }) {
+            switch predictionType {
+            case .home:
+                predictionPoints = points.home
+                break
+            case .away:
+                predictionPoints = points.away
+                break
+            case .draw:
+                predictionPoints = points.draw
+                break
+            case .none:
+                break
+            }
+            print(points)
+        }
+        
+        fixture.selectedPoints = predictionPoints
+        print(predictionPoints)
+        
         cell.updateSelection(fixture: fixture)
         updatePoints(fixture: fixture)
     }
+
     
     func didTapDoubleDownOn(cell: SP_MatchTableViewCell) {
         guard let indexPath = potTableView.indexPath(for: cell) else {
@@ -292,7 +336,7 @@ extension SP_Pot_Invitee_ViewController : SP_MatchTableViewCellDelegate {
             // Chek if user has already done 3 double downs
             if fixturesArray.filter({ $0.isDoubleDown }).count == 3 {
                 // TODO: - Put this func in Utils
-                //showInstructions(type: .AlreadySelectedThreeDoubleDown)
+                showInstructions(type: .AlreadySelectedThreeDoubleDown)
                 return
             }
         }
@@ -312,11 +356,18 @@ extension SP_Pot_Invitee_ViewController : UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SP_MatchTableViewCell {
-            if (fixturesArray.count != 0) && (fixturesPointsArray.count != 0) {
-                matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points: fixturesPointsArray[indexPath.section], delegate: self)
+            
+            if (fixturesArray.count != 0) && (fixturePoints.count != 0) {
+                let fixPointsObj = fixturePoints.filter {$0.fixtureId == fixturesArray[indexPath.section].fixture_id}
+                matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section],
+                                         points:fixPointsObj.first ?? FixturePoints.init(home: 0, away: 0, draw: 0, fixtureId: 0),
+                                         delegate: self)
+                if fixturesArray[indexPath.section].isMatchOnGoing() {
+                    matchesDiscarded.append(fixturesArray[indexPath.section])
+                }
             }
             return matchCell
         }

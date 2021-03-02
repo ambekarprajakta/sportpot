@@ -76,12 +76,31 @@ class SP_SignUp_Step1_ViewController: UIViewController {
                     return
                 }
             }
-            self.step2VerifyPhoneNumber()
+            self.createUser()
         })
         
     }
 
     // MARK: - Actions
+    
+    func createUser() {
+        let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
+            //Check for errors
+            if err != nil {
+                //There was an error
+                self.popupAlert(title: "Oops!", message: err?.localizedDescription, actionTitles: ["Close"], actions: [{ action1 in
+                    }])
+            }else {
+                //User was created successfully, now store the first name and last name
+                Firestore.firestore().collection("user").document(email).setData([
+                    "id" : String((result?.user.uid)!)])
+                self.step2VerifyPhoneNumber()
+            }
+        }
+    }
     
     fileprivate func step2VerifyPhoneNumber() {
         let username = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()

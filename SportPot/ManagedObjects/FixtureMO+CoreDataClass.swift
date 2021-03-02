@@ -13,7 +13,7 @@ import CoreData
 public class FixtureMO: NSManagedObject, Decodable {
     var isDoubleDown: Bool = false
     var predictionType: PredictionType = .none
-    var selectedPoints: Double = 0.0
+    var selectedPoints: Int = 0
     
     private enum CodingKeys: String, CodingKey {
         case elapsed

@@ -14,7 +14,8 @@ class SP_RankingsViewController: UIViewController {
     @IBOutlet private weak var rankingTableView: UITableView!
     @IBOutlet private weak var potDateLabel: UILabel!
     @IBOutlet private weak var lastUpdatedLabel: UILabel!
-    private var fixturesPointsArray = Array<[String]>()
+//    private var fixturesPointsArray = Array<[String]>()
+    var fixturePoints = Array<FixturePoints>()
 
     var pot: Pot!
     private var joinees = [Joinee]()
@@ -22,6 +23,8 @@ class SP_RankingsViewController: UIViewController {
     private let winnerCellID = String(describing: SP_RankingWinnerTableViewCell.self)
     private let rankingCellID = String(describing: SP_RankingTableViewCell.self)
     private var winner: String = ""
+    private var isWinnerDeclared: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rankingTableView.register(UINib(nibName: winnerCellID, bundle: nil), forCellReuseIdentifier: winnerCellID)
@@ -32,41 +35,48 @@ class SP_RankingsViewController: UIViewController {
         let myTimeInterval = TimeInterval(dateTimeStampStr)
         let time = Date(timeIntervalSince1970: TimeInterval(myTimeInterval))
         potDateLabel.text = pot.name //time.dateAndTimetoString()
-        getCurrentWeekForPoints()
+        if (pot.joinees.filter({$0.isWinner()}).count != 0) {
+            isWinnerDeclared = true
+        }
+
+        getFixturePoints()
         //Check round number - call API with round and league ID
 //        guard let roundNoStr = potDetail["round"] as? String else { return }
         //If currentRound == pot round, skip it
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
     @IBAction func sharePotAction(_ sender: Any) {
         var baseStr = "https://sportpot.page.link/"
         baseStr.append(pot.potID)
         let message = "Check out the pot I just created on Sportpot!"
         let activityVC = UIActivityViewController(activityItems: [message, baseStr], applicationActivities: nil)
-        present(activityVC, animated: true, completion: nil)    }
-    
-    func getCurrentWeekForPoints() {
-        self.showHUD()
-        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
-            self.hideHUD()
-            guard let currentWeekStr = docSnapShot?.data() else { return }
-            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
-            self.getFixturePointsForWeek(week: weekNumStr as! String)
-        }
+        present(activityVC, animated: true, completion: nil)
     }
     
-    func getFixturePointsForWeek(week:String) {
+//    func getCurrentWeekForPoints() {
+//        self.showHUD()
+//        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+//            self.hideHUD()
+//            guard let currentWeekStr = docSnapShot?.data() else { return }
+//            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
+//            self.getFixturePointsForWeek(week: weekNumStr as! String)
+//        }
+//    }
+    
+    func getFixturePoints(){
         self.showHUD()
-        Firestore.firestore().collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
+        Firestore.firestore().collection("fixturePoints").document(pot.round ?? "").getDocument { (docSnapShot, error) in
             self.hideHUD()
-            guard let pointsSnapshot = docSnapShot else {
-                print("Error retreiving documents \(error!)")
-                return
+            if let response = docSnapShot?.data() {
+                let fixturePointsArray = response["0"] as? [[String: Any]]
+                self.fixturePoints = fixturePointsArray?.toArray(of: FixturePoints.self) ?? Array<FixturePoints>()
+                print(self.fixturePoints)
+            } else {
+                
             }
-            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
-                self.fixturesPointsArray.append(fixturePoints as! [String])
-            }
-            print("Fixture points:\n \(self.fixturesPointsArray)")
             if let round = self.pot.round{
                 self.getFixturesFrom(round: round)
             } else {
@@ -126,18 +136,18 @@ class SP_RankingsViewController: UIViewController {
         pot.joinees.forEach { (joinee) in
             var accuracy: Int = 0
             var doubleDown: Int = 0
-            var pointsScored: Double = 0
+            var pointsScored: Int = 0
             var i = 0
             joinee.predictions.forEach { (prediction) in
                 
                 for fixture in fixturesArr {
-                    let pointArray = fixturesPointsArray[i]
-                    let homePoints: Double = Double(pointArray[0]) ?? 0
-                    let drawPoints: Double = Double(pointArray[1]) ?? 0
-                    let awayPoints: Double = Double(pointArray[2]) ?? 0
+                    let points = fixturePoints[i]
+                    let homePoints = points.home
+                    let drawPoints = points.draw
+                    let awayPoints = points.away
                     
                     if fixture.fixture_id == prediction.fixtureId {
-                        if fixture.shouldCalculateScore() {
+                        if fixture.isMatchOnGoing() {
                             i+=1
                             if fixture.goalsAwayTeam == fixture.goalsHomeTeam {
                                 // Draw
@@ -233,13 +243,14 @@ class SP_RankingsViewController: UIViewController {
         // Clear all the joinees if any
         joinees.removeAll()
         
-        allJoinees.forEach { (joinee) in
+        pot.joinees.forEach { (joinee) in
             let copyJoinee = joinee.copy()
-            if self.shouldComputeWinner() {
                 if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+                    if self.shouldComputeWinner() {
                     //Declare winner and add notification to all the players
                     if copyJoinee.accuracy ?? 0 > 0 {
                         copyJoinee.winner = winners.contains(joinee)
+                        joinee.winner = winners.contains(joinee)
                     }
                 }
             }
@@ -261,8 +272,8 @@ class SP_RankingsViewController: UIViewController {
         }
 
         updatePotToFirebase()
-        if shouldComputeWinner() {
-            if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+        if self.allMatchesPlayed(fixturesArr: self.fixturesArr) {
+            if !isWinnerDeclared && !winner.isEmpty { //winner declared
                 self.addNotificationToAllPlayers()
             }
         }
@@ -276,7 +287,7 @@ class SP_RankingsViewController: UIViewController {
             if joinee.winner == nil {
                 return true
             } else if joinee.winner == true {
-                winner = joinee.joinee
+                winner = joinee.displayName ?? "John"
             }
         }
         return false

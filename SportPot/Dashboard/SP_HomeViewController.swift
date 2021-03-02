@@ -11,24 +11,36 @@ import CoreData
 import FirebaseDynamicLinks
 import FirebaseFirestore
 
-class SP_HomeViewController: UIViewController {
+class SP_HomeViewController: SP_FixturePointsViewController {
     
     @IBOutlet private weak var matchTableView: UITableView!
     @IBOutlet weak var totalPointsLabel: UILabel!
     private let refreshControl = UIRefreshControl()
     private var todayDate = ""
-    private var fixturesArray = Array<FixtureMO>()
+//    private var fixturesArray = Array<FixtureMO>()
+//    var fixturePoints = Array<FixturePoints>()
+//    var fixtureIds = [Int]()
+    
     private var fixturesPointsArray = Array<[String]>()
+    private var matchesDiscarded = Array<FixtureMO>()
+
     private let cellID = "SP_MatchTableViewCell"
     private var currentSeasonStr : String = ""
-    private var totalPoints : Double = 0.0
+    private var totalPoints : Int = 0
     private var potName : String = ""
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
-    let db = Firestore.firestore()
+//    let db = Firestore.firestore()
     
+    //MARK:- Setup
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.refreshTableView),
+            name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
+
         NotificationCenter.default.addObserver(self, selector: #selector(joinPotAction(notification:)), name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(navigateToMyPots), name: NSNotification.navigateToMyPots, object: nil)
         setupNavigationBar()
@@ -40,8 +52,14 @@ class SP_HomeViewController: UIViewController {
         if currentCount < 3 {
             self.showInstructions()
         }
-        //        getFixturesFromServer() // Get latest fixtures from api
-        getCurrentWeekForPoints()
+
+        func viewWillAppear(_ animated: Bool) {
+        }
+        
+        func viewWillDisappear(_ animated: Bool) {
+            NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
+        }
+
         if !isKeyPresentInUserDefaults(key: UserDefaultsConstants.notificationsBadgeCount){
             UserDefaults.standard.setValue(0, forKey: UserDefaultsConstants.notificationsBadgeCount)
         }
@@ -50,6 +68,11 @@ class SP_HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         getNotificationsCount()
     }
+    
+    @objc func refreshTableView(notification: Notification) {
+        self.matchTableView.reloadData()
+    }
+
     
     private func setupNavigationBar() {
         let logo = UIImage(named: "logo-sport-pot.png")
@@ -76,6 +99,8 @@ class SP_HomeViewController: UIViewController {
         todayDate = formatter.string(from: date)
     }
     
+    //MARK:- API Calls
+
     fileprivate func checkCurrentRoundForSeason() {
         self.showHUD()
         //https://api-football-v1.p.rapidapi.com/v2/fixtures/rounds/2790/current
@@ -88,7 +113,8 @@ class SP_HomeViewController: UIViewController {
                     let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
                     if isKeyPresent {
                         if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
-                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
+//                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
+                            
                         }
                     }
                     ///Set the current Round
@@ -100,9 +126,10 @@ class SP_HomeViewController: UIViewController {
     }
     
     func setCurrentRound(round: String) {
+        self.getFixturesFromServer()
         UserDefaults.standard.set(round, forKey: UserDefaultsConstants.currentRoundKey)
-        getFixturesFromServer()
     }
+    
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
@@ -144,23 +171,52 @@ class SP_HomeViewController: UIViewController {
         }
     }
     
-    private func showInstructions(type: PopupType.ContentType = .Instruction) {
-        let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
-        present(instructController, animated: false, completion: nil)
-    }
-    func getCurrentWeekForPoints() {
-        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
-            guard let currentWeekStr = docSnapShot?.data() else { return }
-            guard let weekNumStr = currentWeekStr["weekNo"] else { return }
-            self.getFixturePointsForWeek(week: weekNumStr as! String)
-        }
-    }
+//    private func getFixturePoints(bookMakerId: Int) {
+//        if let fixtureId = self.fixtureIds.popLast() {
+//            let url = "https://api-football-v1.p.rapidapi.com/v2/odds/fixture/\(fixtureId)/bookmaker/\(bookMakerId)"
+//            self.showHUD()
+//            SP_APIHelper.getResponseFrom(url: url, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { (response, error) in
+//                self.hideHUD()
+//                if let bookmakersArray = response?["api"]["odds"].array?.first?["bookmakers"].arrayObject as? [[String: Any]] {
+//                    let bookmakersList = bookmakersArray.toArray(of: BookMaker.self, keyDecodingStartegy: .convertFromSnakeCase)
+//                    if let bookmaker = bookmakersList?.first {
+//                        if let bet = bookmaker.bets.filter({ (bet) -> Bool in
+//                            return bet.labelName == "Match Winner"
+//                        }).first {
+//                            if let values = bet.values {
+//                                var red = values.reduce([String: Int]()) { (result, valueObj) -> [String: Int] in
+//                                    var result = result
+//                                    result[valueObj.value.lowercased()] = valueObj.odd
+//                                    return result
+//                                } as JSONObject
+//                                red["fixtureId"] = fixtureId
+//                                if let points = red.to(type: FixturePoints.self) {
+//                                    print("===\n\(String(describing: points))\n===")
+//                                    self.fixturePoints.append(points)
+//                                    self.getFixturePoints(bookMakerId: bookMakerId)
+//                                }
+//                            }
+//                        }
+//                    }
+//                } else {
+//                    let points = FixturePoints.init(home: Int.random(in: 0..<5), away: Int.random(in: 0..<5), draw: Int.random(in: 0..<5), fixtureId: fixtureId)
+//                    self.fixturePoints.append(points)
+//                    print("===\n\(String(describing: points))\n===")
+//                    self.getFixturePoints(bookMakerId: bookMakerId)
+//                }
+//            }
+//        } else if !fixturePoints.isEmpty && fixturePoints.count == fixturesArray.count {
+//            savePointsToDB(fixturePoints: fixturePoints)
+//        }
+//    }
+    
     private func getFixturesFromServer() {
+        
         if fixturesArray.isEmpty {
             self.matchTableView.restore()
             refreshControl.beginRefreshing()
         }
-        let localTimeZone = TimeZone.current.identifier //getNextFixtures
+        let localTimeZone = TimeZone.current.identifier
         self.showHUD()
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
                                      method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
@@ -173,7 +229,6 @@ class SP_HomeViewController: UIViewController {
                     
                     // Save new fixtures to core data
                     let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
-                    
                     for fixtureObject in fixturesArray {
                         guard let fixtureDictionary = fixtureObject.dictionaryObject else { continue }
                         do {
@@ -196,6 +251,8 @@ class SP_HomeViewController: UIViewController {
                 }
             }
             strongSelf.showFixturesFromLocalDB()
+//            strongSelf.getFixturePoints(bookMakerId: 6)
+            
         }
     }
     
@@ -204,7 +261,7 @@ class SP_HomeViewController: UIViewController {
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-        matchTableView.reloadData()
+//        matchTableView.reloadData()
     }
     
     private func deleteAllFixturesFromLocalDB() {
@@ -222,15 +279,41 @@ class SP_HomeViewController: UIViewController {
     }
     
     private func getFixturesFromLocalDB() {
+        fixtureIds.removeAll()
         let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
         do {
             fixturesArray = try managedObjectContext.fetch(fetchRequest)
+            fixturesArray = fixturesArray.sorted(by: { $0.event_timestamp < $1.event_timestamp })
+            fixtureIds = fixturesArray.map {Int($0.fixture_id)}
+            getCurrentPointsFrom(season: self.currentSeasonStr)
         } catch {
             print("Error fetching fixtures from local db")
         }
-        matchTableView.reloadData()
+//        matchTableView.reloadData()
     }
+    
+//    private func savePointsToDB(fixturePoints: [FixturePoints]) {
+//
+//        guard let data =  try? JSONEncoder().encode(fixturePoints),
+//              let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]] else {
+//            return
+//        }
+//        print("JSON Array: \(jsonArray)")
+//        let round = UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey)
+//        let potsRef =
+//            db.collection("fixturePoints").document(round as? String ?? "")
+//
+//        potsRef.setData(["0": jsonArray]) { (err) in
+//            self.hideHUD()
+//            if let err = err {
+//                print("Error writing document: \(err)")
+//            } else {
+//                print("Document successfully written!")
+//                self.matchTableView.reloadData()
+//            }
+//        }
+//    }
     
     func createDeepLink() {
         
@@ -240,8 +323,9 @@ class SP_HomeViewController: UIViewController {
         components.path = "/"
         let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
         currentTimeStamp = Date.currentTimeStamp
+        let displayName = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
         
-        let potStr = currentUser + "&" + String(currentTimeStamp)
+        let potStr = displayName + "&" + String(currentTimeStamp)
         if let base64Str = potStr.base64Encoded() {
             print("Base64 encoded string: \"\(base64Str)\"")
             
@@ -275,23 +359,8 @@ class SP_HomeViewController: UIViewController {
         }
     }
     
-    func addPotName() {
-        let alertController = UIAlertController(title: "Pot Name", message: "", preferredStyle: UIAlertController.Style.alert)
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "Enter Pot Name"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let firstTextField = alertController.textFields![0] as UITextField
-            self.potName = firstTextField.text ?? ""
-            self.createDeepLink()
-        })
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(saveAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
+    
+    
     func savePotToDB(shareLink: String, potID: String) {
         self.showHUD()
         let urlParams = shareLink.split(separator: "/")
@@ -309,7 +378,8 @@ class SP_HomeViewController: UIViewController {
         let pointsStr = totalPointsLabel.text?.split(separator: "\n")
         let joineeDict : [String:Any] = ["predictions" : predictions,
                                          "points": Double(pointsStr?[0] ?? "0.0") as Any,
-                                         "joinee": currentUser]
+                                         "joinee": currentUser,
+                                         "displayName": UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""]
         
         var potBody = [String:Any]()
         potBody["potID"] = String(urlParams[2])
@@ -382,49 +452,52 @@ class SP_HomeViewController: UIViewController {
         tabBarController?.selectedIndex = 1
     }
     
-    ///Logout
-    @IBAction func logoutAction(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        UserDefaults.standard.set(nil, forKey: "currentUser")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
-    }
+    
     func validateOpenPotSelection() -> Bool {
-        // Check if user has done the selection for all the matches
+        let discardedMatches = matchesDiscarded.count
+        
+        if discardedMatches > fixturesArray.count - Constants.kMaxMatchesRemaining {
+            
+            self.popupAlert(title: nil, message: "Unfortunately not possible to open pot with only 3 or less matches left in pot.\nNext pot opens up on Monday", actionTitles: ["Okay"], actions: [{action in}])
+            return false
+        }
+        
         let pendingSelections = fixturesArray.filter { $0.predictionType == .none }.count
-        if pendingSelections > 0 {
+        if pendingSelections > discardedMatches {
             showInstructions(type: .BetTenMatches)
             return false
         }
         
+
         // Check if user has selected double down for 3 matches
         let totalDoubleDowns = fixturesArray.filter { $0.isDoubleDown }.count
-        if totalDoubleDowns != 3 {
+        if totalDoubleDowns != 3 && discardedMatches > 5 {
             showInstructions(type: .SelectAtleastThreeDoubleDown)
             return false
         }
         return true
     }
     
-    func getFixturePointsForWeek(week:String) {
-        self.showHUD()
-        db.collection("fixturePoints").document(week).getDocument { (docSnapShot, error) in
-            self.hideHUD()
-            guard let pointsSnapshot = docSnapShot else {
-                print("Error retreiving documents \(error!)")
-                return
-            }
-            pointsSnapshot.data()?.forEach { (key, fixturePoints) in
-                self.fixturesPointsArray.append(fixturePoints as! [String])
-            }
-            print("Fixture points:\n \(self.fixturesPointsArray)")
-            self.matchTableView.reloadData()
-        }
-    }
+//    func getCurrentPointsFrom(season: String) {
+//        self.showHUD()
+//        fixturePoints.removeAll()
+//        db.collection("fixturePoints").document(season).getDocument { (docSnapShot, error) in
+//            self.hideHUD()
+//            if let response = docSnapShot?.data() {
+//                let fixturePointsArray = response["0"] as? [[String: Any]]
+//                self.fixturePoints = fixturePointsArray?.toArray(of: FixturePoints.self) ?? Array<FixturePoints>()
+//                print(self.fixturePoints)
+//            } else {
+//                print("No Data available")
+//                self.getFixturePoints(bookMakerId: 6)
+//            }
+//            self.matchTableView.reloadData()
+//        }
+//    }
+    
     func updatePoints(fixture: FixtureMO) {
-        totalPoints = 0.0
-        var selectedPoints = 0.0
+        totalPoints = 0
+        var selectedPoints = 0
         for fObj in fixturesArray {
             var fixTemp : FixtureMO = fObj
             if fObj.fixture_id == fixture.fixture_id {
@@ -439,19 +512,74 @@ class SP_HomeViewController: UIViewController {
             totalPoints += selectedPoints
         }
         print("TOTAL POINTS => \(totalPoints)")
-        totalPointsLabel.text = String(format: "%.1f\n points",totalPoints)
+        totalPointsLabel.text = String(format: "%d\n points",totalPoints)
+    }
+    
+    //MARK:- Pop-ups
+
+    private func showInstructions(type: PopupType.ContentType = .Instruction) {
+        let instructController = SP_InstructionsPopupViewController.newInstance(contentType: type)
+        present(instructController, animated: false, completion: nil)
+    }
+    
+    func addPotName() {
+        let alertController = UIAlertController(title: "Pot Name", message: "", preferredStyle: UIAlertController.Style.alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter Pot Name"
+        }
+        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
+            let firstTextField = alertController.textFields![0] as UITextField
+            self.potName = firstTextField.text ?? ""
+            self.createDeepLink()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(saveAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    //MARK:- Logout
+
+    @IBAction func logoutAction(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set(nil, forKey: "currentUser")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
     }
 }
 
 extension SP_HomeViewController : SP_MatchTableViewCellDelegate {
     
     func didChangeSelectionFor(cell: SP_MatchTableViewCell, predictionType: PredictionType) {
-        guard let indexPath = matchTableView.indexPath(for: cell) else {
-            return
-        }
+        guard let indexPath = matchTableView.indexPath(for: cell) else { return }
+        
         let fixture = fixturesArray[indexPath.section]
         fixture.predictionType = predictionType
-        fixture.selectedPoints = Double(fixturesPointsArray[indexPath.section][predictionType.rawValue - 1]) ?? 0.0
+        
+        var predictionPoints = 0
+
+        if let points = fixturePoints.first(where: { $0.fixtureId == fixture.fixture_id }) {
+            switch predictionType {
+            case .home:
+                predictionPoints = points.home
+                break
+            case .away:
+                predictionPoints = points.away
+                break
+            case .draw:
+                predictionPoints = points.draw
+                break
+            case .none:
+                break
+            }
+            print(points)
+        }
+        
+        fixture.selectedPoints = predictionPoints
+        print(predictionPoints)
+        
         cell.updateSelection(fixture: fixture)
         updatePoints(fixture: fixture)
     }
@@ -488,8 +616,18 @@ extension SP_HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let matchCell = matchTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MatchTableViewCell
-        if !fixturesArray.isEmpty && !fixturesPointsArray.isEmpty{
-            matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points:fixturesPointsArray[indexPath.section], delegate: self)
+        
+        if !fixturesArray.isEmpty && !fixturePoints.isEmpty{
+//            let fixObj = fixturesArray.filter {$0.fixture_id == fixturePoints[indexPath.section].fixtureId}
+//            matchCell.displayFixture(fixtureModel: fixObj.first ?? FixtureMO.init(), points:fixturePoints[indexPath.section], delegate: self)
+            let fixPointsObj = fixturePoints.filter {$0.fixtureId == fixturesArray[indexPath.section].fixture_id}
+
+            matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points:fixPointsObj.first ?? FixturePoints.init(home: 0, away: 0, draw: 0, fixtureId: 0), delegate: self)
+            
+            if fixturesArray[indexPath.section].isMatchOnGoing() {
+                matchesDiscarded.append(fixturesArray[indexPath.section])
+            }
+
         }
         return matchCell
     }

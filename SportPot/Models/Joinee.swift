@@ -12,9 +12,10 @@ class Joinee: Codable {
     var joinee: String = ""
     var points: Double = 0
     var predictions: [Prediction] = []
-
+    var displayName: String? = "John"
+    
     var accuracy: Int? = 0
-    var pointsScored: Double? = 0
+    var pointsScored: Int? = 0
     var doubleDown: Int? = 0
     var winner: Bool? = false
 
@@ -45,7 +46,8 @@ extension Joinee {
         joineeCopy.joinee = joinee
         joineeCopy.points = points
         joineeCopy.predictions = predictions
-
+        joineeCopy.displayName = displayName
+        
         joineeCopy.accuracy = accuracy
         joineeCopy.doubleDown = doubleDown
         joineeCopy.pointsScored = pointsScored

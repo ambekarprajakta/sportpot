@@ -175,7 +175,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="una-pQ-YIi" secondAttribute="trailing" constant="8" id="Aay-rz-pak"/>
                             <constraint firstAttribute="bottom" secondItem="phe-aJ-egi" secondAttribute="bottom" constant="4" id="BYX-3K-evk"/>
@@ -331,6 +331,11 @@
                             <constraint firstItem="S2h-LT-oaJ" firstAttribute="centerX" secondItem="O0P-lN-dbH" secondAttribute="centerX" id="cxh-At-asD"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brb-0U-1gC" userLabel="layerView">
+                        <rect key="frame" x="0.0" y="0.0" width="411" height="93"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Flg-0z-jKN" firstAttribute="top" secondItem="1vZ-Jq-LJe" secondAttribute="bottom" id="0Dq-gV-0li"/>
@@ -383,6 +388,7 @@
                 <outlet property="homeTeamLogo" destination="sQz-N0-9O0" id="yal-p0-ezs"/>
                 <outlet property="homeTeamNameLabel" destination="una-pQ-YIi" id="nU8-8Y-voY"/>
                 <outlet property="homeTeamScoreLabel" destination="oMf-4K-CZs" id="dbM-8n-cnd"/>
+                <outlet property="layerView" destination="brb-0U-1gC" id="RUr-U1-iSC"/>
                 <outlet property="liveMinuteLabel" destination="PEP-Dv-IWG" id="dOi-vZ-GoC"/>
                 <outlet property="liveView" destination="q9x-lj-BKI" id="GeA-Xg-BM9"/>
                 <outlet property="matchFinishedView" destination="cPU-XW-Oa3" id="8cC-Dj-yO3"/>

@@ -39,7 +39,7 @@ extension FixtureMO {
         return statusShort?.lowercased() == "ft"
     }
     
-    func shouldCalculateScore() -> Bool {
+    func isMatchOnGoing() -> Bool {
 //        let negativeStatus = ["TBD","NS", "SUSP", "INT", "CANC", "ABD", "AWD", "WO"]
         let onGoingStatuses = ["1H", "2H", "HT", "FT", "ET", "P", "AET", "PEN", "BT"]
         if let matchStatus = statusShort {

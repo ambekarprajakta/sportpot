@@ -14,7 +14,7 @@ class SP_NotificationsCell: UITableViewCell {
     @IBOutlet private weak var descLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var newMessageLabel: UILabel!
-    let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+    let currentUser = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
 
     @IBOutlet weak var typeImage: UIImageView!
     

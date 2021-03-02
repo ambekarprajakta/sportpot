@@ -18,6 +18,7 @@
 		09ACC442257410A800B33DFF /* Pot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACC441257410A800B33DFF /* Pot.swift */; };
 		09ACC44A257410CF00B33DFF /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACC449257410CF00B33DFF /* Prediction.swift */; };
 		09ACC44F257410EC00B33DFF /* Joinee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACC44E257410EC00B33DFF /* Joinee.swift */; };
+		2C00CFE525EA756F004D36C0 /* SP_FixturePointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */; };
 		2C19B5702539E83400D6B399 /* SportPot.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45BB2507E4F600D42300 /* SportPot.entitlements */; };
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
 		2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */; };
@@ -62,6 +63,7 @@
 		2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */; };
 		2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB525168FF500F769D1 /* JSONUtils.swift */; };
 		2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB725176D8500F769D1 /* Constants.swift */; };
+		2CC4130025E6D00E006CA1E2 /* FixturePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */; };
 		2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */; };
 		2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */; };
 		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
@@ -104,6 +106,7 @@
 		09ACC449257410CF00B33DFF /* Prediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prediction.swift; sourceTree = "<group>"; };
 		09ACC44E257410EC00B33DFF /* Joinee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joinee.swift; sourceTree = "<group>"; };
 		0D65090949CB7B0D1902515B /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
+		2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_FixturePointsViewController.swift; sourceTree = "<group>"; };
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SharePotViewController.swift; sourceTree = "<group>"; };
 		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 		2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_APIHelper.swift; sourceTree = "<group>"; };
 		2C9DBBB525168FF500F769D1 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		2C9DBBB725176D8500F769D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturePoints.swift; sourceTree = "<group>"; };
 		2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_Pot_Invitee_ViewController.swift; sourceTree = "<group>"; };
 		2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_GoodLuckViewController.swift; sourceTree = "<group>"; };
 		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				09ACC449257410CF00B33DFF /* Prediction.swift */,
 				09ACC44E257410EC00B33DFF /* Joinee.swift */,
 				2CFF92D825AB0F5A004CF95A /* Notification.swift */,
+				2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				2C3B45C3250C4B2900D42300 /* SP_HomeViewController.swift */,
 				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
 				2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */,
+				2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -502,7 +508,7 @@
 			attributes = {
 				CLASSPREFIX = SP_;
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Prajakta Ambekar";
 				TargetAttributes = {
 					2C3F59BC25013A24001C8667 = {
@@ -661,7 +667,9 @@
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				2CFF92C625AAEABF004CF95A /* SP_NotificationsViewController.swift in Sources */,
 				09542D3C251F6DE00060AB46 /* TeamMO+CoreDataProperties.swift in Sources */,
+				2C00CFE525EA756F004D36C0 /* SP_FixturePointsViewController.swift in Sources */,
 				2C3A19912566146900549985 /* SP_RankingTableViewCell.swift in Sources */,
+				2CC4130025E6D00E006CA1E2 /* FixturePoints.swift in Sources */,
 				2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
 				2C40D80925C049F80002B28C /* SP_SignUp_Step3_ViewController.swift in Sources */,
@@ -751,6 +759,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -811,6 +820,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -833,8 +843,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -847,7 +856,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;
@@ -871,7 +880,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;

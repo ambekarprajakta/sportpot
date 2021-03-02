@@ -25,11 +25,11 @@ class SP_MyPotsTableViewCell: UITableViewCell {
         dateLabel.text = pot.name + " - " + dateFormatter.string(from: date)
 
         let joinees = pot.joinees.map { (joinee) -> String in
-            return joinee.joinee
+            return (joinee.displayName ?? "John")
         }
 
-        let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
-        let filteredJoinees = joinees.filter({$0 != currentUser})
+        let displayName = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
+        let filteredJoinees = joinees.filter({$0 != displayName})
         if filteredJoinees.count >= 1 {
             if filteredJoinees.count == 1 {
                 detailLabel.text = "Bets places in English Premier League with " + filteredJoinees[0]

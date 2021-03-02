@@ -38,6 +38,7 @@ class SP_MatchTableViewCell: UITableViewCell {
     @IBOutlet private weak var matchFinishedView: UIView!
     @IBOutlet private weak var teamNameViewLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var layerView: UIView!
     @IBOutlet weak var matchStatusLabel: UILabel!
     @IBOutlet private weak var liveView: UIView!
     @IBOutlet private weak var liveMinuteLabel: UILabel!
@@ -58,14 +59,27 @@ class SP_MatchTableViewCell: UITableViewCell {
         return false
     }
     
-    func displayFixture(fixtureModel: FixtureMO, points:[String], delegate: SP_MatchTableViewCellDelegate? = nil) {
+    func displayFixture(fixtureModel: FixtureMO, points: FixturePoints, delegate: SP_MatchTableViewCellDelegate? = nil) {
+
+        if fixtureModel.isMatchOnGoing(){
+            layerView.isHidden = false
+            layerView.backgroundColor = .lightGray
+            layerView.alpha = 0.5
+            self.isUserInteractionEnabled = false
+        } else {
+            layerView.isHidden = true
+            layerView.backgroundColor = .clear
+            layerView.alpha = 1
+            self.isUserInteractionEnabled = true
+        }
+
         self.delegate = delegate
         updateSelection(fixture: fixtureModel)
-
-        if points.count == 3 {
-            homePointsBtn.setTitle(points[0], for: .normal)
-            drawPointsBtn.setTitle(points[1], for: .normal)
-            awayPointsBtn.setTitle(points[2], for: .normal)
+        
+        if points.fixtureId == fixtureModel.fixture_id {
+            homePointsBtn.setTitle(String(points.home), for: .normal)
+            drawPointsBtn.setTitle(String(points.draw), for: .normal)
+            awayPointsBtn.setTitle(String(points.away), for: .normal)
         }
         
         // Match Time
@@ -117,6 +131,8 @@ class SP_MatchTableViewCell: UITableViewCell {
         }
         
         // Teams
+        print(fixtureModel.fixture_id)
+        print(fixtureModel.homeTeam?.team_name, fixtureModel.awayTeam?.team_name)
         homeTeamNameLabel.text = fixtureModel.homeTeam?.team_name
         awayTeamNameLabel.text = fixtureModel.awayTeam?.team_name
         
@@ -157,6 +173,11 @@ class SP_MatchTableViewCell: UITableViewCell {
         }
     }
 
+    private func roundOff(value: Double) -> String {
+        let roundedValue = Double(value < 0.5 ? 0.5 : floor(value * 2) / 2)
+        return String(format: "%.1f", roundedValue)
+    }
+    
     // MARK: - IBAction
 
     @IBAction private func homePointsAction(_ sender: UIButton) {

@@ -11,9 +11,9 @@ import UIKit
 struct InstructionsConstants {
     static let select_three_dd = "Please make sure you've\nselected three\t"
     static let already_selected_three_dd = "You've already selected three\nmatches to Double Down\t"
-    static let ten_matches = "You must place bets\non all 10 matches"
+    static let ten_matches = "You must place bets\non all matches"
     static let instructions_content = """
-            1. Place you bet on 10 matches\n
+            1. Place your bet on all available matches\n
             2. Invite your friends to the pot\n
             3. Player with the most correct bets- wins!
             """
