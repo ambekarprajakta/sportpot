@@ -103,7 +103,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 class DeeplinkManager {
 
-    typealias DeepLinkQueryParams = (action: String?, owner: String?, timeStamp: String?)
+    typealias DeepLinkQueryParams = (action: String?, owner: String?, timeStamp: String?, fixtureCount: String?)
 
     static func handleUserActivity(userActivity: NSUserActivity) {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
@@ -130,14 +130,16 @@ class DeeplinkManager {
         let actionStr = getQueryStringParameter(url: url, param: "action")
         let owner = getQueryStringParameter(url: url, param: "owner")
         let timestamp = getQueryStringParameter(url: url, param: "timestamp")
-        return (actionStr, owner, timestamp)
+        let fixtureCount = getQueryStringParameter(url: url, param: "fixtureCount")
+        return (actionStr, owner, timestamp, fixtureCount)
     }
 
     private static func handleDeepLink(queryParams: DeepLinkQueryParams) {
         let userInfo: [String: Any] = [
             "owner": queryParams.owner as Any,
             "action": queryParams.action as Any,
-            "timestamp": queryParams.timeStamp as Any
+            "timestamp": queryParams.timeStamp as Any,
+            "fixtureCount": (queryParams.fixtureCount ?? "") as String
         ]
         if queryParams.action == "joinPot" {
             /// Let the joinee join the pot

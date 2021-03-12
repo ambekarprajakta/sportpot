@@ -2018,18 +2018,18 @@ points</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-50-KqK">
-                                <rect key="frame" x="15" y="134.5" width="384" height="667.5"/>
+                                <rect key="frame" x="15" y="127" width="384" height="675"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-9X-Hx8">
-                                <rect key="frame" x="15" y="93" width="303" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-9X-Hx8">
+                                <rect key="frame" x="15" y="93" width="376" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-av-fuo">
-                                <rect key="frame" x="349" y="74.5" width="50" height="52"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-av-fuo">
+                                <rect key="frame" x="349" y="67" width="50" height="52"/>
                                 <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <state key="normal" image="info.circle" catalog="system"/>
@@ -2049,7 +2049,7 @@ points</string>
                             <constraint firstItem="ejr-lA-oVz" firstAttribute="top" secondItem="ntt-9T-gBS" secondAttribute="top" constant="20" id="Emz-7R-0om"/>
                             <constraint firstItem="ntt-9T-gBS" firstAttribute="bottom" secondItem="NXj-zF-ryt" secondAttribute="bottom" id="JfE-Ce-aYp"/>
                             <constraint firstItem="gPw-50-KqK" firstAttribute="top" secondItem="RqH-av-fuo" secondAttribute="bottom" constant="8" id="LSD-Xo-sKt"/>
-                            <constraint firstItem="RqH-av-fuo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="csU-9X-Hx8" secondAttribute="trailing" constant="8" id="MhH-aL-ETj"/>
+                            <constraint firstItem="RqH-av-fuo" firstAttribute="trailing" secondItem="csU-9X-Hx8" secondAttribute="trailing" constant="8" id="MhH-aL-ETj"/>
                             <constraint firstItem="gPw-50-KqK" firstAttribute="leading" secondItem="ntt-9T-gBS" secondAttribute="leading" constant="15" id="R6d-Dv-X3a"/>
                             <constraint firstItem="csU-9X-Hx8" firstAttribute="top" secondItem="ejr-lA-oVz" secondAttribute="bottom" constant="8" id="awg-w1-8Lf"/>
                             <constraint firstItem="ntt-9T-gBS" firstAttribute="trailing" secondItem="ejr-lA-oVz" secondAttribute="trailing" constant="15" id="h91-k0-w1v"/>

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFirestore
 import CoreData
 
+
 protocol SP_Pot_Invitee_ViewControllerDelegate {
     func didJoinPot()
 }
@@ -26,11 +27,15 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     private let cellID = String(describing: SP_MatchTableViewCell.self)
     public var ownerStr : String = ""
     public var potIDStr : String = ""
+    public var remainingTime : String = ""
+    public var fixtureCount : String = ""
     private let db = Firestore.firestore()
     private var fixturesArray = Array<FixtureMO>()
     private var matchesDiscarded = Array<FixtureMO>()
-
+    private var eventDate = Date()
+    private var timer = Timer()
     private let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+    private let matchesBeganError = "You’re too late to join the party. \nThe pot has already started.\nYou can open a new pot or join a different pot"
 
     var delegate: SP_Pot_Invitee_ViewControllerDelegate?
     
@@ -38,6 +43,9 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         super.viewDidLoad()
         ownerInviteLabel.text = "\(ownerStr) invited you to the Pot"
         setupTableView()
+        eventDate = Date(timeIntervalSince1970: TimeInterval(remainingTime) ?? 0)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDate), userInfo: nil, repeats: true)
+
         getFixturesFromServer()
     }
 
@@ -51,7 +59,37 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
+        timer.invalidate()
     }
+    
+    @objc func countDownDate() {
+        let currentDate = Date()
+        if currentDate.timeIntervalSince(eventDate) < 0 {
+            let diffDateComponents = NSCalendar.current.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: eventDate)
+            
+            var countdownStr = ""
+            let day = diffDateComponents.day ?? 0
+            let hour = diffDateComponents.hour ?? 0
+            let minute = diffDateComponents.minute ?? 0
+            let second = diffDateComponents.second ?? 0
+            
+            if day == 0 {
+                countdownStr =  "\(hour)h " + "\(minute)m " + "\(second)s"
+            } else if hour == 0 {
+                countdownStr = "\(minute)m " + "\(second)s"
+            } else if minute == 0 {
+                countdownStr = "\(second)s"
+            } else {
+                countdownStr = "\(day)d " + "\(hour)h " + "\(minute)m " + "\(second)s"
+            }
+            participantsLabel.text = "Time remaining to the join pot:\n" + countdownStr
+        } else {
+            print("Matches began, can't join pot!")
+            timer.invalidate()
+        }
+
+    }
+    
     private func setupTableView() {
         potTableView.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
         potTableView.dataSource = self
@@ -142,13 +180,23 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         do {
             fixturesArray = try managedObjectContext.fetch(fetchRequest)
             fixturesArray = fixturesArray.sorted(by: { $0.event_timestamp < $1.event_timestamp })
-//            fixtureIds = fixturesArray.map {Int($0.fixture_id)}
+
+            let remainingFixturesArray = fixturesArray.filter({ (fixObj) -> Bool in
+                !fixObj.isMatchOnGoing()
+            }).sorted(by: { $0.event_timestamp < $1.event_timestamp })
+            
+            let cnt = Int(fixtureCount) ?? 0
+            if remainingFixturesArray.count != cnt {
+                self.popupAlert(title: "Oops!", message: matchesBeganError, actionTitles: ["Okay"], actions: [{ action1 in
+                    self.dismiss(animated: false, completion: nil)
+                }])
+                return
+            }
             getCurrentPointsFrom(season: UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) ?? "")
             
         } catch {
             print("Error fetching fixtures from local db")
         }
-//        potTableView.reloadData()
     }
 
     private func deleteAllFixturesFromLocalDB() {
@@ -234,10 +282,12 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                                                          "potName": potName,
                                                          "timeStamp":  Int(NSDate().timeIntervalSince1970)]
                     for joinee in joinees {
-                        let notifRef = self.db.collection("user").document(joinee)
-                        notifRef.updateData([
-                            "notifications": FieldValue.arrayUnion([joinNotifyDict])
-                        ])
+                        if joinee != UserDefaults.standard.value(forKey: UserDefaultsConstants.currentUserKey) as? String {
+                            let notifRef = self.db.collection("user").document(joinee)
+                            notifRef.updateData([
+                                "notifications": FieldValue.arrayUnion([joinNotifyDict])
+                            ])
+                        }
                     }
                 }
                 self.dismiss(animated: false) {

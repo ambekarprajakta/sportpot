@@ -32,7 +32,7 @@ class SP_FixturePointsViewController: UIViewController {
                 print(self.fixturePoints)
             } else {
                 print("No Data available")
-                self.getFixturePoints(bookMakerId: 6)
+                self.getFixturePoints(bookMakerId: Constants.kBookMakerID)
             }
             NotificationCenter.default.post(name: Notification.Name("refreshFixtures"), object: nil)
 

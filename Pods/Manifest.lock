@@ -347,6 +347,7 @@ PODS:
   - PromisesObjC (1.2.10)
   - SwiftyJSON (4.0.0)
   - TPKeyboardAvoiding (1.3.4)
+  - UXCam (3.2.6)
 
 DEPENDENCIES:
   - Alamofire
@@ -360,6 +361,7 @@ DEPENDENCIES:
   - MessageKit
   - SwiftyJSON (~> 4.0)
   - TPKeyboardAvoiding
+  - UXCam
 
 SPEC REPOS:
   trunk:
@@ -389,6 +391,7 @@ SPEC REPOS:
     - PromisesObjC
     - SwiftyJSON
     - TPKeyboardAvoiding
+    - UXCam
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -417,7 +420,8 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   TPKeyboardAvoiding: 7c2187e2338052b2c5be4a8052f297fdb124e261
+  UXCam: 99f4310d7e0f4aad0a73306124a8c2d104ccaf9d
 
-PODFILE CHECKSUM: 5d2a9c389cc1534501087840ec78675ab688b8c7
+PODFILE CHECKSUM: 2cdb845a04fb1fcd48046d3344f7fd0dae0dd491
 
 COCOAPODS: 1.9.3

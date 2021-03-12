@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import FirebaseAuth
 import FirebaseDynamicLinks
+import UXCam
 
 typealias App = AppDelegate
 
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        UXCam.optIntoSchematicRecordings()
+        UXCam.start(withKey: Constants.UXCAM_API_KEY)
+        
         // get current number of times app has been launched
         let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         // increment received number by one

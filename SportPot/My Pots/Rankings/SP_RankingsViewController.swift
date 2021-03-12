@@ -49,7 +49,7 @@ class SP_RankingsViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: false)
     }
     @IBAction func sharePotAction(_ sender: Any) {
-        var baseStr = "https://sportpot.page.link/"
+        var baseStr = Constants.kDYNAMIC_LINK_BASE_URL
         baseStr.append(pot.potID)
         let message = "Check out the pot I just created on Sportpot!"
         let activityVC = UIActivityViewController(activityItems: [message, baseStr], applicationActivities: nil)
@@ -325,10 +325,12 @@ class SP_RankingsViewController: UIViewController {
                 }){
                     print(joinees)
                     for joinee in joinees {
-                        let notifRef = Firestore.firestore().collection("user").document(joinee)
-                        notifRef.updateData([
-                            "notifications": FieldValue.arrayUnion([wonNotifyDict])
-                        ])
+                        if joinee != UserDefaults.standard.value(forKey: UserDefaultsConstants.currentUserKey) as? String {
+                            let notifRef = Firestore.firestore().collection("user").document(joinee)
+                            notifRef.updateData([
+                                "notifications": FieldValue.arrayUnion([wonNotifyDict])
+                            ])
+                        }
                     }
                 }
             }

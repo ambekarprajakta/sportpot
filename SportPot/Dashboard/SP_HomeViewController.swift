@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FirebaseDynamicLinks
 import FirebaseFirestore
+import UXCam
 
 class SP_HomeViewController: SP_FixturePointsViewController {
     
@@ -17,6 +18,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     @IBOutlet weak var totalPointsLabel: UILabel!
     private let refreshControl = UIRefreshControl()
     private var todayDate = ""
+    private var remainingFixturesArray = Array<FixtureMO>()
 //    private var fixturesArray = Array<FixtureMO>()
 //    var fixturePoints = Array<FixturePoints>()
 //    var fixtureIds = [Int]()
@@ -36,6 +38,11 @@ class SP_HomeViewController: SP_FixturePointsViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let username = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
+        UXCam.setUserIdentity(username)
+        UXCam.setUserProperty("username",value: username)
+        UXCam.setUserProperty("email",value: currentUser)
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.refreshTableView),
@@ -280,11 +287,15 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     private func getFixturesFromLocalDB() {
         fixtureIds.removeAll()
+        fixturesArray.removeAll()
         let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<FixtureMO> = FixtureMO.fetchRequest()
         do {
             fixturesArray = try managedObjectContext.fetch(fetchRequest)
             fixturesArray = fixturesArray.sorted(by: { $0.event_timestamp < $1.event_timestamp })
+            remainingFixturesArray = fixturesArray.filter({ (fixObj) -> Bool in
+                !fixObj.isMatchOnGoing()
+            }).sorted(by: { $0.event_timestamp < $1.event_timestamp })
             fixtureIds = fixturesArray.map {Int($0.fixture_id)}
             getCurrentPointsFrom(season: self.currentSeasonStr)
         } catch {
@@ -321,7 +332,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         components.scheme = "https"
         components.host = "sportpot.eu"
         components.path = "/"
-        let dynamicLinksDomainURIPrefix = "https://sportpot.page.link"
+        let dynamicLinksDomainURIPrefix = Constants.kDYNAMIC_LINK_BASE_URL
         currentTimeStamp = Date.currentTimeStamp
         let displayName = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
         
@@ -331,8 +342,12 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             
             let queryItemUsername = URLQueryItem(name: "owner", value: base64Str)
             let queryItemAction = URLQueryItem(name: "action", value: "joinPot")
-            let queryItemTimeStamp = URLQueryItem(name: "timestamp", value: String(currentTimeStamp))
-            components.queryItems = [queryItemUsername,queryItemTimeStamp,queryItemAction]
+            let queryItemFixtureCount = URLQueryItem(name: "fixtureCount", value: String(remainingFixturesArray.count))
+            
+            let eventTimestamp = remainingFixturesArray.first?.event_timestamp ?? 0
+            let queryItemTimeStamp = URLQueryItem(name: "timestamp", value: String(eventTimestamp))
+            components.queryItems = [queryItemUsername, queryItemTimeStamp, queryItemAction, queryItemFixtureCount]
+            
             guard let urlComponent = components.url else { return }
             guard let longShareLink = DynamicLinkComponents.init(link: urlComponent, domainURIPrefix: dynamicLinksDomainURIPrefix) else { return}
             guard let longDynamicLink = longShareLink.url else {
@@ -367,7 +382,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         
         // Create user's pot
         var predictions = [[String:Any]]()
-        fixturesArray.forEach { (fixture) in
+
+        remainingFixturesArray.forEach { (fixture) in
             var predictionBody = [String:Any]()
             predictionBody["fixture_id"] = fixture.fixture_id
             predictionBody["selection"] = fixture.predictionType.rawValue
@@ -416,10 +432,13 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     @objc func joinPotAction(notification: NSNotification) {
         self.showHUD()
-        //t7Vw7YLfdeTKeNY7A
+        
         if let notificationDict = notification.userInfo {
-            let base64Str = notificationDict["owner"] as! String
-            if let decodedStr = base64Str.base64Decoded() {
+            guard let potIDStr = notificationDict["owner"] as? String else { return }
+            guard let fixtureCount = notificationDict["fixtureCount"] as? String else { return }
+            guard let timestamp = notificationDict["timestamp"] as? String else { return }
+            
+            if let decodedStr = potIDStr.base64Decoded() {
                 print("Base64 decoded string: \"\(decodedStr)\"")
                 //Extract user and timestamp from decodedStr
                 let dataArr = decodedStr.split(separator: "&")
@@ -429,7 +448,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
                     self.hideHUD()
                     if let userData = docSnapShot?.data() {
                         if let pots = userData["joinedPots"] as? [String] {
-                            if pots.contains(base64Str) {
+                            if pots.contains(potIDStr) {
                                 // User has already joined the pot
                                 self.popupAlert(title: nil, message: "You’ve already placed your bets for this pot", actionTitles: ["Okay"], actions: [{action in}])
                                 return
@@ -440,7 +459,9 @@ class SP_HomeViewController: SP_FixturePointsViewController {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let potInviteeViewController = storyboard.instantiateViewController(identifier: "SP_Pot_Invitee_ViewController") as SP_Pot_Invitee_ViewController
                     potInviteeViewController.ownerStr = owner
-                    potInviteeViewController.potIDStr = base64Str
+                    potInviteeViewController.potIDStr = potIDStr
+                    potInviteeViewController.remainingTime = timestamp
+                    potInviteeViewController.fixtureCount = fixtureCount
                     potInviteeViewController.delegate = self
                     self.present(potInviteeViewController, animated: true, completion: nil)
                 }
@@ -454,11 +475,11 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     
     func validateOpenPotSelection() -> Bool {
-        let discardedMatches = matchesDiscarded.count
+        let discardedMatches = fixturesArray.count - remainingFixturesArray.count
         
         if discardedMatches > fixturesArray.count - Constants.kMaxMatchesRemaining {
             
-            self.popupAlert(title: nil, message: "Unfortunately not possible to open pot with only 3 or less matches left in pot.\nNext pot opens up on Monday", actionTitles: ["Okay"], actions: [{action in}])
+            self.popupAlert(title: nil, message: "Unfortunately not possible to open pot with only 5 or less matches left in pot.\nNext pot opens up on Monday", actionTitles: ["Okay"], actions: [{action in}])
             return false
         }
         
@@ -468,10 +489,9 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             return false
         }
         
-
         // Check if user has selected double down for 3 matches
         let totalDoubleDowns = fixturesArray.filter { $0.isDoubleDown }.count
-        if totalDoubleDowns != 3 && discardedMatches > 5 {
+        if totalDoubleDowns != 3 {//&& discardedMatches > Constants.kMaxMatchesRemaining {
             showInstructions(type: .SelectAtleastThreeDoubleDown)
             return false
         }
@@ -624,9 +644,9 @@ extension SP_HomeViewController : UITableViewDataSource, UITableViewDelegate {
 
             matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points:fixPointsObj.first ?? FixturePoints.init(home: 0, away: 0, draw: 0, fixtureId: 0), delegate: self)
             
-            if fixturesArray[indexPath.section].isMatchOnGoing() {
-                matchesDiscarded.append(fixturesArray[indexPath.section])
-            }
+//            if fixturesArray[indexPath.section].isMatchOnGoing() {
+//                matchesDiscarded.append(fixturesArray[indexPath.section])
+//            }
 
         }
         return matchCell
