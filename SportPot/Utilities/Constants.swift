@@ -20,7 +20,7 @@ struct Constants {
     static let kDYNAMIC_LINK_BASE_URL = "https://sportpot.page.link"
     static let kCurrentRound = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")"
     static let kTimeZone = "?timezone="
-    static let kMaxMatchesRemaining = 5
+    static let kMaxMatchesRemaining = 3
     static let kBookMakerID = 6 //BWin
 }
 struct ErrorMessages {
