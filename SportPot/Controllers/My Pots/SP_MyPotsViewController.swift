@@ -110,6 +110,9 @@ class SP_MyPotsViewController: UIViewController {
                 self.potTableView.setEmptyMessage("No Data Available")
                 return
             }
+            if joinedPotsArr.count == 0 {
+                self.potTableView.setEmptyMessage("No Pots Available")
+            }
             self.pots.removeAll() // Remove previous data
             for potID in joinedPotsArr {
                 db.collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
@@ -155,10 +158,27 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func navigateToPotDetail(pot: Pot) {
+        
+        setupChat(using: pot)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rvc = storyboard.instantiateViewController(identifier: String(describing: SP_RankingsViewController.self)) as SP_RankingsViewController
         rvc.pot = pot
         self.navigationController?.pushViewController(rvc, animated: true)
         
+    }
+    
+    private func setupChat(using pot: Pot) {
+        let docRef = Firestore.firestore().collection("chats").document(pot.id ?? "")
+        docRef.getDocument { (document, error) in
+            if let document = document {
+                if document.exists{
+                    //print("Document data: \(document.data())")
+                } else {
+                    print("Document does not exist")
+                    Firestore.firestore().collection("chats").document(pot.id ?? "").setData([
+                                                                                                "id" : pot.name])
+                }
+            }
+        }
     }
 }

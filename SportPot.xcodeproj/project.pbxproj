@@ -59,8 +59,10 @@
 		2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */; };
 		2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB525168FF500F769D1 /* JSONUtils.swift */; };
 		2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB725176D8500F769D1 /* Constants.swift */; };
+		2CA80523260546810046EF51 /* SP_ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA80521260546810046EF51 /* SP_ChatViewController.swift */; };
 		2CC4130025E6D00E006CA1E2 /* FixturePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */; };
 		2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */; };
+		2CE16C5A26057FA800666E44 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE16C5926057FA800666E44 /* Message.swift */; };
 		2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */; };
 		2CE6EC602507D64A00396508 /* fa-solid-900.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */; };
 		2CF088E6251D246E00501FBC /* SP_PotPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF088E5251D246E00501FBC /* SP_PotPreviewViewController.swift */; };
@@ -147,8 +149,10 @@
 		2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_APIHelper.swift; sourceTree = "<group>"; };
 		2C9DBBB525168FF500F769D1 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
 		2C9DBBB725176D8500F769D1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2CA80521260546810046EF51 /* SP_ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_ChatViewController.swift; sourceTree = "<group>"; };
 		2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturePoints.swift; sourceTree = "<group>"; };
 		2CCE848E254F982400955E8A /* SP_Pot_Invitee_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_Pot_Invitee_ViewController.swift; sourceTree = "<group>"; };
+		2CE16C5926057FA800666E44 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2CE63AAE25582F5200855104 /* SP_GoodLuckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_GoodLuckViewController.swift; sourceTree = "<group>"; };
 		2CE6EC5F2507D64A00396508 /* fa-solid-900.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-solid-900.ttf"; sourceTree = "<group>"; };
 		2CF088E5251D246E00501FBC /* SP_PotPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_PotPreviewViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				09ACC44E257410EC00B33DFF /* Joinee.swift */,
 				2CFF92D825AB0F5A004CF95A /* Notification.swift */,
 				2CC412FF25E6D00E006CA1E2 /* FixturePoints.swift */,
+				2CE16C5926057FA800666E44 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				2CCE8493254F982900955E8A /* Pot Invitee */,
 				2C6C27E42557608F0084269E /* My Pots */,
 				2CA804C02604020A0046EF51 /* Settings */,
+				2CA80528260546890046EF51 /* Chat */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,6 +393,14 @@
 				2C3F59CE25013A28001C8667 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2CA80528260546890046EF51 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				2CA80521260546810046EF51 /* SP_ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		2CCE848A254E3B2A00955E8A /* Dashboard */ = {
@@ -647,6 +661,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA80523260546810046EF51 /* SP_ChatViewController.swift in Sources */,
 				2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */,
 				09ACC44F257410EC00B33DFF /* Joinee.swift in Sources */,
 				2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */,
@@ -663,6 +678,7 @@
 				09542D40251F71630060AB46 /* FixtureModel.swift in Sources */,
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */,
+				2CE16C5A26057FA800666E44 /* Message.swift in Sources */,
 				2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */,
 				2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */,
 				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
@@ -864,7 +880,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;
@@ -888,7 +904,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				INFOPLIST_FILE = SportPot/Info.plist;

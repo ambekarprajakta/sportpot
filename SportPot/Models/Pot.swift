@@ -12,7 +12,7 @@ class Pot: Codable {
     let potID: String
     let createdOn: String
     let owner: String
-    let joinees: [Joinee]
+    var joinees: [Joinee]
     let round: String?
     var id: String? = nil
     let name: String

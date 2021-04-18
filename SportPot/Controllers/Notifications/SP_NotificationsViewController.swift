@@ -52,6 +52,8 @@ class SP_NotificationsViewController: UIViewController {
                         Date(timeIntervalSince1970: lhs.timeStamp) > Date(timeIntervalSince1970: rhs.timeStamp)
                     }
                     self.updateNotificationBadge(notifications: self.notifications)
+                } else {
+                        self.notificationsTable.setEmptyMessage("No Notifications")
                 }
                 self.notificationsTable.reloadData()
             }
@@ -141,6 +143,7 @@ extension SP_NotificationsViewController: UITableViewDelegate {
                 return
             }
             rvc.pot = pot
+            rvc.pot.id = potID
             self.tabBarController?.selectedIndex = 1
             let deadlineTime = DispatchTime.now() + .milliseconds(3)
             DispatchQueue.main.asyncAfter(deadline: deadlineTime) {

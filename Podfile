@@ -17,6 +17,6 @@ target 'SportPot' do
 	pod 'Alamofire'
 	pod 'SwiftyJSON', '~> 4.0'
 	pod 'UXCam'
-  pod 'MessageKit'
+  pod 'MessageKit', '~> 3.3.0'
   pod 'MBProgressHUD', '~> 1.2.0'
 end

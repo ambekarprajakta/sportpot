@@ -184,9 +184,15 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         let addJoinedPotsRef = self.db.collection("user").document(self.currentUser)
         addJoinedPotsRef.updateData([
             "joinedPots": FieldValue.arrayUnion([self.potIDStr])
-        ])
-        
-        
+        ]) { (error) in
+            if error == nil {
+                ///Add Pot Details to DB
+                self.addPotToServer()
+            }
+        }
+    }
+    
+    func addPotToServer(){
         var predictions = [[String:Any]]()
         fixturesArray.forEach { (fixture) in
             if !fixture.isMatchOnGoing() {
@@ -203,19 +209,18 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                                          "joinee": currentUser,
                                          "displayName": UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""]
         
-//        let potData : [[String:Any]] = [["predictions" : predictions], ["points": totalPoints]]
-//        let userPredictions : [String:Any] = [currentUser: potData]
-        
         ///Add to Pots
         let addFixturesRef = self.db.collection("pots").document(potIDStr)
         addFixturesRef.updateData([
             "joinees": FieldValue.arrayUnion([joineeDict])
-        ])
-        ///Notify other user's that current user has joined the pot
-        addNotificationToOtherPlayers()
+        ]) { (error) in
+            if error == nil {
+                ///Notify other user's that current user has joined the pot
+                self.addNotificationToOtherPlayers()
+            }
+        }
 
     }
-    
     func addNotificationToOtherPlayers() {
         self.showHUD()
         

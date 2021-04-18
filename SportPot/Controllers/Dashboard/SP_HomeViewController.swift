@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import CoreData
 import FirebaseDynamicLinks
 import FirebaseFirestore
 import UXCam
@@ -19,10 +18,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     private let refreshControl = UIRefreshControl()
     private var todayDate = ""
     private var remainingFixturesArray = Array<FixtureModel>()
-//    private var fixturesArray = Array<FixtureMO>()
-//    var fixturePoints = Array<FixturePoints>()
-//    var fixtureIds = [Int]()
-    
     private var fixturesPointsArray = Array<[String]>()
     private var matchesDiscarded = Array<FixtureModel>()
 
@@ -32,7 +27,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     private var potName : String = ""
     let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
-//    let db = Firestore.firestore()
     
     //MARK:- Setup
 
@@ -60,9 +54,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             self.showInstructions()
         }
 
-        func viewWillAppear(_ animated: Bool) {
-        }
-        
         func viewWillDisappear(_ animated: Bool) {
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
         }
@@ -110,7 +101,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
 
     fileprivate func checkCurrentRoundForSeason() {
         self.showHUD()
-        //https://api-football-v1.p.rapidapi.com/v2/fixtures/rounds/2790/current
         SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getCurrentRound, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
             guard let strongSelf = self else { return }
             strongSelf.hideHUD()
@@ -120,8 +110,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
                     let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
                     if isKeyPresent {
                         if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
-//                            strongSelf.showFixturesFromLocalDB() // If round is same, show fixtures from local db
-                            
                         }
                     }
                     ///Set the current Round
@@ -178,45 +166,6 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         }
     }
     
-//    private func getFixturePoints(bookMakerId: Int) {
-//        if let fixtureId = self.fixtureIds.popLast() {
-//            let url = "https://api-football-v1.p.rapidapi.com/v2/odds/fixture/\(fixtureId)/bookmaker/\(bookMakerId)"
-//            self.showHUD()
-//            SP_APIHelper.getResponseFrom(url: url, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { (response, error) in
-//                self.hideHUD()
-//                if let bookmakersArray = response?["api"]["odds"].array?.first?["bookmakers"].arrayObject as? [[String: Any]] {
-//                    let bookmakersList = bookmakersArray.toArray(of: BookMaker.self, keyDecodingStartegy: .convertFromSnakeCase)
-//                    if let bookmaker = bookmakersList?.first {
-//                        if let bet = bookmaker.bets.filter({ (bet) -> Bool in
-//                            return bet.labelName == "Match Winner"
-//                        }).first {
-//                            if let values = bet.values {
-//                                var red = values.reduce([String: Int]()) { (result, valueObj) -> [String: Int] in
-//                                    var result = result
-//                                    result[valueObj.value.lowercased()] = valueObj.odd
-//                                    return result
-//                                } as JSONObject
-//                                red["fixtureId"] = fixtureId
-//                                if let points = red.to(type: FixturePoints.self) {
-//                                    print("===\n\(String(describing: points))\n===")
-//                                    self.fixturePoints.append(points)
-//                                    self.getFixturePoints(bookMakerId: bookMakerId)
-//                                }
-//                            }
-//                        }
-//                    }
-//                } else {
-//                    let points = FixturePoints.init(home: Int.random(in: 0..<5), away: Int.random(in: 0..<5), draw: Int.random(in: 0..<5), fixtureId: fixtureId)
-//                    self.fixturePoints.append(points)
-//                    print("===\n\(String(describing: points))\n===")
-//                    self.getFixturePoints(bookMakerId: bookMakerId)
-//                }
-//            }
-//        } else if !fixturePoints.isEmpty && fixturePoints.count == fixturesArray.count {
-//            savePointsToDB(fixturePoints: fixturePoints)
-//        }
-//    }
-    
     private func getFixturesFromServer() {
         
         if fixturesArray.isEmpty {
@@ -233,45 +182,25 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             if let response = response {
                 strongSelf.fixturesArray.removeAll()
                 if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
-                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? [] //, keyDecodingStartegy: .convertFromSnakeCase) ?? []
+                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
                     strongSelf.fixturesArray = fixturesArray
+                    strongSelf.getFixturesFromLocalDB()
                 } else {
                     self?.matchTableView.setEmptyMessage("No Data Available")
                 }
             }
-            strongSelf.showFixturesFromLocalDB()
+            
         }
     }
-    
-    private func showFixturesFromLocalDB() {
-        getFixturesFromLocalDB()
+            
+    private func getFixturesFromLocalDB() {
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-//        matchTableView.reloadData()
-    }
-    
-//    private func deleteAllFixturesFromLocalDB() {
-//        let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
-//        let fetchRequest: NSFetchRequest<FixtureModel> = FixtureModel.fetchRequest()
-//        do {
-//            let fixtures = try managedObjectContext.fetch(fetchRequest)
-//            for fixture in fixtures {
-//                managedObjectContext.delete(fixture)
-//            }
-//            try managedObjectContext.save()
-//        } catch {
-//            print("Error deleting fixtures from local db")
-//        }
-//    }
-    
-    private func getFixturesFromLocalDB() {
+
         fixtureIds.removeAll()
         
-//        let managedObjectContext = CoreDataManager.sharedManager.persistentContainer.viewContext
-//        let fetchRequest: NSFetchRequest<FixtureModel> = FixtureModel.fetchRequest()
         do {
-//            fixturesArray = try managedObjectContext.fetch(fetchRequest)
             fixturesArray = fixturesArray.sorted(by: { $0.event_timestamp < $1.event_timestamp })
             remainingFixturesArray = fixturesArray.filter({ (fixObj) -> Bool in
                 !fixObj.isMatchOnGoing()
@@ -283,29 +212,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         }
         matchTableView.reloadData()
     }
-    
-//    private func savePointsToDB(fixturePoints: [FixturePoints]) {
-//
-//        guard let data =  try? JSONEncoder().encode(fixturePoints),
-//              let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: Any]] else {
-//            return
-//        }
-//        print("JSON Array: \(jsonArray)")
-//        let round = UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey)
-//        let potsRef =
-//            db.collection("fixturePoints").document(round as? String ?? "")
-//
-//        potsRef.setData(["0": jsonArray]) { (err) in
-//            self.hideHUD()
-//            if let err = err {
-//                print("Error writing document: \(err)")
-//            } else {
-//                print("Document successfully written!")
-//                self.matchTableView.reloadData()
-//            }
-//        }
-//    }
-    
+        
     func createDeepLink() {
         
         var components = URLComponents()
@@ -459,6 +366,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     
     func validateOpenPotSelection() -> Bool {
+        
         let discardedMatches = fixturesArray.count - remainingFixturesArray.count
         
         if discardedMatches > fixturesArray.count - Constants.kMaxMatchesRemaining {
@@ -467,7 +375,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             return false
         }
         
-        let pendingSelections = fixturesArray.filter { $0.predictionType == PredictionType.none }.count
+        let pendingSelections = fixturesArray.filter { $0.predictionType == PredictionType.none || $0.predictionType == nil}.count
         if pendingSelections > discardedMatches {
             showInstructions(type: .BetTenMatches)
             return false
@@ -481,24 +389,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         }
         return true
     }
-    
-//    func getCurrentPointsFrom(season: String) {
-//        self.showHUD()
-//        fixturePoints.removeAll()
-//        db.collection("fixturePoints").document(season).getDocument { (docSnapShot, error) in
-//            self.hideHUD()
-//            if let response = docSnapShot?.data() {
-//                let fixturePointsArray = response["0"] as? [[String: Any]]
-//                self.fixturePoints = fixturePointsArray?.toArray(of: FixturePoints.self) ?? Array<FixturePoints>()
-//                print(self.fixturePoints)
-//            } else {
-//                print("No Data available")
-//                self.getFixturePoints(bookMakerId: 6)
-//            }
-//            self.matchTableView.reloadData()
-//        }
-//    }
-    
+        
     func updatePoints(fixture: FixtureModel) {
         totalPoints = 0
         var selectedPoints = 0
@@ -625,17 +516,9 @@ extension SP_HomeViewController : UITableViewDataSource, UITableViewDelegate {
         let matchCell = matchTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MatchTableViewCell
         
         if !fixturesArray.isEmpty && !fixturePoints.isEmpty{
-//            let fixObj = fixturesArray.filter {$0.fixture_id == fixturePoints[indexPath.section].fixtureId}
-//            matchCell.displayFixture(fixtureModel: fixObj.first ?? FixtureMO.init(), points:fixturePoints[indexPath.section], delegate: self)
             let fixPointsObj = fixturePoints.filter {$0.fixtureId == fixturesArray[indexPath.section].fixture_id}
-//            NSLog("My managed object: %@", fixturesArray[indexPath.section])
             matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points:fixPointsObj.first ?? FixturePoints.init(home: 0, away: 0, draw: 0, fixtureId: 0), delegate: self)
-            
-//            if fixturesArray[indexPath.section].isMatchOnGoing() {
-//                matchesDiscarded.append(fixturesArray[indexPath.section])
-//            }
-
-        }
+            }
         return matchCell
     }
     

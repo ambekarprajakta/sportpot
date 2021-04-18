@@ -80,8 +80,8 @@ class SP_SignUp_Step3_ViewController: UIViewController {
                 }])
                 return
             } else {
-                UserDefaults.standard.set(self.email, forKey: "currentUser")
-                UserDefaults.standard.set(self.username, forKey: "displayName")
+                UserDefaults.standard.set(self.email, forKey: UserDefaultsConstants.currentUserKey)
+                UserDefaults.standard.set(self.username, forKey: UserDefaultsConstants.displayNameKey)
                 self.pushToHomeScreen()
             }
         }
