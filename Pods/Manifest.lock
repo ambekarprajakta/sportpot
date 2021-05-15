@@ -238,6 +238,9 @@ PODS:
   - Firebase/Firestore (6.33.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.18.0)
+  - Firebase/Messaging (6.33.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 4.7.0)
   - FirebaseAnalytics (6.8.3):
     - FirebaseCore (~> 6.10)
     - FirebaseInstallations (~> 1.6)
@@ -280,6 +283,19 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/UserDefaults (~> 6.7)
     - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (4.8.0):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+  - FirebaseMessaging (4.7.1):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstanceID (~> 4.7)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Reachability (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - Protobuf (>= 3.9.2, ~> 3.9)
   - GoogleAppMeasurement (6.8.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
     - GoogleUtilities/MethodSwizzler (~> 6.7)
@@ -332,19 +348,20 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.4.0)
-  - InputBarAccessoryView (5.2.3):
-    - InputBarAccessoryView/Core (= 5.2.3)
-  - InputBarAccessoryView/Core (5.2.3)
+  - InputBarAccessoryView (5.1.0):
+    - InputBarAccessoryView/Core (= 5.1.0)
+  - InputBarAccessoryView/Core (5.1.0)
   - leveldb-library (1.22)
   - MBProgressHUD (1.2.0)
-  - MessageKit (3.5.0):
-    - InputBarAccessoryView (~> 5.2.1)
+  - MessageKit (3.3.0):
+    - InputBarAccessoryView (~> 5.1.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.10)
+  - Protobuf (3.13.0)
   - SwiftyJSON (4.0.0)
   - TPKeyboardAvoiding (1.3.4)
   - UXCam (3.2.6)
@@ -357,8 +374,9 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/DynamicLinks
   - Firebase/Firestore
+  - Firebase/Messaging
   - MBProgressHUD (~> 1.2.0)
-  - MessageKit
+  - MessageKit (~> 3.3.0)
   - SwiftyJSON (~> 4.0)
   - TPKeyboardAvoiding
   - UXCam
@@ -377,6 +395,8 @@ SPEC REPOS:
     - FirebaseDynamicLinks
     - FirebaseFirestore
     - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -389,6 +409,7 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - PromisesObjC
+    - Protobuf
     - SwiftyJSON
     - TPKeyboardAvoiding
     - UXCam
@@ -406,22 +427,25 @@ SPEC CHECKSUMS:
   FirebaseDynamicLinks: 6eac37d86910382eafb6315d952cc44c9e176094
   FirebaseFirestore: adff4877869ca91a11250cc0989a6cd56bad163f
   FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
+  FirebaseInstanceID: bd3ffc24367f901a43c063b36c640b345a4a5dd1
+  FirebaseMessaging: 5eca4ef173de76253352511aafef774caa1cba2a
   GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
   GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
-  InputBarAccessoryView: f814a0317d47687fafc6bac9e4df6015eaf5b764
+  InputBarAccessoryView: 19953f486a23e846e9487099f92bbe3456e46ce5
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MessageKit: fb539583599cd914e8e2d41fe7bdceb4bf686565
+  MessageKit: 1f07618183be6d92b648ba7a384aafa097362a00
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   TPKeyboardAvoiding: 7c2187e2338052b2c5be4a8052f297fdb124e261
   UXCam: 99f4310d7e0f4aad0a73306124a8c2d104ccaf9d
 
-PODFILE CHECKSUM: 2cdb845a04fb1fcd48046d3344f7fd0dae0dd491
+PODFILE CHECKSUM: 3c6147a22d0866104503d2a5778290517d021821
 
 COCOAPODS: 1.9.3

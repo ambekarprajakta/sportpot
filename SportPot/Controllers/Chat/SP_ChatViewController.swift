@@ -106,8 +106,21 @@ class SP_ChatViewController: MessagesViewController {
         }
     }
     
+    func loadPotJoinees(with potID: String, message: String) {
+        let currentUserEmail = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey) ?? ""
+        let allJoinees = pot.joinees.compactMap { (jobj) -> String in
+            return jobj.joinee
+        }
+        for joinee in allJoinees {
+            if joinee != currentUserEmail {
+                //Send Push Notification
+                self.sendPushNotification(to: joinee, from: currentUser, with: self.pot.name, message: message)
+            }
+        }
+    }
+    
+    
     private func sendMessageToFirebase(message: String) {
-        
         let messageDict = ["displayName": currentUser,
                            "timeStamp": Double(Date().timeIntervalSince1970),
                            "content": message] as [String : Any]
@@ -117,9 +130,38 @@ class SP_ChatViewController: MessagesViewController {
         
         chatRef.updateData([
             "thread": FieldValue.arrayUnion([messageDict])
-        ])
+        ]) { (error) in
+            if error == nil {
+                self.loadPotJoinees(with: self.pot.id ?? "", message: message)
+            }
+        }
+        
     }
     
+    let sender = PushNotificationSender()
+    func sendPushNotification(to otherUserEmail:String, from user: String, with potName: String, message: String) {
+        
+        Firestore.firestore().collection("notificationTokens").document(otherUserEmail).getDocument { (docSnapshot, error) in
+            self.hideHUD()
+            if let err = error {
+                print("Error getting documents: \(err)")
+            } else {
+                guard let response = docSnapshot?.data() else { return }
+                guard let token = response["fcmToken"] as? String else { return }
+                
+                let title = potName
+                let body = "\(user): \(message)"
+                let params: [String : Any] = ["content-available": true,
+                                              "to" : token,
+                                              "notification" : ["title" : title,
+                                                                "body" : body],
+                                              "data" : ["type" : "comment",
+                                                        "potID" : self.pot.id,
+                                                        "sound": "default"]]
+                self.sender.sendPushNotification(with: params)
+            }
+        }
+    }
     // MARK: - Helpers
     
     func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
@@ -135,7 +177,7 @@ class SP_ChatViewController: MessagesViewController {
         guard indexPath.section + 1 < messages.count else { return false }
         return messages[indexPath.section].displayName == messages[indexPath.section + 1].displayName
     }
-
+    
 }
 
 extension SP_ChatViewController: MessagesDataSource {
@@ -280,7 +322,7 @@ extension SP_ChatViewController: InputBarAccessoryViewDelegate {
         inputBar.sendButton.startAnimating()
         inputBar.inputTextView.placeholder = "Sending..."
         // Resign first responder for iPad split view
-        inputBar.inputTextView.resignFirstResponder()
+//        inputBar.inputTextView.resignFirstResponder()
         
         //Send message to firebase
         sendMessageToFirebase(message: text)
@@ -292,7 +334,7 @@ extension SP_ChatViewController: InputBarAccessoryViewDelegate {
             DispatchQueue.main.async { [weak self] in
                 inputBar.sendButton.stopAnimating()
                 inputBar.inputTextView.placeholder = "Enter message here"
-//                let message = Message(content: text, timeStamp: Double(Date().timeIntervalSinceNow), displayName: self?.user.displayName ?? "")
+                //                let message = Message(content: text, timeStamp: Double(Date().timeIntervalSinceNow), displayName: self?.user.displayName ?? "")
                 self?.messagesCollectionView.scrollToLastItem(animated: true)
             }
         }

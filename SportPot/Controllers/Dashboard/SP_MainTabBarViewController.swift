@@ -8,23 +8,28 @@
 
 import UIKit
 
-class SP_MainTabBarViewController: UITabBarController {
+protocol PushManagerDelegate: class {
+    func handleNavigationFromPushNotification(with userInfo: [AnyHashable : Any])
+}
 
+class SP_MainTabBarViewController: UITabBarController {
+    
+    weak var pushDelegate: PushManagerDelegate?
+    var notificationType : String = ""
+    var userInfo: [AnyHashable : Any]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if notificationType == "showRankingsVC" || notificationType == "showChatVC" {
+            for navController in self.viewControllers as? [UINavigationController] ?? [] {
+                for vc in navController.children {
+                    if vc.isKind(of: SP_MyPotsViewController.self) {
+                        self.selectedIndex = 1
+                        let mypots = vc as? SP_MyPotsViewController
+                        mypots?.handleNavigationFromPushNotification(with: userInfo ?? [:])
+                    }
+                }
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

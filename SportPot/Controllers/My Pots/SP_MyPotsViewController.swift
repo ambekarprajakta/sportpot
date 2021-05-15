@@ -19,7 +19,7 @@ struct PotModel {
 class SP_MyPotsViewController: UIViewController {
     
     @IBOutlet weak var potTableView: UITableView!
-    
+    var delegate: PushManagerDelegate?
     private let refreshControl = UIRefreshControl()
     private var pots = [Pot]()
     private let cellID = String(describing: SP_MyPotsTableViewCell.self)
@@ -50,7 +50,7 @@ class SP_MyPotsViewController: UIViewController {
     @objc func showNotificationDetail(_ notification: NSNotification) {
         
         if let pot = notification.userInfo?["pot"] as? Pot {
-            navigateToPotDetail(pot: pot)
+            navigateToPotDetail(pot: pot, userInfo: [:])
         }
     }
     
@@ -154,19 +154,35 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigateToPotDetail(pot: pots[indexPath.section])
+        navigateToPotDetail(pot: pots[indexPath.section], userInfo: [:])
     }
     
-    func navigateToPotDetail(pot: Pot) {
+    func navigateToPotDetail(pot: Pot, userInfo: [AnyHashable : Any]) {
         
         setupChat(using: pot)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let rvc = storyboard.instantiateViewController(identifier: String(describing: SP_RankingsViewController.self)) as SP_RankingsViewController
+        rvc.userInfo = userInfo
         rvc.pot = pot
-        self.navigationController?.pushViewController(rvc, animated: true)
+        self.navigationController?.pushViewController(rvc, animated: false)
         
     }
     
+    
+    func fetchPotFromDB (potID: String, completionHandler:  @escaping (Pot) -> ()) {
+        
+        self.showHUD()
+        Firestore.firestore().collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
+            self?.hideHUD()
+            guard let _ = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else {
+                return
+            }
+//            pot.id = potID
+//            self.pot = pot
+            completionHandler(pot)
+        }
+    }
+
     private func setupChat(using pot: Pot) {
         let docRef = Firestore.firestore().collection("chats").document(pot.id ?? "")
         docRef.getDocument { (document, error) in
@@ -179,6 +195,16 @@ extension SP_MyPotsViewController : UITableViewDataSource, UITableViewDelegate {
                                                                                                 "id" : pot.name])
                 }
             }
+        }
+    }
+}
+
+extension SP_MyPotsViewController: PushManagerDelegate {
+    func handleNavigationFromPushNotification(with userInfo: [AnyHashable : Any]) {
+        guard let potID = userInfo["potID"] as? String else { return }
+        self.fetchPotFromDB(potID: potID) { (pot) in
+            pot.id = potID
+            self.navigateToPotDetail(pot: pot, userInfo: userInfo)
         }
     }
 }

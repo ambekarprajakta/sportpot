@@ -55,6 +55,8 @@
 		2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */; };
 		2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */; };
 		2C6C27EE255817970084269E /* SP_MyPotsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */; };
+		2C6DDBDA2630E87A00E52574 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */; };
+		2C6DDBDF2630EA6100E52574 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */; };
 		2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */; };
 		2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */; };
 		2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB525168FF500F769D1 /* JSONUtils.swift */; };
@@ -145,6 +147,8 @@
 		2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsViewController.swift; sourceTree = "<group>"; };
 		2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsTableViewCell.swift; sourceTree = "<group>"; };
 		2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_MyPotsTableViewCell.xib; sourceTree = "<group>"; };
+		2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_APIHelper.swift; sourceTree = "<group>"; };
 		2C9DBBB525168FF500F769D1 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
@@ -303,6 +307,8 @@
 				2C9DBBB725176D8500F769D1 /* Constants.swift */,
 				2C36D1FB251A204D00BA91EA /* Utils.swift */,
 				2CF088E9251D5B8000501FBC /* CoreDataManager.swift */,
+				2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */,
+				2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -696,6 +702,7 @@
 				2CC4130025E6D00E006CA1E2 /* FixturePoints.swift in Sources */,
 				2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */,
 				2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */,
+				2C6DDBDF2630EA6100E52574 /* PushNotificationSender.swift in Sources */,
 				2C40D80925C049F80002B28C /* SP_SignUp_Step3_ViewController.swift in Sources */,
 				09542D3A251F6DD00060AB46 /* TeamModel.swift in Sources */,
 				09542D32251F69EB0060AB46 /* ScoreModel.swift in Sources */,
@@ -703,6 +710,7 @@
 				2C3F59C125013A24001C8667 /* AppDelegate.swift in Sources */,
 				2CFF92D925AB0F5A004CF95A /* Notification.swift in Sources */,
 				2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */,
+				2C6DDBDA2630E87A00E52574 /* PushNotificationManager.swift in Sources */,
 				2C3F59C325013A24001C8667 /* SceneDelegate.swift in Sources */,
 				2CFF92CD25AAF10E004CF95A /* SP_NotificationsCell.swift in Sources */,
 			);
@@ -880,9 +888,10 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -904,14 +913,16 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
+				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = SportPot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

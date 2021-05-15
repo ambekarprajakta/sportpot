@@ -50,5 +50,6 @@ struct UserDefaultsConstants {
     static let displayNameKey = "displayName"
     //Notification Badge
     static let notificationsBadgeCount = "notificationsBadgeCount"
+    static let notificationToken = "notificationToken"
     
 }

@@ -8,15 +8,27 @@ target 'SportPot' do
   # Pods for SportPot
 
   pod 'TPKeyboardAvoiding'
+  
+  #Firebase
   pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   pod 'Firebase/DynamicLinks'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+  
+  #Network
 	pod 'Alamofire-SwiftyJSON'
 	pod 'Alamofire'
 	pod 'SwiftyJSON', '~> 4.0'
+  
+  #Analytics
 	pod 'UXCam'
+  
+  #Chat
   pod 'MessageKit', '~> 3.3.0'
+  
+  #UX
   pod 'MBProgressHUD', '~> 1.2.0'
+  
 end

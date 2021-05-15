@@ -219,8 +219,33 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 self.addNotificationToOtherPlayers()
             }
         }
-
     }
+    
+    let sender = PushNotificationSender()
+    func sendPushNotification(to otherUserEmail:String, from user: String, with potName: String) {
+        
+            db.collection("notificationTokens").document(otherUserEmail).getDocument { (docSnapshot, error) in
+                self.hideHUD()
+                if let err = error {
+                    print("Error getting documents: \(err)")
+                } else {
+                    guard let response = docSnapshot?.data() else { return }
+                    guard let token = response["fcmToken"] as? String else { return }
+                    
+                    let title = "Pot"
+                    let body = "\(user) joined \(potName) pot"
+                    let params: [String : Any] = ["content-available": true,
+                                                  "to" : token,
+                                                  "notification" : ["title" : title,
+                                                                    "body" : body],
+                                                  "data" : ["type" : "join",
+                                                            "potID" : self.potIDStr,
+                                                            "sound": "default"]]
+                    self.sender.sendPushNotification(with: params)
+                }
+        }
+    }
+    
     func addNotificationToOtherPlayers() {
         self.showHUD()
         
@@ -232,22 +257,28 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 guard let response = docSnapshot?.data() else { return }
                 guard let potName = response["name"] as? String else { return }
                 guard let joineesArr = response["joinees"] as? JSONArray else { return }
-                if let joinees = joineesArr.toArray(of: Joinee.self, keyDecodingStartegy: .convertFromSnakeCase)?.compactMap({ (joinee) -> String? in
+                if let joineesEmails = joineesArr.toArray(of: Joinee.self, keyDecodingStartegy: .convertFromSnakeCase)?.compactMap({ (joinee) -> String? in
                     return joinee.joinee
                 }){
-                    print(joinees)
-                    let joinNotifyDict : [String:Any] = [ "author" : UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? "",
+                    print(joineesEmails)
+                    let currentUser = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
+                    let joinNotifyDict : [String:Any] = [ "author" : currentUser,
                                                          "isRead" : false,
                                                          "notificationType" :  NotificationObjectType.join.rawValue,
                                                          "potId": self.potIDStr,
                                                          "potName": potName,
                                                          "timeStamp":  Int(NSDate().timeIntervalSince1970)]
-                    for joinee in joinees {
-                        if joinee != UserDefaults.standard.value(forKey: UserDefaultsConstants.currentUserKey) as? String {
-                            let notifRef = self.db.collection("user").document(joinee)
-                            notifRef.updateData([
-                                "notifications": FieldValue.arrayUnion([joinNotifyDict])
-                            ])
+                    var otherJoineesEmail = [String]()
+                    for joineeEmail in joineesEmails {
+                        if joineeEmail != UserDefaults.standard.value(forKey: UserDefaultsConstants.currentUserKey) as? String {
+                            otherJoineesEmail.append(joineeEmail)
+                            let notifRef = self.db.collection("user").document(joineeEmail)
+                            notifRef.updateData(["notifications": FieldValue.arrayUnion([joinNotifyDict])]) { (error) in
+                                if error == nil {
+                                    //Send Push Notification
+                                    self.sendPushNotification(to: joineeEmail, from: currentUser, with: potName)
+                                }
+                            }
                         }
                     }
                 }

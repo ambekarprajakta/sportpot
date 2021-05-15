@@ -25,7 +25,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     private var currentSeasonStr : String = ""
     private var totalPoints : Int = 0
     private var potName : String = ""
-    let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+    let currentUser = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentUserKey) ?? ""
     var currentTimeStamp : Int64 = Date.currentTimeStamp
     
     //MARK:- Setup
@@ -33,6 +33,9 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let username = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
+        let pushManager = PushNotificationManager(userID: currentUser)
+        pushManager.registerForPushNotifications()
+
         UXCam.setUserIdentity(username)
         UXCam.setUserProperty("username",value: username)
         UXCam.setUserProperty("email",value: currentUser)
@@ -87,6 +90,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     }
     
     @objc private func refreshControlAction() {
+        totalPoints = 0
+        totalPointsLabel.text = String(format: "%d\n points",totalPoints)
         getFixturesFromServer()
     }
     
@@ -107,24 +112,14 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             if let response = response {
                 if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
                     strongSelf.currentSeasonStr = fixturesArray[0] as! String
-                    let isKeyPresent = strongSelf.isKeyPresentInUserDefaults(key: UserDefaultsConstants.currentRoundKey)
-                    if isKeyPresent {
-                        if UserDefaults.standard.value(forKey: UserDefaultsConstants.currentRoundKey) as! String == strongSelf.currentSeasonStr {
-                        }
-                    }
                     ///Set the current Round
-                    strongSelf.setCurrentRound(round: strongSelf.currentSeasonStr)                    
+                    UserDefaults.standard.set(strongSelf.currentSeasonStr, forKey: UserDefaultsConstants.currentRoundKey)
+                    strongSelf.getFixturesFromServer()
                 }
             }
         }
+    }
         
-    }
-    
-    func setCurrentRound(round: String) {
-        self.getFixturesFromServer()
-        UserDefaults.standard.set(round, forKey: UserDefaultsConstants.currentRoundKey)
-    }
-    
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
@@ -437,8 +432,11 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     //MARK:- Logout
 
     @IBAction func logoutAction(_ sender: Any) {
+            
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
         UserDefaults.standard.set(nil, forKey: "currentUser")
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        UIApplication.shared.unregisterForRemoteNotifications()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)

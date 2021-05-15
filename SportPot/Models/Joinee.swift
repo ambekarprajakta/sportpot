@@ -12,7 +12,7 @@ class Joinee: Codable {
     var joinee: String = ""
     var points: Double = 0
     var predictions: [Prediction] = []
-    var displayName: String? = "John"
+    var displayName: String? = ""
     
     var accuracy: Int? = 0
     var pointsScored: Int? = 0
