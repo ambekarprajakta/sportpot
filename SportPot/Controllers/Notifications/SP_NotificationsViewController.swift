@@ -153,4 +153,28 @@ extension SP_NotificationsViewController: UITableViewDelegate {
             
         }
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            //Delete notification from firebase
+            do {
+                let enc = JSONEncoder()
+                notifications.remove(at: indexPath.row)
+                if let encoded = try enc.encode(notifications).toJSON() as? [[String:Any]] {
+                    let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
+                    let notifRef = Firestore.firestore().collection("user").document(currentUser)
+                    notifRef.setData(["notifications": encoded], merge: true) { (error) in
+                        print("success")
+                        self.notificationsTable.deleteRows(at: [indexPath], with: .fade)
+                        self.updateNotificationBadge(notifications: self.notifications)
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
