@@ -15,6 +15,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     @IBOutlet private weak var matchTableView: UITableView!
     @IBOutlet weak var totalPointsLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    
     private let refreshControl = UIRefreshControl()
     private var todayDate = ""
     private var remainingFixturesArray = Array<FixtureModel>()
@@ -22,6 +24,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     private var matchesDiscarded = Array<FixtureModel>()
 
     private let cellID = "SP_MatchTableViewCell"
+    var groups = [String]()
     private var currentSeasonStr : String = ""
     private var totalPoints : Int = 0
     private var potName : String = ""
@@ -45,12 +48,13 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             selector: #selector(self.refreshTableView),
             name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(joinPotAction(notification:)), name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(joinPotAction(notification:)), name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(navigateToMyPots), name: NSNotification.navigateToMyPots, object: nil)
         setupNavigationBar()
         setupTableView()
         setupDate()
-        checkCurrentRoundForSeason()
+//        checkCurrentRoundForSeason()
+        getCurrentRound()
         
         let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         if currentCount < 3 {
@@ -67,6 +71,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         getNotificationsCount()
     }
     
@@ -92,7 +97,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     @objc private func refreshControlAction() {
         totalPoints = 0
         totalPointsLabel.text = String(format: "%d\n points",totalPoints)
-        getFixturesFromServer()
+        getFixturesFromServer(with: groups)
     }
     
     private func setupDate() {
@@ -104,21 +109,48 @@ class SP_HomeViewController: SP_FixturePointsViewController {
     
     //MARK:- API Calls
 
-    fileprivate func checkCurrentRoundForSeason() {
+    fileprivate func getCurrentRound() {
         self.showHUD()
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getCurrentRound, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.hideHUD()
-            if let response = response {
-                if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
-                    strongSelf.currentSeasonStr = fixturesArray[0] as! String
-                    ///Set the current Round
-                    UserDefaults.standard.set(strongSelf.currentSeasonStr, forKey: UserDefaultsConstants.currentRoundKey)
-                    strongSelf.getFixturesFromServer()
-                }
+        Firestore.firestore().collection("currentRound").document("round").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let currentRound = currentWeekStr["currentRound"] as? String else { return }
+                UserDefaults.standard.set(currentRound, forKey: UserDefaultsConstants.currentRoundKey)
+                self.getCurrentWeekForPoints()
             }
         }
     }
+    
+    fileprivate func getCurrentWeekForPoints() {
+        self.showHUD()
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let round = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) else {return}
+                guard let weekNums = currentWeekStr["currentRound"] as? [String:[String]] else {return}
+                self.groups = weekNums[round] ?? [String]()
+                self.getFixturesFromServer(with: self.groups)
+            }
+        }
+    }
+
+//    fileprivate func checkCurrentRoundForSeason() {
+//        self.showHUD()
+//        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getCurrentRound, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+//            guard let strongSelf = self else { return }
+//            strongSelf.hideHUD()
+//            if let response = response {
+//                if let fixturesArray = response["api"]["fixtures"].arrayObject, !fixturesArray.isEmpty {
+//                    strongSelf.currentSeasonStr = fixturesArray[0] as! String
+//                    ///Set the current Round
+//                    UserDefaults.standard.set(strongSelf.currentSeasonStr, forKey: UserDefaultsConstants.currentRoundKey)
+//                    strongSelf.getFixturesFromServer()
+//                }
+//            }
+//        }
+//    }
         
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
@@ -161,7 +193,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         }
     }
     
-    private func getFixturesFromServer() {
+    private func getFixturesFromServer(with group: [String]) {
         
         if fixturesArray.isEmpty {
             self.matchTableView.restore()
@@ -169,23 +201,34 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         }
         let localTimeZone = TimeZone.current.identifier
         self.showHUD()
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
-                                        Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
-                                     method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.hideHUD()
-            if let response = response {
-                strongSelf.fixturesArray.removeAll()
-                if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
-                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
-                    strongSelf.fixturesArray = fixturesArray
-                    strongSelf.getFixturesFromLocalDB()
-                } else {
-                    self?.matchTableView.setEmptyMessage("No Data Available")
+        self.fixturesArray.removeAll()
+        var cnt = 0
+        for round in group {
+            SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
+                                            round + Constants.kTimeZone + localTimeZone,
+                                         method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+                guard let strongSelf = self else { return }
+                strongSelf.hideHUD()
+                if let response = response {
+                    
+                    if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
+                        if fixtures.count == 0 {
+                            self?.matchTableView.setEmptyMessage("No Data Available")
+                            return
+                        }
+                        let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
+                        strongSelf.fixturesArray.append(contentsOf: fixturesArray)
+                        cnt+=1
+                        if cnt == group.count {
+                            strongSelf.getFixturesFromLocalDB()
+                        }
+                    } else {
+                        self?.matchTableView.setEmptyMessage("No Data Available")
+                    }
                 }
             }
-            
         }
+        
     }
             
     private func getFixturesFromLocalDB() {
@@ -201,7 +244,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
                 !fixObj.isMatchOnGoing()
             }).sorted(by: { $0.event_timestamp < $1.event_timestamp })
             fixtureIds = fixturesArray.map {Int($0.fixture_id)}
-            getCurrentPointsFrom(season: self.currentSeasonStr)
+            guard let currentRound = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) else {return}
+            getCurrentPointsFrom(season: currentRound)
         } catch {
             print("Error fetching fixtures from local db")
         }
@@ -441,6 +485,10 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
     }
+    
+    @IBAction func showPotsAction(_ sender: Any) {
+    }
+    
 }
 
 extension SP_HomeViewController : SP_MatchTableViewCellDelegate {

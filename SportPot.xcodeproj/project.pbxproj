@@ -15,6 +15,7 @@
 		09ACC44A257410CF00B33DFF /* Prediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACC449257410CF00B33DFF /* Prediction.swift */; };
 		09ACC44F257410EC00B33DFF /* Joinee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ACC44E257410EC00B33DFF /* Joinee.swift */; };
 		2C00CFE525EA756F004D36C0 /* SP_FixturePointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */; };
+		2C058201266C0F99004EA2F5 /* SP_OpenPotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C058200266C0F99004EA2F5 /* SP_OpenPotViewController.swift */; };
 		2C19B5702539E83400D6B399 /* SportPot.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B45BB2507E4F600D42300 /* SportPot.entitlements */; };
 		2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */; };
 		2C329DCF253E760600A1E799 /* SP_SharePotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */; };
@@ -50,6 +51,7 @@
 		2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */; };
 		2C3F5A0F25019A2E001C8667 /* SP_UnderlinedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */; };
 		2C40D80925C049F80002B28C /* SP_SignUp_Step3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40D80825C049F80002B28C /* SP_SignUp_Step3_ViewController.swift */; };
+		2C45EFE32671911D00662676 /* SP_RightMenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45EFE22671911D00662676 /* SP_RightMenuNavController.swift */; };
 		2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */; };
 		2C66C1F8254FA1C3006711E4 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C66C1F7254FA1C3006711E4 /* Fixture.swift */; };
 		2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */; };
@@ -57,6 +59,9 @@
 		2C6C27EE255817970084269E /* SP_MyPotsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */; };
 		2C6DDBDA2630E87A00E52574 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */; };
 		2C6DDBDF2630EA6100E52574 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */; };
+		2C76119C267021EA00AFA544 /* SP_MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C76119B267021EA00AFA544 /* SP_MenuTableViewController.swift */; };
+		2C7611A12670281000AFA544 /* SP_RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7611A02670281000AFA544 /* SP_RulesViewController.swift */; };
+		2C7611A626702B3200AFA544 /* SP_TermsNPrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7611A526702B3200AFA544 /* SP_TermsNPrivacyViewController.swift */; };
 		2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */; };
 		2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */; };
 		2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DBBB525168FF500F769D1 /* JSONUtils.swift */; };
@@ -103,6 +108,7 @@
 		09ACC44E257410EC00B33DFF /* Joinee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joinee.swift; sourceTree = "<group>"; };
 		0D65090949CB7B0D1902515B /* Pods-SportPot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.release.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.release.xcconfig"; sourceTree = "<group>"; };
 		2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_FixturePointsViewController.swift; sourceTree = "<group>"; };
+		2C058200266C0F99004EA2F5 /* SP_OpenPotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_OpenPotViewController.swift; sourceTree = "<group>"; };
 		2C2A5EF72506FBF100CEC4A9 /* fa-regular-400.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fa-regular-400.ttf"; sourceTree = "<group>"; };
 		2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SharePotViewController.swift; sourceTree = "<group>"; };
 		2C36D1FB251A204D00BA91EA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -142,6 +148,7 @@
 		2C3F5A0C2501972E001C8667 /* SP_SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignInViewController.swift; sourceTree = "<group>"; };
 		2C3F5A0E25019A2E001C8667 /* SP_UnderlinedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_UnderlinedTextField.swift; sourceTree = "<group>"; };
 		2C40D80825C049F80002B28C /* SP_SignUp_Step3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step3_ViewController.swift; sourceTree = "<group>"; };
+		2C45EFE22671911D00662676 /* SP_RightMenuNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RightMenuNavController.swift; sourceTree = "<group>"; };
 		2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_InstructionsPopupViewController.swift; sourceTree = "<group>"; };
 		2C66C1F7254FA1C3006711E4 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +156,9 @@
 		2C6C27EC255817970084269E /* SP_MyPotsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SP_MyPotsTableViewCell.xib; sourceTree = "<group>"; };
 		2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
+		2C76119B267021EA00AFA544 /* SP_MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MenuTableViewController.swift; sourceTree = "<group>"; };
+		2C7611A02670281000AFA544 /* SP_RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RulesViewController.swift; sourceTree = "<group>"; };
+		2C7611A526702B3200AFA544 /* SP_TermsNPrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_TermsNPrivacyViewController.swift; sourceTree = "<group>"; };
 		2C899E43250ED72000718DD8 /* SP_MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MainTabBarViewController.swift; sourceTree = "<group>"; };
 		2C9DBBB32516628B00F769D1 /* SP_APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_APIHelper.swift; sourceTree = "<group>"; };
 		2C9DBBB525168FF500F769D1 /* JSONUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONUtils.swift; sourceTree = "<group>"; };
@@ -330,6 +340,17 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		2C61795D267968ED0060BEB9 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2C76119B267021EA00AFA544 /* SP_MenuTableViewController.swift */,
+				2C7611A02670281000AFA544 /* SP_RulesViewController.swift */,
+				2C7611A526702B3200AFA544 /* SP_TermsNPrivacyViewController.swift */,
+				2C45EFE22671911D00662676 /* SP_RightMenuNavController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		2C692BF1251D21CE006ABDF1 /* Pot Preview */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +409,7 @@
 				2C6C27E42557608F0084269E /* My Pots */,
 				2CA804C02604020A0046EF51 /* Settings */,
 				2CA80528260546890046EF51 /* Chat */,
+				2C61795D267968ED0060BEB9 /* Menu */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -418,6 +440,7 @@
 				2C3B45C2250C49F000D42300 /* Match Table View Cell */,
 				2C329DCE253E760600A1E799 /* SP_SharePotViewController.swift */,
 				2C00CFE425EA756F004D36C0 /* SP_FixturePointsViewController.swift */,
+				2C058200266C0F99004EA2F5 /* SP_OpenPotViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -669,12 +692,14 @@
 			files = (
 				2CA80523260546810046EF51 /* SP_ChatViewController.swift in Sources */,
 				2C3B45C4250C4B2900D42300 /* SP_HomeViewController.swift in Sources */,
+				2C76119C267021EA00AFA544 /* SP_MenuTableViewController.swift in Sources */,
 				09ACC44F257410EC00B33DFF /* Joinee.swift in Sources */,
 				2C3F5A0B250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift in Sources */,
 				2CCE848F254F982400955E8A /* SP_Pot_Invitee_ViewController.swift in Sources */,
 				2C3F59F7250183F3001C8667 /* SP_GetStartedViewController.swift in Sources */,
 				2C3A197F2565FC5600549985 /* SP_RankingsViewController.swift in Sources */,
 				2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */,
+				2C7611A12670281000AFA544 /* SP_RulesViewController.swift in Sources */,
 				2C3A19862566029A00549985 /* SP_RankingWinnerTableViewCell.swift in Sources */,
 				09542D36251F6C100060AB46 /* LeagueModel.swift in Sources */,
 				2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */,
@@ -682,6 +707,7 @@
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
 				09542D40251F71630060AB46 /* FixtureModel.swift in Sources */,
+				2C058201266C0F99004EA2F5 /* SP_OpenPotViewController.swift in Sources */,
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */,
 				2CE16C5A26057FA800666E44 /* Message.swift in Sources */,
@@ -689,8 +715,10 @@
 				2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */,
 				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
 				2C3840392548F39C0057B3CC /* ColorUtils.swift in Sources */,
+				2C45EFE32671911D00662676 /* SP_RightMenuNavController.swift in Sources */,
 				09ACC442257410A800B33DFF /* Pot.swift in Sources */,
 				2C66C1F8254FA1C3006711E4 /* Fixture.swift in Sources */,
+				2C7611A626702B3200AFA544 /* SP_TermsNPrivacyViewController.swift in Sources */,
 				2C9DBBB625168FF500F769D1 /* JSONUtils.swift in Sources */,
 				2C899E44250ED72000718DD8 /* SP_MainTabBarViewController.swift in Sources */,
 				2CF088E6251D246E00501FBC /* SP_PotPreviewViewController.swift in Sources */,
@@ -888,7 +916,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				EXCLUDED_ARCHS = arm64;
@@ -897,6 +925,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -913,7 +942,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				EXCLUDED_ARCHS = "";
@@ -922,6 +951,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -44,7 +44,7 @@ class SP_MatchTableViewCell: UITableViewCell {
     @IBOutlet private weak var liveMinuteLabel: UILabel!
     @IBOutlet private var selectionButtons: [UIButton]!
 
-    private var delegate: SP_MatchTableViewCellDelegate? = nil
+    var delegate: SP_MatchTableViewCellDelegate? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -59,9 +59,9 @@ class SP_MatchTableViewCell: UITableViewCell {
         return false
     }
     
-    func displayFixture(fixtureModel: FixtureModel, points: FixturePoints, delegate: SP_MatchTableViewCellDelegate? = nil) {
+    func displayFixture(fixtureModel: FixtureModel, points: FixturePoints, isPotPreview: Bool = false, delegate: SP_MatchTableViewCellDelegate? = nil) {
 
-        if fixtureModel.isMatchOnGoing(){
+        if fixtureModel.isMatchOnGoing() && !isPotPreview {
             layerView.isHidden = false
             layerView.backgroundColor = .lightGray
             layerView.alpha = 0.5
@@ -70,17 +70,15 @@ class SP_MatchTableViewCell: UITableViewCell {
             layerView.isHidden = true
             layerView.backgroundColor = .clear
             layerView.alpha = 1
-            self.isUserInteractionEnabled = true
+            self.isUserInteractionEnabled = !isPotPreview//true
         }
-
+        
         self.delegate = delegate
         updateSelection(fixture: fixtureModel)
         
-        if points.fixtureId == fixtureModel.fixture_id {
-            homePointsBtn.setTitle(String(points.home), for: .normal)
-            drawPointsBtn.setTitle(String(points.draw), for: .normal)
-            awayPointsBtn.setTitle(String(points.away), for: .normal)
-        }
+        homePointsBtn.setTitle(String(points.home), for: .normal)
+        drawPointsBtn.setTitle(String(points.draw), for: .normal)
+        awayPointsBtn.setTitle(String(points.away), for: .normal)
         
         // Match Time
         let timeDiff = Date.currentTimeStamp.distance(to: fixtureModel.event_timestamp)

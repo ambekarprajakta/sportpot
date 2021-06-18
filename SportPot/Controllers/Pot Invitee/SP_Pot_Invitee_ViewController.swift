@@ -35,6 +35,8 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     private var matchesDiscarded = Array<FixtureModel>()
     private var eventDate = Date()
     private var timer = Timer()
+    var groups = [String]()
+    var pot: Pot!
     private let currentUser = UserDefaults.standard.string(forKey: "currentUser") ?? ""
     private let matchesBeganError = "You’re too late to join the party. \nThe pot has already started.\nYou can open a new pot or join a different pot"
 
@@ -46,8 +48,8 @@ class SP_Pot_Invitee_ViewController: UIViewController {
         setupTableView()
         eventDate = Date(timeIntervalSince1970: TimeInterval(remainingTime) ?? 0)
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownDate), userInfo: nil, repeats: true)
-
-        getFixturesFromServer()
+        getPotDetails(potID: potIDStr)
+//        getFixturesFromServer(with: self.groups)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +57,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
             self,
             selector: #selector(self.refreshTableView),
             name: NSNotification.Name(rawValue: "refreshFixtures"), object: nil)
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -101,18 +102,86 @@ class SP_Pot_Invitee_ViewController: UIViewController {
     @objc func refreshTableView(notification: Notification) {
         self.potTableView.reloadData()
     }
-//    private func getCurrentWeekForPoints() {
-//        self.showHUD()
-//        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
-//            self.hideHUD()
-//            if error == nil {
-//                guard let currentWeekStr = docSnapShot?.data() else { return }
-//                guard let weekNumStr = currentWeekStr["weekNo"] else { return }
-//                self.getFixturePointsForWeek(week: weekNumStr as! String)
-//            }
-//        }
-//    }
     
+    fileprivate func getPotDetails(potID: String) {
+        Firestore.firestore().collection("pots").document(potID).getDocument { [weak self] (docSnapShot, error) in
+            guard let self = self, let potJson = docSnapShot?.data(), let pot = potJson.to(type: Pot.self, keyDecodingStartegy: .convertFromSnakeCase) else {
+                return
+            }
+            self.pot = pot
+            self.getCurrentWeekForPoints()
+        }
+    }
+    fileprivate func getCurrentWeekForPoints() {
+        self.showHUD()
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let round = self.pot.round else {return}
+                guard let weekNums = currentWeekStr["currentRound"] as? [String:[String]] else {return}
+                self.groups = weekNums[round] ?? [String]()
+                self.getFixturesFromServer(with: self.groups)
+            }
+        }
+    }
+
+    private func getFixturesFromServer(with group: [String]) {
+        
+        if fixturesArray.isEmpty {
+            self.potTableView.restore()
+//            refreshControl.beginRefreshing()
+        }
+        let localTimeZone = TimeZone.current.identifier
+        self.showHUD()
+        
+        self.fixturesArray.removeAll()
+        var cnt = 0
+        for round in group {
+            SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
+                                            round + Constants.kTimeZone + localTimeZone,
+                                         method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+                guard let strongSelf = self else { return }
+                strongSelf.hideHUD()
+                if let response = response {
+                    
+                    if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
+                        if fixtures.count == 0 {
+                            self?.potTableView.setEmptyMessage("No Data Available")
+                            return
+                        }
+                        let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
+                        strongSelf.fixturesArray.append(contentsOf: fixturesArray)
+                        cnt+=1
+                        if cnt == group.count {
+                            strongSelf.getFixturesFromLocalDB()
+                        }
+                    } else {
+                        self?.potTableView.setEmptyMessage("No Data Available")
+                    }
+                }
+            }
+        }
+        
+    }
+            
+
+    private func getFixturesFromLocalDB() {
+        Firestore.firestore().collection("fixturePoints").document(pot.round ?? "").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                if let response = docSnapShot?.data() {
+                    let fixturePointsArray = response["0"] as? [[String: Any]]
+                    self.fixturePoints = fixturePointsArray?.toArray(of: FixturePoints.self) ?? Array<FixturePoints>()
+                    print(self.fixturePoints)
+                    self.potTableView.reloadData()
+                }
+            } else {
+                print("No Data available")
+            }
+        }
+    }
+
     func getCurrentPointsFrom(season: String) {
         self.showHUD()
         fixturePoints.removeAll()
@@ -127,43 +196,6 @@ class SP_Pot_Invitee_ViewController: UIViewController {
 //                self.getFixturePoints(bookMakerId: 6)
             }
             self.potTableView.reloadData()
-        }
-    }
-
-    private func getFixturesFromServer() {
-        
-        if fixturesArray.isEmpty {
-            self.potTableView.restore()
-//            refreshControl.beginRefreshing()
-        }
-        let localTimeZone = TimeZone.current.identifier
-        self.showHUD()
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
-                                        Constants.kCurrentRound + Constants.kTimeZone + localTimeZone,
-                                     method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
-            guard let strongSelf = self else { return }
-            strongSelf.hideHUD()
-            if let response = response {
-                if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
-                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? [] //, keyDecodingStartegy: .convertFromSnakeCase) ?? []
-                    strongSelf.fixturesArray = fixturesArray
-                    strongSelf.remainingFixturesArray = fixturesArray.filter({ (fixObj) -> Bool in
-                        !fixObj.isMatchOnGoing()
-                    }).sorted(by: { $0.event_timestamp < $1.event_timestamp })
-                    
-                    let cnt = Int(strongSelf.fixtureCount) ?? 0
-                    if strongSelf.remainingFixturesArray.count != cnt {
-                        strongSelf.popupAlert(title: "Oops!", message: strongSelf.matchesBeganError, actionTitles: ["Okay"], actions: [{ action1 in
-                            strongSelf.dismiss(animated: false, completion: nil)
-                        }])
-                        return
-                    }
-                    strongSelf.getCurrentPointsFrom(season: UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) ?? "")
-
-                } else {
-                    self?.potTableView.setEmptyMessage("No Data Available")
-                }
-            }
         }
     }
 

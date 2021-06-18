@@ -26,6 +26,7 @@ class SP_RankingsViewController: UIViewController {
     private var winner: String = ""
     private var isWinnerDeclared: Bool = false
     private var shouldPopToRoot = true
+    var groups = [String]()
     typealias apiCompletionHandler = (_ success: Bool) -> Void
     
     override func viewDidLoad() {
@@ -75,6 +76,13 @@ class SP_RankingsViewController: UIViewController {
         }
     }
     
+    @IBAction func viewPotAction(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewPotVC = storyboard.instantiateViewController(identifier: String(describing: SP_PotPreviewViewController.self)) as? SP_PotPreviewViewController else { return }
+        viewPotVC.pot = pot
+        present(viewPotVC, animated: true, completion: nil)
+    }
+    
     @IBAction func sharePotAction(_ sender: Any) {
         var baseStr = Constants.kDYNAMIC_LINK_BASE_URL
         baseStr.append("/" + pot.potID)
@@ -95,29 +103,111 @@ class SP_RankingsViewController: UIViewController {
                 
             }
             if let round = self.pot.round{
-                self.getFixturesFrom(round: round)
+//                self.getFixturesFrom(round: round)
+                self.getCurrentWeekForPoints()
             } else {
                 self.joinees.append(contentsOf: self.pot.joinees)
                 self.rankingTableView.reloadData()
             }
         }
     }
-    
-    func getFixturesFrom(round: String) {
+    fileprivate func getCurrentWeekForPoints() {
         self.showHUD()
+        Firestore.firestore().collection("currentWeekForPoints").document("currentWeek").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let round = self.pot.round else {return}
+                guard let weekNums = currentWeekStr["currentRound"] as? [String:[String]] else {return}
+                self.groups = weekNums[round] ?? [String]()
+                self.getFixturesFromServer(with: self.groups)
+            }
+        }
+    }
+
+    private func getFixturesFromServer(with group: [String]) {
+        if fixturesArr.isEmpty {
+            self.rankingTableView.restore()
+//            refreshControl.beginRefreshing()
+        }
         let localTimeZone = TimeZone.current.identifier
-        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
-            self?.hideHUD()
-            guard let self = self else { return }
-            if let response = response {
-                if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
-                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? [] //, keyDecodingStartegy: .convertFromSnakeCase) ?? []
-                    self.fixturesArr = fixturesArray
-                    self.compareScoresFrom(fixturesArr: self.fixturesArr)
+        self.showHUD()
+        self.fixturesArr.removeAll()
+        var cnt = 0
+        for round in group {
+            SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
+                                            round + Constants.kTimeZone + localTimeZone,
+                                         method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+                guard let strongSelf = self else { return }
+                strongSelf.hideHUD()
+                if let response = response {
+                    
+                    if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
+                        if fixtures.count == 0 {
+                            self?.rankingTableView.setEmptyMessage("No Data Available")
+                            return
+                        }
+                        let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
+                        strongSelf.fixturesArr.append(contentsOf: fixturesArray)
+                        cnt+=1
+                        if cnt == group.count {
+                            strongSelf.compareScoresFrom(fixturesArr: strongSelf.fixturesArr)
+//                            strongSelf.getFixturesFromLocalDB()
+                        }
+                    } else {
+                        self?.rankingTableView.setEmptyMessage("No Data Available")
+                    }
                 }
             }
         }
     }
+    
+    /*
+    func getFixturesFrom(round: String) {
+        self.showHUD()
+        let localTimeZone = TimeZone.current.identifier
+        var cnt = 0
+        for round in group {
+            SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
+                                            round + Constants.kTimeZone + localTimeZone,
+                                         method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+                guard let strongSelf = self else { return }
+                strongSelf.hideHUD()
+                if let response = response {
+                    
+                    if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
+                        if fixtures.count == 0 {
+                            self?.matchTableView.setEmptyMessage("No Data Available")
+                            return
+                        }
+                        let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? []
+                        strongSelf.fixturesArray.append(contentsOf: fixturesArray)
+                        cnt+=1
+                        if cnt == group.count {
+                            strongSelf.getFixturesFromLocalDB()
+                            self.compareScoresFrom(fixturesArr: self.fixturesArr)
+                        }
+                    } else {
+                        self?.matchTableView.setEmptyMessage("No Data Available")
+                    }
+                }
+            }
+        }
+    }
+ */
+        
+//        SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone, method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+//            self?.hideHUD()
+//            guard let self = self else { return }
+//            if let response = response {
+//                if let fixtures = response["api"]["fixtures"].arrayObject as? JSONArray {
+//                    let fixturesArray = fixtures.toArray(of: FixtureModel.self) ?? [] //, keyDecodingStartegy: .convertFromSnakeCase) ?? []
+//                    self.fixturesArr = fixturesArray
+//                    self.compareScoresFrom(fixturesArr: self.fixturesArr)
+//                }
+//            }
+//        }
+    
     
     func allMatchesPlayed(fixturesArr : [FixtureModel]) -> Bool {
         var allPlayed = false
@@ -357,6 +447,7 @@ extension SP_RankingsViewController : UITableViewDataSource, UITableViewDelegate
             return winnerCell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: rankingCellID, for: indexPath) as! SP_RankingTableViewCell
+        
         cell.display(joinee: joinee, index: indexPath.row + 1)
         return cell
     }

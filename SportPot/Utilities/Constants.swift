@@ -16,23 +16,25 @@ struct Constants {
     static let RAPID_HEADER_ARRAY = [   "x-rapidapi-host": RAPID_API_HOST,
                                         "x-rapidapi-key": RAPID_API_KEY]
     static let API_DOMAIN_URL = "https://api-football-v1.p.rapidapi.com/"
-    static let EPL_LEAGUE_ID_20_21 = "2790/"
+    static let EPL_LEAGUE_ID_20_21 = "403/" //"2790/"
+    static let EURO_CHAMP_LEAGUE_ID_20_21 = "403/"
     static let kDYNAMIC_LINK_BASE_URL = "https://sportpot.page.link"
-    static let kCurrentRound = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")"
+    static let kCurrentRound = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")" //"Group_Stage_-_1"
     static let kTimeZone = "?timezone="
     static let kMaxMatchesRemaining = 3
     static let kBookMakerID = 6 //BWin
 }
+
 struct ErrorMessages {
     static let passwordError = "Please enter a password"
     static let emailPhoneError = "Please enter registered email address or phone number"
     static let userNameExistsError = "Username already exists! Please try another one!"
 }
-//https://api-football-v1.p.rapidapi.com/v2/fixtures/league/2790/Regular_Season_-_8
+
 struct APIEndPoints {
     static let getCurrentRound = "v2/fixtures/rounds/" + Constants.EPL_LEAGUE_ID_20_21 + "/current"
     static let getFixturesfromLeague = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21
-    static let getLastFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/last/10?timezone=" //Testing purposes only
+    static let getLastFixtures = "v2/fixtures/league/" + Constants.EPL_LEAGUE_ID_20_21 + "/last/10?timezone="
 }
 
 struct PopupType {
@@ -43,6 +45,7 @@ struct PopupType {
         case AlreadySelectedThreeDoubleDown
     }
 }
+
 struct UserDefaultsConstants {
     static let currentRoundKey = "currentRound"
     static let launchCountKey = "launchCount"

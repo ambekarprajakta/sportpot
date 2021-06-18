@@ -21,11 +21,381 @@
         <array key="Ubuntu-Regular.ttf">
             <string>Ubuntu-Regular</string>
         </array>
-        <array key="fa-solid-900.ttf">
-            <string>FontAwesome5Free-Solid</string>
-        </array>
     </customFonts>
     <scenes>
+        <!--Menu Table View Controller-->
+        <scene sceneID="KXh-gD-cbG">
+            <objects>
+                <tableViewController storyboardIdentifier="SP_MenuTableViewController" id="aa3-xT-fuF" customClass="SP_MenuTableViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fbG-3o-82t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="yhh-eL-Maw">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhh-eL-Maw" id="3AP-HC-RMw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aa3-xT-fuF" id="BKT-Ga-hMT"/>
+                            <outlet property="delegate" destination="aa3-xT-fuF" id="cEk-Gx-W0G"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="cl4-lQ-7h9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vxu-h8-vVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5010" y="856"/>
+        </scene>
+        <!--Rules View Controller-->
+        <scene sceneID="ovP-iU-mTE">
+            <objects>
+                <viewController storyboardIdentifier="SP_RulesViewController" id="zc6-qr-BUf" customClass="SP_RulesViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d2Y-ge-GPk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJZ-HB-o6f">
+                                <rect key="frame" x="15" y="59" width="384" height="25"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="22"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-cH-RrJ">
+                                <rect key="frame" x="15" y="99" width="384" height="748"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="A “">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="pot">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">” is an accumulator of matches. 
+All players enter the pot and place their bets on the pot matches. 
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">The pot winner is determined by a filtration system:
+
+                             </string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ACCURACY">
+                                        <attributes>
+                                            <color key="NSColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Player with most correct bets- wins the pot!
+If multiple players have same accuracy (%), the winner is the player with most points accumulated.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+CgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="POINTS">
+                                        <attributes>
+                                            <color key="NSColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">When players have equal accuracy (point 1 above),  the winner is the player whose collected most points. Players collect points for each accurate bet.
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+CgogICAgICAgICAgICAgICAgICAgICA
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="DOUBLE DOWNS (X2)">
+                                        <attributes>
+                                            <color key="NSColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">If multiple players have equal “accuracy” AND equal “points” (point 1&amp;2 above), the winner is the player whose got more “double downs” (X2).
+Each player gets to double down on 3 matches in a pot. When players double down on a bet and get it right, they receive double the points for that match.</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="Ubuntu-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sg7-4i-EHE">
+                                <rect key="frame" x="344" y="44.5" width="55" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAction:" destination="zc6-qr-BUf" eventType="touchUpInside" id="0Ne-p2-zwY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SIu-ux-emo"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="sg7-4i-EHE" firstAttribute="centerY" secondItem="iJZ-HB-o6f" secondAttribute="centerY" id="5Lq-nd-bOV"/>
+                            <constraint firstItem="iJZ-HB-o6f" firstAttribute="top" secondItem="SIu-ux-emo" secondAttribute="top" constant="15" id="7VN-Ky-ITr"/>
+                            <constraint firstItem="iJZ-HB-o6f" firstAttribute="leading" secondItem="SIu-ux-emo" secondAttribute="leading" constant="15" id="DPr-uh-bzj"/>
+                            <constraint firstItem="sg7-4i-EHE" firstAttribute="trailing" secondItem="SB2-cH-RrJ" secondAttribute="trailing" id="PAd-CJ-mJC"/>
+                            <constraint firstItem="SB2-cH-RrJ" firstAttribute="leading" secondItem="SIu-ux-emo" secondAttribute="leading" constant="15" id="WPW-ah-0fg"/>
+                            <constraint firstItem="SIu-ux-emo" firstAttribute="trailing" secondItem="SB2-cH-RrJ" secondAttribute="trailing" constant="15" id="b6a-FU-KYR"/>
+                            <constraint firstItem="SIu-ux-emo" firstAttribute="bottom" secondItem="SB2-cH-RrJ" secondAttribute="bottom" constant="15" id="bMH-B4-CGS"/>
+                            <constraint firstItem="SIu-ux-emo" firstAttribute="trailing" secondItem="iJZ-HB-o6f" secondAttribute="trailing" constant="15" id="eGk-1W-L5l"/>
+                            <constraint firstItem="SB2-cH-RrJ" firstAttribute="top" secondItem="iJZ-HB-o6f" secondAttribute="bottom" constant="15" id="qiQ-8k-TkW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zx9-67-gPC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5058" y="1532"/>
+        </scene>
+        <!--Right Menu Nav Controller-->
+        <scene sceneID="Wbj-H0-rq3">
+            <objects>
+                <navigationController storyboardIdentifier="SP_RightMenuNavController" navigationBarHidden="YES" id="9UL-t5-8PL" customClass="SP_RightMenuNavController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EA7-Bz-esp">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aa3-xT-fuF" kind="relationship" relationship="rootViewController" id="Gdj-fM-CHS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIB-aa-nqu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4148" y="856"/>
+        </scene>
+        <!--Open Pot View Controller-->
+        <scene sceneID="Meh-Lu-bQK">
+            <objects>
+                <viewController storyboardIdentifier="SP_OpenPotViewController" id="AsJ-mq-XuG" customClass="SP_OpenPotViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LBw-Nx-zGO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-Q0-rtH">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="100+" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-cn-Kj0">
+                                        <rect key="frame" x="15" y="81.5" width="384" height="28.5"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZJ-cR-J9A">
+                                        <rect key="frame" x="130" y="546" width="154" height="45"/>
+                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="Kqw-Po-OGK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <state key="normal" title="Open New Pot">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" title="Link Copied!"/>
+                                        <connections>
+                                            <action selector="copyToClipboard:" destination="aqz-g7-56D" eventType="touchUpInside" id="uzz-Jl-hmd"/>
+                                            <action selector="showPotsAction:" destination="DYe-FE-oPh" eventType="touchUpInside" id="aJn-yh-00H"/>
+                                            <segue destination="DYe-FE-oPh" kind="showDetail" id="Oyh-gU-O5b"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="watching-tv" translatesAutoresizingMaskIntoConstraints="NO" id="WWC-O8-CZc">
+                                        <rect key="frame" x="30" y="339" width="354" height="177"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="WWC-O8-CZc" secondAttribute="height" multiplier="2:1" id="BDr-eJ-gdj"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Current pots" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-TW-yQs">
+                                        <rect key="frame" x="151" y="50" width="112" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O36-ru-MLM">
+                                        <rect key="frame" x="15" y="218" width="384" height="81"/>
+                                        <string key="text">Sportpot is where talking ends and winning is all that matters. All players enter the pot on equal terms but only the strongest will leave with all the glory! Stop talking- start winning!</string>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBA-Bo-nqd">
+                                        <rect key="frame" x="15" y="160" width="384" height="43"/>
+                                        <string key="text">PLAY AGAINST YOUR FRIENDS.
+WINNER TAKES THE POT!</string>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="19"/>
+                                        <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="O36-ru-MLM" firstAttribute="leading" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="15" id="0pN-wY-6a8"/>
+                                    <constraint firstItem="Sc8-TW-yQs" firstAttribute="centerX" secondItem="SHi-cn-Kj0" secondAttribute="centerX" id="3iA-pf-qCc"/>
+                                    <constraint firstItem="WWC-O8-CZc" firstAttribute="centerX" secondItem="qUA-Q0-rtH" secondAttribute="centerX" id="9bx-VD-8Dz"/>
+                                    <constraint firstItem="SHi-cn-Kj0" firstAttribute="leading" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="15" id="Bpq-2d-j6s"/>
+                                    <constraint firstItem="SHi-cn-Kj0" firstAttribute="centerX" secondItem="qUA-Q0-rtH" secondAttribute="centerX" id="Dsb-Ru-Hr6"/>
+                                    <constraint firstItem="SHi-cn-Kj0" firstAttribute="top" secondItem="Sc8-TW-yQs" secondAttribute="bottom" constant="10" id="EGx-Uq-Hnl"/>
+                                    <constraint firstItem="Sc8-TW-yQs" firstAttribute="top" secondItem="qUA-Q0-rtH" secondAttribute="top" constant="50" id="OdH-6U-UjU"/>
+                                    <constraint firstItem="WWC-O8-CZc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="30" id="RLi-Bn-E8E"/>
+                                    <constraint firstAttribute="trailing" secondItem="SHi-cn-Kj0" secondAttribute="trailing" constant="15" id="RvA-pR-7XH"/>
+                                    <constraint firstItem="O36-ru-MLM" firstAttribute="top" secondItem="yBA-Bo-nqd" secondAttribute="bottom" constant="15" id="UdF-v0-UrB"/>
+                                    <constraint firstItem="IZJ-cR-J9A" firstAttribute="centerX" secondItem="SHi-cn-Kj0" secondAttribute="centerX" id="Xhs-PC-TE9"/>
+                                    <constraint firstItem="yBA-Bo-nqd" firstAttribute="top" secondItem="SHi-cn-Kj0" secondAttribute="bottom" constant="50" id="Xuv-WJ-1Gg"/>
+                                    <constraint firstAttribute="trailing" secondItem="yBA-Bo-nqd" secondAttribute="trailing" constant="15" id="YMf-bw-JZl"/>
+                                    <constraint firstItem="O36-ru-MLM" firstAttribute="top" secondItem="yBA-Bo-nqd" secondAttribute="bottom" constant="15" id="Z3X-N1-nD2"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WWC-O8-CZc" secondAttribute="trailing" constant="30" id="bdF-1a-F9h"/>
+                                    <constraint firstAttribute="trailing" secondItem="O36-ru-MLM" secondAttribute="trailing" constant="15" id="dCN-mN-NSH"/>
+                                    <constraint firstItem="yBA-Bo-nqd" firstAttribute="leading" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="15" id="hka-ec-eqK"/>
+                                    <constraint firstItem="IZJ-cR-J9A" firstAttribute="top" secondItem="WWC-O8-CZc" secondAttribute="bottom" constant="30" id="mOD-Wj-tIF"/>
+                                    <constraint firstItem="WWC-O8-CZc" firstAttribute="top" secondItem="O36-ru-MLM" secondAttribute="bottom" constant="40" id="wwq-qf-1Rn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CrV-zo-7lq"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CrV-zo-7lq" firstAttribute="bottom" secondItem="qUA-Q0-rtH" secondAttribute="bottom" id="Gsf-0n-ztY"/>
+                            <constraint firstItem="qUA-Q0-rtH" firstAttribute="top" secondItem="CrV-zo-7lq" secondAttribute="top" id="YMK-Jj-MJq"/>
+                            <constraint firstItem="qUA-Q0-rtH" firstAttribute="leading" secondItem="LBw-Nx-zGO" secondAttribute="leading" id="pro-FZ-KYi"/>
+                            <constraint firstItem="CrV-zo-7lq" firstAttribute="trailing" secondItem="qUA-Q0-rtH" secondAttribute="trailing" id="qYB-Db-75a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Faa-uT-0Az">
+                        <barButtonItem key="rightBarButtonItem" image="hamburger-menu" style="plain" id="R7J-DV-msc">
+                            <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="hamburgerMenuAction:" destination="AsJ-mq-XuG" id="Zsr-IS-Hhs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="totalPotsCountLabel" destination="SHi-cn-Kj0" id="yIN-6F-uaD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Uo-jE-IXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3271.0144927536235" y="865.84821428571422"/>
+        </scene>
         <!--Get Started View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -845,41 +1215,41 @@
             <objects>
                 <viewController storyboardIdentifier="SP_HomeViewController" id="DYe-FE-oPh" customClass="SP_HomeViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Elg-jq-UX3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxj-Gk-05b">
-                                <rect key="frame" x="0.0" y="768" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="763" width="377" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lDg-lq-Pcx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Open New Pot">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="openNewPotAction:" destination="DYe-FE-oPh" eventType="touchUpInside" id="RVq-jE-yqQ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="you-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="2Ss-KW-Vln">
-                                <rect key="frame" x="55" y="103" width="83" height="83"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="you-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="2Ss-KW-Vln">
+                                <rect key="frame" x="113" y="15" width="41" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2Ss-KW-Vln" secondAttribute="height" multiplier="1:1" id="Nxu-2B-4gg"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-al-f1A">
-                                <rect key="frame" x="207" y="103" width="83" height="83"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="friends-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-al-f1A">
+                                <rect key="frame" x="223" y="15" width="41" height="41"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V/S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i57-rc-MCk">
-                                <rect key="frame" x="158" y="134" width="29" height="21"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V/S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i57-rc-MCk">
+                                <rect key="frame" x="174" y="25" width="29" height="21"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOq-k9-1OQ">
-                                <rect key="frame" x="310" y="103" width="1" height="83"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOq-k9-1OQ">
+                                <rect key="frame" x="284" y="15" width="1" height="41"/>
                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="4zq-D8-F4q"/>
@@ -888,8 +1258,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-Ud-5y6">
-                                <rect key="frame" x="331" y="116.5" width="56" height="56"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-Ud-5y6">
+                                <rect key="frame" x="305" y="7.5" width="56" height="56"/>
                                 <color key="backgroundColor" red="0.035294117647058823" green="0.41568627450980389" blue="0.70588235294117641" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="Bi3-3A-mAR"/>
@@ -906,8 +1276,8 @@ points</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-Zu-yAv">
-                                <rect key="frame" x="0.0" y="206" width="414" height="1"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnK-Zu-yAv" userLabel="Line">
+                                <rect key="frame" x="0.0" y="59" width="377" height="1"/>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="A6f-KD-L87"/>
@@ -916,39 +1286,16 @@ points</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmc-32-qtq">
-                                <rect key="frame" x="15" y="227" width="20" height="20"/>
-                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="eYO-nG-3HZ"/>
-                                    <constraint firstAttribute="height" constant="20" id="wTK-NG-ae0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FontAwesome5Free-Solid" family="Font Awesome 5 Free" pointSize="8"/>
-                                <state key="normal" title="">
-                                    <color key="titleColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Matches 1 Winner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUu-mq-tjB">
-                                <rect key="frame" x="50" y="228.5" width="349" height="17"/>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q40-Zw-Jko">
-                                <rect key="frame" x="15" y="267" width="384" height="501"/>
+                                <rect key="frame" x="15" y="75" width="347" height="678"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MatchTableViewCell" id="CPe-AN-QRn">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="347" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CPe-AN-QRn" id="9tQ-5d-qmj">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="347" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
@@ -960,39 +1307,47 @@ points</string>
                                     <outlet property="delegate" destination="DYe-FE-oPh" id="3m0-fQ-C3d"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGB-CL-smL">
+                                <rect key="frame" x="15" y="15" width="347" height="36"/>
+                                <string key="text">Place your bets and invite your friends to play. 
+Player with most correct bets, wins the pot.</string>
+                                <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pac-6f-tiQ"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="q40-Zw-Jko" firstAttribute="top" secondItem="bmc-32-qtq" secondAttribute="bottom" constant="20" id="5Ts-lO-QL3"/>
                             <constraint firstItem="hOq-k9-1OQ" firstAttribute="leading" secondItem="hUc-al-f1A" secondAttribute="trailing" constant="20" id="6aH-bz-M4Q"/>
-                            <constraint firstItem="pac-6f-tiQ" firstAttribute="trailing" secondItem="BnK-Zu-yAv" secondAttribute="trailing" id="75x-9u-c0L"/>
                             <constraint firstItem="2Ss-KW-Vln" firstAttribute="top" secondItem="pac-6f-tiQ" secondAttribute="top" constant="15" id="8VJ-na-MuE"/>
                             <constraint firstItem="AD6-Ud-5y6" firstAttribute="centerY" secondItem="hUc-al-f1A" secondAttribute="centerY" id="9Tv-N8-HCe"/>
                             <constraint firstItem="i57-rc-MCk" firstAttribute="leading" secondItem="2Ss-KW-Vln" secondAttribute="trailing" constant="20" id="AbP-sw-dXe"/>
                             <constraint firstItem="pac-6f-tiQ" firstAttribute="bottom" secondItem="Vxj-Gk-05b" secondAttribute="bottom" id="BUW-7s-U4h"/>
                             <constraint firstItem="hUc-al-f1A" firstAttribute="width" secondItem="2Ss-KW-Vln" secondAttribute="width" id="DUv-ai-ofI"/>
                             <constraint firstItem="hUc-al-f1A" firstAttribute="centerY" secondItem="2Ss-KW-Vln" secondAttribute="centerY" id="Dd0-0W-Zex"/>
+                            <constraint firstItem="CGB-CL-smL" firstAttribute="leading" secondItem="q40-Zw-Jko" secondAttribute="leading" id="Egi-Uu-Fe8"/>
                             <constraint firstItem="pac-6f-tiQ" firstAttribute="trailing" secondItem="Vxj-Gk-05b" secondAttribute="trailing" id="FCo-QA-ZHn"/>
                             <constraint firstItem="hUc-al-f1A" firstAttribute="height" secondItem="2Ss-KW-Vln" secondAttribute="height" id="FtI-8k-dW2"/>
-                            <constraint firstItem="BnK-Zu-yAv" firstAttribute="top" secondItem="2Ss-KW-Vln" secondAttribute="bottom" constant="20" id="Fwg-TO-r2W"/>
                             <constraint firstItem="i57-rc-MCk" firstAttribute="centerY" secondItem="2Ss-KW-Vln" secondAttribute="centerY" id="Hhw-gC-Y4r"/>
                             <constraint firstItem="BnK-Zu-yAv" firstAttribute="leading" secondItem="pac-6f-tiQ" secondAttribute="leading" id="IaY-nj-fGu"/>
-                            <constraint firstItem="pac-6f-tiQ" firstAttribute="trailing" secondItem="uUu-mq-tjB" secondAttribute="trailing" constant="15" id="RI2-sl-Ca6"/>
-                            <constraint firstItem="uUu-mq-tjB" firstAttribute="centerY" secondItem="bmc-32-qtq" secondAttribute="centerY" id="SNF-v5-cXO"/>
-                            <constraint firstItem="2Ss-KW-Vln" firstAttribute="width" secondItem="Elg-jq-UX3" secondAttribute="width" multiplier="0.2" id="YeU-V1-MHl"/>
+                            <constraint firstItem="q40-Zw-Jko" firstAttribute="top" secondItem="BnK-Zu-yAv" secondAttribute="bottom" constant="15" id="RGl-Yq-Zx7"/>
+                            <constraint firstItem="i57-rc-MCk" firstAttribute="centerX" secondItem="Elg-jq-UX3" secondAttribute="centerX" id="U2g-gD-psS"/>
+                            <constraint firstItem="pac-6f-tiQ" firstAttribute="top" secondItem="AD6-Ud-5y6" secondAttribute="bottom" constant="-63.5" id="WT2-va-HFi"/>
+                            <constraint firstItem="2Ss-KW-Vln" firstAttribute="width" secondItem="Elg-jq-UX3" secondAttribute="width" multiplier="0.1" id="YeU-V1-MHl"/>
                             <constraint firstItem="hOq-k9-1OQ" firstAttribute="centerY" secondItem="hUc-al-f1A" secondAttribute="centerY" id="bHV-De-sBn"/>
-                            <constraint firstItem="q40-Zw-Jko" firstAttribute="leading" secondItem="bmc-32-qtq" secondAttribute="leading" id="diX-sM-gO5"/>
-                            <constraint firstItem="Vxj-Gk-05b" firstAttribute="top" secondItem="q40-Zw-Jko" secondAttribute="bottom" id="fr4-um-3hW"/>
-                            <constraint firstItem="uUu-mq-tjB" firstAttribute="leading" secondItem="bmc-32-qtq" secondAttribute="trailing" constant="15" id="gWK-oJ-K7l"/>
-                            <constraint firstItem="bmc-32-qtq" firstAttribute="top" secondItem="BnK-Zu-yAv" secondAttribute="bottom" constant="20" id="gXT-bh-eb9"/>
-                            <constraint firstItem="q40-Zw-Jko" firstAttribute="trailing" secondItem="uUu-mq-tjB" secondAttribute="trailing" id="gjx-JU-MTR"/>
-                            <constraint firstItem="bmc-32-qtq" firstAttribute="leading" secondItem="pac-6f-tiQ" secondAttribute="leading" constant="15" id="jL1-0o-ZFL"/>
+                            <constraint firstAttribute="trailing" secondItem="BnK-Zu-yAv" secondAttribute="trailing" id="cYA-2R-eoQ"/>
+                            <constraint firstItem="Vxj-Gk-05b" firstAttribute="top" secondItem="q40-Zw-Jko" secondAttribute="bottom" constant="10" id="fr4-um-3hW"/>
+                            <constraint firstItem="q40-Zw-Jko" firstAttribute="centerX" secondItem="Elg-jq-UX3" secondAttribute="centerX" id="jg8-9S-vZn"/>
                             <constraint firstItem="hUc-al-f1A" firstAttribute="leading" secondItem="i57-rc-MCk" secondAttribute="trailing" constant="20" id="mV0-g7-t87"/>
+                            <constraint firstAttribute="trailing" secondItem="q40-Zw-Jko" secondAttribute="trailing" constant="15" id="noS-gm-gh4"/>
                             <constraint firstItem="AD6-Ud-5y6" firstAttribute="leading" secondItem="hOq-k9-1OQ" secondAttribute="trailing" constant="20" id="tV3-mU-jYa"/>
+                            <constraint firstItem="BnK-Zu-yAv" firstAttribute="top" secondItem="CGB-CL-smL" secondAttribute="bottom" constant="8" id="twn-Yc-iid"/>
                             <constraint firstItem="Vxj-Gk-05b" firstAttribute="leading" secondItem="pac-6f-tiQ" secondAttribute="leading" id="uAY-Xz-gRD"/>
+                            <constraint firstItem="q40-Zw-Jko" firstAttribute="leading" secondItem="pac-6f-tiQ" secondAttribute="leading" constant="15" id="whB-5K-5IQ"/>
                             <constraint firstItem="hOq-k9-1OQ" firstAttribute="height" secondItem="hUc-al-f1A" secondAttribute="height" id="x6j-8n-kj2"/>
-                            <constraint firstItem="hUc-al-f1A" firstAttribute="leading" secondItem="Elg-jq-UX3" secondAttribute="centerX" id="yj9-FR-WqO"/>
+                            <constraint firstItem="CGB-CL-smL" firstAttribute="trailing" secondItem="q40-Zw-Jko" secondAttribute="trailing" id="y6c-Qw-vIN"/>
+                            <constraint firstItem="CGB-CL-smL" firstAttribute="top" secondItem="pac-6f-tiQ" secondAttribute="top" constant="15" id="zFP-cy-fnO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lZe-SG-EMk">
@@ -1005,6 +1360,7 @@ points</string>
                     </navigationItem>
                     <connections>
                         <outlet property="matchTableView" destination="q40-Zw-Jko" id="2Wj-qx-Jp4"/>
+                        <outlet property="nextButton" destination="Vxj-Gk-05b" id="HoY-ul-iV0"/>
                         <outlet property="totalPointsLabel" destination="AD6-Ud-5y6" id="z6I-VH-zjx"/>
                         <segue destination="bTP-e8-gMc" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToVCWithSegue:" id="uBH-TV-3AW"/>
                     </connections>
@@ -1031,7 +1387,6 @@ points</string>
                         <segue destination="dcO-F4-WRz" kind="relationship" relationship="viewControllers" id="zdB-Uq-GZi"/>
                         <segue destination="aup-Dh-z5B" kind="relationship" relationship="viewControllers" id="NwV-14-S1z"/>
                         <segue destination="Kyc-UE-Mc8" kind="relationship" relationship="viewControllers" id="sGb-xa-RMb"/>
-                        <segue destination="xLt-kn-Y0e" kind="relationship" relationship="viewControllers" id="Epy-KN-fG8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHY-E4-Thf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1437,13 +1792,13 @@ points</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rankings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhd-9s-aZh">
-                                <rect key="frame" x="15" y="177.5" width="384" height="17"/>
+                                <rect key="frame" x="15" y="162.5" width="384" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="juO-0G-JtE">
-                                <rect key="frame" x="20.5" y="224.5" width="373" height="358.5"/>
+                                <rect key="frame" x="20.5" y="209.5" width="373" height="509.5"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1551,72 +1906,69 @@ points</string>
                                     <outlet property="delegate" destination="vBX-RM-KOA" id="1xX-mq-J98"/>
                                 </connections>
                             </tableView>
-                            <button hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-xb-AmU">
-                                <rect key="frame" x="60" y="613" width="132" height="35"/>
-                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="bzD-G8-8De"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Pot Matches">
-                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="dismissAction:" destination="uwI-2X-Tdy" eventType="touchUpInside" id="Kkm-BJ-V9d"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated at: 15-08-2020 10:10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-Nu-p24">
-                                <rect key="frame" x="15" y="208.5" width="384" height="12"/>
+                                <rect key="frame" x="15" y="194" width="384" height="11.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5t-Qn-cn5">
-                                <rect key="frame" x="150" y="613" width="114" height="35"/>
-                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="mZW-Yd-mrc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
-                                <state key="normal" title="Share Pot">
-                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sharePotAction:" destination="vBX-RM-KOA" eventType="touchUpInside" id="avd-Xw-h5o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-JX-Z8u">
-                                <rect key="frame" x="143.5" y="678" width="127" height="35"/>
-                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                <state key="normal" title="Group Chat">
-                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="groupChatAction:" destination="vBX-RM-KOA" eventType="touchUpInside" id="C07-zT-0gZ"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-oa-aj6">
+                                <rect key="frame" x="20.5" y="749" width="373" height="34"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-JX-Z8u">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="34"/>
+                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                        <color key="tintColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
+                                        <state key="normal" title="Group Chat">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="groupChatAction:" destination="vBX-RM-KOA" eventType="touchUpInside" id="C07-zT-0gZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5t-Qn-cn5">
+                                        <rect key="frame" x="143" y="0.0" width="112.5" height="34"/>
+                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Share Pot">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sharePotAction:" destination="vBX-RM-KOA" eventType="touchUpInside" id="avd-Xw-h5o"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-xb-AmU">
+                                        <rect key="frame" x="267.5" y="0.0" width="105.5" height="34"/>
+                                        <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="My Bets">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="viewPotAction:" destination="vBX-RM-KOA" eventType="touchUpInside" id="kg1-BU-bAW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9i7-TU-TrD"/>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.18431372549019609" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -1625,21 +1977,16 @@ points</string>
                             <constraint firstItem="juO-0G-JtE" firstAttribute="top" secondItem="xhd-9s-aZh" secondAttribute="bottom" constant="30" id="1nA-3P-oAA"/>
                             <constraint firstItem="J4I-5l-pP4" firstAttribute="trailing" secondItem="xhd-9s-aZh" secondAttribute="trailing" id="4UM-Ef-OfR"/>
                             <constraint firstItem="xhd-9s-aZh" firstAttribute="leading" secondItem="J4I-5l-pP4" secondAttribute="leading" id="ALt-PA-fBs"/>
-                            <constraint firstItem="H5t-Qn-cn5" firstAttribute="top" secondItem="juO-0G-JtE" secondAttribute="bottom" constant="30" id="DIr-nf-9ZU"/>
-                            <constraint firstItem="juO-0G-JtE" firstAttribute="height" secondItem="Ziq-xY-ZHr" secondAttribute="height" multiplier="0.4" id="Fe2-tf-fe4"/>
-                            <constraint firstItem="xhd-9s-aZh" firstAttribute="top" secondItem="J4I-5l-pP4" secondAttribute="bottom" constant="30" id="HPL-8b-2ra"/>
+                            <constraint firstItem="xhd-9s-aZh" firstAttribute="top" secondItem="J4I-5l-pP4" secondAttribute="bottom" constant="15" id="HPL-8b-2ra"/>
+                            <constraint firstItem="9i7-TU-TrD" firstAttribute="bottom" secondItem="TlC-oa-aj6" secondAttribute="bottom" constant="30" id="HaD-sJ-M9H"/>
                             <constraint firstItem="juO-0G-JtE" firstAttribute="width" secondItem="Ziq-xY-ZHr" secondAttribute="width" multiplier="0.9" id="I6q-9s-Bxs"/>
-                            <constraint firstItem="BdT-xb-AmU" firstAttribute="leading" secondItem="9i7-TU-TrD" secondAttribute="leading" constant="60" id="IpA-1k-S7i"/>
-                            <constraint firstItem="M9N-JX-Z8u" firstAttribute="centerX" secondItem="H5t-Qn-cn5" secondAttribute="centerX" id="NdQ-Bz-e6v"/>
-                            <constraint firstItem="BdT-xb-AmU" firstAttribute="trailing" secondItem="Ziq-xY-ZHr" secondAttribute="centerX" constant="-15" id="RDm-pt-ZAX"/>
-                            <constraint firstItem="BdT-xb-AmU" firstAttribute="top" secondItem="juO-0G-JtE" secondAttribute="bottom" constant="30" id="VMN-cN-0u8"/>
-                            <constraint firstItem="M9N-JX-Z8u" firstAttribute="height" secondItem="H5t-Qn-cn5" secondAttribute="height" id="YQX-aV-wg8"/>
+                            <constraint firstItem="TlC-oa-aj6" firstAttribute="trailing" secondItem="juO-0G-JtE" secondAttribute="trailing" id="QXq-yI-U10"/>
+                            <constraint firstItem="TlC-oa-aj6" firstAttribute="leading" secondItem="juO-0G-JtE" secondAttribute="leading" id="Uom-LC-VFl"/>
                             <constraint firstItem="vM4-Nu-p24" firstAttribute="leading" secondItem="9i7-TU-TrD" secondAttribute="leading" constant="15" id="aqD-db-gK9"/>
                             <constraint firstItem="juO-0G-JtE" firstAttribute="top" secondItem="vM4-Nu-p24" secondAttribute="bottom" constant="4" id="eGq-l8-JQ0"/>
                             <constraint firstItem="9i7-TU-TrD" firstAttribute="trailing" secondItem="vM4-Nu-p24" secondAttribute="trailing" constant="15" id="gAh-Nb-BJq"/>
-                            <constraint firstItem="H5t-Qn-cn5" firstAttribute="centerX" secondItem="juO-0G-JtE" secondAttribute="centerX" id="jIh-KO-ui3"/>
-                            <constraint firstItem="M9N-JX-Z8u" firstAttribute="top" secondItem="BdT-xb-AmU" secondAttribute="bottom" constant="30" id="kiG-bI-A0u"/>
                             <constraint firstItem="juO-0G-JtE" firstAttribute="centerX" secondItem="Ziq-xY-ZHr" secondAttribute="centerX" id="mbb-gy-C1m"/>
+                            <constraint firstItem="TlC-oa-aj6" firstAttribute="top" secondItem="juO-0G-JtE" secondAttribute="bottom" constant="30" id="oHF-Ua-Nz7"/>
                             <constraint firstItem="J4I-5l-pP4" firstAttribute="top" secondItem="9i7-TU-TrD" secondAttribute="top" constant="30" id="qr7-Xp-tlV"/>
                             <constraint firstItem="J4I-5l-pP4" firstAttribute="leading" secondItem="9i7-TU-TrD" secondAttribute="leading" constant="15" id="sy4-wm-zZg"/>
                             <constraint firstItem="9i7-TU-TrD" firstAttribute="trailing" secondItem="J4I-5l-pP4" secondAttribute="trailing" constant="15" id="yR7-pC-sYq"/>
@@ -1728,7 +2075,7 @@ points</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="DYe-FE-oPh" kind="relationship" relationship="rootViewController" id="jcz-Zj-9a8"/>
+                        <segue destination="AsJ-mq-XuG" kind="relationship" relationship="rootViewController" id="yge-ON-ocx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeo-51-yU2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1981,7 +2328,7 @@ points</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VbP-gG-0Qf">
-                                <rect key="frame" x="360" y="56" width="40" height="40"/>
+                                <rect key="frame" x="350.5" y="55.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5RX-zl-uiP"/>
@@ -1990,8 +2337,8 @@ points</string>
                                 <attributedString key="attributedText">
                                     <fragment content="35">
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="18"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2003,20 +2350,20 @@ points</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnp-hz-Z4q">
-                                <rect key="frame" x="15" y="64" width="76.5" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnp-hz-Z4q">
+                                <rect key="frame" x="15" y="64" width="92.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35n-hm-9sV">
-                                <rect key="frame" x="353.5" y="104" width="52.5" height="12"/>
+                                <rect key="frame" x="341.5" y="103.5" width="57.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-OC-xwG">
-                                <rect key="frame" x="15" y="136" width="384" height="649.5"/>
+                                <rect key="frame" x="15" y="135.5" width="384" height="650.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -2037,7 +2384,7 @@ points</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdj-sV-VWe">
-                                <rect key="frame" x="15" y="793.5" width="384" height="15.5"/>
+                                <rect key="frame" x="15" y="794" width="384" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2049,12 +2396,12 @@ points</string>
                             <constraint firstItem="Nnp-hz-Z4q" firstAttribute="top" secondItem="Wvc-Jk-rTf" secondAttribute="top" constant="20" id="3Zv-HQ-ys6"/>
                             <constraint firstItem="Kdj-sV-VWe" firstAttribute="leading" secondItem="XDP-OC-xwG" secondAttribute="leading" id="3de-dY-vFW"/>
                             <constraint firstItem="35n-hm-9sV" firstAttribute="top" secondItem="VbP-gG-0Qf" secondAttribute="bottom" constant="8" id="6iC-PU-L3N"/>
+                            <constraint firstItem="35n-hm-9sV" firstAttribute="trailing" secondItem="XDP-OC-xwG" secondAttribute="trailing" id="7xl-iN-9FK"/>
                             <constraint firstItem="Kdj-sV-VWe" firstAttribute="trailing" secondItem="XDP-OC-xwG" secondAttribute="trailing" id="8Ge-aH-hbV"/>
                             <constraint firstItem="XDP-OC-xwG" firstAttribute="top" secondItem="35n-hm-9sV" secondAttribute="bottom" constant="20" id="AxV-Hj-wdq"/>
                             <constraint firstItem="Kdj-sV-VWe" firstAttribute="top" secondItem="XDP-OC-xwG" secondAttribute="bottom" constant="8" id="COp-VR-7d7"/>
                             <constraint firstItem="j0J-7w-jkc" firstAttribute="top" secondItem="Kdj-sV-VWe" secondAttribute="bottom" constant="8" id="D7G-In-yu9"/>
                             <constraint firstItem="VbP-gG-0Qf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Nnp-hz-Z4q" secondAttribute="trailing" constant="8" id="EB1-28-lBc"/>
-                            <constraint firstItem="Wvc-Jk-rTf" firstAttribute="trailing" secondItem="35n-hm-9sV" secondAttribute="trailing" constant="8" id="Ern-pQ-zfI"/>
                             <constraint firstItem="Wvc-Jk-rTf" firstAttribute="trailing" secondItem="XDP-OC-xwG" secondAttribute="trailing" constant="15" id="EsO-OV-cgi"/>
                             <constraint firstItem="Nnp-hz-Z4q" firstAttribute="leading" secondItem="XDP-OC-xwG" secondAttribute="leading" id="N52-f2-Mi4"/>
                             <constraint firstItem="VbP-gG-0Qf" firstAttribute="centerY" secondItem="Nnp-hz-Z4q" secondAttribute="centerY" id="WMA-3A-ygE"/>
@@ -2074,7 +2421,7 @@ points</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U55-ct-iSm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="gtB-2p-Fzv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2213" y="1576"/>
+            <point key="canvasLocation" x="1329" y="2996"/>
         </scene>
         <!--Pot Invitee View Controller-->
         <scene sceneID="OlF-nw-IMI">
@@ -2168,23 +2515,8 @@ points</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goA-2M-JVP">
-                                <rect key="frame" x="0.0" y="817" width="414" height="45"/>
-                                <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Hns-tX-9Ph"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Let's Go">
-                                    <color key="titleColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="letsGoAction:" destination="Nv5-Xc-tbr" eventType="touchUpInside" id="kXI-ri-fN6"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CPm-gs-S4q">
-                                <rect key="frame" x="350.5" y="55.5" width="40" height="40"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CPm-gs-S4q">
+                                <rect key="frame" x="344.5" y="55.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KYA-XB-S9A"/>
@@ -2193,8 +2525,8 @@ points</string>
                                 <attributedString key="attributedText">
                                     <fragment content="35">
                                         <attributes>
-                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" metaFont="system" size="18"/>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="18" name="Ubuntu-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2206,20 +2538,20 @@ points</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-Og-tcS">
-                                <rect key="frame" x="15" y="64" width="82.5" height="22.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-Og-tcS">
+                                <rect key="frame" x="161" y="64" width="92.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g51-Ny-5f8">
-                                <rect key="frame" x="341.5" y="103.5" width="57.5" height="12"/>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g51-Ny-5f8">
+                                <rect key="frame" x="330" y="103.5" width="69" height="14"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gKh-0n-5Iu">
-                                <rect key="frame" x="15" y="135.5" width="384" height="650.5"/>
+                                <rect key="frame" x="15" y="116.5" width="384" height="743.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -2235,42 +2567,31 @@ points</string>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Nv5-Xc-tbr" id="Av3-yh-lo3"/>
-                                    <outlet property="delegate" destination="Nv5-Xc-tbr" id="oOi-dJ-bba"/>
+                                    <outlet property="dataSource" destination="Nv5-Xc-tbr" id="j8n-UI-skW"/>
+                                    <outlet property="delegate" destination="Nv5-Xc-tbr" id="lHU-zT-0uG"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ip-Ry-06I">
-                                <rect key="frame" x="15" y="794" width="384" height="15"/>
-                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
-                                <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fHw-hx-ezm"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="CeP-Og-tcS" firstAttribute="leading" secondItem="gKh-0n-5Iu" secondAttribute="leading" id="1QY-y9-CSM"/>
-                            <constraint firstItem="gKh-0n-5Iu" firstAttribute="top" secondItem="g51-Ny-5f8" secondAttribute="bottom" constant="20" id="1Qt-ft-gUS"/>
-                            <constraint firstItem="2ip-Ry-06I" firstAttribute="top" secondItem="gKh-0n-5Iu" secondAttribute="bottom" constant="8" id="55a-Xb-bOl"/>
+                            <constraint firstItem="gKh-0n-5Iu" firstAttribute="top" secondItem="CeP-Og-tcS" secondAttribute="bottom" constant="30" id="1Qt-ft-gUS"/>
                             <constraint firstItem="g51-Ny-5f8" firstAttribute="top" secondItem="CPm-gs-S4q" secondAttribute="bottom" constant="8" id="9Tl-w0-XP1"/>
                             <constraint firstItem="g51-Ny-5f8" firstAttribute="trailing" secondItem="gKh-0n-5Iu" secondAttribute="trailing" id="Bnc-aL-eUw"/>
                             <constraint firstItem="CeP-Og-tcS" firstAttribute="top" secondItem="fHw-hx-ezm" secondAttribute="top" constant="20" id="LFm-6I-qvm"/>
-                            <constraint firstItem="goA-2M-JVP" firstAttribute="top" secondItem="2ip-Ry-06I" secondAttribute="bottom" constant="8" id="LVQ-68-8n3"/>
-                            <constraint firstItem="fHw-hx-ezm" firstAttribute="trailing" secondItem="goA-2M-JVP" secondAttribute="trailing" id="Rp0-rR-uqB"/>
-                            <constraint firstItem="2ip-Ry-06I" firstAttribute="trailing" secondItem="gKh-0n-5Iu" secondAttribute="trailing" id="ZdJ-SF-ETI"/>
+                            <constraint firstItem="CeP-Og-tcS" firstAttribute="centerX" secondItem="gKh-0n-5Iu" secondAttribute="centerX" id="VfN-gE-j96"/>
                             <constraint firstItem="CPm-gs-S4q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CeP-Og-tcS" secondAttribute="trailing" constant="8" id="aLy-7R-HxG"/>
-                            <constraint firstItem="2ip-Ry-06I" firstAttribute="leading" secondItem="gKh-0n-5Iu" secondAttribute="leading" id="ciT-Ku-7BD"/>
-                            <constraint firstItem="goA-2M-JVP" firstAttribute="leading" secondItem="fHw-hx-ezm" secondAttribute="leading" id="eaC-w4-67w"/>
                             <constraint firstItem="g51-Ny-5f8" firstAttribute="centerX" secondItem="CPm-gs-S4q" secondAttribute="centerX" id="gPd-0b-9ct"/>
                             <constraint firstItem="CPm-gs-S4q" firstAttribute="centerY" secondItem="CeP-Og-tcS" secondAttribute="centerY" id="hME-gg-TLC"/>
                             <constraint firstItem="fHw-hx-ezm" firstAttribute="trailing" secondItem="gKh-0n-5Iu" secondAttribute="trailing" constant="15" id="kJa-Ks-0P8"/>
-                            <constraint firstItem="fHw-hx-ezm" firstAttribute="bottom" secondItem="goA-2M-JVP" secondAttribute="bottom" id="mU7-Qf-32S"/>
+                            <constraint firstItem="fHw-hx-ezm" firstAttribute="bottom" secondItem="gKh-0n-5Iu" secondAttribute="bottom" constant="2" id="roD-Gz-tYr"/>
                             <constraint firstItem="gKh-0n-5Iu" firstAttribute="leading" secondItem="fHw-hx-ezm" secondAttribute="leading" constant="15" id="y2z-gS-BRA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="da1-Yv-c4b"/>
                     <connections>
-                        <outlet property="potTableView" destination="gKh-0n-5Iu" id="puF-ws-gBO"/>
+                        <outlet property="potTableView" destination="gKh-0n-5Iu" id="nnY-oc-RFZ"/>
+                        <outlet property="totalPointsLabel" destination="CPm-gs-S4q" id="X2M-MW-aoL"/>
                         <segue destination="kU6-kd-jQs" kind="unwind" identifier="unwindToHomeVC" unwindAction="unwindToVCWithSegue:" id="7JC-Xq-KKL"/>
                     </connections>
                 </viewController>
@@ -2532,6 +2853,65 @@ points</string>
             </objects>
             <point key="canvasLocation" x="2154" y="120"/>
         </scene>
+        <!--TermsN Privacy View Controller-->
+        <scene sceneID="rUg-kK-YcZ">
+            <objects>
+                <viewController storyboardIdentifier="SP_TermsNPrivacyViewController" id="jOZ-cX-aCJ" customClass="SP_TermsNPrivacyViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sZZ-jy-62P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-Xc-J4E">
+                                <rect key="frame" x="15" y="59" width="384" height="25"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="22"/>
+                                <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck9-yS-jxQ">
+                                <rect key="frame" x="15" y="99" width="384" height="748"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Your privacy is important to us. It is Sportpot's policy to respect your privacy regarding any information we may collect from you across our website, www.sportpot.eu, and or app, sportpot, and other sites we own and operate. We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used. We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification. We don’t share any personally identifying information publicly or with third-parties, except when required to by law. Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies. You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services. Your continued use of our website and app will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us. This policy is effective as of 26 August 2020.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahk-8u-bDu">
+                                <rect key="frame" x="344" y="44.5" width="55" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="xmark.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAction:" destination="jOZ-cX-aCJ" eventType="touchUpInside" id="aiv-eb-4Nf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="anG-4p-rHc"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ahk-8u-bDu" firstAttribute="leading" secondItem="XHb-Xc-J4E" secondAttribute="trailing" priority="250" id="0pV-Nl-OSY"/>
+                            <constraint firstItem="Ahk-8u-bDu" firstAttribute="centerY" secondItem="XHb-Xc-J4E" secondAttribute="centerY" id="C5w-H4-6cv"/>
+                            <constraint firstItem="XHb-Xc-J4E" firstAttribute="top" secondItem="anG-4p-rHc" secondAttribute="top" constant="15" id="LEw-5r-oHP"/>
+                            <constraint firstItem="ck9-yS-jxQ" firstAttribute="top" secondItem="XHb-Xc-J4E" secondAttribute="bottom" constant="15" id="NdE-4q-vxl"/>
+                            <constraint firstItem="Ahk-8u-bDu" firstAttribute="trailing" secondItem="ck9-yS-jxQ" secondAttribute="trailing" id="elg-zn-lzs"/>
+                            <constraint firstItem="anG-4p-rHc" firstAttribute="trailing" secondItem="ck9-yS-jxQ" secondAttribute="trailing" constant="15" id="gL3-6P-y5J"/>
+                            <constraint firstItem="ck9-yS-jxQ" firstAttribute="leading" secondItem="anG-4p-rHc" secondAttribute="leading" constant="15" id="rly-IE-xT0"/>
+                            <constraint firstItem="anG-4p-rHc" firstAttribute="bottom" secondItem="ck9-yS-jxQ" secondAttribute="bottom" constant="15" id="rnc-V6-N7K"/>
+                            <constraint firstItem="XHb-Xc-J4E" firstAttribute="centerX" secondItem="ck9-yS-jxQ" secondAttribute="centerX" id="tWV-6q-uNk"/>
+                            <constraint firstItem="XHb-Xc-J4E" firstAttribute="leading" secondItem="anG-4p-rHc" secondAttribute="leading" constant="15" id="wi6-QW-dci"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="ck9-yS-jxQ" id="m0A-qV-gbw"/>
+                        <outlet property="titleLabel" destination="XHb-Xc-J4E" id="jAG-Fo-Hyk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IGe-Cd-pgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4333.3333333333339" y="1530.8035714285713"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Good-Luck" width="386" height="286"/>
@@ -2539,6 +2919,7 @@ points</string>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="football" width="20" height="20"/>
         <image name="friends-dashboard" width="70" height="70"/>
+        <image name="hamburger-menu" width="25" height="25"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="logo-sport-pot" width="86" height="103"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
@@ -2550,6 +2931,8 @@ points</string>
         <image name="unselected-football" width="20" height="20"/>
         <image name="unselected-pot" width="25" height="25"/>
         <image name="unselected-settings" width="24.5" height="23"/>
+        <image name="watching-tv" width="595.5" height="421"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
         <image name="you-dashboard" width="70" height="70"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

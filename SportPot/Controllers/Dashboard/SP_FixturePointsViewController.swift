@@ -58,7 +58,6 @@ class SP_FixturePointsViewController: UIViewController {
                                 } as JSONObject
                                 red["fixtureId"] = fixtureId
                                 if let points = red.to(type: FixturePoints.self) {
-                                    print("===\n\(String(describing: points))\n===")
                                     self.fixturePoints.append(points)
                                     self.getFixturePoints(bookMakerId: bookMakerId)
                                 }
@@ -68,7 +67,6 @@ class SP_FixturePointsViewController: UIViewController {
                 } else {
                     let points = FixturePoints.init(home: Int.random(in: 1..<5), away: Int.random(in: 1..<5), draw: Int.random(in: 1..<5), fixtureId: fixtureId)
                     self.fixturePoints.append(points)
-                    print("===\n\(String(describing: points))\n===")
                     self.getFixturePoints(bookMakerId: bookMakerId)
                 }
             }
@@ -93,7 +91,6 @@ class SP_FixturePointsViewController: UIViewController {
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
-                print("Document successfully written!")
                 NotificationCenter.default.post(name: Notification.Name("refreshFixtures"), object: nil)
             }
         }

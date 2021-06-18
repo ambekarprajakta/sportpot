@@ -31,4 +31,7 @@ target 'SportPot' do
   #UX
   pod 'MBProgressHUD', '~> 1.2.0'
   
+  #Side Menu
+  pod 'SideMenu'
+  
 end

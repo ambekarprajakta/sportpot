@@ -69,14 +69,14 @@ class SP_SignInViewController: UIViewController {
                     if let userData = docSnapShot?.data() {
                         guard let username = userData["displayName"] as? String else { return }
                         UserDefaults.standard.set(username, forKey: "displayName")
+                        // Show home page
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let mainTabBarController = storyboard.instantiateViewController(identifier: "SP_MainTabBarViewController")
+                        // This is to get the SceneDelegate object from your view controller
+                        // then call the change root view controller function to change to main tab bar
+                        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
                     }
                 }
-                // Show home page
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBarController = storyboard.instantiateViewController(identifier: "SP_MainTabBarViewController")
-                // This is to get the SceneDelegate object from your view controller
-                // then call the change root view controller function to change to main tab bar
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
             }
         }
     }
