@@ -1,16 +1,8 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods,carthage,swiftpackagemanager
-# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,cocoapods,carthage,swiftpackagemanager
+# Created by https://www.toptal.com/developers/gitignore/api/swift,cocoapods,xcode
+# Edit at https://www.toptal.com/developers/gitignore?templates=swift,cocoapods,xcode
 
-### Carthage ###
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
-Carthage/Build
-
- CocoaPods ###
+### CocoaPods ###
 ## CocoaPods GitIgnore Template
 
 # CocoaPods - Only use to conserve bandwidth / Save time on Pushing
@@ -20,6 +12,7 @@ Pods/
 
 ### Swift ###
 # Xcode
+#
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
@@ -101,12 +94,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 
-### SwiftPackageManager ###
-Packages
-xcuserdata
-*.xcodeproj
-
-
 ### Xcode ###
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
@@ -124,4 +111,5 @@ xcuserdata
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,cocoapods,carthage,swiftpackagemanager
+# End of https://www.toptal.com/developers/gitignore/api/swift,cocoapods,xcode
+{"mode":"full","isActive":false}
