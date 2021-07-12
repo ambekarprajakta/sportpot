@@ -107,6 +107,8 @@ class SP_SignUp_Step1_ViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.signUpStepOne, parameters:nil)
+        
         let signUp2VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step2_ViewController") as!  SP_SignUp_Step2_ViewController
         signUp2VC.username = username
         signUp2VC.email = email

@@ -79,6 +79,7 @@
 		2CFF92CE25AAF10E004CF95A /* SP_NotificationsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFF92CC25AAF10E004CF95A /* SP_NotificationsCell.xib */; };
 		2CFF92D925AB0F5A004CF95A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF92D825AB0F5A004CF95A /* Notification.swift */; };
 		37D69894E43BDFAD3CC76F94 /* Pods_SportPot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FBC6961502CE515448DA6E /* Pods_SportPot.framework */; };
+		F437935A269C7A5B0031929C /* SPAnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4379359269C7A5B0031929C /* SPAnalyticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		2CFF92D825AB0F5A004CF95A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		82FBC6961502CE515448DA6E /* Pods_SportPot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportPot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D877A5111A39659CE4944B /* Pods-SportPot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportPot.debug.xcconfig"; path = "Target Support Files/Pods-SportPot/Pods-SportPot.debug.xcconfig"; sourceTree = "<group>"; };
+		F4379359269C7A5B0031929C /* SPAnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPAnalyticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +321,7 @@
 				2CF088E9251D5B8000501FBC /* CoreDataManager.swift */,
 				2C6DDBD92630E87A00E52574 /* PushNotificationManager.swift */,
 				2C6DDBDE2630EA6100E52574 /* PushNotificationSender.swift */,
+				F4379359269C7A5B0031929C /* SPAnalyticsManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				2C3B45BD250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift in Sources */,
 				2C3B45C0250C49E400D42300 /* SP_MatchTableViewCell.swift in Sources */,
 				09542D40251F71630060AB46 /* FixtureModel.swift in Sources */,
+				F437935A269C7A5B0031929C /* SPAnalyticsManager.swift in Sources */,
 				2C058201266C0F99004EA2F5 /* SP_OpenPotViewController.swift in Sources */,
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */,

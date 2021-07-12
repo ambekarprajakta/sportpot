@@ -56,3 +56,10 @@ struct UserDefaultsConstants {
     static let notificationToken = "notificationToken"
     
 }
+
+struct FirebaseEvents {
+    static let signUpStarted = "Sign_Up_Started"
+    static let signUpStepOne = "Sign_Up_Step_One_completed"
+    static let signUpStepTwo = "Sign_Up_Step_Two_completed"
+    static let signUpCompleted = "Sign_Up_completed"
+}

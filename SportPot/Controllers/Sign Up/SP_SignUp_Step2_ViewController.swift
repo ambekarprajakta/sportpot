@@ -43,6 +43,7 @@ class SP_SignUp_Step2_ViewController: UIViewController {
                 self.popupAlert(title: "Success!", message: "Verification code successfully sent!", actionTitles: ["Okay"], actions: [{ action1 in
                     //                    self.verificationCodeLabel.becomeFirstResponder()
                     UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                    SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.signUpStepTwo, parameters:nil)
                     let signUp3VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step3_ViewController") as!  SP_SignUp_Step3_ViewController
                     signUp3VC.phoneNumber = self.phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                     signUp3VC.username = self.username

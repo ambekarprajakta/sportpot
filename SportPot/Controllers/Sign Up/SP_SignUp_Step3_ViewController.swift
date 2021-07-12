@@ -82,6 +82,7 @@ class SP_SignUp_Step3_ViewController: UIViewController {
             } else {
                 UserDefaults.standard.set(self.email, forKey: UserDefaultsConstants.currentUserKey)
                 UserDefaults.standard.set(self.username, forKey: UserDefaultsConstants.displayNameKey)
+                SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.signUpCompleted, parameters: nil)
                 self.pushToHomeScreen()
             }
         }

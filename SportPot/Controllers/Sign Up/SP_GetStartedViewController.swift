@@ -31,8 +31,8 @@ class SP_GetStartedViewController: UIViewController {
     // MARK: - Button Actions
     
     @IBAction func signUpAction(_ sender: Any) {
+        SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.signUpStarted, parameters: nil)
         let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step1_ViewController") as!  SP_SignUp_Step1_ViewController
-        
         self.present(signUpVC, animated: true, completion: nil)
     }
     
