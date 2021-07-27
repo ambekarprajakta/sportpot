@@ -54,7 +54,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         setupTableView()
         setupDate()
 //        checkCurrentRoundForSeason()
-        getCurrentRound()
+//        getCurrentRound()
+        self.getCurrentWeekForPoints()
         
         let currentCount = UserDefaults.standard.integer(forKey: UserDefaultsConstants.launchCountKey)
         if currentCount < 3 {
@@ -116,7 +117,11 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             if error == nil {
                 guard let currentWeekStr = docSnapShot?.data() else { return }
                 guard let currentRound = currentWeekStr["currentRound"] as? String else { return }
+                guard let leagueID = currentWeekStr["leagueID"] as? String else { return }
+                guard let bookMakerID = currentWeekStr["bookMakerID"] as? String else { return }
                 UserDefaults.standard.set(currentRound, forKey: UserDefaultsConstants.currentRoundKey)
+                UserDefaults.standard.set(leagueID, forKey: UserDefaultsConstants.leagueID)
+                UserDefaults.standard.set(bookMakerID, forKey: UserDefaultsConstants.bookMakerID)
                 self.getCurrentWeekForPoints()
             }
         }

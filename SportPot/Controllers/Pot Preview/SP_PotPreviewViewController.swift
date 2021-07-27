@@ -174,6 +174,8 @@ extension SP_PotPreviewViewController : UITableViewDataSource, UITableViewDelega
         let matchCell = potTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! SP_MatchTableViewCell
         if let points = fixturePoints.first(where: {$0.fixtureId == fixturesArray[indexPath.section].fixture_id}){
             matchCell.displayFixture(fixtureModel: fixturesArray[indexPath.section], points: points, isPotPreview: true)
+            //TODO: Show predictions vs results
+            matchCell.predictionHandler(predictedFixture: predictedFixtures[indexPath.section], fixture: fixturesArray[indexPath.section])
             matchCell.updateSelection(fixture: fixturesArray[indexPath.section])
         }
         return matchCell

@@ -59,8 +59,19 @@ class SP_MatchTableViewCell: UITableViewCell {
         return false
     }
     
+    func predictionHandler(predictedFixture: Prediction, fixture: FixtureModel){
+        self.isUserInteractionEnabled = false
+        if fixture.isMatchFinished() {
+            if predictedFixture.isCorrect == false {
+                matchTimeLabel.text = "❌ Incorrect Bet"
+            }else{
+                matchTimeLabel.text = "✅ Correct Bet!"
+            }
+        }
+    }
+    
     func displayFixture(fixtureModel: FixtureModel, points: FixturePoints, isPotPreview: Bool = false, delegate: SP_MatchTableViewCellDelegate? = nil) {
-
+        
         if fixtureModel.isMatchOnGoing() && !isPotPreview {
             layerView.isHidden = false
             layerView.backgroundColor = .lightGray
@@ -70,7 +81,7 @@ class SP_MatchTableViewCell: UITableViewCell {
             layerView.isHidden = true
             layerView.backgroundColor = .clear
             layerView.alpha = 1
-            self.isUserInteractionEnabled = !isPotPreview//true
+            self.isUserInteractionEnabled = !isPotPreview
         }
         
         self.delegate = delegate
@@ -82,14 +93,14 @@ class SP_MatchTableViewCell: UITableViewCell {
         
         // Match Time
         let timeDiff = Date.currentTimeStamp.distance(to: fixtureModel.event_timestamp)
-        if timeDiff < 0 { // Always <
+        if timeDiff < 0 {
             // TODO: - Check other statuses to handle the cases
-            if fixtureModel.statusShort == "FT" {
-                matchStatusLabel.text = fixtureModel.status?.uppercased()
-                matchFinishedView.isHidden = false
+            if fixtureModel.isMatchFinished() {
+//                matchStatusLabel.text = fixtureModel.status?.uppercased()
+//                matchFinishedView.isHidden = false
                 liveView.isHidden = true
                 goalsView.isHidden = false
-                matchTimeLabel.isHidden = true
+                matchTimeLabel.isHidden = false
                 teamNameViewLeadingConstraint.constant = 0
             } else if fixtureModel.statusShort == "PST" {
                 matchStatusLabel.text = fixtureModel.status?.uppercased()
@@ -98,7 +109,7 @@ class SP_MatchTableViewCell: UITableViewCell {
                 liveView.isHidden = true
                 goalsView.isHidden = true
 //                teamNameViewLeadingConstraint.constant = 0
-            } else if fixtureModel.statusShort != "NS" { // Always != NS
+            } else if fixtureModel.statusShort != "NS" {
                 matchTimeLabel.isHidden = true
                 liveView.isHidden = false
                 goalsView.isHidden = false

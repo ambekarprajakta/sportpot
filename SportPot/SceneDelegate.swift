@@ -39,9 +39,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let homeVC: SP_MainTabBarViewController = storyboard.instantiateViewController(withIdentifier: "SP_MainTabBarViewController") as! SP_MainTabBarViewController
             self.window?.rootViewController = homeVC
         } else {
-            // Show login page
-            let loginVC: SP_GetStartedViewController = storyboard.instantiateViewController(withIdentifier: "SP_GetStartedViewController") as! SP_GetStartedViewController
-            self.window?.rootViewController = loginVC
+            // Show onboarding
+            let onboardingVC: SP_OnboardingPageViewController = storyboard.instantiateViewController(withIdentifier: "SP_OnboardingPageViewController") as! SP_OnboardingPageViewController
+            
+            self.window?.rootViewController = onboardingVC
         }
         self.window?.makeKeyAndVisible()
     }

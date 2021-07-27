@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o5z-OF-X5Z">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -28,7 +28,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SP_MenuTableViewController" id="aa3-xT-fuF" customClass="SP_MenuTableViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fbG-3o-82t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,10 +37,10 @@
                         <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="yhh-eL-Maw">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhh-eL-Maw" id="3AP-HC-RMw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,17 +63,17 @@
             <objects>
                 <viewController storyboardIdentifier="SP_RulesViewController" id="zc6-qr-BUf" customClass="SP_RulesViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d2Y-ge-GPk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Rules" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJZ-HB-o6f">
-                                <rect key="frame" x="15" y="59" width="384" height="25"/>
+                                <rect key="frame" x="15" y="15" width="345" height="25"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="22"/>
                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-cH-RrJ">
-                                <rect key="frame" x="15" y="99" width="384" height="748"/>
+                                <rect key="frame" x="15" y="55" width="345" height="597"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment content="A “">
@@ -230,7 +230,7 @@ Each player gets to double down on 3 matches in a pot. When players double down 
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sg7-4i-EHE">
-                                <rect key="frame" x="344" y="44.5" width="55" height="54"/>
+                                <rect key="frame" x="305" y="0.5" width="55" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -288,20 +288,20 @@ Each player gets to double down on 3 matches in a pot. When players double down 
             <objects>
                 <viewController storyboardIdentifier="SP_OpenPotViewController" id="AsJ-mq-XuG" customClass="SP_OpenPotViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LBw-Nx-zGO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-Q0-rtH">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="100+" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHi-cn-Kj0">
-                                        <rect key="frame" x="15" y="81.5" width="384" height="28.5"/>
+                                        <rect key="frame" x="15" y="51.5" width="345" height="28.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZJ-cR-J9A">
-                                        <rect key="frame" x="130" y="546" width="154" height="45"/>
+                                        <rect key="frame" x="110.5" y="491.5" width="154" height="45"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="Kqw-Po-OGK"/>
@@ -320,26 +320,27 @@ Each player gets to double down on 3 matches in a pot. When players double down 
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="watching-tv" translatesAutoresizingMaskIntoConstraints="NO" id="WWC-O8-CZc">
-                                        <rect key="frame" x="30" y="339" width="354" height="177"/>
+                                        <rect key="frame" x="30" y="304" width="315" height="157.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WWC-O8-CZc" secondAttribute="height" multiplier="2:1" id="BDr-eJ-gdj"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Current pots" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc8-TW-yQs">
-                                        <rect key="frame" x="151" y="50" width="112" height="21.5"/>
+                                        <rect key="frame" x="131.5" y="20" width="112" height="21.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O36-ru-MLM">
-                                        <rect key="frame" x="15" y="218" width="384" height="81"/>
-                                        <string key="text">Sportpot is where talking ends and winning is all that matters. All players enter the pot on equal terms but only the strongest will leave with all the glory! Stop talking- start winning!</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="O36-ru-MLM">
+                                        <rect key="frame" x="15" y="173" width="345" height="101"/>
+                                        <string key="text">Sportpot is where talking ends and winning is all that matters. All players enter the pot on equal terms but only the strongest will leave with all the glory!
+Stop talking- start winning!</string>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBA-Bo-nqd">
-                                        <rect key="frame" x="15" y="160" width="384" height="43"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="yBA-Bo-nqd">
+                                        <rect key="frame" x="15" y="110" width="345" height="43"/>
                                         <string key="text">PLAY AGAINST YOUR FRIENDS.
 WINNER TAKES THE POT!</string>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="19"/>
@@ -355,19 +356,19 @@ WINNER TAKES THE POT!</string>
                                     <constraint firstItem="SHi-cn-Kj0" firstAttribute="leading" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="15" id="Bpq-2d-j6s"/>
                                     <constraint firstItem="SHi-cn-Kj0" firstAttribute="centerX" secondItem="qUA-Q0-rtH" secondAttribute="centerX" id="Dsb-Ru-Hr6"/>
                                     <constraint firstItem="SHi-cn-Kj0" firstAttribute="top" secondItem="Sc8-TW-yQs" secondAttribute="bottom" constant="10" id="EGx-Uq-Hnl"/>
-                                    <constraint firstItem="Sc8-TW-yQs" firstAttribute="top" secondItem="qUA-Q0-rtH" secondAttribute="top" constant="50" id="OdH-6U-UjU"/>
+                                    <constraint firstItem="Sc8-TW-yQs" firstAttribute="top" secondItem="qUA-Q0-rtH" secondAttribute="top" constant="20" id="OdH-6U-UjU"/>
                                     <constraint firstItem="WWC-O8-CZc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="30" id="RLi-Bn-E8E"/>
                                     <constraint firstAttribute="trailing" secondItem="SHi-cn-Kj0" secondAttribute="trailing" constant="15" id="RvA-pR-7XH"/>
-                                    <constraint firstItem="O36-ru-MLM" firstAttribute="top" secondItem="yBA-Bo-nqd" secondAttribute="bottom" constant="15" id="UdF-v0-UrB"/>
+                                    <constraint firstItem="O36-ru-MLM" firstAttribute="top" secondItem="yBA-Bo-nqd" secondAttribute="bottom" constant="20" id="UdF-v0-UrB"/>
                                     <constraint firstItem="IZJ-cR-J9A" firstAttribute="centerX" secondItem="SHi-cn-Kj0" secondAttribute="centerX" id="Xhs-PC-TE9"/>
-                                    <constraint firstItem="yBA-Bo-nqd" firstAttribute="top" secondItem="SHi-cn-Kj0" secondAttribute="bottom" constant="50" id="Xuv-WJ-1Gg"/>
+                                    <constraint firstItem="yBA-Bo-nqd" firstAttribute="top" secondItem="SHi-cn-Kj0" secondAttribute="bottom" constant="30" id="Xuv-WJ-1Gg"/>
                                     <constraint firstAttribute="trailing" secondItem="yBA-Bo-nqd" secondAttribute="trailing" constant="15" id="YMf-bw-JZl"/>
-                                    <constraint firstItem="O36-ru-MLM" firstAttribute="top" secondItem="yBA-Bo-nqd" secondAttribute="bottom" constant="15" id="Z3X-N1-nD2"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WWC-O8-CZc" secondAttribute="trailing" constant="30" id="bdF-1a-F9h"/>
                                     <constraint firstAttribute="trailing" secondItem="O36-ru-MLM" secondAttribute="trailing" constant="15" id="dCN-mN-NSH"/>
                                     <constraint firstItem="yBA-Bo-nqd" firstAttribute="leading" secondItem="qUA-Q0-rtH" secondAttribute="leading" constant="15" id="hka-ec-eqK"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IZJ-cR-J9A" secondAttribute="bottom" constant="8" id="lml-Md-nWv"/>
                                     <constraint firstItem="IZJ-cR-J9A" firstAttribute="top" secondItem="WWC-O8-CZc" secondAttribute="bottom" constant="30" id="mOD-Wj-tIF"/>
-                                    <constraint firstItem="WWC-O8-CZc" firstAttribute="top" secondItem="O36-ru-MLM" secondAttribute="bottom" constant="40" id="wwq-qf-1Rn"/>
+                                    <constraint firstItem="WWC-O8-CZc" firstAttribute="top" secondItem="O36-ru-MLM" secondAttribute="bottom" constant="30" id="wwq-qf-1Rn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -394,24 +395,32 @@ WINNER TAKES THE POT!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uo-jE-IXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3271.0144927536235" y="865.84821428571422"/>
+            <point key="canvasLocation" x="-3271.1999999999998" y="865.81709145427294"/>
+        </scene>
+        <!--Onboarding Page View Controller-->
+        <scene sceneID="L9I-SU-CK0">
+            <objects>
+                <pageViewController storyboardIdentifier="SP_OnboardingPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="9qJ-gw-GCk" customClass="SP_OnboardingPageViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dMx-fJ-mvK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1478" y="121"/>
         </scene>
         <!--Get Started View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="SP_GetStartedViewController" id="BYZ-38-t0r" customClass="SP_GetStartedViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="GET STARTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ZX-sAf">
-                                <rect key="frame" x="15" y="254.5" width="384" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="GET STARTED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eK-ZX-sAf">
+                                <rect key="frame" x="15" y="256.5" width="345" height="34"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058823529409" green="0.66666666666666663" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cd-o6-Tgf">
-                                <rect key="frame" x="103.5" y="463" width="207" height="54"/>
+                                <rect key="frame" x="94" y="348.5" width="187.5" height="53"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -428,7 +437,7 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czR-oC-iOB">
-                                <rect key="frame" x="103.5" y="547" width="207" height="54"/>
+                                <rect key="frame" x="94" y="431.5" width="187.5" height="53"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -444,14 +453,14 @@ WINNER TAKES THE POT!</string>
                                     <action selector="signInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jdg-Rp-fmF"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Start with signing up or signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-x3-9Cb">
-                                <rect key="frame" x="15" y="319.5" width="384" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" text="Start with signing up or signing in" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1u-x3-9Cb">
+                                <rect key="frame" x="15" y="320.5" width="345" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="pgv-x4-Sst">
-                                <rect key="frame" x="155.5" y="136" width="103.5" height="103.5"/>
+                                <rect key="frame" x="140.5" y="40" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="pgv-x4-Sst" secondAttribute="height" multiplier="1:1" id="ta1-eE-L11"/>
                                 </constraints>
@@ -499,7 +508,7 @@ WINNER TAKES THE POT!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ik-r3-zRL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="768.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="cbV-YG-w2e">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
@@ -508,19 +517,19 @@ WINNER TAKES THE POT!</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-Pd-eti">
-                                                <rect key="frame" x="134.5" y="76.5" width="145" height="35"/>
+                                                <rect key="frame" x="136" y="76.5" width="142.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WINNER TAKES ALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45O-LR-S1h">
-                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="118.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                                 <color key="textColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4T-rX-sBb">
-                                                <rect key="frame" x="35" y="186.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="185.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -541,7 +550,7 @@ WINNER TAKES THE POT!</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MGv-ql-1yC" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="221.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -563,7 +572,7 @@ WINNER TAKES THE POT!</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRh-cR-pHM">
-                                                <rect key="frame" x="35" y="292.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="290.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -584,7 +593,7 @@ WINNER TAKES THE POT!</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bz4-xZ-xAi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="328.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="326.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -606,7 +615,7 @@ WINNER TAKES THE POT!</string>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOn-ZT-mPf">
-                                                <rect key="frame" x="83" y="615.5" width="248" height="54"/>
+                                                <rect key="frame" x="83" y="610.5" width="248" height="53"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
@@ -623,7 +632,7 @@ WINNER TAKES THE POT!</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T74-Hn-GX8" userLabel="First Step Label">
-                                                <rect key="frame" x="161.5" y="719.5" width="25" height="6"/>
+                                                <rect key="frame" x="161.5" y="713.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="gH8-8c-xbS"/>
@@ -639,13 +648,13 @@ WINNER TAKES THE POT!</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 1 of 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-hz-uFs">
-                                                <rect key="frame" x="163" y="733.5" width="88" height="21"/>
+                                                <rect key="frame" x="163" y="727.5" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-07-CI9" userLabel="Second Step Label">
-                                                <rect key="frame" x="194.5" y="719.5" width="25" height="6"/>
+                                                <rect key="frame" x="194.5" y="713.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="S5X-2w-Ove"/>
@@ -660,7 +669,7 @@ WINNER TAKES THE POT!</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNb-kd-Or1">
-                                                <rect key="frame" x="35" y="398.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="395.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -688,7 +697,7 @@ WINNER TAKES THE POT!</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rBF-Z4-Ekl" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="434.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="431.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -710,7 +719,7 @@ WINNER TAKES THE POT!</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eu6-XT-HI8">
-                                                <rect key="frame" x="35" y="504.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="500.5" width="344" height="21"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="">
                                                         <attributes>
@@ -731,7 +740,7 @@ WINNER TAKES THE POT!</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter confirm password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Fo-wM-6m2" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="540.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="536.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -753,7 +762,7 @@ WINNER TAKES THE POT!</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTG-q9-KjU" userLabel="Third Step Label">
-                                                <rect key="frame" x="227.5" y="719.5" width="25" height="6"/>
+                                                <rect key="frame" x="227.5" y="713.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="g1m-sz-QfU"/>
@@ -865,23 +874,23 @@ WINNER TAKES THE POT!</string>
             <objects>
                 <viewController storyboardIdentifier="SP_SharePotViewController" hidesBottomBarWhenPushed="YES" id="aqz-g7-56D" customClass="SP_SharePotViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DNN-PL-pGy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Share this pot with your friends!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3r-cj-NVf">
-                                <rect key="frame" x="15" y="387.5" width="384" height="21.5"/>
+                                <rect key="frame" x="15" y="273" width="345" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Link&gt;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hG-63-mxR">
-                                <rect key="frame" x="15" y="437.5" width="384" height="21.5"/>
+                                <rect key="frame" x="15" y="323" width="345" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyZ-6k-AhK">
-                                <rect key="frame" x="0.0" y="817" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="h6V-ci-9YQ"/>
@@ -896,7 +905,7 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbI-FF-i14">
-                                <rect key="frame" x="137" y="484" width="140" height="45"/>
+                                <rect key="frame" x="117.5" y="369.5" width="140" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="BiR-wD-lfS"/>
@@ -913,7 +922,7 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="friends-dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-fC-B7R">
-                                <rect key="frame" x="155.5" y="254" width="103.5" height="103.5"/>
+                                <rect key="frame" x="140.5" y="149" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5gR-fC-B7R" secondAttribute="height" multiplier="1:1" id="X5R-AW-Umo"/>
                                 </constraints>
@@ -956,23 +965,23 @@ WINNER TAKES THE POT!</string>
             <objects>
                 <viewController storyboardIdentifier="SP_SignInViewController" id="SEk-n9-Q63" customClass="SP_SignInViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WZ4-aO-6FM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-l4-wzQ">
-                                <rect key="frame" x="152.5" y="120.5" width="109.5" height="35"/>
+                                <rect key="frame" x="132.5" y="72.5" width="110.5" height="34"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINNER TAKES ALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="One-t1-Aj7">
-                                <rect key="frame" x="15" y="163.5" width="384" height="17"/>
+                                <rect key="frame" x="15" y="114.5" width="345" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                 <color key="textColor" systemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGr-0x-lFw">
-                                <rect key="frame" x="35" y="240.5" width="344" height="21"/>
+                                <rect key="frame" x="35" y="191.5" width="305" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="">
                                         <attributes>
@@ -1000,7 +1009,7 @@ WINNER TAKES THE POT!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4z-JS-5Wi" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                <rect key="frame" x="35" y="276.5" width="344" height="30"/>
+                                <rect key="frame" x="35" y="227.5" width="305" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="wnQ-nO-9h7"/>
@@ -1024,7 +1033,7 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-xh-YE7">
-                                <rect key="frame" x="35" y="336.5" width="344" height="21"/>
+                                <rect key="frame" x="35" y="287.5" width="305" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="">
                                         <attributes>
@@ -1052,7 +1061,7 @@ WINNER TAKES THE POT!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ie-8D-0FA" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                <rect key="frame" x="35" y="372.5" width="344" height="30"/>
+                                <rect key="frame" x="35" y="323.5" width="305" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TyI-7G-MrM"/>
@@ -1076,13 +1085,13 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-P2-YIE">
-                                <rect key="frame" x="35" y="432.5" width="114.5" height="16"/>
+                                <rect key="frame" x="35" y="383.5" width="113" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-jH-LdM">
-                                <rect key="frame" x="153.5" y="432" width="105" height="17"/>
+                                <rect key="frame" x="152" y="383.5" width="105" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="0.0"/>
                                 <state key="normal" title="Click Here">
@@ -1090,7 +1099,7 @@ WINNER TAKES THE POT!</string>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omI-4P-dIt">
-                                <rect key="frame" x="83" y="509" width="248" height="54"/>
+                                <rect key="frame" x="75" y="459.5" width="225" height="53"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
@@ -1108,7 +1117,7 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-Wd-bkP">
-                                <rect key="frame" x="126" y="612" width="162" height="27"/>
+                                <rect key="frame" x="107" y="561.5" width="161" height="26"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="10"/>
                                 <state key="normal" title="Sign up Here">
@@ -1119,13 +1128,13 @@ WINNER TAKES THE POT!</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="47U-2U-AVu">
-                                <rect key="frame" x="186.5" y="59" width="41" height="41.5"/>
+                                <rect key="frame" x="169" y="15" width="37.5" height="37.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="47U-2U-AVu" secondAttribute="height" multiplier="1:1" id="4ZK-4H-1bb"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upz-GF-ITq">
-                                <rect key="frame" x="132.5" y="588" width="149.5" height="16"/>
+                                <rect key="frame" x="115" y="537.5" width="145.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1184,11 +1193,11 @@ WINNER TAKES THE POT!</string>
             <objects>
                 <viewController storyboardIdentifier="SP_SettingsViewController" id="KLE-Lg-mSA" customClass="SP_SettingsViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nmF-cF-273">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tx2-uR-udB">
-                                <rect key="frame" x="185" y="438" width="44.5" height="20.5"/>
+                                <rect key="frame" x="165.5" y="323.5" width="44.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1215,11 +1224,11 @@ WINNER TAKES THE POT!</string>
             <objects>
                 <viewController storyboardIdentifier="SP_HomeViewController" id="DYe-FE-oPh" customClass="SP_HomeViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Elg-jq-UX3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxj-Gk-05b">
-                                <rect key="frame" x="0.0" y="763" width="377" height="45"/>
+                                <rect key="frame" x="0.0" y="602" width="377" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lDg-lq-Pcx"/>
@@ -1287,7 +1296,7 @@ points</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="q40-Zw-Jko">
-                                <rect key="frame" x="15" y="75" width="347" height="678"/>
+                                <rect key="frame" x="15" y="75" width="347" height="517"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1393,6 +1402,72 @@ Player with most correct bets, wins the pot.</string>
             </objects>
             <point key="canvasLocation" x="-2104" y="866"/>
         </scene>
+        <!--Country List View Controller-->
+        <scene sceneID="0ed-yc-AzY">
+            <objects>
+                <viewController storyboardIdentifier="SP_CountryListViewController" id="KaQ-MA-q7E" customClass="SP_CountryListViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BY2-V9-Nt4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search here" showsSearchResultsButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-KW-SXU">
+                                <rect key="frame" x="8" y="15" width="375" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchField.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="KaQ-MA-q7E" id="UE0-X1-iS7"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RTY-le-3lx">
+                                <rect key="frame" x="8" y="86" width="375" height="566"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="UyC-AE-811">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UyC-AE-811" id="O5A-Q7-Sfh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="KaQ-MA-q7E" id="Qu7-Q3-ofI"/>
+                                    <outlet property="delegate" destination="KaQ-MA-q7E" id="wDL-wz-y9E"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uXI-Ko-BIC"/>
+                        <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RTY-le-3lx" firstAttribute="top" secondItem="PaH-KW-SXU" secondAttribute="bottom" constant="15" id="1SS-Cd-Cl6"/>
+                            <constraint firstItem="RTY-le-3lx" firstAttribute="leading" secondItem="PaH-KW-SXU" secondAttribute="leading" id="4kI-M1-xgT"/>
+                            <constraint firstItem="PaH-KW-SXU" firstAttribute="trailing" secondItem="uXI-Ko-BIC" secondAttribute="trailing" constant="8" id="SD7-Q9-GnY"/>
+                            <constraint firstItem="RTY-le-3lx" firstAttribute="trailing" secondItem="PaH-KW-SXU" secondAttribute="trailing" id="Sv6-jF-1yO"/>
+                            <constraint firstItem="PaH-KW-SXU" firstAttribute="leading" secondItem="uXI-Ko-BIC" secondAttribute="leading" constant="8" id="g5r-5q-YvL"/>
+                            <constraint firstItem="uXI-Ko-BIC" firstAttribute="bottom" secondItem="RTY-le-3lx" secondAttribute="bottom" constant="15" id="twJ-2R-eGO"/>
+                            <constraint firstItem="PaH-KW-SXU" firstAttribute="top" secondItem="uXI-Ko-BIC" secondAttribute="top" constant="15" id="zss-KI-CdA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countriesTableView" destination="RTY-le-3lx" id="F5e-Eb-SlM"/>
+                        <outlet property="searchBar" destination="PaH-KW-SXU" id="fhH-cr-wEB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xj-KT-ghY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1503.2" y="-615.74212893553226"/>
+        </scene>
         <!--Sign Up Step2 View Controller-->
         <scene sceneID="qd8-nc-Mrt">
             <objects>
@@ -1414,25 +1489,25 @@ Player with most correct bets, wins the pot.</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="745-D9-7af">
-                                                <rect key="frame" x="134.5" y="76.5" width="145" height="35"/>
+                                                <rect key="frame" x="136" y="76.5" width="142.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WINNER TAKES ALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqY-1k-QvT">
-                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="118.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                                 <color key="textColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYI-aS-Tee">
-                                                <rect key="frame" x="35" y="186.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="185.5" width="344" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter phone number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPC-58-MKS" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="222.5" width="344" height="25"/>
+                                                <rect key="frame" x="99" y="221.5" width="280" height="32"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1454,7 +1529,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oj1-Of-9Bv" userLabel="First Step Label">
-                                                <rect key="frame" x="161.5" y="460.5" width="25" height="6"/>
+                                                <rect key="frame" x="161.5" y="466.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="J39-Ru-3NJ"/>
@@ -1470,7 +1545,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 2 of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIN-sC-xfp">
-                                                <rect key="frame" x="35" y="474.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="480.5" width="344" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="vrf-03-xay"/>
                                                 </constraints>
@@ -1479,7 +1554,7 @@ Player with most correct bets, wins the pot.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuJ-wb-GnV" userLabel="Second Step Label">
-                                                <rect key="frame" x="194.5" y="460.5" width="25" height="6"/>
+                                                <rect key="frame" x="194.5" y="466.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="VOS-Gp-FGH"/>
@@ -1494,7 +1569,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jZm-27-7G5">
-                                                <rect key="frame" x="35" y="277.5" width="344" height="40"/>
+                                                <rect key="frame" x="35" y="283.5" width="344" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="UGJ-Cn-zp1"/>
                                                 </constraints>
@@ -1585,7 +1660,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-Oi-GtS">
-                                                <rect key="frame" x="141.5" y="367.5" width="131" height="50"/>
+                                                <rect key="frame" x="141.5" y="373.5" width="131" height="50"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tAq-hl-plc"/>
@@ -1605,7 +1680,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Mz-OVB" userLabel="Third Step Label">
-                                                <rect key="frame" x="227.5" y="460.5" width="25" height="6"/>
+                                                <rect key="frame" x="227.5" y="466.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="0mG-eV-zEa"/>
@@ -1619,17 +1694,43 @@ Player with most correct bets, wins the pot.</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bST-DJ-5Oe">
+                                                <rect key="frame" x="35" y="221.5" width="60" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="c17-5o-CAd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectCountryAction:" destination="K2m-Zk-Ok2" eventType="touchUpInside" id="1ug-qh-5WR"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-2P-4oX" userLabel="Line">
+                                                <rect key="frame" x="35" y="253.5" width="60" height="1"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="mU8-0t-IbS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="mPC-58-MKS" firstAttribute="top" secondItem="bST-DJ-5Oe" secondAttribute="top" id="0oG-TL-8yY"/>
                                             <constraint firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" constant="35" id="3si-Ae-xJ5"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YuJ-wb-GnV" secondAttribute="trailing" constant="15" id="4KI-Za-O4A"/>
                                             <constraint firstItem="jIN-sC-xfp" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="35" id="Acm-2N-Lcq"/>
                                             <constraint firstItem="Nhn-rV-bU5" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="B8M-Vg-Rf3"/>
                                             <constraint firstItem="jIN-sC-xfp" firstAttribute="top" secondItem="Oj1-Of-9Bv" secondAttribute="bottom" constant="8" id="BAQ-SC-Hg9"/>
+                                            <constraint firstItem="bVv-2P-4oX" firstAttribute="trailing" secondItem="bST-DJ-5Oe" secondAttribute="trailing" id="CSz-WV-Qyp"/>
+                                            <constraint firstItem="bST-DJ-5Oe" firstAttribute="leading" secondItem="FYI-aS-Tee" secondAttribute="leading" id="E8z-Yc-kKs"/>
+                                            <constraint firstItem="bVv-2P-4oX" firstAttribute="top" secondItem="mPC-58-MKS" secondAttribute="bottom" id="EEO-id-WOo"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jIN-sC-xfp" secondAttribute="bottom" constant="20" id="FaM-P1-qvL"/>
                                             <constraint firstItem="bqY-1k-QvT" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="15" id="GDn-1f-8Rp"/>
-                                            <constraint firstItem="mPC-58-MKS" firstAttribute="leading" secondItem="FYI-aS-Tee" secondAttribute="leading" id="HKE-Zh-nIG"/>
                                             <constraint firstItem="jZm-27-7G5" firstAttribute="top" secondItem="mPC-58-MKS" secondAttribute="bottom" constant="30" id="J54-fB-AX0"/>
                                             <constraint firstItem="jZm-27-7G5" firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" id="LyN-Wk-eWw"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="NNE-zh-yJf"/>
@@ -1645,9 +1746,12 @@ Player with most correct bets, wins the pot.</string>
                                             <constraint firstItem="OeP-Oi-GtS" firstAttribute="centerX" secondItem="jZm-27-7G5" secondAttribute="centerX" id="e9R-sM-AUq"/>
                                             <constraint firstItem="FYI-aS-Tee" firstAttribute="top" secondItem="bqY-1k-QvT" secondAttribute="bottom" constant="50" id="evf-WA-K0W"/>
                                             <constraint firstItem="Php-Mz-OVB" firstAttribute="leading" secondItem="YuJ-wb-GnV" secondAttribute="trailing" constant="8" id="fkw-NQ-wOe"/>
+                                            <constraint firstItem="bST-DJ-5Oe" firstAttribute="bottom" secondItem="mPC-58-MKS" secondAttribute="bottom" id="gEn-gg-aI9"/>
                                             <constraint firstItem="FYI-aS-Tee" firstAttribute="leading" secondItem="rLI-gT-cHl" secondAttribute="leading" constant="35" id="gLA-CW-tEK"/>
                                             <constraint firstItem="Nhn-rV-bU5" firstAttribute="width" secondItem="rLI-gT-cHl" secondAttribute="width" multiplier="0.1" id="gdK-zn-tO0"/>
+                                            <constraint firstItem="bVv-2P-4oX" firstAttribute="leading" secondItem="bST-DJ-5Oe" secondAttribute="leading" id="goY-JS-0sf"/>
                                             <constraint firstItem="YuJ-wb-GnV" firstAttribute="width" secondItem="Oj1-Of-9Bv" secondAttribute="width" id="h5D-Nf-W3P"/>
+                                            <constraint firstItem="mPC-58-MKS" firstAttribute="leading" secondItem="bST-DJ-5Oe" secondAttribute="trailing" constant="4" id="iSI-NT-Qep"/>
                                             <constraint firstItem="745-D9-7af" firstAttribute="centerX" secondItem="rLI-gT-cHl" secondAttribute="centerX" id="jl1-ez-lFC"/>
                                             <constraint firstItem="mPC-58-MKS" firstAttribute="trailing" secondItem="FYI-aS-Tee" secondAttribute="trailing" id="kmb-Ql-8N6"/>
                                             <constraint firstAttribute="trailing" secondItem="jIN-sC-xfp" secondAttribute="trailing" constant="35" id="lza-73-oki"/>
@@ -1688,6 +1792,7 @@ Player with most correct bets, wins the pot.</string>
                     <navigationItem key="navigationItem" id="vYg-Oo-p83"/>
                     <size key="freeformSize" width="414" height="800"/>
                     <connections>
+                        <outlet property="dialCodeButton" destination="bST-DJ-5Oe" id="Cr2-E7-myj"/>
                         <outlet property="phoneNumberTextField" destination="mPC-58-MKS" id="IQC-8X-CTw"/>
                         <outlet property="sendCodeBtn" destination="OeP-Oi-GtS" id="mRZ-bF-4NY"/>
                         <outlet property="tncBtn" destination="jZm-27-7G5" id="MI4-3m-dkq"/>
@@ -1695,18 +1800,18 @@ Player with most correct bets, wins the pot.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYz-Hd-d5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.3478260869567" y="119.19642857142857"/>
+            <point key="canvasLocation" x="1504" y="118.74062968515743"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="khc-EX-lHo">
             <objects>
                 <viewController storyboardIdentifier="SP_NotificationsViewController" id="E2n-wC-B25" customClass="SP_NotificationsViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zfY-83-0s7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qsM-zb-pdk">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -1733,23 +1838,23 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_GoodLuckViewController" id="2Kh-9T-26q" customClass="SP_GoodLuckViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cu9-II-PqW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Good-Luck" translatesAutoresizingMaskIntoConstraints="NO" id="HIp-JE-d2Z">
-                                <rect key="frame" x="41.5" y="282.5" width="331" height="331"/>
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HIp-JE-d2Z" secondAttribute="height" multiplier="1:1" id="3K3-xK-RAQ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Luck!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWx-Lz-Lo8">
-                                <rect key="frame" x="41.5" y="159" width="331" height="50.5"/>
+                                <rect key="frame" x="37.5" y="60" width="300" height="50.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="45"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Pot is Now Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-WW-UO6">
-                                <rect key="frame" x="41.5" y="217.5" width="331" height="25"/>
+                                <rect key="frame" x="37.5" y="118.5" width="300" height="25"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="22"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1782,33 +1887,33 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_RankingsViewController" title="Rankings" id="vBX-RM-KOA" customClass="SP_RankingsViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ziq-xY-ZHr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your pot 20/08/2020" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4I-5l-pP4">
-                                <rect key="frame" x="15" y="118" width="384" height="29.5"/>
+                                <rect key="frame" x="15" y="74" width="345" height="29.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="26"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rankings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhd-9s-aZh">
-                                <rect key="frame" x="15" y="162.5" width="384" height="17"/>
+                                <rect key="frame" x="15" y="118.5" width="345" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="juO-0G-JtE">
-                                <rect key="frame" x="20.5" y="209.5" width="373" height="509.5"/>
+                                <rect key="frame" x="19" y="165.5" width="337.5" height="358.5"/>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="d7Z-Zh-Irr">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVT-O4-c7r">
-                                            <rect key="frame" x="0.0" y="43" width="373" height="1"/>
+                                            <rect key="frame" x="0.0" y="43" width="337.5" height="1"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="xgm-rS-dCD"/>
@@ -1818,22 +1923,22 @@ Player with most correct bets, wins the pot.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-RB-Sfm">
-                                            <rect key="frame" x="149" y="0.0" width="224" height="44"/>
+                                            <rect key="frame" x="135" y="0.0" width="202.5" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PHd-uE-W3l">
-                                                    <rect key="frame" x="76.5" y="14.5" width="73.5" height="15"/>
+                                                    <rect key="frame" x="69" y="14.5" width="66.5" height="15"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
                                                     <color key="textColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNb-ge-dpx">
-                                                    <rect key="frame" x="150" y="14.5" width="74" height="15"/>
+                                                    <rect key="frame" x="135.5" y="14.5" width="67" height="15"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
                                                     <color key="textColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfD-1R-WSK">
-                                                    <rect key="frame" x="2.5" y="14.5" width="74" height="15"/>
+                                                    <rect key="frame" x="2" y="14.5" width="67" height="15"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
                                                     <color key="textColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1853,10 +1958,10 @@ Player with most correct bets, wins the pot.</string>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svl-nQ-mAJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="149" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Names" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLd-DQ-zCL">
-                                                    <rect key="frame" x="0.0" y="14.5" width="149" height="15"/>
+                                                    <rect key="frame" x="0.0" y="14.5" width="135" height="15"/>
                                                     <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
                                                     <color key="textColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1887,10 +1992,10 @@ Player with most correct bets, wins the pot.</string>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RankingCell" id="Gtr-nU-cnv">
-                                        <rect key="frame" x="0.0" y="72" width="373" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="337.5" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gtr-nU-cnv" id="ZfB-RF-Tqu">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="337.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
@@ -1907,16 +2012,16 @@ Player with most correct bets, wins the pot.</string>
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated at: 15-08-2020 10:10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM4-Nu-p24">
-                                <rect key="frame" x="15" y="194" width="384" height="11.5"/>
+                                <rect key="frame" x="15" y="150" width="345" height="11.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-oa-aj6">
-                                <rect key="frame" x="20.5" y="749" width="373" height="34"/>
+                                <rect key="frame" x="19" y="554" width="337.5" height="34"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-JX-Z8u">
-                                        <rect key="frame" x="0.0" y="0.0" width="131" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="118" height="34"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <color key="tintColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1934,7 +2039,7 @@ Player with most correct bets, wins the pot.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5t-Qn-cn5">
-                                        <rect key="frame" x="143" y="0.0" width="112.5" height="34"/>
+                                        <rect key="frame" x="130" y="0.0" width="102" height="34"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1951,7 +2056,7 @@ Player with most correct bets, wins the pot.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-xb-AmU">
-                                        <rect key="frame" x="267.5" y="0.0" width="105.5" height="34"/>
+                                        <rect key="frame" x="244" y="0.0" width="93.5" height="34"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2007,21 +2112,21 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_ChatViewController" id="inj-iD-bmN" customClass="SP_ChatViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Nc-P2-Yts">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ogv-Y5-by2">
-                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Hello World!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="twO-bu-aMt">
-                                        <rect key="frame" x="8" y="8" width="354" height="33"/>
+                                        <rect key="frame" x="8" y="8" width="315" height="33"/>
                                         <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7et-71-D6N">
-                                        <rect key="frame" x="370" y="6.5" width="36" height="34.5"/>
+                                        <rect key="frame" x="331" y="6.5" width="36" height="34.5"/>
                                         <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                         <state key="normal" image="paperplane.fill" catalog="system">
@@ -2061,7 +2166,7 @@ Player with most correct bets, wins the pot.</string>
                     <tabBarItem key="tabBarItem" title="Home" image="unselected-football" selectedImage="football" id="xME-dg-zT2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="11m-lT-e0i">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -2089,7 +2194,7 @@ Player with most correct bets, wins the pot.</string>
                     <tabBarItem key="tabBarItem" title="My Pots" image="unselected-pot" selectedImage="selected-pot" id="PBQ-Ai-gWY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pxd-2x-96q">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.10588235294117647" green="0.14901960784313725" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
@@ -2117,7 +2222,7 @@ Player with most correct bets, wins the pot.</string>
                     <tabBarItem key="tabBarItem" title="Notifications" image="selected-bell" selectedImage="unselected-bell" id="jPd-iw-cUE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BGC-34-0fo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -2140,7 +2245,7 @@ Player with most correct bets, wins the pot.</string>
                     <tabBarItem key="tabBarItem" title="Settings" image="unselected-settings" selectedImage="selected-settings" id="4x7-nW-Ayk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="35X-ou-jhc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.1058823529" green="0.14901960780000001" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -2161,19 +2266,19 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_MyPotsViewController" id="xmU-BU-YMB" customClass="SP_MyPotsViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K1j-Z6-atb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zI6-mk-V2b">
-                                <rect key="frame" x="0.0" y="96" width="414" height="709"/>
+                                <rect key="frame" x="0.0" y="52" width="375" height="558"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MyPotsTableViewCell" id="kp5-9W-NqG">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kp5-9W-NqG" id="gEN-kX-KWy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
@@ -2216,32 +2321,32 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_InstructionsPopupViewController" id="uwI-2X-Tdy" customClass="SP_InstructionsPopupViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NE7-5f-fPd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-zx-Fa2" userLabel="Instructions View">
-                                <rect key="frame" x="85" y="259" width="244" height="378"/>
+                                <rect key="frame" x="77" y="150" width="221" height="367.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="k9k-SA-fhg">
-                                        <rect key="frame" x="101.5" y="45" width="41" height="41"/>
+                                        <rect key="frame" x="92" y="45" width="37.5" height="37.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="k9k-SA-fhg" secondAttribute="height" multiplier="1:1" id="NUv-FT-pOg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4h-FA-xAt">
-                                        <rect key="frame" x="25" y="94" width="194" height="29.5"/>
+                                        <rect key="frame" x="25" y="90.5" width="171" height="28.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Place your bets on the 10 matches   2. Invite your friends to the pot   3. Player with most correct bets- wins!" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-f6-tqy">
-                                        <rect key="frame" x="25" y="131.5" width="194" height="149.5"/>
+                                        <rect key="frame" x="25" y="127" width="171" height="143.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQB-Qg-Xh5">
-                                        <rect key="frame" x="63" y="301" width="118" height="35"/>
+                                        <rect key="frame" x="57" y="290.5" width="107" height="35"/>
                                         <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Zcu-Zs-ZRd"/>
@@ -2309,11 +2414,11 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController id="ZIy-BQ-O5i" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GXW-BR-DPe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0J-7w-jkc">
-                                <rect key="frame" x="0.0" y="817" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bpA-qR-1cM"/>
@@ -2328,7 +2433,7 @@ Player with most correct bets, wins the pot.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VbP-gG-0Qf">
-                                <rect key="frame" x="350.5" y="55.5" width="40" height="40"/>
+                                <rect key="frame" x="311.5" y="11.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5RX-zl-uiP"/>
@@ -2351,27 +2456,27 @@ Player with most correct bets, wins the pot.</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nnp-hz-Z4q">
-                                <rect key="frame" x="15" y="64" width="92.5" height="22.5"/>
+                                <rect key="frame" x="15" y="20" width="92.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35n-hm-9sV">
-                                <rect key="frame" x="341.5" y="103.5" width="57.5" height="12"/>
+                                <rect key="frame" x="302.5" y="59.5" width="57.5" height="12"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="10"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-OC-xwG">
-                                <rect key="frame" x="15" y="135.5" width="384" height="650.5"/>
+                                <rect key="frame" x="15" y="91.5" width="345" height="499.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MatchTableViewCell" id="dIa-1b-q7t">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="345" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dIa-1b-q7t" id="alf-eb-lEa">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
@@ -2384,7 +2489,7 @@ Player with most correct bets, wins the pot.</string>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steve, Michelle Austin &amp; 2 more are participating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdj-sV-VWe">
-                                <rect key="frame" x="15" y="794" width="384" height="15"/>
+                                <rect key="frame" x="15" y="599" width="345" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2428,11 +2533,11 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_Pot_Invitee_ViewController" id="qhv-kF-gjk" customClass="SP_Pot_Invitee_ViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v51-Tc-rO5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXj-zF-ryt">
-                                <rect key="frame" x="0.0" y="817" width="414" height="45"/>
+                                <rect key="frame" x="0.0" y="622" width="375" height="45"/>
                                 <color key="backgroundColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="JPU-7z-zj1"/>
@@ -2446,25 +2551,25 @@ Player with most correct bets, wins the pot.</string>
                                     <action selector="joinPotActionWithSender:" destination="qhv-kF-gjk" eventType="touchUpInside" id="eKI-QH-3hN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe Invited you to the Pot" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejr-lA-oVz">
-                                <rect key="frame" x="15" y="64" width="384" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe Invited you to the Pot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ejr-lA-oVz">
+                                <rect key="frame" x="15" y="20" width="345" height="20.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gPw-50-KqK">
-                                <rect key="frame" x="15" y="127" width="384" height="675"/>
+                                <rect key="frame" x="15" y="82.5" width="345" height="524.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-9X-Hx8">
-                                <rect key="frame" x="15" y="93" width="376" height="0.0"/>
+                                <rect key="frame" x="15" y="48.5" width="337" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-av-fuo">
-                                <rect key="frame" x="349" y="67" width="50" height="52"/>
+                                <rect key="frame" x="310" y="22.5" width="50" height="52"/>
                                 <color key="tintColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <state key="normal" image="info.circle" catalog="system"/>
@@ -2512,11 +2617,11 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_PotPreviewViewController" id="Nv5-Xc-tbr" customClass="SP_PotPreviewViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JlI-Ef-Ese">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="CPm-gs-S4q">
-                                <rect key="frame" x="344.5" y="55.5" width="40" height="40"/>
+                                <rect key="frame" x="305.5" y="11.5" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.41568627450000001" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KYA-XB-S9A"/>
@@ -2539,27 +2644,27 @@ Player with most correct bets, wins the pot.</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Bets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeP-Og-tcS">
-                                <rect key="frame" x="161" y="64" width="92.5" height="22.5"/>
+                                <rect key="frame" x="141.5" y="20" width="92.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                 <color key="textColor" red="0.98732680080000002" green="0.72566759589999996" blue="0.25470811129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g51-Ny-5f8">
-                                <rect key="frame" x="330" y="103.5" width="69" height="14"/>
+                                <rect key="frame" x="291" y="59.5" width="69" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gKh-0n-5Iu">
-                                <rect key="frame" x="15" y="116.5" width="384" height="743.5"/>
+                                <rect key="frame" x="15" y="72.5" width="345" height="592.5"/>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.13725490200000001" green="0.1843137255" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SP_MatchTableViewCell" id="BoJ-8r-60v">
-                                        <rect key="frame" x="0.0" y="28" width="384" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="345" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoJ-8r-60v" id="Aj5-em-jsi">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
@@ -2612,7 +2717,7 @@ Player with most correct bets, wins the pot.</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPC-VO-vKN" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="462.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="459.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sport-pot" translatesAutoresizingMaskIntoConstraints="NO" id="wOG-VZ-JUa">
                                                 <rect key="frame" x="186.5" y="15" width="41" height="41.5"/>
@@ -2621,25 +2726,25 @@ Player with most correct bets, wins the pot.</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="REGISTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa0-pH-JaR">
-                                                <rect key="frame" x="134.5" y="76.5" width="145" height="35"/>
+                                                <rect key="frame" x="136" y="76.5" width="142.5" height="34"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
                                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="WINNER TAKES ALL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nfg-kx-crq">
-                                                <rect key="frame" x="15" y="119.5" width="384" height="17"/>
+                                                <rect key="frame" x="15" y="118.5" width="384" height="17"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="15"/>
                                                 <color key="textColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enter Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGc-CS-Yd1">
-                                                <rect key="frame" x="35" y="171.5" width="344" height="21"/>
+                                                <rect key="frame" x="35" y="170.5" width="344" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aEP-3G-92t" customClass="SP_UnderlinedTextField" customModule="SportPot" customModuleProvider="target">
-                                                <rect key="frame" x="35" y="207.5" width="344" height="25"/>
+                                                <rect key="frame" x="35" y="206.5" width="344" height="24"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2661,7 +2766,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88H-pv-Kxh">
-                                                <rect key="frame" x="83" y="303.5" width="248" height="54"/>
+                                                <rect key="frame" x="83" y="301.5" width="248" height="53"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="20"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
@@ -2675,7 +2780,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6py-s3-VpV" userLabel="First Step Label">
-                                                <rect key="frame" x="194.5" y="407.5" width="25" height="6"/>
+                                                <rect key="frame" x="194.5" y="404.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="cvI-XM-6Sz"/>
@@ -2691,13 +2796,13 @@ Player with most correct bets, wins the pot.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Step 3 of 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yh-iJ-TiE">
-                                                <rect key="frame" x="163" y="421.5" width="88" height="21"/>
+                                                <rect key="frame" x="163" y="418.5" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                                                 <color key="textColor" red="0.75294117650000003" green="0.75294117650000003" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkF-8H-AW8" userLabel="Second Step Label">
-                                                <rect key="frame" x="227.5" y="407.5" width="25" height="6"/>
+                                                <rect key="frame" x="227.5" y="404.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="RWR-34-4Xy"/>
@@ -2712,7 +2817,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlO-3a-OoX">
-                                                <rect key="frame" x="35" y="240.5" width="344" height="33"/>
+                                                <rect key="frame" x="35" y="238.5" width="344" height="33"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="">
@@ -2743,7 +2848,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61X-4o-5VZ">
-                                                <rect key="frame" x="83" y="305.5" width="248" height="50"/>
+                                                <rect key="frame" x="83" y="303" width="248" height="50"/>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Bvu-fp-GU6"/>
@@ -2763,7 +2868,7 @@ Player with most correct bets, wins the pot.</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-48-6fD" userLabel="Third Step Label">
-                                                <rect key="frame" x="161.5" y="407.5" width="25" height="6"/>
+                                                <rect key="frame" x="161.5" y="404.5" width="25" height="6"/>
                                                 <color key="backgroundColor" red="0.3294117647" green="0.39607843139999999" blue="0.42745098040000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="6" id="Ujf-Rr-rso"/>
@@ -2858,17 +2963,17 @@ Player with most correct bets, wins the pot.</string>
             <objects>
                 <viewController storyboardIdentifier="SP_TermsNPrivacyViewController" id="jOZ-cX-aCJ" customClass="SP_TermsNPrivacyViewController" customModule="SportPot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZZ-jy-62P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-Xc-J4E">
-                                <rect key="frame" x="15" y="59" width="384" height="25"/>
+                                <rect key="frame" x="15" y="15" width="345" height="25"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="22"/>
                                 <color key="textColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ck9-yS-jxQ">
-                                <rect key="frame" x="15" y="99" width="384" height="748"/>
+                                <rect key="frame" x="15" y="55" width="345" height="597"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Your privacy is important to us. It is Sportpot's policy to respect your privacy regarding any information we may collect from you across our website, www.sportpot.eu, and or app, sportpot, and other sites we own and operate. We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used. We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification. We don’t share any personally identifying information publicly or with third-parties, except when required to by law. Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies. You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services. Your continued use of our website and app will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us. This policy is effective as of 26 August 2020.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2876,7 +2981,7 @@ Player with most correct bets, wins the pot.</string>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahk-8u-bDu">
-                                <rect key="frame" x="344" y="44.5" width="55" height="54"/>
+                                <rect key="frame" x="305" y="0.5" width="55" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="tintColor" red="0.97647058819999999" green="0.66666666669999997" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>

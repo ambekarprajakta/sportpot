@@ -34,7 +34,6 @@ class SP_MyPotsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("viewWillAppear")
         getPotDataFromServer()
         getNotificationsCount()
     }

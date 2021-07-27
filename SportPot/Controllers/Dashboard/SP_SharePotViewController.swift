@@ -29,6 +29,7 @@ class SP_SharePotViewController: UIViewController {
     @IBAction func shareButtonAction(_ sender: Any) {
         let message = "Check out the pot I just created on Sportpot!"
         let activityVC = UIActivityViewController(activityItems: [message, linkString], applicationActivities: nil)
+        activityVC.title = "Share Pot"
         present(activityVC, animated: true, completion: nil)
     }
 }

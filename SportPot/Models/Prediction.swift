@@ -12,6 +12,7 @@ class Prediction: Codable {
     let selection: Int  // Away = 3, Draw = 2, Home = 1
     let isDoubleDown: Bool?
     let fixtureId: Int
+    var isCorrect: Bool? = false
 }
 extension Prediction {
     func getIsDoubleDown() -> Bool {

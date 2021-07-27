@@ -33,7 +33,7 @@ struct FixtureModel: Codable {
     let score: ScoreModel?
     
     func isMatchFinished() -> Bool {
-        return statusShort?.lowercased() == "ft"
+        return statusShort?.lowercased() == "ft" || statusShort?.lowercased() == "aet" || statusShort?.lowercased() == "pen"
     }
     
     func isMatchOnGoing() -> Bool {
