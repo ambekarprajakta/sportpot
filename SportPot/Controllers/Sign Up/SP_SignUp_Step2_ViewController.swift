@@ -99,6 +99,7 @@ class SP_SignUp_Step2_ViewController: UIViewController {
 
 extension SP_SignUp_Step2_ViewController: CountryDelegate{
     func selectedCountry(country: Country) {
+        dialCodeButton.titleLabel?.font = UIFont.ubuntuRegularFont(ofSize: 20)
         dialCodeButton.setTitle(country.dialCode, for: .normal)
         dialCodeButton.setTitleColor(.white, for: .normal)
     }
