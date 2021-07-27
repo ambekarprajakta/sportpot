@@ -85,10 +85,12 @@ class SP_OpenPotViewController: UIViewController {
     }
     
     @IBAction func hamburgerMenuAction(_ sender: Any) {
+        SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.didClickHamburgerMenu, parameters: nil)
         let rightMenuNavigationController = storyboard!.instantiateViewController(withIdentifier: "SP_RightMenuNavController") as! SideMenuNavigationController
         rightMenuNavigationController.leftSide = false
         rightMenuNavigationController.settings = makeSettings()
         self.present(rightMenuNavigationController, animated: true, completion: nil)
+        
     }
     
     func makeSettings() -> SideMenuSettings{

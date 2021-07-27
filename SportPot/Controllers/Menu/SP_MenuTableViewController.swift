@@ -40,12 +40,15 @@ class SP_MenuTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         switch indexPath.row {
         case 0:
+            SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.didClickRules, parameters: nil)
             let rulesViewController = storyboard.instantiateViewController(identifier: String(describing: SP_RulesViewController.self)) as SP_RulesViewController
             self.present(rulesViewController, animated: true, completion: nil)
         case 1:
+            SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.didClickPrivacy, parameters: nil)
             let termsNPrivacyViewController = storyboard.instantiateViewController(identifier: String(describing: SP_TermsNPrivacyViewController.self)) as SP_TermsNPrivacyViewController
             self.present(termsNPrivacyViewController, animated: true, completion: nil)
         case 2:
+            SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.didClickTermsAndConditions, parameters: nil)
             let termsNPrivacyViewController = storyboard.instantiateViewController(identifier: String(describing: SP_TermsNPrivacyViewController.self)) as SP_TermsNPrivacyViewController
             termsNPrivacyViewController.vcType = "tnc"
             self.present(termsNPrivacyViewController, animated: true, completion: nil)
@@ -66,6 +69,7 @@ class SP_MenuTableViewController: UITableViewController {
             UserDefaults.standard.set(nil, forKey: "displayName")
             UIApplication.shared.applicationIconBadgeNumber = 0
             UIApplication.shared.unregisterForRemoteNotifications()
+            SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.logout, parameters: nil)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let loginNavController = storyboard.instantiateViewController(identifier: "SP_GetStartedViewController")
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)

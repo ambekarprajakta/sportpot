@@ -35,6 +35,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.didClickOpenNewPot, parameters: nil)
         let username = UserDefaults.standard.string(forKey: UserDefaultsConstants.displayNameKey) ?? ""
         let pushManager = PushNotificationManager(userID: currentUser)
         pushManager.registerForPushNotifications()
@@ -409,7 +410,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         let discardedMatches = fixturesArray.count - remainingFixturesArray.count
         
         if discardedMatches > fixturesArray.count - Constants.kMaxMatchesRemaining {
-            
+            SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.alertOccurred, parameters: ["message":"not possible to open pot with only 5 or less" as Any])
             self.popupAlert(title: nil, message: "Unfortunately not possible to open pot with only 5 or less matches left in pot.\nNext pot opens up on Monday", actionTitles: ["Okay"], actions: [{action in}])
             return false
         }

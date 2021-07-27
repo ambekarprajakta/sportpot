@@ -58,8 +58,15 @@ struct UserDefaultsConstants {
 }
 
 struct FirebaseEvents {
-    static let signUpStarted = "Sign_Up_Started"
-    static let signUpStepOne = "Sign_Up_Step_One_completed"
-    static let signUpStepTwo = "Sign_Up_Step_Two_completed"
-    static let signUpCompleted = "Sign_Up_completed"
+    static let signUpStarted = "sign_up_started"
+    static let signUpStepOne = "sign_up_otep_one_completed"
+    static let signUpStepTwo = "sign_up_step_two_completed"
+    static let signUpCompleted = "sign_up_completed"
+    static let didClickHamburgerMenu = "did_click_hamburger_menu"
+    static let didClickRules = "did_click_rules"
+    static let didClickPrivacy = "did_click_privacy_policy"
+    static let didClickTermsAndConditions = "did_click_terms_and_conditions"
+    static let logout = "logout"
+    static let didClickOpenNewPot = "did_click_open_new_pot"
+    static let alertOccurred = "alert_occurred"
 }
