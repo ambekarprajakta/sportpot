@@ -502,6 +502,7 @@ extension SP_HomeViewController : SP_MatchTableViewCellDelegate {
         
         var predictionPoints = 0
 
+        
         if let points = fixturePoints.first(where: { $0.fixtureId == fixture.fixture_id }) {
             switch predictionType {
             case .home:
