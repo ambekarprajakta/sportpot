@@ -16,13 +16,14 @@ struct Constants {
     static let RAPID_HEADER_ARRAY = [   "x-rapidapi-host": RAPID_API_HOST,
                                         "x-rapidapi-key": RAPID_API_KEY]
     static let API_DOMAIN_URL = "https://api-football-v1.p.rapidapi.com/"
-    static let EPL_LEAGUE_ID_20_21 = "403/" //"2790/"
+    static let EPL_LEAGUE_ID_20_21 = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.leagueID) ?? "")/"//"403/" //"2790/"
     static let EURO_CHAMP_LEAGUE_ID_20_21 = "403/"
     static let kDYNAMIC_LINK_BASE_URL = "https://sportpot.page.link"
     static let kCurrentRound = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.currentRoundKey) ?? "")" //"Group_Stage_-_1"
     static let kTimeZone = "?timezone="
     static let kMaxMatchesRemaining = 3
-    static let kBookMakerID = 6 //BWin
+    static let kBookMakerID = "\(UserDefaults.standard.object(forKey: UserDefaultsConstants.bookMakerID) ?? "")"    //6 - BWin
+    
 }
 
 struct ErrorMessages {
@@ -55,6 +56,8 @@ struct UserDefaultsConstants {
     static let notificationsBadgeCount = "notificationsBadgeCount"
     static let notificationToken = "notificationToken"
     
+    static let bookMakerID = "bookMakerID"
+    static let leagueID = "leagueID"
 }
 
 struct FirebaseEvents {

@@ -53,6 +53,10 @@
 		2C40D80925C049F80002B28C /* SP_SignUp_Step3_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C40D80825C049F80002B28C /* SP_SignUp_Step3_ViewController.swift */; };
 		2C45EFE32671911D00662676 /* SP_RightMenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C45EFE22671911D00662676 /* SP_RightMenuNavController.swift */; };
 		2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */; };
+		2C5ED3B92694E61A003A4775 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C5ED3B82694E61A003A4775 /* countries.json */; };
+		2C5ED3BE2694EA5B003A4775 /* SP_CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED3BD2694EA5B003A4775 /* SP_CountryListViewController.swift */; };
+		2C5ED3CA269FA9F7003A4775 /* SP_ OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5ED3C9269FA9F7003A4775 /* SP_ OnboardingViewController.swift */; };
+		2C617A04267D4A0200EE7E3D /* SP_OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C617A03267D4A0200EE7E3D /* SP_OnboardingPageViewController.swift */; };
 		2C66C1F8254FA1C3006711E4 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C66C1F7254FA1C3006711E4 /* Fixture.swift */; };
 		2C6C27E0255760890084269E /* SP_MyPotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */; };
 		2C6C27ED255817970084269E /* SP_MyPotsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */; };
@@ -151,6 +155,10 @@
 		2C40D80825C049F80002B28C /* SP_SignUp_Step3_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_SignUp_Step3_ViewController.swift; sourceTree = "<group>"; };
 		2C45EFE22671911D00662676 /* SP_RightMenuNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_RightMenuNavController.swift; sourceTree = "<group>"; };
 		2C5693C625119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_InstructionsPopupViewController.swift; sourceTree = "<group>"; };
+		2C5ED3B82694E61A003A4775 /* countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		2C5ED3BD2694EA5B003A4775 /* SP_CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_CountryListViewController.swift; sourceTree = "<group>"; };
+		2C5ED3C9269FA9F7003A4775 /* SP_ OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SP_ OnboardingViewController.swift"; sourceTree = "<group>"; };
+		2C617A03267D4A0200EE7E3D /* SP_OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		2C66C1F7254FA1C3006711E4 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		2C6C27DF255760890084269E /* SP_MyPotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsViewController.swift; sourceTree = "<group>"; };
 		2C6C27EB255817970084269E /* SP_MyPotsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SP_MyPotsTableViewCell.swift; sourceTree = "<group>"; };
@@ -305,6 +313,7 @@
 				2C3F59C225013A24001C8667 /* SceneDelegate.swift */,
 				2C3B45B92507D86F00D42300 /* GoogleService-Info.plist */,
 				2C3B45BB2507E4F600D42300 /* SportPot.entitlements */,
+				2C5ED3B82694E61A003A4775 /* countries.json */,
 			);
 			path = SportPot;
 			sourceTree = "<group>";
@@ -341,6 +350,15 @@
 				2C3F59F9250193CA001C8667 /* Ubuntu-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		2C5ED3C8269FA9D0003A4775 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2C617A03267D4A0200EE7E3D /* SP_OnboardingPageViewController.swift */,
+				2C5ED3C9269FA9F7003A4775 /* SP_ OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		2C61795D267968ED0060BEB9 /* Menu */ = {
@@ -380,6 +398,7 @@
 				2C3F5A0A250194A3001C8667 /* SP_SignUp_Step1_ViewController.swift */,
 				2C3B45BC250C2C6100D42300 /* SP_SignUp_Step2_ViewController.swift */,
 				2C40D80825C049F80002B28C /* SP_SignUp_Step3_ViewController.swift */,
+				2C5ED3BD2694EA5B003A4775 /* SP_CountryListViewController.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -413,6 +432,7 @@
 				2CA804C02604020A0046EF51 /* Settings */,
 				2CA80528260546890046EF51 /* Chat */,
 				2C61795D267968ED0060BEB9 /* Menu */,
+				2C5ED3C8269FA9D0003A4775 /* Onboarding */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -619,6 +639,7 @@
 				2C3F5A03250193F9001C8667 /* Ubuntu-BoldItalic.ttf in Resources */,
 				2C3F59D025013A28001C8667 /* LaunchScreen.storyboard in Resources */,
 				2C2A5EF82506FBF100CEC4A9 /* fa-regular-400.ttf in Resources */,
+				2C5ED3B92694E61A003A4775 /* countries.json in Resources */,
 				2C3F59CD25013A28001C8667 /* Assets.xcassets in Resources */,
 				2CFF92CE25AAF10E004CF95A /* SP_NotificationsCell.xib in Resources */,
 				2C3F59C825013A24001C8667 /* Main.storyboard in Resources */,
@@ -715,6 +736,7 @@
 				2C9DBBB825176D8500F769D1 /* Constants.swift in Sources */,
 				2CF088EA251D5B8000501FBC /* CoreDataManager.swift in Sources */,
 				2CE16C5A26057FA800666E44 /* Message.swift in Sources */,
+				2C5ED3CA269FA9F7003A4775 /* SP_ OnboardingViewController.swift in Sources */,
 				2C9DBBB42516628B00F769D1 /* SP_APIHelper.swift in Sources */,
 				2C36D1FC251A204D00BA91EA /* Utils.swift in Sources */,
 				2C5693C725119A2B00FB40C4 /* SP_InstructionsPopupViewController.swift in Sources */,
@@ -730,6 +752,8 @@
 				2C3F5A0D2501972E001C8667 /* SP_SignInViewController.swift in Sources */,
 				2CFF92C625AAEABF004CF95A /* SP_NotificationsViewController.swift in Sources */,
 				2C00CFE525EA756F004D36C0 /* SP_FixturePointsViewController.swift in Sources */,
+				2C617A04267D4A0200EE7E3D /* SP_OnboardingPageViewController.swift in Sources */,
+				2C5ED3BE2694EA5B003A4775 /* SP_CountryListViewController.swift in Sources */,
 				2C3A19912566146900549985 /* SP_RankingTableViewCell.swift in Sources */,
 				2CC4130025E6D00E006CA1E2 /* FixturePoints.swift in Sources */,
 				2CE63AAF25582F5200855104 /* SP_GoodLuckViewController.swift in Sources */,
@@ -920,7 +944,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				EXCLUDED_ARCHS = arm64;
@@ -929,7 +953,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -946,7 +970,7 @@
 				CODE_SIGN_ENTITLEMENTS = SportPot/SportPot.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = SportPot/Assets.xcassets;
 				DEVELOPMENT_TEAM = SN349MRKZ2;
 				EXCLUDED_ARCHS = "";
@@ -955,7 +979,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sportpot.Sportpot;
 				PRODUCT_NAME = "$(TARGET_NAME)";

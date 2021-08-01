@@ -88,6 +88,7 @@ class SP_RankingsViewController: UIViewController {
         baseStr.append("/" + pot.potID)
         let message = "Check out the pot \(pot.name) I just created on Sportpot!"
         let activityVC = UIActivityViewController(activityItems: [message, baseStr], applicationActivities: nil)
+        activityVC.title = "Share Pot"
         present(activityVC, animated: true, completion: nil)
     }
     
@@ -131,10 +132,10 @@ class SP_RankingsViewController: UIViewController {
 //            refreshControl.beginRefreshing()
         }
         let localTimeZone = TimeZone.current.identifier
-        self.showHUD()
         self.fixturesArr.removeAll()
         var cnt = 0
         for round in group {
+            self.showHUD()
             SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
                                             round + Constants.kTimeZone + localTimeZone,
                                          method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
@@ -241,12 +242,14 @@ class SP_RankingsViewController: UIViewController {
                         let homePoints = points.home
                         let drawPoints = points.draw
                         let awayPoints = points.away
+                        prediction.isCorrect = false
                         if fixture.isMatchOnGoing() {
                             i+=1
                             if fixture.goalsAwayTeam == fixture.goalsHomeTeam {
                                 // Draw
                                 if prediction.selection == 2 {
                                     accuracy+=1
+                                    prediction.isCorrect = true
                                     if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(drawPoints*2)
@@ -258,6 +261,7 @@ class SP_RankingsViewController: UIViewController {
                                 // Away team won
                                 if prediction.selection == 3 {
                                     accuracy+=1
+                                    prediction.isCorrect = true
                                     if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(awayPoints*2)
@@ -269,6 +273,7 @@ class SP_RankingsViewController: UIViewController {
                                 // Home team won
                                 if prediction.selection == 1 {
                                     accuracy+=1
+                                    prediction.isCorrect = true
                                     if prediction.getIsDoubleDown() {
                                         doubleDown+=1
                                         pointsScored+=(homePoints*2)

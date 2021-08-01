@@ -38,7 +38,7 @@ class SP_FixturePointsViewController: UIViewController {
         }
     }
 
-    private func getFixturePoints(bookMakerId: Int) {
+    private func getFixturePoints(bookMakerId: String) {
         if let fixtureId = self.fixtureIds.popLast() {
             let url = "https://api-football-v1.p.rapidapi.com/v2/odds/fixture/\(fixtureId)/bookmaker/\(bookMakerId)"
             self.showHUD()

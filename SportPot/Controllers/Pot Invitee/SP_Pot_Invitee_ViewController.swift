@@ -109,6 +109,7 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                 return
             }
             self.pot = pot
+            self.ownerInviteLabel.text = "\(self.ownerStr) invited you to the Pot:\n \(pot.name)"
             self.getCurrentWeekForPoints()
         }
     }
@@ -154,6 +155,16 @@ class SP_Pot_Invitee_ViewController: UIViewController {
                         strongSelf.fixturesArray.append(contentsOf: fixturesArray)
                         cnt+=1
                         if cnt == group.count {
+                            strongSelf.remainingFixturesArray = strongSelf.fixturesArray.filter({ (fixObj) -> Bool in
+                                !fixObj.isMatchOnGoing()
+                            }).sorted(by: { $0.event_timestamp < $1.event_timestamp })
+                            let cnt = Int(strongSelf.fixtureCount) ?? 0
+                            if strongSelf.remainingFixturesArray.count != cnt {
+                                strongSelf.popupAlert(title: "Oops!", message: strongSelf.matchesBeganError, actionTitles: ["Okay"], actions: [{ action1 in
+                                    strongSelf.dismiss(animated: false, completion: nil)
+                                }])
+                                return
+                            }
                             strongSelf.getFixturesFromLocalDB()
                         }
                     } else {

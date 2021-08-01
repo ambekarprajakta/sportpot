@@ -15,6 +15,7 @@ class SP_SignUp_Step2_ViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: SP_UnderlinedTextField!
     @IBOutlet weak var tncBtn: UIButton!
     @IBOutlet weak var sendCodeBtn: UIButton!
+    @IBOutlet weak var dialCodeButton: UIButton!
     var window: UIWindow?
     var username : String?
     var email : String?
@@ -23,35 +24,53 @@ class SP_SignUp_Step2_ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // get your country prefix such as "+60", "+62", etc
-        let prefix = PhoneHelper.getCountryCode()
-        print(prefix) // "+60"
-        phoneNumberTextField.text = prefix
+//        let prefix = PhoneHelper.getCountryCode()
+//        print(prefix) // "+60"
+//        phoneNumberTextField.text = prefix
+        dialCodeButton.setTitle("Code", for: .normal)
+        dialCodeButton.setTitleColor(.sp_gray, for: .normal)
         phoneNumberTextField.becomeFirstResponder()
     }
     
+    @IBAction func selectCountryAction(_ sender: Any) {
+        let countryVC = self.storyboard?.instantiateViewController(identifier: String.init(describing: SP_CountryListViewController.self)) as! SP_CountryListViewController
+        countryVC.countryDelegate = self
+        countryVC.modalPresentationStyle = .overCurrentContext
+        self.present(countryVC, animated: true, completion: nil)
+    }
+    
     func sendVerificationCode() {
-        self.showHUD()
+        
         //Prajakta test number:"+91-8149435337"
-        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines), uiDelegate: nil) { (verificationID, error) in
-            self.hideHUD()
-            if let error = error {
-                self.popupAlert(title: "Error!", message: error.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
-                }])
-                return
-            }else{
-                print(verificationID ?? "")
-                self.popupAlert(title: "Success!", message: "Verification code successfully sent!", actionTitles: ["Okay"], actions: [{ action1 in
-                    //                    self.verificationCodeLabel.becomeFirstResponder()
-                    UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-                    SPAnalyticsManager().logEventToFirebase(name: FirebaseEvents.signUpStepTwo, parameters:nil)
-                    let signUp3VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step3_ViewController") as!  SP_SignUp_Step3_ViewController
-                    signUp3VC.phoneNumber = self.phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-                    signUp3VC.username = self.username
-                    signUp3VC.email = self.email
-                    signUp3VC.password = self.password
-                    self.present(signUp3VC, animated: true, completion: nil)
-                }])
+        guard let phoneNo = phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+        if dialCodeButton.titleLabel?.text != "Code"{
+            guard let code = dialCodeButton.titleLabel?.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+            let phoneNumber = code + phoneNo
+            self.showHUD()
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil) { (verificationID, error) in
+                self.hideHUD()
+                if let error = error {
+                    self.popupAlert(title: "Error!", message: error.localizedDescription, actionTitles: ["Okay"], actions: [{ action1 in
+                    }])
+                    return
+                }else{
+                    print(verificationID ?? "")
+                    self.popupAlert(title: "Success!", message: "Verification code successfully sent!", actionTitles: ["Okay"], actions: [{ action1 in
+                        //                    self.verificationCodeLabel.becomeFirstResponder()
+                        UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+                        let signUp3VC = self.storyboard?.instantiateViewController(withIdentifier: "SP_SignUp_Step3_ViewController") as!  SP_SignUp_Step3_ViewController
+                        signUp3VC.phoneNumber = self.phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                        signUp3VC.username = self.username
+                        signUp3VC.email = self.email
+                        signUp3VC.password = self.password
+                        self.present(signUp3VC, animated: true, completion: nil)
+                    }])
+                    
+                }
             }
+        } else {
+            self.popupAlert(title: "Error!", message: "Please select a country code", actionTitles: ["Okay"], actions: [{ action1 in
+            }])
         }
     }
     
@@ -75,5 +94,13 @@ class SP_SignUp_Step2_ViewController: UIViewController {
             let countryDialingCode = prefixCodes[countryCode.uppercased()] ?? ""
             return "+" + countryDialingCode
         }
+    }
+}
+
+extension SP_SignUp_Step2_ViewController: CountryDelegate{
+    func selectedCountry(country: Country) {
+        dialCodeButton.titleLabel?.font = UIFont.ubuntuRegularFont(ofSize: 20)
+        dialCodeButton.setTitle(country.dialCode, for: .normal)
+        dialCodeButton.setTitleColor(.white, for: .normal)
     }
 }

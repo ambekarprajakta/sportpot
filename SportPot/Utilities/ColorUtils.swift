@@ -31,7 +31,13 @@ extension UIColor {
             return UIColor(red: 0.14, green: 0.18, blue: 0.20, alpha: 1.00)
         }
     }
-
+    
+    class var sp_light_background: UIColor {
+        get {
+            return UIColor(red: 35/255, green: 47/255, blue: 52/255, alpha: 1.00)
+        }
+    }
+    
     class var sp_navigationBar: UIColor {
         get {
             return UIColor(red: 0.11, green: 0.15, blue: 0.16, alpha: 1.00)

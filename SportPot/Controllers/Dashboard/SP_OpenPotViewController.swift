@@ -18,6 +18,7 @@ class SP_OpenPotViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(joinPotAction(notification:)), name: NSNotification.Name(rawValue: "joinPotNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(navigateToMyPots), name: NSNotification.navigateToMyPots, object: nil)
+        getCurrentRound()
         setupNavigationBar()
     }
     
@@ -37,6 +38,22 @@ class SP_OpenPotViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = barButton
     }
     
+    fileprivate func getCurrentRound() {
+        self.showHUD()
+        Firestore.firestore().collection("currentRound").document("round").getDocument { (docSnapShot, error) in
+            self.hideHUD()
+            if error == nil {
+                guard let currentWeekStr = docSnapShot?.data() else { return }
+                guard let currentRound = currentWeekStr["currentRound"] as? String else { return }
+                guard let leagueID = currentWeekStr["leagueID"] as? String else { return }
+                guard let bookMakerID = currentWeekStr["bookMakerID"] as? String else { return }
+                UserDefaults.standard.set(currentRound, forKey: UserDefaultsConstants.currentRoundKey)
+                UserDefaults.standard.set(leagueID, forKey: UserDefaultsConstants.leagueID)
+                UserDefaults.standard.set(bookMakerID, forKey: UserDefaultsConstants.bookMakerID)
+            }
+        }
+    }
+
     @objc func joinPotAction(notification: NSNotification) {
         self.showHUD()
         
@@ -77,7 +94,9 @@ class SP_OpenPotViewController: UIViewController {
     }
 
     func fetchNotificationData(){
+        showHUD()
         Firestore.firestore().collection("pots").getDocuments { (snapshot, error) in
+            self.hideHUD()
             if error == nil {
                 self.totalPotsCountLabel.text = "\(snapshot?.documents.count ?? 100)"
             }

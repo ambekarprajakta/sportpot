@@ -29,6 +29,20 @@ extension UIViewController {
     func hideHUD() {
         MBProgressHUD.hide(for: view, animated: true)
     }
+    
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+
+    func downloadLogo(url: URL, forImageView: UIImageView) {
+        getData(from: url) { [weak self] data, response, error in
+            guard let _ = self, let data = data, error == nil else { return }
+            DispatchQueue.main.async() { [weak self] in
+                guard let _ = self else { return }
+                forImageView.image = UIImage(data: data)
+            }
+        }
+    }
 }
 extension Date {
     func dateAndTimetoString(format: String = "dd-MM-yyyy HH:mm") -> String {
