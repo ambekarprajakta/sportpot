@@ -1,0 +1,159 @@
+{
+  "api" : {
+    "results" : 4,
+    "fixtures" : [
+      {
+        "elapsed" : 120,
+        "status" : "Match Finished",
+        "event_date" : "2021-07-02T17:00:00+01:00",
+        "score" : {
+          "extratime" : "0-0",
+          "penalty" : "1-3",
+          "fulltime" : "1-1",
+          "halftime" : "0-1"
+        },
+        "fixture_id" : 718243,
+        "event_timestamp" : 1625241600,
+        "awayTeam" : {
+          "team_name" : "Spain",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/9.png",
+          "team_id" : 9
+        },
+        "referee" : "M. Oliver",
+        "statusShort" : "PEN",
+        "firstHalfStart" : 1625241600,
+        "venue" : "Saint-Petersburg Stadium",
+        "round" : "Quarter-finals",
+        "goalsAwayTeam" : 1,
+        "league" : {
+          "logo" : "https:\/\/media.api-sports.io\/football\/leagues\/4.png",
+          "country" : "World",
+          "flag" : null,
+          "name" : "Euro Championship"
+        },
+        "secondHalfStart" : 1625245200,
+        "homeTeam" : {
+          "team_name" : "Switzerland",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/15.png",
+          "team_id" : 15
+        },
+        "goalsHomeTeam" : 1,
+        "league_id" : 403
+      },
+      {
+        "elapsed" : 90,
+        "status" : "Match Finished",
+        "event_date" : "2021-07-02T20:00:00+01:00",
+        "score" : {
+          "extratime" : null,
+          "penalty" : null,
+          "fulltime" : "1-2",
+          "halftime" : "1-2"
+        },
+        "fixture_id" : 718242,
+        "event_timestamp" : 1625252400,
+        "awayTeam" : {
+          "team_name" : "Italy",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/768.png",
+          "team_id" : 768
+        },
+        "referee" : "S. Vinčić",
+        "statusShort" : "FT",
+        "firstHalfStart" : 1625252400,
+        "venue" : "Allianz Arena",
+        "round" : "Quarter-finals",
+        "goalsAwayTeam" : 2,
+        "league" : {
+          "logo" : "https:\/\/media.api-sports.io\/football\/leagues\/4.png",
+          "country" : "World",
+          "flag" : null,
+          "name" : "Euro Championship"
+        },
+        "secondHalfStart" : 1625256000,
+        "homeTeam" : {
+          "team_name" : "Belgium",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/1.png",
+          "team_id" : 1
+        },
+        "goalsHomeTeam" : 1,
+        "league_id" : 403
+      },
+      {
+        "elapsed" : 90,
+        "status" : "Match Finished",
+        "event_date" : "2021-07-03T17:00:00+01:00",
+        "score" : {
+          "extratime" : null,
+          "penalty" : null,
+          "fulltime" : "1-2",
+          "halftime" : "0-2"
+        },
+        "fixture_id" : 718186,
+        "event_timestamp" : 1625328000,
+        "awayTeam" : {
+          "team_name" : "Denmark",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/21.png",
+          "team_id" : 21
+        },
+        "referee" : "B. Kuipers",
+        "statusShort" : "FT",
+        "firstHalfStart" : 1625328000,
+        "venue" : "Bakı Olimpiya Stadionu",
+        "round" : "Quarter-finals",
+        "goalsAwayTeam" : 2,
+        "league" : {
+          "logo" : "https:\/\/media.api-sports.io\/football\/leagues\/4.png",
+          "country" : "World",
+          "flag" : null,
+          "name" : "Euro Championship"
+        },
+        "secondHalfStart" : 1625331600,
+        "homeTeam" : {
+          "team_name" : "Czech Republic",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/770.png",
+          "team_id" : 770
+        },
+        "goalsHomeTeam" : 1,
+        "league_id" : 403
+      },
+      {
+        "elapsed" : 90,
+        "status" : "Match Finished",
+        "event_date" : "2021-07-03T20:00:00+01:00",
+        "score" : {
+          "halftime" : "0-1",
+          "extratime" : null,
+          "fulltime" : "0-4",
+          "penalty" : null
+        },
+        "fixture_id" : 718252,
+        "event_timestamp" : 1625338800,
+        "awayTeam" : {
+          "team_name" : "England",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/10.png",
+          "team_id" : 10
+        },
+        "referee" : "F. Brych",
+        "statusShort" : "FT",
+        "firstHalfStart" : 1625338800,
+        "venue" : "Stadio Olimpico",
+        "round" : "Quarter-finals",
+        "goalsAwayTeam" : 4,
+        "league" : {
+          "logo" : "https:\/\/media.api-sports.io\/football\/leagues\/4.png",
+          "country" : "World",
+          "flag" : null,
+          "name" : "Euro Championship"
+        },
+        "secondHalfStart" : 1625342400,
+        "homeTeam" : {
+          "team_name" : "Ukraine",
+          "logo" : "https:\/\/media.api-sports.io\/football\/teams\/772.png",
+          "team_id" : 772
+        },
+        "goalsHomeTeam" : 0,
+        "league_id" : 403
+      }
+    ]
+  }
+}
