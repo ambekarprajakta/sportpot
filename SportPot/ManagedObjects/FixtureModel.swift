@@ -38,6 +38,7 @@ struct FixtureModel: Codable {
     
     func isMatchOnGoing() -> Bool {
         let onGoingStatuses = ["1H", "2H", "HT", "FT", "ET", "P", "AET", "PEN", "BT"]
+        //Arun
         if let matchStatus = statusShort {
             return onGoingStatuses.contains(matchStatus)
         }

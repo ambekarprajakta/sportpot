@@ -53,6 +53,7 @@ class SP_FixturePointsViewController: UIViewController {
                             if let values = bet.values {
                                 var red = values.reduce([String: Int]()) { (result, valueObj) -> [String: Int] in
                                     var result = result
+                                    //Arun
                                     result[valueObj.value.lowercased()] = valueObj.odd
                                     return result
                                 } as JSONObject

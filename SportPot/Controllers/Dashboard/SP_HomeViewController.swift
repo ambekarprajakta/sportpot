@@ -120,9 +120,11 @@ class SP_HomeViewController: SP_FixturePointsViewController {
                 guard let currentRound = currentWeekStr["currentRound"] as? String else { return }
                 guard let leagueID = currentWeekStr["leagueID"] as? String else { return }
                 guard let bookMakerID = currentWeekStr["bookMakerID"] as? String else { return }
+                let inTestingMode = currentWeekStr["inTestingMode"] as? Bool
                 UserDefaults.standard.set(currentRound, forKey: UserDefaultsConstants.currentRoundKey)
                 UserDefaults.standard.set(leagueID, forKey: UserDefaultsConstants.leagueID)
                 UserDefaults.standard.set(bookMakerID, forKey: UserDefaultsConstants.bookMakerID)
+                UserDefaults.standard.set(inTestingMode, forKey: UserDefaultsConstants.testingMode)
                 self.getCurrentWeekForPoints()
             }
         }
@@ -135,6 +137,8 @@ class SP_HomeViewController: SP_FixturePointsViewController {
             if error == nil {
                 guard let currentWeekStr = docSnapShot?.data() else { return }
                 guard let round = UserDefaults.standard.string(forKey: UserDefaultsConstants.currentRoundKey) else {return}
+//                let round = "Euro_Quarter-finals"
+                //Arun
                 guard let weekNums = currentWeekStr["currentRound"] as? [String:[String]] else {return}
                 self.groups = weekNums[round] ?? [String]()
                 self.getFixturesFromServer(with: self.groups)
@@ -209,10 +213,12 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         self.showHUD()
         self.fixturesArray.removeAll()
         var cnt = 0
+        let isTestingMode = UserDefaults.standard.bool(forKey: UserDefaultsConstants.testingMode)
         for round in group {
-            SP_APIHelper.getResponseFrom(url: Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague +
-                                            round + Constants.kTimeZone + localTimeZone,
+            let url = isTestingMode ? "https://my-json-server.typicode.com/arunbasilissac/testapi/db" : Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone
+            SP_APIHelper.getResponseFrom(url: url,
                                          method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
+                print(response)
                 guard let strongSelf = self else { return }
                 strongSelf.hideHUD()
                 if let response = response {

@@ -58,6 +58,7 @@ struct UserDefaultsConstants {
     
     static let bookMakerID = "bookMakerID"
     static let leagueID = "leagueID"
+    static let testingMode = "isTestingMode"
 }
 
 struct FirebaseEvents {

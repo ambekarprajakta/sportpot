@@ -47,9 +47,11 @@ class SP_OpenPotViewController: UIViewController {
                 guard let currentRound = currentWeekStr["currentRound"] as? String else { return }
                 guard let leagueID = currentWeekStr["leagueID"] as? String else { return }
                 guard let bookMakerID = currentWeekStr["bookMakerID"] as? String else { return }
+                let inTestingMode = currentWeekStr["inTestingMode"] as? Bool
                 UserDefaults.standard.set(currentRound, forKey: UserDefaultsConstants.currentRoundKey)
                 UserDefaults.standard.set(leagueID, forKey: UserDefaultsConstants.leagueID)
                 UserDefaults.standard.set(bookMakerID, forKey: UserDefaultsConstants.bookMakerID)
+                UserDefaults.standard.set(inTestingMode, forKey: UserDefaultsConstants.testingMode)
             }
         }
     }
