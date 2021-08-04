@@ -215,7 +215,7 @@ class SP_HomeViewController: SP_FixturePointsViewController {
         var cnt = 0
         let isTestingMode = UserDefaults.standard.bool(forKey: UserDefaultsConstants.testingMode)
         for round in group {
-            let url = isTestingMode ? "https://my-json-server.typicode.com/arunbasilissac/testapi/db" : Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone
+            let url = isTestingMode ? "https://jsonkeeper.com/b/69LJ" : Constants.API_DOMAIN_URL + APIEndPoints.getFixturesfromLeague + round + Constants.kTimeZone + localTimeZone
             SP_APIHelper.getResponseFrom(url: url,
                                          method: .get, headers: Constants.RAPID_HEADER_ARRAY) { [weak self] (response, error) in
                 print(response)
