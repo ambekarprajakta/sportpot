@@ -68,6 +68,11 @@ extension SP_OnboardingPageViewController {
     }
     
     func style() {
+        if #available(iOS 14.0, *) {
+            pageControl.allowsContinuousInteraction = false
+        } else {
+            // Fallback on earlier versions
+        }
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .sp_mustard
         pageControl.pageIndicatorTintColor = .systemGray
@@ -118,7 +123,7 @@ extension SP_OnboardingPageViewController: UIPageViewControllerDataSource {
         guard let currentIndex = pages.firstIndex(of: viewController) else { return nil }
         
         if currentIndex == 0 {
-            return pages.last               // wrap last
+            return nil               // wrap last
         } else {
             return pages[currentIndex - 1]  // go previous
         }
@@ -131,7 +136,7 @@ extension SP_OnboardingPageViewController: UIPageViewControllerDataSource {
         if currentIndex < pages.count - 1 {
             return pages[currentIndex + 1]  // go next
         } else {
-            return pages.first              // wrap first
+            return nil              // wrap first
         }
     }
 }
