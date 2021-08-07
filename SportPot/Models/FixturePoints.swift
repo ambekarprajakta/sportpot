@@ -34,7 +34,7 @@ struct Value: Codable {
         }
         if let oddValue = try? container?.decodeIfPresent(String.self, forKey: .odd),
            let doubleValue = Double(oddValue) {
-            odd = Int(round(doubleValue * 100))
+            odd = Int(round(doubleValue * 100)) > 990 ? 990:Int(round(doubleValue * 100))
         } else {
             odd = 0
         }
